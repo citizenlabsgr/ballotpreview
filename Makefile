@@ -45,7 +45,7 @@ clean:
 
 .PHONY: run
 run: install
-	poetry run python app/main.py
+	QUART_APP=app.main:app poetry run quart run
 
 .PHONY: format
 format: install

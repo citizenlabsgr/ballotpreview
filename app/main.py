@@ -7,5 +7,3 @@ app = Quart(__name__)
 async def hello():
     return "hello"
 
-
-app.run()
