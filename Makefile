@@ -45,7 +45,7 @@ clean:
 
 .PHONY: run
 run: install
-	QUART_APP=app.main:app poetry run quart run
+	status=1; while [ $$status -eq 1 ]; do QUART_APP=app.main:app DEBUG=true poetry run quart run; status=$$?; sleep 1; done
 
 .PHONY: format
 format: install
