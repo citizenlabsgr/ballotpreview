@@ -4,24 +4,99 @@
 
 <h1>Ballot</h1>
 
+<div class="ml-4">
 <h2>Positions</h2>
 
-<ul>
 {% for position in positions %}
-    <li>
-        {{ position['name'] }}
-    </li>
-{% endfor %}
-</ul>
+    <div class="ml-4">
+        <h3>{{ position['name'] }}</h3>
 
+        <div class="ml-4">
+            <i class="text-muted">
+            District: {{ position['district']['name'] }}
+            {% if position['district']['category'] != "State" %}
+            {{ position['district']['category'] }}
+            {% endif %}
+
+            <br>
+
+            Reference URL:
+            <a href="{{ position['reference_url'] }}">{{ position['reference_url'] or '' }}</a>
+
+            <br>
+
+            Description: {{ position['description'] }}
+
+            <br>
+
+            Seats: {{ position['seats'] }}
+            </i>
+
+            <h4>Candidates</h4>
+
+            <div class="ml-4">
+            {% for candidate in position['candidates'] %}
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="position-{{ position['id'] }}" id="position-{{ position['id'] }}">
+                    <label class="form-check-label" for="position-{{ position['id'] }}">
+                        {{ candidate['name'] }} ({{ candidate['party']['name'] }})
+                    </label>
+                </div>
+
+            {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<div class="ml-4">
 <h2>Proposals</h2>
 
-<ul>
 {% for proposal in proposals %}
-    <li>
-        {{ proposal['name'] }}
-    </li>
+    <div class="ml-4">
+        <h3>{{ proposal['name'] }}</h3>
+
+        <div class="ml-4">
+            <i class="text-muted">
+            District: {{ proposal['district']['name'] }}
+            {% if proposal['district']['category'] != "State" %}
+            {{ proposal['district']['category'] }}
+            {% endif %}
+
+            <br>
+
+            Reference URL:
+            <a href="{{ proposal['reference_url'] }}">{{ proposal['reference_url'] or '' }}</a>
+            </i>
+
+            <p>{{ proposal['description'] }}</p>
+
+            <h4>Approve</h4>
+
+            <div class="ml-4">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="proposal-{{ proposal['id'] }}" id="proposal-{{ proposal['id'] }}">
+                    <label class="form-check-label" for="proposal-{{ proposal['id'] }}">
+                        Yes
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="proposal-{{ proposal['id'] }}" id="proposal-{{ proposal['id'] }}">
+                    <label class="form-check-label" for="proposal-{{ proposal['id'] }}">
+                        No
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 {% endfor %}
-</ul>
+</div>
 
 {% endblock %}
