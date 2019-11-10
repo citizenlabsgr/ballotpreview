@@ -45,7 +45,7 @@ clean:
 
 .PHONY: run
 run: install
-	status=1; while [ $$status -eq 1 ]; do QUART_APP=app.main:app DEBUG=true poetry run quart run; status=$$?; sleep 1; done
+	poetry run python app/main.py
 
 .PHONY: format
 format: install

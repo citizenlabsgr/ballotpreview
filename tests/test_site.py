@@ -1,11 +1,11 @@
 import pytest
 
-from app import main
+from app import views
 
 
 @pytest.fixture
 def app():
-    return main.app
+    return views.app
 
 
 @pytest.mark.asyncio

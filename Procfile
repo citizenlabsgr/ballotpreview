@@ -1,1 +1,1 @@
-web: hypercorn app.main:app --bind 0.0.0.0:$PORT
+web: hypercorn app.views:app --bind 0.0.0.0:$PORT
