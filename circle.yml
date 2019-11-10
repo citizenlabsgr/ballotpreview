@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/ballotshare
 
     docker:
-      - image: circleci/python:3.7.5
+      - image: circleci/python:3.7.5-stretch
 
     steps:
       - checkout
@@ -36,4 +36,7 @@ jobs:
 
       - run:
           name: Running Tests
-          command: make test
+          command: make test && sudo pip install python-coveralls && coveralls
+
+      - store_artifacts:
+          path: htmlcov
