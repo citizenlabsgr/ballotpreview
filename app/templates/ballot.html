@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Ballot</h1>
+
+<h2>Positions</h2>
+
+<ul>
+{% for position in positions %}
+    <li>
+        {{ position['name'] }}
+    </li>
+{% endfor %}
+</ul>
+
+<h2>Proposals</h2>
+
+<ul>
+{% for proposal in proposals %}
+    <li>
+        {{ proposal['name'] }}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

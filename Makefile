@@ -45,7 +45,7 @@ clean:
 
 .PHONY: run
 run: install
-	poetry run python app/main.py
+	poetry run python main.py
 
 .PHONY: format
 format: install
