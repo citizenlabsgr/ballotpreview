@@ -1,7 +1,12 @@
+"""
+Quart development server with automatic restarts.
+"""
+
 import time
 import traceback
 
-if __name__ == "__main__":
+
+def run():
     while True:
         try:
             from app.views import app
@@ -12,3 +17,6 @@ if __name__ == "__main__":
         else:
             app.run(debug=True)
 
+
+if __name__ == "__main__":
+    run()
