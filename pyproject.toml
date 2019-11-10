@@ -28,6 +28,7 @@ mypy = "^0.701"
 
 # Testing
 pytest = "^5.0"
+pytest-asyncio = "*"
 pytest-describe = "^0.12.0"
 pytest-expecter = "^1.3"
 pytest-cov = "^2.7"

@@ -49,17 +49,17 @@ run: install
 
 .PHONY: format
 format: install
-	poetry run isort app --recursive --apply
-	poetry run black app
+	poetry run isort app tests --recursive --apply
+	poetry run black app tests
 
 .PHONY: check
 check: install
-	poetry run mypy app
+	poetry run mypy app tests
 
 .PHONY: test
 test: install
 	poetry run pytest --cov=app --cov-branch
-	poetry run coveragespace jacebrowning/memegen-v2 overall
+	poetry run coveragespace citizenlabsgr/ballotshare overall
 
 .PHONY: watch
 watch: install
