@@ -1,0 +1,39 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/ballotshare
+
+    docker:
+      - image: circleci/python:3.7.5
+
+    steps:
+      - checkout
+
+      - run:
+          name: Installing System Dependencies
+          command: sudo pip install poetry
+
+      - run:
+          name: Checking System Dependencies
+          command: make doctor
+
+      - type: cache-restore
+        key: poetry-{{ checksum "poetry.lock" }}
+
+      - run:
+          name: Installing Project Dependencies
+          command: make install
+
+      - type: cache-save
+        key: poetry-{{ checksum "poetry.lock" }}
+        paths:
+          - .venv
+
+      - run:
+          name: Checking Code
+          command: make check
+
+      - run:
+          name: Running Tests
+          command: make test

@@ -1,0 +1,12 @@
+# Dependencies
+.venv/
+setup.py
+*.egg-info
+
+# Cache
+__pycache__/
+.cache/
+
+# Testing
+.pytest_cache/
+.coverage

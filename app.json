@@ -1,0 +1,21 @@
+{
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "ballotshare",
+  "scripts": {},
+  "stack": "heroku-18"
+}
