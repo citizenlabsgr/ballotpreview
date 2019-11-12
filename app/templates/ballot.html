@@ -38,7 +38,10 @@
             {% for candidate in position['candidates'] %}
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="position-{{ position['id'] }}" id="position-{{ position['id'] }}">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="position-{{ position['id'] }}"
+                           {% if candidate['id'] in selected %}checked{% endif %}>
                     <label class="form-check-label" for="position-{{ position['id'] }}">
                         {{ candidate['name'] }} ({{ candidate['party']['name'] }})
                     </label>
@@ -79,14 +82,20 @@
             <div class="ml-4">
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="proposal-{{ proposal['id'] }}" id="proposal-{{ proposal['id'] }}">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="proposal-{{ proposal['id'] }}"
+                           {% if proposal['id'] in approved %}checked{% endif %}>
                     <label class="form-check-label" for="proposal-{{ proposal['id'] }}">
                         Yes
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="proposal-{{ proposal['id'] }}" id="proposal-{{ proposal['id'] }}">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="proposal-{{ proposal['id'] }}"
+                           {% if proposal['id'] in rejected %}checked{% endif %}>
                     <label class="form-check-label" for="proposal-{{ proposal['id'] }}">
                         No
                     </label>

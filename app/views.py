@@ -1,4 +1,5 @@
-from quart import Quart, url_for, render_template
+from quart import Quart, render_template, request, url_for
+
 from . import api
 
 app = Quart(__name__)
@@ -24,6 +25,19 @@ async def elections_detail(election_id: int):
 @app.route("/elections/<election_id>/precincts/<precinct_id>/")
 async def ballot(election_id: int, precinct_id: int):
     positions, proposals = await api.get_ballot(election_id, precinct_id)
+    selected = _parse_ids(request, "selected")
+    approved = _parse_ids(request, "approved")
+    rejected = _parse_ids(request, "rejected")
     return await render_template(
-        "ballot.html", positions=positions, proposals=proposals
+        "ballot.html",
+        positions=positions,
+        proposals=proposals,
+        selected=selected,
+        approved=approved,
+        rejected=rejected,
     )
+
+
+def _parse_ids(request, key):
+    ids = request.args.get(key, "").split(",")
+    return [int(x) for x in ids if x]
