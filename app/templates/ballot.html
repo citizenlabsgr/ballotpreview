@@ -43,6 +43,7 @@
                            name="position-{{ position['id'] }}"
                            {% if candidate['id'] in selected %}checked{% endif %}>
                     <label class="form-check-label" for="position-{{ position['id'] }}">
+                        <!-- Candidate {{ candidate['id'] }} -->
                         {{ candidate['name'] }} ({{ candidate['party']['name'] }})
                     </label>
                 </div>
@@ -80,6 +81,8 @@
             <h4>Approve</h4>
 
             <div class="ml-4">
+
+                <!-- Proposal {{ proposal['id'] }} -->
 
                 <div class="form-check">
                     <input class="form-check-input"
