@@ -53,7 +53,10 @@ format: install
 	poetry run black app tests
 
 .PHONY: check
-check: install
+check: install format
+ifdef CI
+	git diff --exit-code
+endif
 	poetry run mypy app tests
 
 .PHONY: test
