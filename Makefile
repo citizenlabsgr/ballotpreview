@@ -61,7 +61,7 @@ endif
 
 .PHONY: test
 test: install
-	poetry run pytest --cov=app --cov-branch
+	poetry run pytest --cov=app --cov-branch --cov-report=term-missing
 	poetry run coveragespace citizenlabsgr/ballotshare overall
 
 .PHONY: watch
