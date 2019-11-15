@@ -19,7 +19,10 @@ async def elections():
 @app.route("/elections/<election_id>/")
 async def elections_detail(election_id: int):
     election = await api.get_election(election_id)
-    return await render_template("elections_detail.html", election=election)
+    precincts = await api.get_precincts()
+    return await render_template(
+        "elections_detail.html", election=election, precincts=precincts
+    )
 
 
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
