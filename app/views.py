@@ -1,4 +1,4 @@
-from quart import Quart, render_template, request, url_for
+from quart import Quart, redirect, render_template, request, url_for
 
 from . import api
 
@@ -22,22 +22,21 @@ async def elections_detail(election_id: int):
     return await render_template("elections_detail.html", election=election)
 
 
-@app.route("/elections/<election_id>/precincts/<precinct_id>/")
+@app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
 async def ballot(election_id: int, precinct_id: int):
     positions, proposals = await api.get_ballot(election_id, precinct_id)
-    selected = _parse_ids(request, "selected")
-    approved = _parse_ids(request, "approved")
-    rejected = _parse_ids(request, "rejected")
+    votes = request.args
+
+    if request.method == "POST":
+        form = await request.form
+
+        for key, value in form.items():
+            votes[key] = value
+
+        return redirect(
+            url_for("ballot", election_id=election_id, precinct_id=precinct_id, **votes)
+        )
+
     return await render_template(
-        "ballot.html",
-        positions=positions,
-        proposals=proposals,
-        selected=selected,
-        approved=approved,
-        rejected=rejected,
+        "ballot.html", positions=positions, proposals=proposals, votes=votes
     )
-
-
-def _parse_ids(request, key):
-    ids = request.args.get(key, "").split(",")
-    return [int(x) for x in ids if x]

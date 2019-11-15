@@ -37,8 +37,11 @@
 
     </head>
     <body>
-        <div class="container mt-5">
+        <div class="container m-5">
         {% block content %}{% endblock %}
         </div>
+        <script>
+        {% block script %}{% endblock %}
+        </script>
     </body>
 </html>
