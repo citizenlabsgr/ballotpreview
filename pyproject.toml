@@ -19,6 +19,7 @@ quart = "~0.10.0"
 
 # Utilities
 aiohttp = "^3.6.2"
+minilog = "*"
 
 [tool.poetry.dev-dependencies]
 
