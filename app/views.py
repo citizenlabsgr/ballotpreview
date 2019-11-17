@@ -1,6 +1,7 @@
+import log
 from quart import Quart, redirect, render_template, request, url_for
 
-from . import api
+from . import api, utils
 
 app = Quart(__name__)
 
@@ -28,14 +29,11 @@ async def elections_detail(election_id: int):
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
 async def ballot(election_id: int, precinct_id: int):
     positions, proposals = await api.get_ballot(election_id, precinct_id)
-    votes = request.args
 
-    if request.method == "POST":
-        form = await request.form
+    form = await request.form
+    votes, votes_changed = utils.validate_seats(positions, form or request.args)
 
-        for key, value in form.items():
-            votes[key] = value
-
+    if request.method == "POST" or votes_changed:
         return redirect(
             url_for("ballot", election_id=election_id, precinct_id=precinct_id, **votes)
         )
