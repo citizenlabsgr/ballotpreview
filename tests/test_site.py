@@ -48,11 +48,23 @@ def describe_ballot():
         async def it_redirects_to_remove_extra_votes(app, expect):
             client = app.test_client()
             response = await client.get(
-                "/elections/5/precincts/1172/?position-3626=candidate-17345,candidate-17344"
+                "/elections/5/precincts/1172/?position-3626=candidate-17345&position-3626=candidate-17344"
             )
             expect(response.status_code) == 302
             html = get_html(response)
             expect(html).contains("?position-3626=candidate-17345</a>")
+
+        @pytest.mark.asyncio
+        async def it_redirects_to_remove_extra_votes_based_on_seats(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/3/precincts/1172/?position-710=candidate-10590&position-710=candidate-10589&position-710=candidate-10591"
+            )
+            expect(response.status_code) == 302
+            html = get_html(response)
+            expect(html).contains(
+                "?position-710=candidate-10590&position-710=candidate-10589</a>"
+            )
 
         @pytest.mark.asyncio
         async def it_redirects_to_remove_invalid_votes(app, expect):

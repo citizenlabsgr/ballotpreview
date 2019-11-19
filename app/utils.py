@@ -9,19 +9,10 @@ def validate_seats(positions: Dict, original_votes: Dict) -> Tuple[Dict, int]:
 
     for key, value in original_votes.items():
         if key.startswith("position-"):
-            position_id = int(key.split("-")[-1])
-            seats = _get_seats(positions, position_id)
-            if not seats:
-                votes_changed = True
-                continue
-
-            votes[key] = []
-            for candidate in value.split(","):
-                if len(votes[key]) >= seats:
-                    log.warning(f"Removed extra candidate vote: {value}")
-                    votes_changed = True
-                    break
-                votes[key].append(candidate)
+            if key in votes:
+                votes[key].append(value)
+            else:
+                votes[key] = [value]
 
         elif key.startswith("proposal-"):
             if value in {"yes", "no"}:
@@ -32,6 +23,15 @@ def validate_seats(positions: Dict, original_votes: Dict) -> Tuple[Dict, int]:
         else:
             log.warning(f"Removed unexpected ballot item: {key}")
             votes_changed = True
+
+    for key, value in votes.items():
+        if key.startswith("position-"):
+            position_id = int(key.split("-")[-1])
+            seats = _get_seats(positions, position_id)
+            while len(value) > seats:
+                log.warning(f"Removed extra candidate vote: {value}")
+                votes_changed = True
+                value.pop()
 
     return votes, votes_changed
 
