@@ -2,6 +2,16 @@
 
 {% block content %}
 
-<a href="{{ url_for('elections') }}">View Elections</a>
+<h1>Elections</h1>
+
+<ul>
+{% for election in elections %}
+    <li>
+        <a href="{{ url_for('elections_detail', election_id=election['id']) }}">
+            {{ election['name'] }} ({{ election['date'] }})
+        </a>
+    </li>
+{% endfor %}
+</ul>
 
 {% endblock %}

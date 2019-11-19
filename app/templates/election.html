@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ election['name'] }} ({{ election['date'] }})</h1>
+
+<form action="{{ request.url }}" method="post">
+
+    <div class="form-group">
+        <label for="first-name">First Name</label>
+        <input type="text" class="form-control" id="first-name" name="first_name" placeholder="Your first name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="last-name">Last Name</label>
+        <input type="text" class="form-control" id="last-name" name="last_name" placeholder="Your last name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="birth-date">Birth Date</label>
+        <input type="date" class="form-control" id="birth-date" name="birth_date" required>
+    </div>
+
+    <div class="form-group">
+        <label for="zip-code">ZIP Code</label>
+        <input type="number" class="form-control" id="zip-code" name="zip_code" placeholder="Your ZIP code" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Find Your Precinct</button>
+
+</form>
+
+{% endblock %}

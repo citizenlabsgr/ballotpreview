@@ -3,6 +3,16 @@ import aiohttp
 BASE_URL = "https://michiganelections.io/api"
 
 
+async def get_status(first_name: str, last_name: str, birth_date: str, zip_code: int):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(
+            f"{BASE_URL}/registrations/?first_name={first_name}&last_name={last_name}&birth_date={birth_date}&zip_code={zip_code}"
+        ) as response:
+            data = await response.json()
+
+    return data
+
+
 async def get_elections():
     async with aiohttp.ClientSession() as session:
         async with session.get(f"{BASE_URL}/elections/?limit=1000") as response:
@@ -26,6 +36,14 @@ async def get_precincts():
             data = await response.json()
 
     return data["results"]
+
+
+async def get_precinct(precinct_id: int):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(f"{BASE_URL}/precincts/{precinct_id}/") as response:
+            data = await response.json()
+
+    return data
 
 
 async def get_ballot(election_id: int, precinct_id: int):

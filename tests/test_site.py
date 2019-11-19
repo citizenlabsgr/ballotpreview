@@ -13,7 +13,7 @@ def describe_index():
         client = app.test_client()
         response = await client.get("/")
         html = get_html(response)
-        expect(html).contains("View Elections")
+        expect(html).contains("State General")
 
 
 def describe_elections():
@@ -22,7 +22,7 @@ def describe_elections():
         client = app.test_client()
         response = await client.get("/elections/")
         html = get_html(response)
-        expect(html).contains("State General")
+        expect(html).contains('redirected to <a href="/">')
 
 
 def describe_elections_detail():
@@ -32,6 +32,21 @@ def describe_elections_detail():
         response = await client.get("/elections/3/")
         html = get_html(response)
         expect(html).contains("State General")
+
+    @pytest.mark.asyncio
+    async def it_redirects_with_valid_voter_information(app, expect):
+        client = app.test_client()
+        response = await client.post(
+            "/elections/3/",
+            form={
+                "first_name": "Rosalynn",
+                "last_name": "Bliss",
+                "birth_date": "1975-08-03",
+                "zip_code": 49503,
+            },
+        )
+        html = get_html(response)
+        expect(html).contains('redirected to <a href="/elections/3/precincts/1173/">')
 
 
 def describe_ballot():
