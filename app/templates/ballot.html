@@ -66,6 +66,7 @@
                            type={% if position['seats'] == 1%}"radio"{% else %}"checkbox"{% endif %}
                            name="{{ position_key }}"
                            value="{{ candidate_key }}"
+                           onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                            {% if candidate_key in votes[position_key] %}checked{% endif %}>
                     <label class="form-check-label"
                            for="{{ position_key }}">
@@ -114,6 +115,7 @@
                            type="radio"
                            name="{{ proposal_key }}"
                            value="yes"
+                           onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                            {% if votes[proposal_key] == 'yes' %}checked{% endif %}>
                     <label class="form-check-label" for="{{ proposal_key }}">
                         Yes
@@ -125,6 +127,7 @@
                            type="radio"
                            name="{{ proposal_key }}"
                            value="no"
+                           onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                            {% if votes[proposal_key] == 'no' %}checked{% endif %}>
                     <label class="form-check-label" for="{{ proposal_key }}">
                         No
@@ -138,15 +141,13 @@
 {% endfor %}
 </div>
 
-<div class="m-4">
-    <button type="submit" class="btn btn-primary">Save Ballot</button>
+<div id="save-toolbar" style="display: none;">
+<br><br>
+<div class="py-3 fixed-bottom text-center bg-dark">
+    <button type="submit" class="btn btn-primary">Save Ballot Changes</button>
+</div>
 </div>
 
 </form>
-
-{% endblock %}
-{% block script %}
-
-{# TODO: Highlight save button when the ballot has changed #}
 
 {% endblock %}
