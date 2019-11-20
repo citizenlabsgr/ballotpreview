@@ -18,7 +18,7 @@ async def elections():
 
 
 @app.route("/elections/<election_id>/", methods=["GET", "POST"])
-async def elections_detail(election_id: int):
+async def election(election_id: int):
     election = await api.get_election(election_id)
 
     if request.method == "POST":
@@ -32,7 +32,12 @@ async def elections_detail(election_id: int):
         if status["registered"]:
             precinct_id = status["precinct"]["id"]
             return redirect(
-                url_for("ballot", election_id=election_id, precinct_id=precinct_id)
+                url_for(
+                    "ballot",
+                    election_id=election_id,
+                    precinct_id=precinct_id,
+                    name=form["first_name"],
+                )
             )
         log.warning(f"Not registered: {form}")
 
@@ -41,20 +46,26 @@ async def elections_detail(election_id: int):
 
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
 async def ballot(election_id: int, precinct_id: int):
+    params = request.args
+    name = params.pop("name", None)
+
     election = await api.get_election(election_id)
     precinct = await api.get_precinct(precinct_id)
     positions, proposals = await api.get_ballot(election_id, precinct_id)
 
     form = await request.form
-    votes, votes_changed = utils.validate_seats(positions, form or request.args)
+    votes, votes_changed = utils.validate_seats(positions, form or params)
 
     if request.method == "POST" or votes_changed:
+        if name:
+            votes["name"] = name
         return redirect(
             url_for("ballot", election_id=election_id, precinct_id=precinct_id, **votes)
         )
 
     return await render_template(
         "ballot.html",
+        name=name,
         election=election,
         precinct=precinct,
         positions=positions,

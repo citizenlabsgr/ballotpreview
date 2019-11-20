@@ -25,7 +25,7 @@ def describe_elections():
         expect(html).contains('redirected to <a href="/">')
 
 
-def describe_elections_detail():
+def describe_election():
     @pytest.mark.asyncio
     async def it_includes_election_name(app, expect):
         client = app.test_client()
@@ -46,7 +46,9 @@ def describe_elections_detail():
             },
         )
         html = get_html(response)
-        expect(html).contains('redirected to <a href="/elections/3/precincts/1173/">')
+        expect(html).contains(
+            'redirected to <a href="/elections/3/precincts/1173/?name=Rosalynn">'
+        )
 
 
 def describe_ballot():
@@ -110,6 +112,16 @@ def describe_ballot():
             expect(response.status_code) == 302
             html = get_html(response)
             expect(html).contains("?position-3626=candidate-17345</a>")
+
+        @pytest.mark.asyncio
+        async def it_keeps_name_through_redirect(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/5/precincts/1172/?foo=bar&name=Jane"
+            )
+            expect(response.status_code) == 302
+            html = get_html(response)
+            expect(html).contains("?name=Jane</a>")
 
     def describe_post():
         @pytest.mark.asyncio
