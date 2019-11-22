@@ -34,7 +34,7 @@ def describe_election():
         expect(html).contains("State General")
 
     @pytest.mark.asyncio
-    async def it_redirects_with_valid_voter_information(app, expect):
+    async def it_redirects_to_ballot_with_valid_voter_information(app, expect):
         client = app.test_client()
         response = await client.post(
             "/elections/3/",
@@ -48,6 +48,23 @@ def describe_election():
         html = get_html(response)
         expect(html).contains(
             'redirected to <a href="/elections/3/precincts/1173/?name=Rosalynn">'
+        )
+
+    @pytest.mark.asyncio
+    async def it_display_error_with_invalid_voter_information(app, expect):
+        client = app.test_client()
+        response = await client.post(
+            "/elections/3/",
+            form={
+                "first_name": "Jane",
+                "last_name": "Doe",
+                "birth_date": "1970-01-01",
+                "zip_code": 9999,
+            },
+        )
+        html = get_html(response)
+        expect(html).contains(
+            'redirected to <a href="/elections/3/?first_name=Jane&last_name=Doe&birth_date=1970-01-01&zip_code=9999"'
         )
 
 

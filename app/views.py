@@ -23,12 +23,7 @@ async def election(election_id: int):
 
     if request.method == "POST":
         form = await request.form
-        status = await api.get_status(
-            first_name=form["first_name"],
-            last_name=form["last_name"],
-            birth_date=form["birth_date"],
-            zip_code=form["zip_code"],
-        )
+        status = await api.get_status(**form)
         if status["registered"]:
             precinct_id = status["precinct"]["id"]
             return redirect(
@@ -39,9 +34,11 @@ async def election(election_id: int):
                     name=form["first_name"],
                 )
             )
-        log.warning(f"Not registered: {form}")
 
-    return await render_template("election.html", election=election)
+        log.warning(f"Not registered: {form}")
+        return redirect(url_for("election", election_id=election_id, **form))
+
+    return await render_template("election.html", election=election, voter=request.args)
 
 
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])

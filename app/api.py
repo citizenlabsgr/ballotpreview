@@ -29,15 +29,6 @@ async def get_election(election_id: int):
     return data
 
 
-async def get_precincts():
-    async with aiohttp.ClientSession() as session:
-        # TODO: Fetch with pagination
-        async with session.get(f"{BASE_URL}/precincts/?limit=9999") as response:
-            data = await response.json()
-
-    return data["results"]
-
-
 async def get_precinct(precinct_id: int):
     async with aiohttp.ClientSession() as session:
         async with session.get(f"{BASE_URL}/precincts/{precinct_id}/") as response:
