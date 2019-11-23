@@ -1,9 +1,11 @@
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 
 import log
 
 
-def validate_seats(positions: Dict, original_votes: Dict) -> Tuple[Dict, int]:
+def validate_ballot(
+    positions: Dict, proposals: Dict, original_votes: Dict
+) -> Tuple[Dict, int]:
     votes: Dict = {}
     votes_changed = False
 
@@ -15,11 +17,17 @@ def validate_seats(positions: Dict, original_votes: Dict) -> Tuple[Dict, int]:
                 votes[key] = [value]
 
         elif key.startswith("proposal-"):
-            if value in {"yes", "no"}:
-                votes[key] = value
+            proposal_id = int(key.split("-")[-1])
+            if _get_proposal(proposals, proposal_id):
+                if value in {"yes", "no"}:
+                    votes[key] = value
+                else:
+                    log.warning(f"Removed unexpected proposal choice: {value}")
+                    votes_changed = True
             else:
-                log.warning(f"Removed unexpected proposal choice: {value}")
+                log.warning(f"Removed unexpected proposal: {key}")
                 votes_changed = True
+
         else:
             log.warning(f"Removed unexpected ballot item: {key}")
             votes_changed = True
@@ -34,6 +42,15 @@ def validate_seats(positions: Dict, original_votes: Dict) -> Tuple[Dict, int]:
                 value.pop()
 
     return votes, votes_changed
+
+
+def _get_proposal(proposals: Dict, proposal_id: int) -> Optional[Dict]:
+    for proposal in proposals:
+        if proposal["id"] == proposal_id:
+            return proposal
+
+    log.error(f"Could not find proposal {proposal_id} on ballot: {proposals}")
+    return None
 
 
 def _get_seats(positions: Dict, position_id: int) -> int:

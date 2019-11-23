@@ -51,7 +51,7 @@ async def ballot(election_id: int, precinct_id: int):
     positions, proposals = await api.get_ballot(election_id, precinct_id)
 
     form = await request.form
-    votes, votes_changed = utils.validate_seats(positions, form or params)
+    votes, votes_changed = utils.validate_ballot(positions, proposals, form or params)
 
     if request.method == "POST" or votes_changed:
         if name:

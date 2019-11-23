@@ -121,6 +121,16 @@ def describe_ballot():
             expect(html).contains("?position-3626=candidate-17345</a>")
 
         @pytest.mark.asyncio
+        async def it_redirects_to_remove_unknown_proposals(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/5/precincts/1172/?proposal-999=yes&position-3626=candidate-17345"
+            )
+            expect(response.status_code) == 302
+            html = get_html(response)
+            expect(html).contains("?position-3626=candidate-17345</a>")
+
+        @pytest.mark.asyncio
         async def it_redirects_to_remove_unknown_keys(app, expect):
             client = app.test_client()
             response = await client.get(
@@ -145,8 +155,8 @@ def describe_ballot():
         async def it_adds_votes_to_url(app, expect):
             client = app.test_client()
             response = await client.post(
-                "/elections/5/precincts/1172/", form={"proposal-194": "yes"}
+                "/elections/5/precincts/1172/", form={"proposal-1009": "yes"}
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("?proposal-194=yes</a>")
+            expect(html).contains("?proposal-1009=yes</a>")
