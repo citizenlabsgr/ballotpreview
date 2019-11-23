@@ -4,12 +4,12 @@
 
 <form action="{{ request.url }}" method="post">
 
-<h1>{{ name }}{% if name %}'s{% endif %} Ballot Preview</h1>
+<h1>{% if name %}{{ name }}'s{% endif %} Ballot Preview</h1>
 
 <div class="ml-4">
-    <h4>{{ election['name'] }} ({{ election['date'] }})</h4>
+    <h5>{{ election['name'] }} ({{ election['date'] }})</h5>
 
-    <h4>
+    <h5>
         {{ precinct['county'] }} County,
         {{ precinct['jurisdiction'] }},
 
@@ -20,7 +20,7 @@
         {% if precinct['number'] %}
         Precinct {{ precinct['number'] }}
         {% endif %}
-    </h4>
+    </h5>
 
     <p>
     (<a href="{{ url_for('election', election_id=election['id']) }}">find your own ballot</a>)
@@ -38,7 +38,7 @@
         </span>
     </h4>
 
-    <div class="ml-4">
+    <div class="ml-4 mb-2">
         <p class="mb-2">{{ position['description'] }}</p>
 
         <h5>
