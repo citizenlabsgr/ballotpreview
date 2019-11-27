@@ -82,6 +82,9 @@
         </div>
 
     </div>
+
+{% else %}
+<h4 class="text-muted">(no position on this ballot)</h4>
 {% endfor %}
 
 <h2 class="py-4">Proposals</h2>
@@ -131,6 +134,8 @@
 
     </div>
 
+{% else %}
+<h4 class="text-muted">(no proposals on this ballot)</h4>
 {% endfor %}
 
 <div id="save-toolbar" style="display: none;">
