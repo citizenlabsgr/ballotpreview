@@ -82,11 +82,11 @@ def describe_ballot():
         async def it_redirects_to_remove_extra_votes(app, expect):
             client = app.test_client()
             response = await client.get(
-                "/elections/5/precincts/1172/?position-3626=candidate-17345&position-3626=candidate-17344"
+                "/elections/5/precincts/1172/?position-5068=candidate-21490&position-5068=candidate-21489"
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("?position-3626=candidate-17345</a>")
+            expect(html).contains("?position-5068=candidate-21490</a>")
 
         @pytest.mark.asyncio
         async def it_redirects_to_remove_extra_votes_based_on_seats(app, expect):
@@ -104,41 +104,41 @@ def describe_ballot():
         async def it_redirects_to_remove_invalid_votes(app, expect):
             client = app.test_client()
             response = await client.get(
-                "/elections/5/precincts/1172/?proposal-1009=foobar&position-3626=candidate-17345"
+                "/elections/5/precincts/1172/?proposal-1009=foobar&position-5068=candidate-21490"
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("?position-3626=candidate-17345</a>")
+            expect(html).contains("?position-5068=candidate-21490</a>")
 
         @pytest.mark.asyncio
         async def it_redirects_to_remove_unknown_positions(app, expect):
             client = app.test_client()
             response = await client.get(
-                "/elections/5/precincts/1172/?position-999=candidate-42&position-3626=candidate-17345"
+                "/elections/5/precincts/1172/?position-999=candidate-42&position-5068=candidate-21490"
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("?position-3626=candidate-17345</a>")
+            expect(html).contains("?position-5068=candidate-21490</a>")
 
         @pytest.mark.asyncio
         async def it_redirects_to_remove_unknown_proposals(app, expect):
             client = app.test_client()
             response = await client.get(
-                "/elections/5/precincts/1172/?proposal-999=yes&position-3626=candidate-17345"
+                "/elections/5/precincts/1172/?proposal-999=yes&position-5068=candidate-21490"
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("?position-3626=candidate-17345</a>")
+            expect(html).contains("?position-5068=candidate-21490</a>")
 
         @pytest.mark.asyncio
         async def it_redirects_to_remove_unknown_keys(app, expect):
             client = app.test_client()
             response = await client.get(
-                "/elections/5/precincts/1172/?foo=bar&position-3626=candidate-17345"
+                "/elections/5/precincts/1172/?foo=bar&position-5068=candidate-21490"
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("?position-3626=candidate-17345</a>")
+            expect(html).contains("?position-5068=candidate-21490</a>")
 
         @pytest.mark.asyncio
         async def it_keeps_name_through_redirect(app, expect):
