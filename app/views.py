@@ -24,7 +24,7 @@ async def election(election_id: int):
     if request.method == "POST":
         form = await request.form
         status = await api.get_status(**form)
-        if status.get("registered", False):
+        if status["registered"]:
             precinct_id = status["precinct"]["id"]
             return redirect(
                 url_for(
