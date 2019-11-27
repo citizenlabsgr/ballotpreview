@@ -29,15 +29,14 @@ async def get_election(election_id: int):
     return data
 
 
-async def get_precinct(precinct_id: int):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(f"{BASE_URL}/precincts/{precinct_id}/") as response:
-            data = await response.json()
-
-    return data
-
-
 async def get_ballot(election_id: int, precinct_id: int):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(
+            f"{BASE_URL}/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
+        ) as response:
+            data = await response.json()
+            ballot = data["results"][0]
+
     async with aiohttp.ClientSession() as session:
         async with session.get(
             f"{BASE_URL}/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
@@ -50,4 +49,4 @@ async def get_ballot(election_id: int, precinct_id: int):
         ) as response:
             proposals = await response.json()
 
-    return positions["results"], proposals["results"]
+    return ballot, positions["results"], proposals["results"]

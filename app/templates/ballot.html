@@ -7,23 +7,23 @@
 <h1>{% if name %}{{ name }}'s{% endif %} Ballot Preview</h1>
 
 <div class="ml-4">
-    <h5>{{ election['name'] }} ({{ election['date'] }})</h5>
+    <h5>{{ ballot['election']['name'] }} ({{ ballot['election']['date'] }})</h5>
 
     <h5>
-        {{ precinct['county'] }} County,
-        {{ precinct['jurisdiction'] }},
+        {{ ballot['precinct']['county'] }} County,
+        {{ ballot['precinct']['jurisdiction'] }},
 
-        {% if precinct['ward'] %}
-        Ward {{ precinct['ward' ]}},
+        {% if ballot['precinct']['ward'] %}
+        Ward {{ ballot['precinct']['ward' ]}},
         {% endif %}
 
-        {% if precinct['number'] %}
-        Precinct {{ precinct['number'] }}
+        {% if ballot['precinct']['number'] %}
+        Precinct {{ ballot['precinct']['number'] }}
         {% endif %}
     </h5>
 
     <h5>
-    (<a href="{{ url_for('election', election_id=election['id']) }}">find your own ballot</a>)
+    (<a href="{{ url_for('election', election_id=ballot['election']['id']) }}">find your own ballot</a>)
     </h5>
 </div>
 
@@ -132,8 +132,15 @@
 <h4 class="text-muted">(no proposals on this ballot)</h4>
 {% endfor %}
 
-<div id="save-toolbar" style="display: none;">
-<br><br>
+<p class="text-right">
+Something seem off? View your
+<a href="{{ ballot['mi_sos_url'] }}" target="_blank">official ballot<a>
+and open
+<a href="https://github.com/citizenlabsgr/ballotshare/issues" target="_blank">an issue</a>
+to let us know.
+</p>
+
+<div class="pt-5" id="save-toolbar" style="display: none;">
 <div class="py-3 fixed-bottom text-center bg-dark">
     <button type="submit" class="btn btn-primary">Save Ballot Changes</button>
 </div>
