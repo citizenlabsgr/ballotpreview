@@ -46,9 +46,7 @@ async def ballot(election_id: int, precinct_id: int):
     params = request.args
     name = params.pop("name", None)
 
-    election = await api.get_election(election_id)
-    precinct = await api.get_precinct(precinct_id)
-    positions, proposals = await api.get_ballot(election_id, precinct_id)
+    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 
     form = await request.form
     votes, votes_changed = utils.validate_ballot(positions, proposals, form or params)
@@ -63,8 +61,7 @@ async def ballot(election_id: int, precinct_id: int):
     return await render_template(
         "ballot.html",
         name=name,
-        election=election,
-        precinct=precinct,
+        ballot=ballot,
         positions=positions,
         proposals=proposals,
         votes=votes,
