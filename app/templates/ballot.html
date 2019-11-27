@@ -22,12 +22,12 @@
         {% endif %}
     </h5>
 
-    <p>
+    <h5>
     (<a href="{{ url_for('election', election_id=election['id']) }}">find your own ballot</a>)
-    </p>
+    </h5>
 </div>
 
-<h2>Positions</h2>
+<h2 class="py-4">Positions</h2>
 
 {% for position in positions %}
     {% set position_key = 'position-' + position['id']|string %}
@@ -39,7 +39,12 @@
     </h4>
 
     <div class="ml-4 mb-2">
-        <p class="mb-2">{{ position['description'] }}</p>
+        {% if position['term'] %}
+        <b>{{ position['term'] }}</b>
+        {% endif %}
+        <p class="mb-2">
+            {{ position['description'] }}
+        </p>
 
         <h5>
             Candidates
@@ -79,7 +84,7 @@
     </div>
 {% endfor %}
 
-<h2>Proposals</h2>
+<h2 class="py-4">Proposals</h2>
 
 {% for proposal in proposals %}
     {% set proposal_key = 'proposal-' + proposal['id']|string %}
