@@ -39,9 +39,6 @@
     </h4>
 
     <div class="ml-4 mb-2">
-        {% if position['term'] %}
-        <b>{{ position['term'] }}</b>
-        {% endif %}
         <p class="mb-2">
             {{ position['description'] }}
         </p>
@@ -49,12 +46,9 @@
         <h5>
             Candidates
             <span class="text-muted">
-            ({{ position['seats'] }}
-            {% if position['seats'] == 1 %}
-            Seat)
-            {% else %}
-            Seats)
-            {% endif %}
+            ({{ position['seats'] }} Seat
+            {%- if position['seats'] > 1 %}s{% endif -%}
+            {%- if position['term'] %}, {{ position['term'] }}{% endif -%})
             </span>
         </h5>
 
