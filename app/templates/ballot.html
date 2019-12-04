@@ -22,9 +22,10 @@
         {% endif %}
     </h5>
 
-    <h5>
-    (<a href="{{ url_for('election', election_id=ballot['election']['id']) }}">find your own ballot</a>)
-    </h5>
+    <div>
+        <button id="copy" type="button" class="btn btn-primary" data-clipboard-text="{{ request.url }}">Share This Ballot</button>
+        <a href="{{ url_for('election', election_id=ballot['election']['id']) }}" class="btn btn-secondary" role="button">Find Your Ballot</a>
+    </div>
 </div>
 
 <h2 class="py-4">Positions</h2>
@@ -147,5 +148,51 @@ to let us know.
 </div>
 
 </form>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
+
+<script>
+
+// Tooltip
+
+$('#copy').tooltip({
+  trigger: 'click',
+  placement: 'top'
+});
+
+function setTooltip(message) {
+  $('#copy').tooltip('hide')
+    .attr('data-original-title', message)
+    .tooltip('show');
+}
+
+function hideTooltip() {
+  setTimeout(function() {
+    $('#copy').tooltip('hide');
+  }, 5000);
+}
+
+// Clipboard
+
+var clipboard = new Clipboard('#copy');
+
+clipboard.on('success', function(e) {
+  setTooltip('URL copied to clipboard!');
+  hideTooltip();
+});
+
+clipboard.on('error', function(e) {
+  console.log(e);
+  hideTooltip();
+});
+
+</script>
 
 {% endblock %}
