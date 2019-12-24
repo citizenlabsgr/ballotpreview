@@ -35,7 +35,10 @@ async def get_ballot(election_id: int, precinct_id: int):
             f"{BASE_URL}/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
         ) as response:
             data = await response.json()
-            ballot = data["results"][0]
+            try:
+                ballot = data["results"][0]
+            except LookupError:
+                ballot = None
 
     async with aiohttp.ClientSession() as session:
         async with session.get(
