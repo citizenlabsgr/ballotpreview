@@ -150,6 +150,14 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("?name=Jane</a>")
 
+        @pytest.mark.asyncio
+        async def it_handles_unknown_ballots(app, expect):
+            client = app.test_client()
+            response = await client.get("/elections/5/precincts/99999/")
+            expect(response.status_code) == 404
+            html = get_html(response)
+            expect(html).contains("can't find a sample ballot")
+
     def describe_post():
         @pytest.mark.asyncio
         async def it_adds_votes_to_url(app, expect):
