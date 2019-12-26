@@ -48,7 +48,7 @@ async def ballot(election_id: int, precinct_id: int):
 
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
     if ballot is None:
-        abort(404)
+        return await render_template("ballot_404.html", name=name), 404
 
     form = await request.form
     votes, votes_changed = utils.validate_ballot(positions, proposals, form or params)

@@ -156,7 +156,7 @@ def describe_ballot():
             response = await client.get("/elections/5/precincts/99999/")
             expect(response.status_code) == 404
             html = get_html(response)
-            expect(html).contains("Not Found")
+            expect(html).contains("can't find a sample ballot")
 
     def describe_post():
         @pytest.mark.asyncio
