@@ -11,14 +11,14 @@
 
     <h5>
         {{ ballot['precinct']['county'] }} County,
-        {{ ballot['precinct']['jurisdiction'] }},
+        {{ ballot['precinct']['jurisdiction'] }}
 
-        {% if ballot['precinct']['ward'] %}
-        Ward {{ ballot['precinct']['ward' ]}},
+        {%- if ballot['precinct']['ward'] -%}
+        , Ward {{ ballot['precinct']['ward' ]}}
         {% endif %}
 
-        {% if ballot['precinct']['number'] %}
-        Precinct {{ ballot['precinct']['number'] }}
+        {%- if ballot['precinct']['number'] -%}
+        , Precinct {{ ballot['precinct']['number'] }}
         {% endif %}
     </h5>
 
