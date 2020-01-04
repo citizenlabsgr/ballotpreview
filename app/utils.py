@@ -1,6 +1,10 @@
+import io
 from typing import Dict, Optional, Tuple
 
 import log
+from PIL import Image
+
+from . import settings
 
 
 def validate_ballot(
@@ -60,3 +64,15 @@ def _get_seats(positions: Dict, position_id: int) -> int:
 
     log.error(f"Could not find position {position_id} on ballot: {positions}")
     return 0
+
+
+def render_image(
+    name: str, ballot: Dict, target: str, ext: str
+) -> Tuple[io.BytesIO, str]:
+    size = settings.TARGET_SIZES[target]
+    image = Image.new("RGB", size, color=settings.DEFAULT_COLOR)
+
+    stream = io.BytesIO()
+    image.save(stream, format=ext)
+
+    return stream, Image.MIME[ext]
