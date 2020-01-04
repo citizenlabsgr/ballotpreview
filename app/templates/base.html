@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        {% block meta %}
+
         <!-- Primary Meta Tags -->
-        <title>{% block title %}Ballot Share{% endblock %}</title>
+        <title>Ballot Share</title>
         <meta name="title" content="Ballot Share">
         <meta name="description" content="Share how you plan to vote in Michigan.">
 
@@ -22,6 +24,8 @@
         <meta property="twitter:title" content="Ballot Share">
         <meta property="twitter:description" content="Share how you plan to vote in Michigan.">
         {# <meta property="twitter:image" content="https://share.michiganelections.io{% static 'logo.png' %}"> #}
+
+        {% endblock %}
 
         <!-- Favicons -->
         {# <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-touch-icon.png' %}">

@@ -1,7 +1,18 @@
-import log
-from quart import Quart, abort, redirect, render_template, request, url_for
+from typing import Dict
 
-from . import api, utils
+import log
+from quart import (
+    Quart,
+    abort,
+    redirect,
+    render_template,
+    request,
+    send_file,
+    send_from_directory,
+    url_for,
+)
+
+from . import api, settings, utils
 
 app = Quart(__name__)
 
@@ -45,8 +56,13 @@ async def election(election_id: int):
 async def ballot(election_id: int, precinct_id: int):
     params = request.args
     name = params.pop("name", None)
+    share = params.pop("share", None)
 
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
+
+    if share:
+        return await ballot_image(name, ballot, share)
+
     if ballot is None:
         return await render_template("ballot_404.html", name=name), 404
 
@@ -68,3 +84,11 @@ async def ballot(election_id: int, precinct_id: int):
         proposals=proposals,
         votes=votes,
     )
+
+
+async def ballot_image(name: str, ballot: Dict, share: str):
+    if ballot is None:
+        return await send_from_directory(settings.IMAGES_DIRECTORY, "logo.png")
+
+    image, mimetype = utils.render_image(name, ballot, share, "JPEG")
+    return await send_file(image, mimetype)

@@ -17,6 +17,9 @@ python = "^3.7"
 # Quart
 quart = "~0.10.0"
 
+# Images
+pillow = "^7.0"
+
 # Utilities
 aiohttp = "^3.6.2"
 minilog = "*"
@@ -24,11 +27,11 @@ minilog = "*"
 [tool.poetry.dev-dependencies]
 
 # Formatting
-isort = "=4.3.18"
-black = "=19.3b0"
+isort = "=4.3.21"
+black = "=19.10b0"
 
 # Type Checking
-mypy = "^0.701"
+mypy = "*"
 
 # Testing
 pytest = "^5.0"
@@ -39,7 +42,7 @@ pytest-cov = "^2.7"
 pytest-watch = "^4.2"
 
 # Coverage
-coveragespace = "^2.1"
+coveragespace = "^3.0.1"
 
 # Utilities
 honcho = "^1.0"

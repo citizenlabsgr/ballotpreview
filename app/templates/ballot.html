@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 
+{% block meta %}
+
+<!-- Primary Meta Tags -->
+<title>Ballot Preview</title>
+<meta name="title" content="Ballot Preview">
+<meta name="description" content="Share how you plan to vote in Michigan.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://share.michiganelections.io/">
+<meta property="og:title" content="Ballot Share">
+<meta property="og:description" content="Share how you plan to vote in Michigan.">
+<meta property="og:image" content="{{ request.url }}&share=facebook">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary">
+<meta property="twitter:url" content="https://share.michiganelections.io/">
+<meta property="twitter:title" content="Ballot Share">
+<meta property="twitter:description" content="Share how you plan to vote in Michigan.">
+<meta property="og:image" content="{{ request.url }}&share=twitter">
+
+
+{% endblock %}
 {% block content %}
 
 <form action="{{ request.url }}" method="post">
@@ -151,7 +174,6 @@ to let us know.
 </form>
 
 {% endblock %}
-
 {% block scripts %}
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
