@@ -14,6 +14,7 @@ from quart import (
 
 from . import api, settings, utils
 
+
 app = Quart(__name__)
 
 

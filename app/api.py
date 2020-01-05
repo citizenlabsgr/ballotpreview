@@ -1,5 +1,6 @@
 import aiohttp
 
+
 BASE_URL = "https://michiganelections.io/api"
 
 
