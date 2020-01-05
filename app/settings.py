@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 IMAGES_DIRECTORY = Path.cwd() / "app" / "images"
 
 DEFAULT_COLOR = (0xF6, 0x52, 0x21)
