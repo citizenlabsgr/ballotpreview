@@ -4,21 +4,21 @@
 
 <!-- Primary Meta Tags -->
 <title>Ballot Preview</title>
-<meta name="title" content="Ballot Preview">
-<meta name="description" content="Share how you plan to vote in Michigan.">
+<meta name="title" content="Michigan Ballot Preview">
+<meta name="description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://share.michiganelections.io/">
-<meta property="og:title" content="Ballot Share">
-<meta property="og:description" content="Share how you plan to vote in Michigan.">
+<meta property="og:title" content="Michigan Ballot Preview">
+<meta property="og:description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
 <meta property="og:image" content="{{ request.url }}&share=facebook">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://share.michiganelections.io/">
-<meta property="twitter:title" content="Ballot Share">
-<meta property="twitter:description" content="Share how you plan to vote in Michigan.">
+<meta property="twitter:title" content="Michigan Ballot Preview">
+<meta property="twitter:description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
 <meta property="twitter:image" content="{{ request.url }}&share=twitter">
 
 {% endblock %}
@@ -26,7 +26,7 @@
 
 <form action="{{ request.url }}" method="post">
 
-<h1>{% if name %}{{ name }}'s{% endif %} Ballot Preview</h1>
+<h1>{% if name %}{{ name }}'s{% endif %} Michigan Ballot Preview</h1>
 
 <div class="ml-4">
     <h5>{{ ballot['election']['name'] }} ({{ ballot['election']['date'] }})</h5>
