@@ -2,7 +2,7 @@ import io
 from typing import Dict, Optional, Tuple
 
 import log
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 from . import settings
 
@@ -72,7 +72,31 @@ def render_image(
     size = settings.TARGET_SIZES[target]
     image = Image.new("RGB", size, color=settings.DEFAULT_COLOR)
 
+    font = ImageFont.truetype("app/fonts/OpenSans-Regular.ttf", size=32)
+
+    draw = ImageDraw.Draw(image)
+
+    for index, line in enumerate(_get_lines(name, ballot)):
+        shift = index * 32
+        draw.text((10, 10 + shift), line, font=font)
+
     stream = io.BytesIO()
     image.save(stream, format=ext)
 
     return stream, Image.MIME[ext]
+
+
+def _get_lines(name: str, ballot: Dict):
+    if name:
+        yield f"{name} plans to vote"
+    else:
+        yield "I plan to vote"
+
+    yield f"{ballot['election']['name']} ({ballot['election']['date'] })"
+
+    location = ballot["precinct"]["jurisdiction"]
+    if ballot["precinct"]["ward"]:
+        location += f", Ward {ballot['precinct']['ward']}"
+    if ballot["precinct"]["number"]:
+        location += f", Precinct {ballot['precinct']['number']}"
+    yield location
