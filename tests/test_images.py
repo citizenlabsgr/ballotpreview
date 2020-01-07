@@ -8,7 +8,10 @@ from app import settings, utils
 
 @pytest.fixture(scope="session")
 def ballot():
-    return {}
+    return {
+        "election": {"name": "Presidential Primary", "date": "2020-03-10"},
+        "precinct": {"jurisdiction": "City of Hastings", "ward": 12, "number": 34},
+    }
 
 
 @pytest.fixture(scope="session")
@@ -22,14 +25,14 @@ def images_directory():
 def describe_images():
     def with_name(ballot, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image("Jane", ballot, target, "JPEG")
-            path = images_directory / f"ballot-name-{target}.jpg"
+            image, _ = utils.render_image("Jane", ballot, target, "PNG")
+            path = images_directory / f"ballot-name-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())
 
     def without_name(ballot, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image("", ballot, target, "JPEG")
-            path = images_directory / f"ballot-nameless-{target}.jpg"
+            image, _ = utils.render_image("", ballot, target, "PNG")
+            path = images_directory / f"ballot-nameless-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())

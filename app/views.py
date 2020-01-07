@@ -91,5 +91,5 @@ async def ballot_image(name: str, ballot: Dict, share: str):
     if ballot is None:
         return await send_from_directory(settings.IMAGES_DIRECTORY, "logo.png")
 
-    image, mimetype = utils.render_image(name, ballot, share, "JPEG")
+    image, mimetype = utils.render_image(name, ballot, share, "PNG")
     return await send_file(image, mimetype)
