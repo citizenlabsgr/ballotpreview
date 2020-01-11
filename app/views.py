@@ -21,12 +21,18 @@ app = Quart(__name__)
 @app.route("/")
 async def index():
     elections = await api.get_elections()
-    return await render_template("index.html", elections=elections)
+
+    for election in elections:
+        if election["active"]:
+            return redirect(url_for("election", election_id=election["id"]))
+
+    return redirect(url_for("elections"))
 
 
 @app.route("/elections/")
 async def elections():
-    return redirect(url_for("index"))
+    elections = await api.get_elections()
+    return await render_template("elections.html", elections=elections)
 
 
 @app.route("/elections/<election_id>/", methods=["GET", "POST"])
