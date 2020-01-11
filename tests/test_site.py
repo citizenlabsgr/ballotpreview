@@ -9,20 +9,20 @@ def get_html(response):
 
 def describe_index():
     @pytest.mark.asyncio
-    async def it_links_to_elections(app, expect):
+    async def it_redirects_to_active_election(app, expect):
         client = app.test_client()
         response = await client.get("/")
         html = get_html(response)
-        expect(html).contains("State General")
+        expect(html).contains('redirected to <a href="/elections/38/">')
 
 
 def describe_elections():
     @pytest.mark.asyncio
-    async def it_includes_election_names(app, expect):
+    async def it_links_to_elections(app, expect):
         client = app.test_client()
         response = await client.get("/elections/")
         html = get_html(response)
-        expect(html).contains('redirected to <a href="/">')
+        expect(html).contains("State General")
 
 
 def describe_election():
