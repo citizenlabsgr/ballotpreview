@@ -77,15 +77,14 @@ def render_image(
 ) -> Tuple[io.BytesIO, str]:
     width, height = settings.TARGET_SIZES[target]
     image = Image.new("RGB", (width, height), color=settings.DEFAULT_COLOR)
-
-    unit = height // 20
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("app/fonts/OpenSans-Regular.ttf", size=unit * 4)
 
     title = _get_title(share, positions, proposals)
+    font, cutoff = _get_font(title, width, height)
     draw.text((0, 0), title, font=font)
 
     response = _get_response(share, positions, proposals, votes)
+    font, cutoff = _get_font(response, width, height)
     draw.text((0, height // 2), response, font=font)
 
     stream = io.BytesIO()
@@ -132,3 +131,17 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
         return vote.title()
 
     raise LookupError(f"{vote} not found in {positions} or {proposals}")
+
+
+def _get_font(text: str, image_width: int, image_height: int, minimum_size=8):
+    font = ImageFont.truetype("app/fonts/OpenSans-Regular.ttf", size=minimum_size)
+    cutoff = True
+
+    for size in range(image_height // 4, minimum_size, -1):
+        font = ImageFont.truetype("app/fonts/OpenSans-Regular.ttf", size=size)
+        text_width, text_height = font.getsize(text)
+        if text_width < image_width:
+            cutoff = False
+            break
+
+    return font, cutoff
