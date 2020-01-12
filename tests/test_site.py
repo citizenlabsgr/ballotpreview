@@ -165,6 +165,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).excludes("Share This Ballot")
             expect(html).excludes("Find Your Ballot")
+            expect(html).contains("official ballot")
 
         @pytest.mark.asyncio
         async def it_shows_share_button_after_voting(app, expect):
@@ -175,6 +176,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("Share This Ballot")
             expect(html).excludes("Find Your Ballot")
+            expect(html).contains("official ballot")
 
         @pytest.mark.asyncio
         async def it_shows_find_button_after_sharing(app, expect):
@@ -185,6 +187,8 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("Find Your Ballot")
             expect(html).excludes("Share This Ballot")
+            expect(html).contains(" disabled>")
+            expect(html).excludes("official ballot")
 
     def describe_post():
         @pytest.mark.asyncio
