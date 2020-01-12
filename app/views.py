@@ -64,11 +64,12 @@ async def ballot(election_id: int, precinct_id: int):
     params = request.args
     name = params.pop("name", None)
     share = params.pop("share", None)
+    target = params.pop("target", None)
 
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 
-    if share:
-        return await ballot_image(name, ballot, share)
+    if target:
+        return await ballot_image(name, ballot, share, target)
 
     if ballot is None:
         return await render_template("ballot_404.html", name=name), 404
@@ -93,9 +94,9 @@ async def ballot(election_id: int, precinct_id: int):
     )
 
 
-async def ballot_image(name: str, ballot: Dict, share: str):
+async def ballot_image(name: str, ballot: Dict, share: str, target: str):
     if ballot is None:
         return await send_from_directory(settings.IMAGES_DIRECTORY, "logo.png")
 
-    image, mimetype = utils.render_image(name, ballot, share, "PNG")
+    image, mimetype = utils.render_image(name, ballot, share, target, "PNG")
     return await send_file(image, mimetype)

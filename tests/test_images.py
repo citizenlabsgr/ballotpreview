@@ -25,14 +25,14 @@ def images_directory():
 def describe_images():
     def with_name(ballot, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image("Jane", ballot, target, "PNG")
+            image, _ = utils.render_image("Jane", ballot, "invalid", target, "PNG")
             path = images_directory / f"ballot-name-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())
 
     def without_name(ballot, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image("", ballot, target, "PNG")
+            image, _ = utils.render_image("", ballot, "invalid", target, "PNG")
             path = images_directory / f"ballot-nameless-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())
