@@ -1,5 +1,5 @@
 import io
-from typing import Dict, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import log
 from PIL import Image, ImageDraw, ImageFont
@@ -69,12 +69,10 @@ def _get_seats(positions: Dict, position_id: int) -> int:
 def render_image(
     extension: str,
     *,
-    name: str,
     share: str,
     target: str,
-    ballot: Dict,
-    positions: Dict,
-    proposals: Dict,
+    positions: List,
+    proposals: List,
     votes: Dict,
 ) -> Tuple[io.BytesIO, str]:
     width, height = settings.TARGET_SIZES[target]
@@ -84,10 +82,53 @@ def render_image(
     draw = ImageDraw.Draw(image)
     font = ImageFont.truetype("app/fonts/OpenSans-Regular.ttf", size=unit * 4)
 
-    item = positions.get(share) or proposals[share]
-    draw.text((unit, unit), item["name"], font=font)
+    title = _get_title(share, positions, proposals)
+    draw.text((0, 0), title, font=font)
+
+    response = _get_response(share, positions, proposals, votes)
+    draw.text((0, height // 2), response, font=font)
 
     stream = io.BytesIO()
     image.save(stream, format=extension)
 
     return stream, Image.MIME[extension]
+
+
+def _get_title(share: str, positions: List, proposals: List):
+    category, _key = share.split("-")
+    key = int(_key)
+
+    if category == "position":
+        for position in positions:
+            if position["id"] == key:
+                return position["name"]
+
+    if category == "proposal":
+        for proposal in proposals:
+            if proposal["id"] == key:
+                return proposal["name"]
+
+    raise LookupError(f"{share} not found in {positions} or {proposals}")
+
+
+def _get_response(share: str, positions: List, proposals: List, votes: Dict):
+    category, _key = share.split("-")
+    key = int(_key)
+
+    vote = votes.get(share)
+    if not vote:
+        return "???"
+
+    if category == "position":
+        for position in positions:
+            if position["id"] == key:
+
+                key2 = int(vote.split("-")[1])
+                for candidate in position["candidates"]:
+                    if candidate["id"] == key2:
+                        return candidate["name"]
+
+    if category == "proposal":
+        return vote.title()
+
+    raise LookupError(f"{vote} not found in {positions} or {proposals}")
