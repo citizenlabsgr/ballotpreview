@@ -10,6 +10,7 @@ def get_html(response):
 
 
 def describe_index():
+    @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_redirects_to_active_election(app, expect):
         client = app.test_client()
@@ -19,6 +20,7 @@ def describe_index():
 
 
 def describe_elections():
+    @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_links_to_elections(app, expect):
         client = app.test_client()
@@ -28,6 +30,7 @@ def describe_elections():
 
 
 def describe_election():
+    @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_includes_election_name(app, expect):
         client = app.test_client()
@@ -35,6 +38,7 @@ def describe_election():
         html = get_html(response)
         expect(html).contains("State General")
 
+    @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_redirects_to_ballot_with_valid_voter_information(app, expect):
         client = app.test_client()
@@ -52,6 +56,7 @@ def describe_election():
             'redirected to <a href="/elections/3/precincts/1173/?name=Rosalynn">'
         )
 
+    @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_display_error_with_invalid_voter_information(app, expect):
         client = app.test_client()
@@ -72,6 +77,7 @@ def describe_election():
 
 def describe_ballot():
     def describe_get():
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_includes_ballot_items(app, expect):
             client = app.test_client()
@@ -80,6 +86,7 @@ def describe_ballot():
             expect(html).contains("Attorney General")
             expect(html).contains("18-1")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_redirects_to_remove_extra_votes(app, expect):
             client = app.test_client()
@@ -90,6 +97,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("?position-5068=candidate-21490</a>")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_redirects_to_remove_extra_votes_based_on_seats(app, expect):
             client = app.test_client()
@@ -102,6 +110,7 @@ def describe_ballot():
                 "?position-710=candidate-10590&position-710=candidate-10589</a>"
             )
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_redirects_to_remove_invalid_votes(app, expect):
             client = app.test_client()
@@ -112,6 +121,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("?position-5068=candidate-21490</a>")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_redirects_to_remove_unknown_positions(app, expect):
             client = app.test_client()
@@ -122,6 +132,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("?position-5068=candidate-21490</a>")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_redirects_to_remove_unknown_proposals(app, expect):
             client = app.test_client()
@@ -132,6 +143,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("?position-5068=candidate-21490</a>")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_redirects_to_remove_unknown_keys(app, expect):
             client = app.test_client()
@@ -142,6 +154,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("?position-5068=candidate-21490</a>")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_keeps_name_through_redirect(app, expect):
             client = app.test_client()
@@ -152,6 +165,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("?name=Jane</a>")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_handles_unknown_ballots(app, expect):
             client = app.test_client()
@@ -160,6 +174,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("can't find a sample ballot")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_hides_share_button_when_no_votes(app, expect):
             client = app.test_client()
@@ -169,6 +184,7 @@ def describe_ballot():
             expect(html).excludes("Find Your Ballot")
             expect(html).contains("official ballot")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_shows_share_button_after_voting(app, expect):
             client = app.test_client()
@@ -180,6 +196,7 @@ def describe_ballot():
             expect(html).excludes("Find Your Ballot")
             expect(html).contains("official ballot")
 
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_shows_find_button_after_sharing(app, expect):
             client = app.test_client()
@@ -193,6 +210,7 @@ def describe_ballot():
             expect(html).excludes("official ballot")
 
     def describe_post():
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_adds_votes_to_url(app, expect):
             client = app.test_client()

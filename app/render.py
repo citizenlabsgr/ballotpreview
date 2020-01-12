@@ -78,11 +78,13 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
     raise LookupError(f"{vote} not found in {positions} or {proposals}")
 
 
-def _get_font(text: str, image_width: int, image_height: int, minimum_size=8):
+def _get_font(text: str, image_width: int, image_height: int):
+    maximum_size = image_height // 5
+    minimum_size = max(10, image_height // 40)
     font = ImageFont.truetype(settings.DEFAULT_FONT, size=minimum_size)
     cutoff = True
 
-    for size in range(image_height // 4, minimum_size, -1):
+    for size in range(maximum_size, minimum_size, -1):
         font = ImageFont.truetype(settings.DEFAULT_FONT, size=size)
         text_width, _text_height = font.getsize(text)
         if text_width < image_width:
