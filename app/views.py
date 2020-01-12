@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 
 import log
 from quart import (
@@ -69,7 +69,13 @@ async def ballot(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 
     if target:
-        return await ballot_image(name, ballot, share, target)
+        return await ballot_image(
+            share=share,
+            target=target,
+            positions=positions,
+            proposals=proposals,
+            votes=params,
+        )
 
     if ballot is None:
         return await render_template("ballot_404.html", name=name), 404
@@ -94,9 +100,18 @@ async def ballot(election_id: int, precinct_id: int):
     )
 
 
-async def ballot_image(name: str, ballot: Dict, share: str, target: str):
+async def ballot_image(
+    share: str, target: str, positions: List, proposals: List, votes: Dict,
+):
     if ballot is None:
         return await send_from_directory(settings.IMAGES_DIRECTORY, "logo.png")
 
-    image, mimetype = utils.render_image(name, ballot, share, target, "PNG")
+    image, mimetype = utils.render_image(
+        "PNG",
+        share=share,
+        target=target,
+        positions=positions,
+        proposals=proposals,
+        votes=votes,
+    )
     return await send_file(image, mimetype)
