@@ -5,20 +5,16 @@
 <!-- Primary Meta Tags -->
 <title>Ballot Preview</title>
 <meta name="title" content="Michigan Ballot Preview">
-<meta name="description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
+<meta name="description" content="The {{ ballot['election']['name'] }} is important. Here's how {% if name %}{{ name }} plans{% else %}I plan{% endif %} to vote.">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://share.michiganelections.io/">
-<meta property="og:title" content="Michigan Ballot Preview">
-<meta property="og:description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
+<meta property="og:url" content="{{ request.url }}">
 <meta property="og:image" content="{{ request.url }}&target=facebook">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://share.michiganelections.io/">
-<meta property="twitter:title" content="Michigan Ballot Preview">
-<meta property="twitter:description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
+<meta property="twitter:url" content="{{ request.url }}">
 <meta property="twitter:image" content="{{ request.url }}&target=twitter">
 
 {% endblock %}
