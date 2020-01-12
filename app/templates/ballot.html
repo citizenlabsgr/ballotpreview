@@ -181,6 +181,7 @@
 <h4 class="text-muted">(no proposals on this ballot)</h4>
 {% endfor %}
 
+{% if "share=" not in request.query_string|string %}
 <p class="text-right">
 Something seem off? View your
 <a href="{{ ballot['mi_sos_url'] }}" target="_blank">official ballot<a>
@@ -195,6 +196,7 @@ to let us know.
     <a href="{{ request.url }}" class="btn btn-danger" role="button">Discard Changes</a>
 </div>
 </div>
+{% endif %}
 
 </form>
 
