@@ -21,24 +21,31 @@ def image(
     image_data = Image.new("RGB", (width, height), color=settings.BLACK)
     draw = ImageDraw.Draw(image_data)
 
+    # Title text
     border = unit
-
-    title = _get_title(share, positions, proposals)
-    font, cutoff = _get_font(title, width - (2 * border), height)
-    draw.text((border, 0), title, fill=settings.WHITE, font=font)
+    text = _get_title(share, positions, proposals)
+    font, cutoff = _get_font(text, width - (2 * border), height)
+    draw.text((border, 0), text, fill=settings.WHITE, font=font)
     if cutoff:
-        log.warn(f"{title!r} was cut off for {target!r}")
+        log.warn(f"{text!r} was cut off for {target!r}")
 
+    # Response box
     border = 2 * unit
     draw.rectangle(
         ((border, height // 2), (width - border, height - border)), fill=settings.WHITE,
     )
 
-    response = _get_response(share, positions, proposals, votes)
-    font, cutoff = _get_font(response, width - (4 * border), height)
-    draw.text((2 * border, height // 2), response, fill=settings.BLACK, font=font)
+    # Response text
+    mark, fill, text = _get_response(share, positions, proposals, votes)
+    font, cutoff = _get_font(mark + " " + text, width - (4 * border), height)
+    draw.text(
+        ((2 * border), height // 2), mark + " " + text, fill=settings.BLACK, font=font,
+    )
     if cutoff:
-        log.warn(f"{response!r} was cut off for {target!r}")
+        log.warn(f"{text!r} was cut off for {target!r}")
+
+    # Response mark
+    draw.text((2 * border, height // 2), mark, fill=fill, font=font)
 
     stream = io.BytesIO()
     image_data.save(stream, format=extension)
@@ -69,7 +76,7 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
 
     vote = votes.get(share)
     if not vote:
-        return "???"
+        return "?", settings.GRAY, "Undecided"
 
     if category == "position":
         for position in positions:
@@ -78,10 +85,14 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
                 key2 = int(vote.split("-")[1])
                 for candidate in position["candidates"]:
                     if candidate["id"] == key2:
-                        return candidate["name"]
+                        return "■", candidate["party"]["color"], candidate["name"]
 
     if category == "proposal":
-        return vote.title()
+        return (
+            "☑" if vote == "approve" else "☒",
+            settings.GREEN if vote == "approve" else settings.RED,
+            vote.title(),
+        )
 
     raise LookupError(f"{vote} not found in {positions} or {proposals}")
 
