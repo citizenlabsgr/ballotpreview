@@ -7,7 +7,7 @@
 <ul>
 {% for election in elections %}
     <li>
-        <a href="{{ url_for('election', election_id=election['id']) }}">
+        <a href="{{ url_for('election_detail', election_id=election['id']) }}">
             {{ election['name'] }} ({{ election['date'] }})
         </a>
     </li>

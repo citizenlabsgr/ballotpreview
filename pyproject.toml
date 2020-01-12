@@ -32,6 +32,7 @@ black = "=19.10b0"
 
 # Type Checking
 mypy = "*"
+pylint = "*"
 
 # Testing
 pytest = "^5.0"

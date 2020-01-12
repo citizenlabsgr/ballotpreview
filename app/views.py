@@ -3,7 +3,6 @@ from typing import Dict, List
 import log
 from quart import (
     Quart,
-    abort,
     redirect,
     render_template,
     request,
@@ -12,7 +11,7 @@ from quart import (
     url_for,
 )
 
-from . import api, settings, utils
+from . import api, render, settings, utils
 
 
 app = Quart(__name__)
@@ -24,19 +23,19 @@ async def index():
 
     for election in elections:
         if election["active"]:
-            return redirect(url_for("election", election_id=election["id"]))
+            return redirect(url_for("election_detail", election_id=election["id"]))
 
-    return redirect(url_for("elections"))
+    return redirect(url_for("election_list"))
 
 
 @app.route("/elections/")
-async def elections():
+async def election_list():
     elections = await api.get_elections()
-    return await render_template("elections.html", elections=elections)
+    return await render_template("election_list.html", elections=elections)
 
 
 @app.route("/elections/<election_id>/", methods=["GET", "POST"])
-async def election(election_id: int):
+async def election_detail(election_id: int):
     election = await api.get_election(election_id)
 
     if request.method == "POST":
@@ -46,7 +45,7 @@ async def election(election_id: int):
             precinct_id = status["precinct"]["id"]
             return redirect(
                 url_for(
-                    "ballot",
+                    "ballot_detail",
                     election_id=election_id,
                     precinct_id=precinct_id,
                     name=form["first_name"],
@@ -54,13 +53,15 @@ async def election(election_id: int):
             )
 
         log.warning(f"Not registered: {form}")
-        return redirect(url_for("election", election_id=election_id, **form))
+        return redirect(url_for("election_detail", election_id=election_id, **form))
 
-    return await render_template("election.html", election=election, voter=request.args)
+    return await render_template(
+        "election_detail.html", election=election, voter=request.args
+    )
 
 
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
-async def ballot(election_id: int, precinct_id: int):
+async def ballot_detail(election_id: int, precinct_id: int):
     params = request.args
     name = params.pop("name", None)
     share = params.pop("share", None)
@@ -72,6 +73,7 @@ async def ballot(election_id: int, precinct_id: int):
         return await ballot_image(
             share=share,
             target=target,
+            ballot=ballot,
             positions=positions,
             proposals=proposals,
             votes=params,
@@ -87,11 +89,16 @@ async def ballot(election_id: int, precinct_id: int):
         if name:
             votes["name"] = name
         return redirect(
-            url_for("ballot", election_id=election_id, precinct_id=precinct_id, **votes)
+            url_for(
+                "ballot_detail",
+                election_id=election_id,
+                precinct_id=precinct_id,
+                **votes,
+            )
         )
 
     return await render_template(
-        "ballot.html",
+        "ballot_detail.html",
         name=name,
         ballot=ballot,
         positions=positions,
@@ -101,12 +108,17 @@ async def ballot(election_id: int, precinct_id: int):
 
 
 async def ballot_image(
-    share: str, target: str, positions: List, proposals: List, votes: Dict,
+    share: str,
+    target: str,
+    ballot: Dict,
+    positions: List,
+    proposals: List,
+    votes: Dict,
 ):
     if ballot is None:
         return await send_from_directory(settings.IMAGES_DIRECTORY, "logo.png")
 
-    image, mimetype = utils.render_image(
+    image, mimetype = render.image(
         "PNG",
         share=share,
         target=target,

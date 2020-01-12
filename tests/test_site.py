@@ -1,3 +1,5 @@
+# pylint: disable=redefined-outer-name,unused-argument,unused-variable,expression-not-assigned
+
 from urllib.parse import unquote
 
 import pytest

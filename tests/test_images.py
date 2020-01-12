@@ -1,9 +1,11 @@
+# pylint: disable=redefined-outer-name,unused-argument,unused-variable,expression-not-assigned
+
 import shutil
 from pathlib import Path
 
 import pytest
 
-from app import settings, utils
+from app import render, settings
 
 
 @pytest.fixture(scope="session")
@@ -59,7 +61,7 @@ def images_directory():
 def describe_images():
     def with_position_vote(positions, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image(
+            image, _ = render.image(
                 "PNG",
                 share="position-5141",
                 target=target,
@@ -73,7 +75,7 @@ def describe_images():
 
     def with_position_nonvote(positions, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image(
+            image, _ = render.image(
                 "PNG",
                 share="position-5141",
                 target=target,
@@ -87,7 +89,7 @@ def describe_images():
 
     def with_proposal_approve(proposals, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image(
+            image, _ = render.image(
                 "PNG",
                 share="proposal-1882",
                 target=target,
@@ -101,7 +103,7 @@ def describe_images():
 
     def with_proposal_reject(proposals, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image(
+            image, _ = render.image(
                 "PNG",
                 share="proposal-123",
                 target=target,
@@ -115,7 +117,7 @@ def describe_images():
 
     def with_proposal_nonvote(proposals, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = utils.render_image(
+            image, _ = render.image(
                 "PNG",
                 share="proposal-1882",
                 target=target,
@@ -129,7 +131,7 @@ def describe_images():
 
     def with_unknown_share_position(expect, positions, proposals):
         with expect.raises(LookupError):
-            utils.render_image(
+            render.image(
                 "PNG",
                 share="position-99999",
                 target="default",
@@ -140,7 +142,7 @@ def describe_images():
 
     def with_unknown_share_proposal(expect, positions, proposals):
         with expect.raises(LookupError):
-            utils.render_image(
+            render.image(
                 "PNG",
                 share="proposal-99999",
                 target="default",
@@ -151,7 +153,7 @@ def describe_images():
 
     def with_unknown_vote_position(expect, positions, proposals):
         with expect.raises(LookupError):
-            utils.render_image(
+            render.image(
                 "PNG",
                 share="position-5141",
                 target="default",
