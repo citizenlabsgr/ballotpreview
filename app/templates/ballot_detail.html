@@ -184,7 +184,7 @@
 {% if "share=" not in request.query_string|string %}
 <p class="text-right">
 Something seem off? View your
-<a href="{{ ballot['mi_sos_url'] }}" target="_blank">official ballot<a>
+<a href="{{ ballot['mi_sos_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank">official ballot<a>
 and open
 <a href="https://github.com/citizenlabsgr/ballotshare/issues" target="_blank">an issue</a>
 to let us know.
