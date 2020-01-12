@@ -60,14 +60,25 @@ def _get_title(share: str, positions: List, proposals: List):
     if category == "position":
         for position in positions:
             if position["id"] == key:
-                return position["name"]
+                return _shorten(position["name"])
 
     if category == "proposal":
         for proposal in proposals:
             if proposal["id"] == key:
-                return proposal["name"]
+                return _shorten(proposal["name"])
 
     raise LookupError(f"{share} not found in {positions} or {proposals}")
+
+
+def _shorten(text: str) -> str:
+    words = text.split(" ")
+
+    line = " ".join(words)
+    while len(line) > 30:
+        words.pop()
+        line = " ".join(words)
+
+    return line
 
 
 def _get_response(share: str, positions: List, proposals: List, votes: Dict):
