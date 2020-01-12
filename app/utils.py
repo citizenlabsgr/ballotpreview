@@ -67,7 +67,14 @@ def _get_seats(positions: Dict, position_id: int) -> int:
 
 
 def render_image(
-    name: str, ballot: Dict, share: str, target: str, ext: str
+    extension: str,
+    *,
+    name: str,
+    share: str,
+    target: str,
+    ballot: Dict,
+    positions: Dict,
+    proposals: Dict,
 ) -> Tuple[io.BytesIO, str]:
     width, height = settings.TARGET_SIZES[target]
     image = Image.new("RGB", (width, height), color=settings.DEFAULT_COLOR)
@@ -81,9 +88,9 @@ def render_image(
         draw.text((unit, unit + shift), line, font=font)
 
     stream = io.BytesIO()
-    image.save(stream, format=ext)
+    image.save(stream, format=extension)
 
-    return stream, Image.MIME[ext]
+    return stream, Image.MIME[extension]
 
 
 def _get_lines(name: str, ballot: Dict):
