@@ -23,7 +23,7 @@ def validate_ballot(
         elif key.startswith("proposal-"):
             proposal_id = int(key.split("-")[-1])
             if _get_proposal(proposals, proposal_id):
-                if value in {"yes", "no"}:
+                if value in {"approve", "reject"}:
                     votes[key] = value
                 else:
                     log.warning(f"Removed unexpected proposal choice: {value}")

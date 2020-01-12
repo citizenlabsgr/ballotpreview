@@ -31,16 +31,21 @@ def positions():
 @pytest.fixture(scope="session")
 def proposals():
     return [
+        {"id": 123, "name": "Proposal 123",},
         {
             "id": 1882,
             "name": "Millage Renewal Proposition .9672 Mill For Operation of County-wide E-911 Emergency Answering and Dispatch System",
-        }
+        },
     ]
 
 
 @pytest.fixture(scope="session")
 def votes():
-    return {"position-5141": "candidate-21685", "proposal-1882": "yes"}
+    return {
+        "position-5141": "candidate-21685",
+        "proposal-1882": "approve",
+        "proposal-123": "reject",
+    }
 
 
 @pytest.fixture(scope="session")
@@ -80,7 +85,7 @@ def describe_images():
             with path.open("wb") as f:
                 f.write(image.getvalue())
 
-    def with_proposal_vote(proposals, votes, images_directory):
+    def with_proposal_approve(proposals, votes, images_directory):
         for target in settings.TARGET_SIZES:
             image, _ = utils.render_image(
                 "PNG",
@@ -90,7 +95,21 @@ def describe_images():
                 proposals=proposals,
                 votes=votes,
             )
-            path = images_directory / f"proposal-vote-{target}.png"
+            path = images_directory / f"proposal-approve-{target}.png"
+            with path.open("wb") as f:
+                f.write(image.getvalue())
+
+    def with_proposal_reject(proposals, votes, images_directory):
+        for target in settings.TARGET_SIZES:
+            image, _ = utils.render_image(
+                "PNG",
+                share="proposal-123",
+                target=target,
+                positions=[],
+                proposals=proposals,
+                votes=votes,
+            )
+            path = images_directory / f"proposal-reject-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())
 
