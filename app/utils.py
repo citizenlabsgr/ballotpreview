@@ -75,6 +75,7 @@ def render_image(
     ballot: Dict,
     positions: Dict,
     proposals: Dict,
+    votes: Dict,
 ) -> Tuple[io.BytesIO, str]:
     width, height = settings.TARGET_SIZES[target]
     image = Image.new("RGB", (width, height), color=settings.DEFAULT_COLOR)
@@ -83,22 +84,10 @@ def render_image(
     draw = ImageDraw.Draw(image)
     font = ImageFont.truetype("app/fonts/OpenSans-Regular.ttf", size=unit * 4)
 
-    for index, line in enumerate(_get_lines(name, ballot)):
-        shift = index * unit * 6
-        draw.text((unit, unit + shift), line, font=font)
+    item = positions.get(share) or proposals[share]
+    draw.text((unit, unit), item["name"], font=font)
 
     stream = io.BytesIO()
     image.save(stream, format=extension)
 
     return stream, Image.MIME[extension]
-
-
-def _get_lines(name: str, ballot: Dict):
-    if name:
-        yield f"{name} will vote!"
-    else:
-        yield "I will vote!"
-
-    yield ballot["election"]["name"]
-
-    yield "on " + ballot["election"]["date"]

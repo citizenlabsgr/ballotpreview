@@ -16,12 +16,16 @@ def ballot():
 
 @pytest.fixture(scope="session")
 def positions():
-    return {}
+    return {"position-42": {"name": "President of the United State"}}
 
 
 @pytest.fixture(scope="session")
 def proposals():
-    return {}
+    return {
+        "proposal-42": {
+            "name": "Millage Renewal Proposition .9672 Mill For Operation of County-wide E-911 Emergency Answering and Dispatch System"
+        }
+    }
 
 
 @pytest.fixture(scope="session")
@@ -33,32 +37,34 @@ def images_directory():
 
 
 def describe_images():
-    def with_name(ballot, positions, proposals, images_directory):
+    def with_position(ballot, positions, images_directory):
         for target in settings.TARGET_SIZES:
             image, _ = utils.render_image(
                 "PNG",
                 name="Jane",
-                share="invalid",
+                share="position-42",
                 target=target,
                 ballot=ballot,
                 positions=positions,
-                proposals=proposals,
+                proposals={},
+                votes={},
             )
-            path = images_directory / f"ballot-name-{target}.png"
+            path = images_directory / f"position-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())
 
-    def without_name(ballot, positions, proposals, images_directory):
+    def with_proposal(ballot, proposals, images_directory):
         for target in settings.TARGET_SIZES:
             image, _ = utils.render_image(
                 "PNG",
-                name="",
-                share="invalid",
+                name="Jane",
+                share="proposal-42",
                 target=target,
                 ballot=ballot,
-                positions=positions,
+                positions={},
                 proposals=proposals,
+                votes={},
             )
-            path = images_directory / f"ballot-nameless-{target}.png"
+            path = images_directory / f"proposal-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())

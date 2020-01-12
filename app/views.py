@@ -76,6 +76,7 @@ async def ballot(election_id: int, precinct_id: int):
             ballot=ballot,
             positions=positions,
             proposals=proposals,
+            votes=params,
         )
 
     if ballot is None:
@@ -102,7 +103,13 @@ async def ballot(election_id: int, precinct_id: int):
 
 
 async def ballot_image(
-    name: str, share: str, target: str, ballot: Dict, positions: Dict, proposals: Dict
+    name: str,
+    share: str,
+    target: str,
+    ballot: Dict,
+    positions: Dict,
+    proposals: Dict,
+    votes: Dict,
 ):
     if ballot is None:
         return await send_from_directory(settings.IMAGES_DIRECTORY, "logo.png")
@@ -115,5 +122,6 @@ async def ballot_image(
         ballot=ballot,
         positions=positions,
         proposals=proposals,
+        votes=votes,
     )
     return await send_file(image, mimetype)
