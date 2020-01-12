@@ -58,6 +58,7 @@ ifdef CI
 	git diff --exit-code
 endif
 	poetry run mypy app tests
+	poetry run pylint app tests
 
 .PHONY: test
 test: install
