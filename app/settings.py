@@ -2,9 +2,12 @@ from pathlib import Path
 
 
 IMAGES_DIRECTORY = Path.cwd() / "app" / "images"
+FONTS_DIRECTORY = Path.cwd() / "app" / "fonts"
 
-DEFAULT_COLOR = (0xF6, 0x52, 0x21)  # Citizen Labs Orange
-DEFAULT_FONT = str(Path.cwd() / "app" / "fonts" / "OpenSans-Regular.ttf")
+FONT = FONTS_DIRECTORY / "OpenSans-Regular.ttf"
+
+BLACK = "#000000"
+WHITE = "#FFFFFF"
 
 TARGET_SIZES = {
     "default": (400, 200),
