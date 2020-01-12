@@ -12,14 +12,14 @@
 <meta property="og:url" content="https://share.michiganelections.io/">
 <meta property="og:title" content="Michigan Ballot Preview">
 <meta property="og:description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
-<meta property="og:image" content="{{ request.url }}&share=facebook">
+<meta property="og:image" content="{{ request.url }}&target=facebook">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://share.michiganelections.io/">
 <meta property="twitter:title" content="Michigan Ballot Preview">
 <meta property="twitter:description" content="Share how you plan to vote in the Michigan {{ ballot['election']['name'] }}.">
-<meta property="twitter:image" content="{{ request.url }}&share=twitter">
+<meta property="twitter:image" content="{{ request.url }}&target=twitter">
 
 {% endblock %}
 {% block content %}
@@ -45,8 +45,29 @@
     </h5>
 
     <div>
-        <button id="copy" type="button" class="btn btn-primary" data-clipboard-text="{{ request.url }}">Share This Ballot</button>
-        <a href="{{ url_for('election', election_id=ballot['election']['id']) }}" class="btn btn-secondary" role="button">Find Your Ballot</a>
+    {% if "share=" in request.url %}
+        <a href="{{ url_for('election', election_id=ballot['election']['id']) }}" class="btn btn-secondary" role="button">
+            Find Your Ballot
+        </a>
+    {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
+        <div class="dropdown" id="copy" data-clipboard-text="">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="share-menu-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Share This Ballot
+            </button>
+            <div class="dropdown-menu" aria-labelledby="share-menu-button">
+                {% for position in positions %}
+                    <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=position-{{ position['id'] }}">
+                        {{ position['name'] }}
+                    </button>
+                {% endfor %}
+                {% for proposal in proposals %}
+                    <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=proposal-{{ proposal['id'] }}">
+                        {{ proposal['name'] }}
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
     </div>
 </div>
 
@@ -179,42 +200,30 @@ to let us know.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
 
 <script>
 
-// Tooltip
-
-$('#copy').tooltip({
-  trigger: 'click',
-  placement: 'top'
-});
-
-function setTooltip(message) {
-  $('#copy').tooltip('hide')
-    .attr('data-original-title', message)
-    .tooltip('show');
-}
-
-function hideTooltip() {
-  setTimeout(function() {
-    $('#copy').tooltip('hide');
-  }, 5000);
-}
-
 // Clipboard
 
-var clipboard = new Clipboard('#copy');
+var clipboard = new Clipboard('.dropdown-item');
 
-clipboard.on('success', function(e) {
-  setTooltip('URL copied to clipboard!');
-  hideTooltip();
+clipboard.on('success', function(event) {
+    $.notify({
+        message: 'Ballot preview link copied to the clipboard!',
+    }, {
+        type: 'success',
+        delay: 3000,
+    });
 });
 
-clipboard.on('error', function(e) {
-  console.log(e);
-  hideTooltip();
+clipboard.on('error', function(event) {
+    console.log(event);
 });
 
 </script>
 
 {% endblock %}
+
+
+

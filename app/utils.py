@@ -67,7 +67,7 @@ def _get_seats(positions: Dict, position_id: int) -> int:
 
 
 def render_image(
-    name: str, ballot: Dict, target: str, ext: str
+    name: str, ballot: Dict, share: str, target: str, ext: str
 ) -> Tuple[io.BytesIO, str]:
     width, height = settings.TARGET_SIZES[target]
     image = Image.new("RGB", (width, height), color=settings.DEFAULT_COLOR)

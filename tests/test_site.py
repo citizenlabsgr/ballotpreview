@@ -158,6 +158,34 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("can't find a sample ballot")
 
+        @pytest.mark.asyncio
+        async def it_hides_share_button_when_no_votes(app, expect):
+            client = app.test_client()
+            response = await client.get("/elections/3/precincts/1172/?name=Jane")
+            html = get_html(response)
+            expect(html).excludes("Share This Ballot")
+            expect(html).excludes("Find Your Ballot")
+
+        @pytest.mark.asyncio
+        async def it_shows_share_button_after_voting(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/3/precincts/1172/?position-710=candidate-10590"
+            )
+            html = get_html(response)
+            expect(html).contains("Share This Ballot")
+            expect(html).excludes("Find Your Ballot")
+
+        @pytest.mark.asyncio
+        async def it_shows_find_button_after_sharing(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/3/precincts/1172/?share=position-710"
+            )
+            html = get_html(response)
+            expect(html).contains("Find Your Ballot")
+            expect(html).excludes("Share This Ballot")
+
     def describe_post():
         @pytest.mark.asyncio
         async def it_adds_votes_to_url(app, expect):
