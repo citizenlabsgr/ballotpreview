@@ -47,7 +47,7 @@
     </h5>
 
     <div>
-    {% if "share=" in request.url %}
+    {% if "share=" in request.query_string|string %}
         <a href="{{ url_for('election', election_id=ballot['election']['id']) }}" class="btn btn-primary" role="button">
             Find Your Ballot
         </a>
@@ -108,7 +108,8 @@
                         name="{{ position_key }}"
                         value="{{ candidate_key }}"
                         onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
-                        {% if candidate_key in votes[position_key] %}checked{% endif %}>
+                        {% if candidate_key in votes[position_key] %}checked{% endif %}
+                        {% if "share=" in request.query_string|string %}disabled{% endif %}>
                 <label class="form-check-label"
                         for="{{ position_key }}">
                     {{ candidate['name'] }}
@@ -152,7 +153,8 @@
                         name="{{ proposal_key }}"
                         value="approve"
                         onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
-                        {% if votes[proposal_key] == 'approve' %}checked{% endif %}>
+                        {% if votes[proposal_key] == 'approve' %}checked{% endif %}
+                        {% if "share=" in request.query_string|string %}disabled{% endif %}>
                 <label class="form-check-label" for="{{ proposal_key }}">
                     Yes
                 </label>
@@ -164,7 +166,8 @@
                         name="{{ proposal_key }}"
                         value="reject"
                         onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
-                        {% if votes[proposal_key] == 'reject' %}checked{% endif %}>
+                        {% if votes[proposal_key] == 'reject' %}checked{% endif %}
+                        {% if "share=" in request.query_string|string %}disabled{% endif %}>
                 <label class="form-check-label" for="{{ proposal_key }}">
                     No
                 </label>

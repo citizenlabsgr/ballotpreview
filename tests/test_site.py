@@ -185,6 +185,7 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("Find Your Ballot")
             expect(html).excludes("Share This Ballot")
+            expect(html).contains(" disabled>")
 
     def describe_post():
         @pytest.mark.asyncio
