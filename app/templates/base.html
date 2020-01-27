@@ -41,8 +41,12 @@
 
     </head>
     <body>
-        <div class="container m-5">
-        {% block content %}{% endblock %}
+        <div class="container">
+            <div class="row mt-sm-5 mt-2 mb-5">
+                <div class="col">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
         </div>
 
         {% block scripts %}{% endblock %}
