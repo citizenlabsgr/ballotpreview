@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 
@@ -20,3 +21,5 @@ WHITE = "#FFFFFF"
 GRAY = "#808080"
 GREEN = "#00bf00"
 RED = "#d12424"
+
+BUGSNAG_API_KEY = os.getenv("BUGSNAG_API_KEY")

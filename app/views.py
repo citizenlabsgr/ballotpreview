@@ -1,6 +1,8 @@
 from typing import Dict, List
 
+import bugsnag
 import log
+from bugsnag.flask import handle_exceptions
 from quart import (
     Quart,
     redirect,
@@ -14,7 +16,12 @@ from quart import (
 from . import api, render, settings, utils
 
 
+if settings.BUGSNAG_API_KEY:
+    bugsnag.configure(api_key=settings.BUGSNAG_API_KEY)
+
+
 app = Quart(__name__)
+handle_exceptions(app)
 
 
 @app.route("/")
@@ -80,6 +87,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
         )
 
     if ballot is None:
+        bugsnag.notify(LookupError(f"No ballot: {request.url}"))
         return await render_template("ballot_404.html", name=name), 404
 
     form = await request.form

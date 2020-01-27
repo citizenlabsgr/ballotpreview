@@ -1,6 +1,7 @@
 import io
 from typing import Dict, List, Tuple
 
+import bugsnag
 import log
 from PIL import Image, ImageDraw, ImageFont
 
@@ -24,10 +25,8 @@ def image(
     # Title text
     border = unit
     text = _get_title(share, positions, proposals)
-    font, cutoff = _get_font(text, width - (2 * border), height)
+    font = _get_font(text, width - (2 * border), height)
     draw.text((border, 0), text, fill=settings.WHITE, font=font)
-    if cutoff:
-        log.warn(f"{text!r} was cut off for {target!r}")
 
     # Response box
     border = 2 * unit
@@ -37,12 +36,10 @@ def image(
 
     # Response text
     mark, fill, text = _get_response(share, positions, proposals, votes)
-    font, cutoff = _get_font(mark + " " + text, width - (4 * border), height)
+    font = _get_font(mark + " " + text, width - (4 * border), height)
     draw.text(
         ((2 * border), height // 2), mark + " " + text, fill=settings.BLACK, font=font,
     )
-    if cutoff:
-        log.warn(f"{text!r} was cut off for {target!r}")
 
     # Response mark
     draw.text((2 * border, height // 2), mark, fill=fill, font=font)
@@ -121,4 +118,9 @@ def _get_font(text: str, image_width: int, image_height: int):
             cutoff = False
             break
 
-    return font, cutoff
+    if cutoff:
+        message = f"{text!r} was cut off for {image_width}x{image_height}"
+        log.warn(message)
+        bugsnag.notify(ValueError(message))
+
+    return font
