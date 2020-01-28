@@ -45,7 +45,7 @@ pytest-cov = "^2.7"
 pytest-watch = "^4.2"
 
 # Coverage
-coveragespace = "^3.1b3"
+coveragespace = "^3.1"
 
 # Utilities
 honcho = "^1.0"
