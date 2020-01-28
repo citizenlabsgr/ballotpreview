@@ -18,7 +18,7 @@ async def get_status(
     return data
 
 
-async def get_elections() -> Dict:
+async def get_elections() -> List:
     async with aiohttp.ClientSession() as session:
         async with session.get(f"{BASE_URL}/elections/?limit=1000") as response:
             data = await response.json()
