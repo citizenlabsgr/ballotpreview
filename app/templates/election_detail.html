@@ -2,7 +2,11 @@
 
 {% block content %}
 
-<h1>Michigan {{ election['name'] }} ({{ election['date'] }})</h1>
+<h1>Michigan Ballot Lookup</h1>
+
+<div class="ml-4 mb-4">
+    <h5>{{ election['name'] }} ({{ election['date'] }})</h5>
+</div>
 
 {% if voter['first_name'] %}
 
