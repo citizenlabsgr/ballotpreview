@@ -3,10 +3,11 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/elections/?limit=1000
+    uri: https://michiganelections.io/api/elections/
   response:
     body:
-      string: '{"count":6,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/elections/38/","id":38,"name":"Presidential
+      string: '{"count":7,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/elections/39/","id":39,"name":"May
+        Consolidated","date":"2020-05-05","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/May%20Consolidated.md","active":true,"reference_url":null},{"url":"http://michiganelections.io/api/elections/38/","id":38,"name":"Presidential
         Primary","date":"2020-03-10","description":"The presidential primary elections
         and caucuses held in the various states, the District of Columbia, and territories
         of the United States form part of the nominating process of candidates for
@@ -19,15 +20,15 @@ interactions:
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 5541b7968d71e1ea-ORD
+      CF-RAY: 55d5e0593da92511-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Sun, 12 Jan 2020 20:00:31 GMT
+      Date: Thu, 30 Jan 2020 19:33:14 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d987e22de74adeff6c11416a8666d8da41578859231; expires=Tue,
-        11-Feb-20 20:00:31 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=d4c2d305d8bc26eb3d56dabd28def15fe1580412793; expires=Sat,
+        29-Feb-20 19:33:13 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -36,5 +37,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/elections/?limit=1000
+    url: https://michiganelections.io/api/elections/
 version: 1

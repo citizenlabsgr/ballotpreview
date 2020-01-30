@@ -11,15 +11,15 @@ interactions:
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 5541b79a3a28f23e-ORD
+      CF-RAY: 55d5e0602e0154d2-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Sun, 12 Jan 2020 20:00:32 GMT
+      Date: Thu, 30 Jan 2020 19:33:15 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d94c1f16a5c60907d230574114f5395671578859232; expires=Tue,
-        11-Feb-20 20:00:32 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=dbbe2352c4e4a5a64ee34edd3485817011580412794; expires=Sat,
+        29-Feb-20 19:33:14 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -36,7 +36,7 @@ interactions:
     uri: https://michiganelections.io/api/registrations/?first_name=Rosalynn&last_name=Bliss&birth_date=1975-08-03&zip_code=49503
   response:
     body:
-      string: '{"registered":true,"absentee":false,"polling_location":["Mayfair Christian
+      string: '{"registered":true,"absentee":true,"polling_location":["Mayfair Christian
         Reformed Church","1736 Lyon Ne","Grand Rapids, Michigan 49503"],"precinct":{"url":"http://michiganelections.io/api/precincts/1173/","id":1173,"county":"Kent","jurisdiction":"City
         of Grand Rapids","ward":"2","number":"30"},"districts":[{"url":"http://michiganelections.io/api/districts/1/","id":1,"category":"Circuit
         Court District","name":"17th Circuit"},{"url":"http://michiganelections.io/api/districts/1548/","id":1548,"category":"Community
@@ -54,15 +54,15 @@ interactions:
     headers:
       Allow: GET, HEAD, OPTIONS
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 5541b79b89f92517-ORD
+      CF-RAY: 55d5e0635b165550-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Sun, 12 Jan 2020 20:00:33 GMT
+      Date: Thu, 30 Jan 2020 19:33:16 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d01e94d9e5906dbf35adfb1774e5d2da91578859232; expires=Tue,
-        11-Feb-20 20:00:32 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=dc5120957981195dccc942b7d1952c64e1580412795; expires=Sat,
+        29-Feb-20 19:33:15 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur

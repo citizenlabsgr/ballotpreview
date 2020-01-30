@@ -12,15 +12,15 @@ interactions:
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 5541b7bc1e21e20e-ORD
+      CF-RAY: 55d5e09b7e0af232-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Sun, 12 Jan 2020 20:00:38 GMT
+      Date: Thu, 30 Jan 2020 19:33:24 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=df87901361f2e0a5f7bf0c7c8bad013ff1578859237; expires=Tue,
-        11-Feb-20 20:00:37 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=dba0ad71be7db47102d5d864316471bb21580412804; expires=Sat,
+        29-Feb-20 19:33:24 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -67,15 +67,15 @@ interactions:
     headers:
       Allow: GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 5541b7bdec67e20a-ORD
+      CF-RAY: 55d5e0b508d5c524-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Sun, 12 Jan 2020 20:00:38 GMT
+      Date: Thu, 30 Jan 2020 19:33:28 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d66ec472c088e149eab759dad0d7774cf1578859238; expires=Tue,
-        11-Feb-20 20:00:38 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=d1829c57e37ed6be45b5ecf48f461a9e61580412808; expires=Sat,
+        29-Feb-20 19:33:28 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -109,15 +109,15 @@ interactions:
     headers:
       Allow: GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 5541b7bf9c652565-ORD
+      CF-RAY: 55d5e0b7bf46f232-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Sun, 12 Jan 2020 20:00:38 GMT
+      Date: Thu, 30 Jan 2020 19:33:29 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=dda539b9db76e23460f4d5b77a08690f51578859238; expires=Tue,
-        11-Feb-20 20:00:38 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=d2f0f3b4922f2dc2ea80d35ab74d11cd01580412808; expires=Sat,
+        29-Feb-20 19:33:28 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur

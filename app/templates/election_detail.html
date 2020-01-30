@@ -31,7 +31,7 @@
 
     <div class="form-group">
         <label for="birth-date">Birth Date</label>
-        <input type="date" class="form-control" id="birth-date" name="birth_date" value="{{ voter['birth_date'] }}" required>
+        <input type="date" class="form-control" id="birth-date" name="birth_date" value="{{ voter['birth_date'] }}" placeholder="yyyy-mm-dd" required pattern="\d{4}-\d{2}-\d{2}">
     </div>
 
     <div class="form-group">
