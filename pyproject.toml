@@ -3,8 +3,9 @@
 name = "ballotshare"
 version = "0.0"
 description = "Share how you plan to vote in Michigan."
-authors = ["Citizen Labs <hello@citizenlabs.org>"]
-license = "MIT"
+
+authors = ["Citizen Labs <info@citizenlabs.org>"]
+license = "GPLv3"
 
 packages = [
     { include = "app" },
