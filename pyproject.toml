@@ -16,7 +16,7 @@ python = "^3.7"
 
 # Server
 quart = "~0.10.0"
-bugsnag = { version = "^3.6.0", extras = ["flask"] }
+bugsnag = "^3.6.0"
 
 # Images
 pillow = "^7.0"

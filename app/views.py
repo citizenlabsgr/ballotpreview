@@ -2,7 +2,6 @@ from typing import Dict, List
 
 import bugsnag
 import log
-from bugsnag.flask import handle_exceptions
 from quart import (
     Quart,
     redirect,
@@ -13,7 +12,7 @@ from quart import (
     url_for,
 )
 
-from . import api, render, settings, utils
+from . import api, bugsnag_quart, render, settings, utils
 
 
 if settings.BUGSNAG_API_KEY:
@@ -21,7 +20,7 @@ if settings.BUGSNAG_API_KEY:
 
 
 app = Quart(__name__)
-handle_exceptions(app)
+bugsnag_quart.handle_exceptions(app)
 
 
 @app.route("/")
