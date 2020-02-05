@@ -3,14 +3,14 @@
 {% block meta %}
 
 <!-- Primary Meta Tags -->
-<title>Ballot Preview</title>
-<meta name="title" content="Michigan Ballot Preview">
+<title>Michigan Ballot Preview</title>
+<meta name="title" content="Vote on {{ ballot['election']['date_humanized'] }}">
 <meta name="description" content="The {{ ballot['election']['name'] }} is important. Here's how {% if name %}{{ name }} plans{% else %}I plan{% endif %} to vote.">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ request.url }}">
-<meta name="og:title" content="Michigan Ballot Preview">
+<meta name="og:title" content="Vote on {{ ballot['election']['date_humanized'] }}">
 <meta name="og:description" content="The {{ ballot['election']['name'] }} is important. Here's how {% if name %}{{ name }} plans{% else %}I plan{% endif %} to vote.">
 <meta property="og:image" content="{{ request.url }}&target=facebook">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ request.url }}">
-<meta property="twitter:title" content="Michigan Ballot Preview">
+<meta property="twitter:title" content="Vote on {{ ballot['election']['date_humanized'] }}">
 <meta property="twitter:description" content="The {{ ballot['election']['name'] }} is important. Here's how {% if name %}{{ name }} plans{% else %}I plan{% endif %} to vote.">
 <meta property="twitter:image" content="{{ request.url }}&target=twitter">
 
@@ -31,7 +31,12 @@
 <h1>{% if name %}{{ name }}'s{% endif %} Michigan Ballot Preview</h1>
 
 <div class="ml-4">
-    <h5>{{ ballot['election']['name'] }} ({{ ballot['election']['date'] }})</h5>
+    <h5>
+        {{ ballot['election']['name'] }}
+        <span class="text-muted">
+            ({{ ballot['election']['date_humanized'] }})
+        </span>
+    </h5>
 
     <h5>
         {{ ballot['precinct']['county'] }} County,
