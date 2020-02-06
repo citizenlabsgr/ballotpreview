@@ -16,7 +16,18 @@ async def get_status(
             data = await response.json()
 
     if "registered" not in data:
-        bugsnag.notify(ValueError(f"Invalid response: {url}"))
+        bugsnag.notify(
+            ValueError(f"No registration status: {url}"),
+            context="get_status",
+            meta_data={
+                "registration": {
+                    "first_name": first_name,
+                    "last_name": last_name,
+                    "birth_date": birth_date,
+                    "zip_code": zip_code,
+                }
+            },
+        )
         data = {"registered": False}
 
     return data
@@ -49,6 +60,15 @@ async def get_ballot(election_id: int, precinct_id: int) -> Tuple[Dict, List, Li
                 ballot = data["results"][0]
             except LookupError:
                 ballot = None
+
+        if ballot is None:
+            bugsnag.notify(
+                LookupError(f"No ballot: {url}"),
+                context="get_ballot",
+                meta_data={
+                    "ballot": {"election_id": election_id, "precinct_id": precinct_id}
+                },
+            )
 
     async with aiohttp.ClientSession() as session:
         url = f"{BASE_URL}/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"

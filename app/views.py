@@ -86,7 +86,6 @@ async def ballot_detail(election_id: int, precinct_id: int):
         )
 
     if ballot is None:
-        bugsnag.notify(LookupError(f"No ballot: {request.url}"))
         return await render_template("ballot_404.html", name=name), 404
 
     form = await request.form

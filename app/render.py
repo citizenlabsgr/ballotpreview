@@ -121,6 +121,6 @@ def _get_font(text: str, image_width: int, image_height: int):
     if cutoff:
         message = f"{text!r} was cut off for {image_width}x{image_height}"
         log.warn(message)
-        bugsnag.notify(ValueError(message))
+        bugsnag.notify(ValueError(message), context="get_font")
 
     return font
