@@ -3,7 +3,7 @@ from typing import Dict, List, Tuple
 
 import bugsnag
 import log
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 from . import settings
 
@@ -19,8 +19,15 @@ def image(
 ) -> Tuple[io.BytesIO, str]:
     width, height = settings.TARGET_SIZES[target]
     unit = max(1, height // 50)
-    image_data = Image.new("RGB", (width, height), color=settings.BLACK)
-    draw = ImageDraw.Draw(image_data)
+
+    # Background image
+    img = Image.open(settings.IMAGES_DIRECTORY / "michigan.jpg")
+    img = img.resize(settings.TARGET_SIZES[target])
+    converter = ImageEnhance.Color(img)
+    img = converter.enhance(0.25)
+    converter = ImageEnhance.Brightness(img)
+    img = converter.enhance(0.4)
+    draw = ImageDraw.Draw(img, "RGBA")
 
     # Title text
     border = unit
@@ -31,7 +38,8 @@ def image(
     # Response box
     border = 2 * unit
     draw.rectangle(
-        ((border, height // 2), (width - border, height - border)), fill=settings.WHITE,
+        ((border, height // 2), (width - border, height - border)),
+        fill=(255, 255, 255, 150),
     )
 
     # Response text
@@ -45,7 +53,7 @@ def image(
     draw.text((2 * border, height // 2), mark, fill=fill, font=font)
 
     stream = io.BytesIO()
-    image_data.save(stream, format=extension)
+    img.save(stream, format=extension)
 
     return stream, Image.MIME[extension]
 
@@ -84,7 +92,7 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
 
     vote = votes.get(share)
     if not vote:
-        return "?", settings.GRAY, "Undecided"
+        return "?", settings.PURPLE, "Undecided"
 
     if category == "position":
         for position in positions:
