@@ -16,10 +16,10 @@ FONTS_DIRECTORY = Path.cwd() / "app" / "fonts"
 
 FONT = FONTS_DIRECTORY / "SourceSansPro-Regular.ttf"
 
-BLACK = "#000000"
-WHITE = "#FFFFFF"
-GRAY = "#808080"
-GREEN = "#00bf00"
-RED = "#d12424"
+BLACK = (0, 0, 0)
+WHITE = (207, 207, 207)
+GREEN = (21, 173, 21)
+RED = (191, 33, 33)
+PURPLE = (135, 10, 163)
 
 BUGSNAG_API_KEY = os.getenv("BUGSNAG_API_KEY")
