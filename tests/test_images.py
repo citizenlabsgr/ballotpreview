@@ -9,6 +9,7 @@ from app import render, settings
 
 
 RESET_IMAGES = False
+REFRESH_RATE = 1
 IMAGE_KEYS = [
     "position-vote",
     "position-nonvote",
@@ -73,10 +74,11 @@ def images_directory():
 def index(images_directory):
     path = images_directory / "index.html"
     with path.open("w") as f:
-        f.write('<meta http-equiv="refresh" content="1">\n')
-        for key in IMAGE_KEYS:
-            path = images_directory / f"{key}-default.png"
-            f.write(f'<img src="{path}" style="padding: 10px;">\n')
+        f.write(f'<meta http-equiv="refresh" content="{REFRESH_RATE}">\n')
+        for target in ["default", "reddit"]:
+            for key in IMAGE_KEYS:
+                path = images_directory / f"{key}-{target}.png"
+                f.write(f'<img src="{path}" style="padding: 10px;">\n')
     return path
 
 
