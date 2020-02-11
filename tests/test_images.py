@@ -8,6 +8,16 @@ import pytest
 from app import render, settings
 
 
+RESET_IMAGES = False
+IMAGE_KEYS = [
+    "position-vote",
+    "position-nonvote",
+    "proposal-approve",
+    "proposal-reject",
+    "proposal-nonvote",
+]
+
+
 @pytest.fixture(scope="session")
 def positions():
     return [
@@ -53,8 +63,19 @@ def votes():
 @pytest.fixture(scope="session")
 def images_directory():
     path = IMAGES_DIRECTORY = Path.cwd() / "tests" / "images"
-    shutil.rmtree(path)
-    path.mkdir()
+    if RESET_IMAGES:
+        shutil.rmtree(path)
+        path.mkdir()
+    return path
+
+
+@pytest.fixture(scope="session", autouse=True)
+def index(images_directory):
+    path = images_directory / "index.html"
+    with path.open("w") as f:
+        for key in IMAGE_KEYS:
+            path = images_directory / f"{key}-default.png"
+            f.write(f'<img src="{path}" style="padding: 10px;">\n')
     return path
 
 
