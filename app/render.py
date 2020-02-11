@@ -30,27 +30,34 @@ def image(
     draw = ImageDraw.Draw(img, "RGBA")
 
     # Title text
-    border = unit
+    border = 4 * unit
     text = _get_title(share, positions, proposals)
     font = _get_font(text, width - (2 * border), height)
-    draw.text((border, 0), text, fill=settings.WHITE, font=font)
+    draw.text(
+        (border, height // 2 - border - int(font.size * 1.1)),
+        text,
+        fill=settings.WHITE,
+        font=font,
+    )
 
     # Response box
     border = 2 * unit
     draw.rectangle(
         ((border, height // 2), (width - border, height - border)),
-        fill=(255, 255, 255, 150),
+        fill=(255, 255, 255, 160),
     )
 
     # Response text
+    border = 4 * unit
     mark, fill, text = _get_response(share, positions, proposals, votes)
-    font = _get_font(mark + " " + text, width - (4 * border), height)
+    font = _get_font(mark + " " + text, width - (2 * border), height)
     draw.text(
-        ((2 * border), height // 2), mark + " " + text, fill=settings.BLACK, font=font,
+        (border, height // 2), mark + " " + text, fill=settings.BLACK, font=font,
     )
 
     # Response mark
-    draw.text((2 * border, height // 2), mark, fill=fill, font=font)
+    border = 4 * unit
+    draw.text((border, height // 2), mark, fill=fill, font=font)
 
     stream = io.BytesIO()
     img.save(stream, format=extension)
@@ -114,7 +121,7 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
 
 
 def _get_font(text: str, image_width: int, image_height: int):
-    maximum_size = image_height // 5
+    maximum_size = image_height // 4
     minimum_size = max(10, image_height // 30)
     font = ImageFont.truetype(str(settings.FONT), size=minimum_size)
     cutoff = True

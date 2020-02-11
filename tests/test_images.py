@@ -73,6 +73,7 @@ def images_directory():
 def index(images_directory):
     path = images_directory / "index.html"
     with path.open("w") as f:
+        f.write('<meta http-equiv="refresh" content="1">\n')
         for key in IMAGE_KEYS:
             path = images_directory / f"{key}-default.png"
             f.write(f'<img src="{path}" style="padding: 10px;">\n')
