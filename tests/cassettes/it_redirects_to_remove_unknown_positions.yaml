@@ -7,20 +7,20 @@ interactions:
   response:
     body:
       string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/ballots/20757/","id":20757,"election":{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
-        Consolidated","date":"2019-11-05","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"precinct":{"url":"http://michiganelections.io/api/precincts/1172/","id":1172,"county":"Kent","jurisdiction":"City
+        Consolidated","date":"2019-11-05","date_humanized":"Tuesday, November 5, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"precinct":{"url":"http://michiganelections.io/api/precincts/1172/","id":1172,"county":"Kent","jurisdiction":"City
         of Grand Rapids","ward":"2","number":"36"},"mi_sos_url":"https://mvic.sos.state.mi.us/Voter/GetMvicBallot/1791/679/"}]}'
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 55d5e09b7e0af232-ORD
+      CF-RAY: 563d736ebeea9ed3-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Thu, 30 Jan 2020 19:33:24 GMT
+      Date: Wed, 12 Feb 2020 09:14:11 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=dba0ad71be7db47102d5d864316471bb21580412804; expires=Sat,
-        29-Feb-20 19:33:24 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=d8a2b956854c01995fd84836a66d167141581498851; expires=Fri,
+        13-Mar-20 09:14:11 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -41,41 +41,41 @@ interactions:
         by Ward","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Commissioner%20by%20Ward.md","reference_url":null,"seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/21490/","id":21490,"name":"Milinda
         Ysasi","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/21489/","id":21489,"name":"Wendy
         Falb","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
-        Consolidated","date":"2019-11-05","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/2869/","id":2869,"category":"Ward","name":"City
+        Consolidated","date":"2019-11-05","date_humanized":"Tuesday, November 5, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/2869/","id":2869,"category":"Ward","name":"City
         of Grand Rapids, Ward 2"}},{"url":"http://michiganelections.io/api/positions/3623/","id":3623,"name":"Library
         Board Director","description":"Responsible for managing library services,
         overseeing staff, coordinating with patrons and working to improve library
         facilities.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Library%20Board%20Director.md","reference_url":null,"seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/17340/","id":17340,"name":"Jonathan
         Helder","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/17339/","id":17339,"name":"Kathryn
         Dilley","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
-        Consolidated","date":"2019-11-05","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
+        Consolidated","date":"2019-11-05","date_humanized":"Tuesday, November 5, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
         of Grand Rapids"}},{"url":"http://michiganelections.io/api/positions/3624/","id":3624,"name":"Library
         Board Director","description":"Responsible for managing library services,
         overseeing staff, coordinating with patrons and working to improve library
         facilities.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Library%20Board%20Director.md","reference_url":null,"seats":1,"term":"Partial
         Term Ending 12/31/2023","candidates":[{"url":"http://michiganelections.io/api/candidates/17341/","id":17341,"name":"Kent
         Sparks","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
-        Consolidated","date":"2019-11-05","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
+        Consolidated","date":"2019-11-05","date_humanized":"Tuesday, November 5, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
         of Grand Rapids"}},{"url":"http://michiganelections.io/api/positions/3621/","id":3621,"name":"Mayor","description":"Responsible
         for hiring and firing staff, may have veto power and is responsible for implementing
         legislation passed by the council. Responsible for ceremonial duties, some
         cities give the mayor legislative power as well.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Mayor.md","reference_url":null,"seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/17337/","id":17337,"name":"Daniel
         Allen Schutte","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/17336/","id":17336,"name":"Rosalynn
         Bliss","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
-        Consolidated","date":"2019-11-05","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
+        Consolidated","date":"2019-11-05","date_humanized":"Tuesday, November 5, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
         of Grand Rapids"}}]}'
     headers:
       Allow: GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 55d5e0b508d5c524-ORD
+      CF-RAY: 563d73705f9ff23e-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Thu, 30 Jan 2020 19:33:28 GMT
+      Date: Wed, 12 Feb 2020 09:14:12 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d1829c57e37ed6be45b5ecf48f461a9e61580412808; expires=Sat,
-        29-Feb-20 19:33:28 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=df40352446924e741a5c395b0ae79954d1581498851; expires=Fri,
+        13-Mar-20 09:14:11 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -104,20 +104,20 @@ interactions:
         SmartZone Local Development Finance Authority, Monroe North TIFA, Southtown
         CIA, Michigan Street CIA. Westside CIA, North Quarter CIA, South Division/Grandville
         Avenue and Uptown CIA .\nShall this amendment be adopted?","reference_url":null,"election":{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
-        Consolidated","date":"2019-11-05","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
+        Consolidated","date":"2019-11-05","date_humanized":"Tuesday, November 5, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
         of Grand Rapids"}}]}'
     headers:
       Allow: GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 55d5e0b7bf46f232-ORD
+      CF-RAY: 563d73720eaef23a-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Thu, 30 Jan 2020 19:33:29 GMT
+      Date: Wed, 12 Feb 2020 09:14:12 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d2f0f3b4922f2dc2ea80d35ab74d11cd01580412808; expires=Sat,
-        29-Feb-20 19:33:28 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=d6426e2e5aa6efb100a945063a510e3d11581498852; expires=Fri,
+        13-Mar-20 09:14:12 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur

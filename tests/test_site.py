@@ -196,19 +196,6 @@ def describe_ballot():
             expect(html).excludes("Find Your Ballot")
             expect(html).contains("official ballot")
 
-        @pytest.mark.vcr()
-        @pytest.mark.asyncio
-        async def it_shows_find_button_after_sharing(app, expect):
-            client = app.test_client()
-            response = await client.get(
-                "/elections/3/precincts/1172/?share=position-710"
-            )
-            html = get_html(response)
-            expect(html).contains("Find Your Ballot")
-            expect(html).excludes("Share This Ballot")
-            expect(html).contains(" disabled>")
-            expect(html).excludes("official ballot")
-
     def describe_post():
         @pytest.mark.vcr()
         @pytest.mark.asyncio
@@ -220,3 +207,29 @@ def describe_ballot():
             expect(response.status_code) == 302
             html = get_html(response)
             expect(html).contains("?proposal-1009=approve</a>")
+
+
+def describe_share():
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_shows_find_button_after_sharing(app, expect):
+        client = app.test_client()
+        response = await client.get("/elections/3/precincts/1172/?share=position-710")
+        html = get_html(response)
+        expect(html).contains("Find Your Ballot")
+        expect(html).excludes("Share This Ballot")
+        expect(html).contains(" disabled>")
+        expect(html).excludes("official ballot")
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_allows_sites_to_add_tracking_parameters(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/3/precincts/1172/?share=position-710&fbclid=abc123"
+        )
+        html = get_html(response)
+        expect(html).contains("Find Your Ballot")
+        expect(html).excludes("Share This Ballot")
+        expect(html).contains(" disabled>")
+        expect(html).excludes("official ballot")
