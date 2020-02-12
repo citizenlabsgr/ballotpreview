@@ -34,6 +34,11 @@ async def index():
     return redirect(url_for("election_list"))
 
 
+@app.route("/about/")
+async def about():
+    return await render_template("about.html")
+
+
 @app.route("/elections/")
 async def election_list():
     elections = await api.get_elections()

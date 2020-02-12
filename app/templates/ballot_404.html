@@ -2,13 +2,15 @@
 
 {% block content %}
 
-<form action="{{ request.url }}" method="post">
-
-<h1>{% if name %}{{ name }}'s{% endif %} Ballot Preview</h1>
+<h1>{% if name %}{{ name }}'s{% endif %} Michigan Ballot Preview</h1>
 
 <div class="alert alert-danger" role="alert">
 We can't find a sample ballot for this election. Please check with the
 <a href="https://mvic.sos.state.mi.us/" target="_blank">Michigan Secretary of State<a>.
 </div>
+
+<a href="{{ url_for('election_list') }}" class="btn btn-primary">
+    View All Elections
+</a>
 
 {% endblock %}
