@@ -50,9 +50,9 @@ def image(
     # Response text
     border = 4 * unit
     mark, fill, text = _get_response(share, positions, proposals, votes)
-    font = _get_font(mark + " " + text, width - (2 * border), height)
+    font = _get_font(mark + text, width - (2 * border), height)
     draw.text(
-        (border, height // 2), mark + " " + text, fill=settings.BLACK, font=font,
+        (border, height // 2), mark + text, fill=settings.BLACK, font=font,
     )
 
     # Response mark
@@ -66,7 +66,10 @@ def image(
 
 
 def _get_title(share: str, positions: List, proposals: List):
-    category, _key = share.split("-")
+    try:
+        category, _key = share.split("-")
+    except ValueError:
+        return "Michigan Election"
     key = int(_key)
 
     if category == "position":
@@ -94,12 +97,15 @@ def _shorten(text: str) -> str:
 
 
 def _get_response(share: str, positions: List, proposals: List, votes: Dict):
-    category, _key = share.split("-")
+    try:
+        category, _key = share.split("-")
+    except ValueError:
+        return "", settings.PURPLE, "Ballot Preview"
     key = int(_key)
 
     vote = votes.get(share)
     if not vote:
-        return "?", settings.PURPLE, "Undecided"
+        return "? ", settings.PURPLE, "Undecided"
 
     if category == "position":
         for position in positions:
@@ -108,11 +114,11 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
                 key2 = int(vote.split("-")[1])
                 for candidate in position["candidates"]:
                     if candidate["id"] == key2:
-                        return "■", candidate["party"]["color"], candidate["name"]
+                        return "■ ", candidate["party"]["color"], candidate["name"]
 
     if category == "proposal":
         return (
-            "☑" if vote == "approve" else "☒",
+            "☑ " if vote == "approve" else "☒ ",
             settings.GREEN if vote == "approve" else settings.RED,
             vote.title(),
         )

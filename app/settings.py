@@ -5,7 +5,7 @@ from pathlib import Path
 TARGET_SIZES = {
     "default": (400, 200),
     "facebook": (1200, 628),
-    "reddit": (70, 70),
+    "reddit": (280, 280),
     "twitter": (506, 253),
     "instagram": (510, 510),
     "linkedin": (1104, 736),

@@ -11,6 +11,7 @@ from app import render, settings
 RESET_IMAGES = False
 REFRESH_RATE = 1
 IMAGE_KEYS = [
+    "overall",
     "position-vote",
     "position-nonvote",
     "proposal-approve",
@@ -150,6 +151,15 @@ def describe_images():
                 votes={},
             )
             path = images_directory / f"proposal-nonvote-{target}.png"
+            with path.open("wb") as f:
+                f.write(image.getvalue())
+
+    def with_no_highlighted_item(images_directory):
+        for target in settings.TARGET_SIZES:
+            image, _ = render.image(
+                "PNG", share="", target=target, positions=[], proposals=[], votes={},
+            )
+            path = images_directory / f"overall-{target}.png"
             with path.open("wb") as f:
                 f.write(image.getvalue())
 
