@@ -31,7 +31,7 @@ def image(
 
     # Title text
     border = 4 * unit
-    text = _get_title(share, positions, proposals)
+    text = _get_title(share or "", positions, proposals)
     font = _get_font(text, width - (2 * border), height)
     draw.text(
         (border, height // 2 - border - int(font.size * 1.1)),
@@ -49,7 +49,7 @@ def image(
 
     # Response text
     border = 4 * unit
-    mark, fill, text = _get_response(share, positions, proposals, votes)
+    mark, fill, text = _get_response(share or "", positions, proposals, votes)
     font = _get_font(mark + text, width - (2 * border), height)
     draw.text(
         (border, height // 2), mark + text, fill=settings.BLACK, font=font,
@@ -66,10 +66,10 @@ def image(
 
 
 def _get_title(share: str, positions: List, proposals: List):
-    try:
-        category, _key = share.split("-")
-    except ValueError:
+    if "-" not in share:
         return "Michigan Election"
+
+    category, _key = share.split("-")
     key = int(_key)
 
     if category == "position":
@@ -97,10 +97,10 @@ def _shorten(text: str) -> str:
 
 
 def _get_response(share: str, positions: List, proposals: List, votes: Dict):
-    try:
-        category, _key = share.split("-")
-    except ValueError:
-        return "", settings.PURPLE, "Ballot Preview"
+    if "-" not in share:
+        return "", settings.BLACK, "Ballot Preview"
+
+    category, _key = share.split("-")
     key = int(_key)
 
     vote = votes.get(share)

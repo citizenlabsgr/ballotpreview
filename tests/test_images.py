@@ -157,7 +157,12 @@ def describe_images():
     def with_no_highlighted_item(images_directory):
         for target in settings.TARGET_SIZES:
             image, _ = render.image(
-                "PNG", share="", target=target, positions=[], proposals=[], votes={},
+                "PNG",
+                share=None,  # type: ignore
+                target=target,
+                positions=[],
+                proposals=[],
+                votes={},
             )
             path = images_directory / f"overall-{target}.png"
             with path.open("wb") as f:
