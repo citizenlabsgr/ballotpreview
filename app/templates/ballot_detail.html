@@ -62,14 +62,24 @@
                 Share This Ballot
             </button>
             <div class="dropdown-menu" aria-labelledby="share-menu-button">
+                <h6 class="dropdown-header">Higlight Position</h6>
                 {% for position in positions %}
                     <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=position-{{ position['id'] }}">
-                        {{ position['name'] }}
+                        🔗&nbsp;&nbsp;{{ position['name'] }}
+                    </button>
+                {% else %}
+                    <button class="dropdown-item" type="button">
+                        <span class="pl-4">(no positions on this ballot)</span>
                     </button>
                 {% endfor %}
+                <h6 class="dropdown-header">Higlight Proposal</h6>
                 {% for proposal in proposals %}
                     <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=proposal-{{ proposal['id'] }}">
-                        {{ proposal['name'] }}
+                        🔗&nbsp;&nbsp;{{ proposal['name'] }}
+                    </button>
+                {% else %}
+                    <button class="dropdown-item" type="button" disabled>
+                        <span class="pl-4">(no proposals on this ballot)</span>
                     </button>
                 {% endfor %}
             </div>
