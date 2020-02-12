@@ -8,20 +8,20 @@
 
         <!-- Primary Meta Tags -->
         <title>Michigan Ballot Preview</title>
-        <meta name="title" content="Michigan Ballot Share">
+        <meta name="title" content="Michigan Ballot Preview">
         <meta name="description" content="Share how you plan to vote in Michigan.">
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://share.michiganelections.io/">
-        <meta property="og:title" content="Michigan Ballot Share">
+        <meta property="og:title" content="Michigan Ballot Preview">
         <meta property="og:description" content="Share how you plan to vote in Michigan.">
         {# <meta property="og:image" content="https://share.michiganelections.io{% static 'logo.png' %}"> #}
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary">
         <meta property="twitter:url" content="https://share.michiganelections.io/">
-        <meta property="twitter:title" content="Michigan Ballot Share">
+        <meta property="twitter:title" content="Michigan Ballot Preview">
         <meta property="twitter:description" content="Share how you plan to vote in Michigan.">
         {# <meta property="twitter:image" content="https://share.michiganelections.io{% static 'logo.png' %}"> #}
 
@@ -39,6 +39,9 @@
         <!-- Boostrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+        <!-- Custom -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='custom.css') }}">
+
     </head>
     <body>
         <div class="container">
@@ -48,6 +51,18 @@
                 </div>
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="container">
+                <small class="text-muted">
+                    <a href="{{ url_for('about') }}">Ballot Preview</a>
+                    is an
+                    <a href="https://github.com/citizenlabsgr/ballotshare" target="_blank">open source</a>
+                    project by
+                    <a href="https://citizenlabs.org/" target="_blank">Citizen Labs</a>.
+                </small>
+            </div>
+        </footer>
 
         {% block scripts %}{% endblock %}
     </body>

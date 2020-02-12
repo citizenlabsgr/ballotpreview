@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Michigan Ballot Preview</h1>
+
+<p>
+    Ballot Preview is a service to view sample ballots for elections in Michigan,
+    annotate them, and share how you plan to vote with your friends and familiy
+    on social media.
+</p>
+
+<p>
+    This is accomplished by looking up your voter registration using the
+    <a href="https://michiganelections.io" target="_blank">Michigan Elections API</a>
+    to find your precinct and rendering a sample ballot.
+</p>
+
+<p>
+    At no point do we store information about your voting preferences.
+    All ballot selections become part of the URL, so only people you share your
+    annotated ballot with will know how you plan to vote.
+</p>
+
+<a href="{{ url_for('election_list') }}" class="btn btn-primary">
+    View Elections
+</a>
+
+{% endblock %}
