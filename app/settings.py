@@ -16,8 +16,8 @@ FONTS_DIRECTORY = Path.cwd() / "app" / "fonts"
 
 FONT = FONTS_DIRECTORY / "SourceSansPro-Regular.ttf"
 
-BLACK = (10, 10, 10)
-WHITE = (220, 220, 220)
+BLACK = (0, 0, 0)
+WHITE = (230, 230, 230)
 GREEN = (21, 173, 21)
 RED = (191, 33, 33)
 PURPLE = (135, 10, 163)

@@ -26,7 +26,7 @@ def image(
     converter = ImageEnhance.Color(img)
     img = converter.enhance(0.25)
     converter = ImageEnhance.Brightness(img)
-    img = converter.enhance(0.4)
+    img = converter.enhance(0.75)
     draw = ImageDraw.Draw(img, "RGBA")
 
     # Title text
@@ -44,7 +44,7 @@ def image(
     border = 2 * unit
     draw.rectangle(
         ((border, height // 2), (width - border, height - border)),
-        fill=(255, 255, 255, 160),
+        fill=(255, 255, 255, 110),
     )
 
     # Response text
