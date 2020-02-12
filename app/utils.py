@@ -4,7 +4,11 @@ import log
 
 
 def validate_ballot(
-    positions: List, proposals: List, original_votes: Dict
+    positions: List,
+    proposals: List,
+    original_votes: Dict,
+    *,
+    keep_extra_parameters: bool = False,
 ) -> Tuple[Dict, int]:
     votes: Dict = {}
     votes_changed = False
@@ -28,6 +32,9 @@ def validate_ballot(
                 log.warning(f"Removed unexpected proposal: {key}")
                 votes_changed = True
 
+        elif keep_extra_parameters:
+            log.debug(f"Keeping extra parameter: {key}")
+            votes[key] = value
         else:
             log.warning(f"Removed unexpected ballot item: {key}")
             votes_changed = True

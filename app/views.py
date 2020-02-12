@@ -89,7 +89,9 @@ async def ballot_detail(election_id: int, precinct_id: int):
         return await render_template("ballot_404.html", name=name), 404
 
     form = await request.form
-    votes, votes_changed = utils.validate_ballot(positions, proposals, form or params)
+    votes, votes_changed = utils.validate_ballot(
+        positions, proposals, form or params, keep_extra_parameters=share
+    )
 
     if request.method == "POST" or votes_changed:
         if name:
