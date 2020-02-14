@@ -64,7 +64,7 @@
             <div class="dropdown-menu" aria-labelledby="share-menu-button">
                 <h6 class="dropdown-header">Higlight Position</h6>
                 {% for position in positions %}
-                    <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}%26share=position-{{ position['id'] }}" target="_blank">
+                    <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
                         🔗&nbsp;&nbsp;{{ position['name'] }}
                     </a>
                 {% else %}
@@ -74,7 +74,7 @@
                 {% endfor %}
                 <h6 class="dropdown-header">Higlight Proposal</h6>
                 {% for proposal in proposals %}
-                    <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                    <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
                         🔗&nbsp;&nbsp;{{ proposal['name'] }}
                     </a>
                 {% else %}
@@ -92,7 +92,7 @@
             <div class="dropdown-menu" aria-labelledby="share-menu-button">
                 <h6 class="dropdown-header">Higlight Position</h6>
                 {% for position in positions %}
-                    <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url }}%26share=position-{{ position['id'] }}" target="_blank">
+                    <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
                         🔗&nbsp;&nbsp;{{ position['name'] }}
                     </a>
                 {% else %}
@@ -102,7 +102,7 @@
                 {% endfor %}
                 <h6 class="dropdown-header">Higlight Proposal</h6>
                 {% for proposal in proposals %}
-                    <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url }}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                    <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
                         🔗&nbsp;&nbsp;{{ proposal['name'] }}
                     </a>
                 {% else %}
