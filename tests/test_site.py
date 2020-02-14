@@ -180,7 +180,7 @@ def describe_ballot():
             client = app.test_client()
             response = await client.get("/elections/3/precincts/1172/?name=Jane")
             html = get_html(response)
-            expect(html).excludes("Share This Ballot")
+            expect(html).excludes("Share on Facebook")
             expect(html).excludes("Find Your Ballot")
             expect(html).contains("official ballot")
 
@@ -192,7 +192,7 @@ def describe_ballot():
                 "/elections/3/precincts/1172/?position-710=candidate-10590"
             )
             html = get_html(response)
-            expect(html).contains("Share This Ballot")
+            expect(html).contains("Share on Facebook")
             expect(html).excludes("Find Your Ballot")
             expect(html).contains("official ballot")
 
@@ -217,7 +217,7 @@ def describe_share():
         response = await client.get("/elections/3/precincts/1172/?share=position-710")
         html = get_html(response)
         expect(html).contains("Find Your Ballot")
-        expect(html).excludes("Share This Ballot")
+        expect(html).excludes("Share on Facebook")
         expect(html).contains(" disabled>")
         expect(html).excludes("official ballot")
 
@@ -230,6 +230,6 @@ def describe_share():
         )
         html = get_html(response)
         expect(html).contains("Find Your Ballot")
-        expect(html).excludes("Share This Ballot")
+        expect(html).excludes("Share on Facebook")
         expect(html).contains(" disabled>")
         expect(html).excludes("official ballot")

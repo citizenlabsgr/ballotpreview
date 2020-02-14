@@ -57,9 +57,65 @@
             Find Your Ballot
         </a>
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
-        <div class="dropdown" id="copy" data-clipboard-text="">
+        <span class="dropdown" id="copy" data-clipboard-text="">
             <button class="btn btn-primary dropdown-toggle" type="button" id="share-menu-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Share This Ballot
+                Share on Facebook
+            </button>
+            <div class="dropdown-menu" aria-labelledby="share-menu-button">
+                <h6 class="dropdown-header">Higlight Position</h6>
+                {% for position in positions %}
+                    <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
+                        🔗&nbsp;&nbsp;{{ position['name'] }}
+                    </a>
+                {% else %}
+                    <button class="dropdown-item" type="button">
+                        <span class="pl-4">(no positions on this ballot)</span>
+                    </button>
+                {% endfor %}
+                <h6 class="dropdown-header">Higlight Proposal</h6>
+                {% for proposal in proposals %}
+                    <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                        🔗&nbsp;&nbsp;{{ proposal['name'] }}
+                    </a>
+                {% else %}
+                    <button class="dropdown-item" type="button" disabled>
+                        <span class="pl-4">(no proposals on this ballot)</span>
+                    </button>
+                {% endfor %}
+            </div>
+        </span>
+
+        <span class="dropdown" id="copy" data-clipboard-text="">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="share-menu-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Share on Twitter
+            </button>
+            <div class="dropdown-menu" aria-labelledby="share-menu-button">
+                <h6 class="dropdown-header">Higlight Position</h6>
+                {% for position in positions %}
+                    <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
+                        🔗&nbsp;&nbsp;{{ position['name'] }}
+                    </a>
+                {% else %}
+                    <button class="dropdown-item" type="button">
+                        <span class="pl-4">(no positions on this ballot)</span>
+                    </button>
+                {% endfor %}
+                <h6 class="dropdown-header">Higlight Proposal</h6>
+                {% for proposal in proposals %}
+                    <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                        🔗&nbsp;&nbsp;{{ proposal['name'] }}
+                    </a>
+                {% else %}
+                    <button class="dropdown-item" type="button" disabled>
+                        <span class="pl-4">(no proposals on this ballot)</span>
+                    </button>
+                {% endfor %}
+            </div>
+        </span>
+
+        <span class="dropdown" id="copy" data-clipboard-text="">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="share-menu-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Copy Link
             </button>
             <div class="dropdown-menu" aria-labelledby="share-menu-button">
                 <h6 class="dropdown-header">Higlight Position</h6>
@@ -83,133 +139,145 @@
                     </button>
                 {% endfor %}
             </div>
-        </div>
+        </span>
     {% endif %}
     </div>
 </div>
 
-<h2 class="py-4">Positions</h2>
-
-{% for position in positions %}
-    {% set position_key = 'position-' + position['id']|string %}
-    <h4>
-        {{ position['name'] }}
-        <span class="text-muted">
-            ({{ position['district']['name'] }})
-        </span>
-    </h4>
-
-    <div class="ml-4 mb-2">
-        <p class="mb-2">
-            {{ position['description'] }}
-        </p>
-
-        <h5>
-            Candidates
+<div>
+    <hr>
+    <h2>Positions</h2>
+    {% for position in positions %}
+        {% set position_key = 'position-' + position['id']|string %}
+        <h4>
+            {{ position['name'] }}
             <span class="text-muted">
-            ({{ position['seats'] }} Seat
-            {%- if position['seats'] > 1 %}s{% endif -%}
-            {%- if position['term'] %}, {{ position['term'] }}{% endif -%})
+                ({{ position['district']['name'] }})
             </span>
-        </h5>
-
-        <div class="ml-4">
-        {% for candidate in position['candidates'] %}
-            {% set candidate_key = 'candidate-' + candidate['id']|string %}
-
-            <div class="form-check">
-                <input class="form-check-input"
-                        type={% if position['seats'] == 1%}"radio"{% else %}"checkbox"{% endif %}
-                        name="{{ position_key }}"
-                        value="{{ candidate_key }}"
-                        onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
-                        {% if candidate_key in votes[position_key] %}checked{% endif %}
-                        {% if "share=" in request.query_string|string %}disabled{% endif %}>
-                <label class="form-check-label"
-                        for="{{ position_key }}">
-                    {{ candidate['name'] }}
-                    <span class="text-muted">
-                    (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
-                    </span>
-                </label>
-            </div>
-
-        {% endfor %}
-        </div>
-
-    </div>
-
-{% else %}
-<h4 class="text-muted">(no positions on this ballot)</h4>
-{% endfor %}
-
-<h2 class="py-4">Proposals</h2>
-
-{% for proposal in proposals %}
-    {% set proposal_key = 'proposal-' + proposal['id']|string %}
-
-    <h4>
-        {{ proposal['name'] }}
-        <span class="text-muted">
-            ({{ proposal['district']['name'] }})
-        </span>
-    </h4>
-
-    <div class="ml-4">
-        <p class="mb-2">{{ proposal['description'] }}</p>
-
-        <h5>Approve</h5>
+        </h4>
 
         <div class="ml-4 mb-2">
+            <p class="mb-2">
+                {{ position['description'] }}
+            </p>
 
-            <div class="form-check">
-                <input class="form-check-input"
-                        type="radio"
-                        name="{{ proposal_key }}"
-                        value="approve"
-                        onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
-                        {% if votes[proposal_key] == 'approve' %}checked{% endif %}
-                        {% if "share=" in request.query_string|string %}disabled{% endif %}>
-                <label class="form-check-label" for="{{ proposal_key }}">
-                    Yes
-                </label>
-            </div>
+            <h5>
+                Candidates
+                <span class="text-muted">
+                ({{ position['seats'] }} Seat
+                {%- if position['seats'] > 1 %}s{% endif -%}
+                {%- if position['term'] %}, {{ position['term'] }}{% endif -%})
+                </span>
+            </h5>
 
-            <div class="form-check">
-                <input class="form-check-input"
-                        type="radio"
-                        name="{{ proposal_key }}"
-                        value="reject"
-                        onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
-                        {% if votes[proposal_key] == 'reject' %}checked{% endif %}
-                        {% if "share=" in request.query_string|string %}disabled{% endif %}>
-                <label class="form-check-label" for="{{ proposal_key }}">
-                    No
-                </label>
+            <div class="ml-4">
+            {% for candidate in position['candidates'] %}
+                {% set candidate_key = 'candidate-' + candidate['id']|string %}
+
+                <div class="form-check">
+                    <input class="form-check-input"
+                            type={% if position['seats'] == 1%}"radio"{% else %}"checkbox"{% endif %}
+                            name="{{ position_key }}"
+                            value="{{ candidate_key }}"
+                            onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
+                            {% if candidate_key in votes[position_key] %}checked{% endif %}
+                            {% if "share=" in request.query_string|string %}disabled{% endif %}>
+                    <label class="form-check-label"
+                            for="{{ position_key }}">
+                        {{ candidate['name'] }}
+                        <span class="text-muted">
+                        (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
+                        </span>
+                    </label>
+                </div>
+
+            {% endfor %}
             </div>
 
         </div>
 
-    </div>
+    {% else %}
+    <h4 class="text-muted">(no positions on this ballot)</h4>
+    {% endfor %}
+</div>
 
-{% else %}
-<h4 class="text-muted">(no proposals on this ballot)</h4>
-{% endfor %}
+<div>
+    <hr>
+    <h2>Proposals</h2>
+    {% for proposal in proposals %}
+        {% set proposal_key = 'proposal-' + proposal['id']|string %}
+
+        <h4>
+            {{ proposal['name'] }}
+            <span class="text-muted">
+                ({{ proposal['district']['name'] }})
+            </span>
+        </h4>
+
+        <div class="ml-4">
+            <p class="mb-2">{{ proposal['description'] }}</p>
+
+            <h5>Approve</h5>
+
+            <div class="ml-4 mb-2">
+
+                <div class="form-check">
+                    <input class="form-check-input"
+                            type="radio"
+                            name="{{ proposal_key }}"
+                            value="approve"
+                            onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
+                            {% if votes[proposal_key] == 'approve' %}checked{% endif %}
+                            {% if "share=" in request.query_string|string %}disabled{% endif %}>
+                    <label class="form-check-label" for="{{ proposal_key }}">
+                        Yes
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input"
+                            type="radio"
+                            name="{{ proposal_key }}"
+                            value="reject"
+                            onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
+                            {% if votes[proposal_key] == 'reject' %}checked{% endif %}
+                            {% if "share=" in request.query_string|string %}disabled{% endif %}>
+                    <label class="form-check-label" for="{{ proposal_key }}">
+                        No
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+
+    {% else %}
+    <h4 class="text-muted">(no proposals on this ballot)</h4>
+    {% endfor %}
+</div>
 
 {% if "share=" not in request.query_string|string %}
-<p class="py-4">
-    Something seem off? View your
-    <a href="{{ ballot['mi_sos_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank">official ballot<a>
-    and open
-    <a href="https://github.com/citizenlabsgr/ballotshare/issues" target="_blank">an issue</a>
-    to let us know.
-</p>
+<div>
+    <hr>
+    <p>
+        Something seem off? View your
+        <a href="{{ ballot['mi_sos_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank">official ballot<a>
+        and open
+        <a href="https://github.com/citizenlabsgr/ballotshare/issues" target="_blank">an issue</a>
+        to let us know.
+    </p>
+</div>
 
 <div class="pt-5" id="save-toolbar" style="display: none;">
-<div class="py-4 fixed-bottom text-center bg-dark">
-    <button type="submit" class="btn btn-success">Save Changes</button>
-    <a href="{{ request.url }}" class="btn btn-danger" role="button">Discard Changes</a>
-</div>
+    <div class="p-4 fixed-bottom bg-dark">
+        <span class="py-2 float-left text-light">
+            Fill out this preview ballot to share with friends and family.
+        </span>
+        <span class="float-right">
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a href="{{ request.url }}" class="btn btn-danger" role="button">Discard Changes</a>
+        </span>
+    </div>
 </div>
 {% endif %}
 
