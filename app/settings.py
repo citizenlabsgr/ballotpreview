@@ -3,12 +3,12 @@ from pathlib import Path
 
 
 TARGET_SIZES = {
-    "default": (400, 200),
-    "facebook": (1200, 628),
-    "reddit": (280, 280),
-    "twitter": (506, 253),
-    "instagram": (510, 510),
-    "linkedin": (1104, 736),
+    "default": (400, 200, 0),
+    "facebook": (1200, 628, 0),
+    "reddit": (280, 280, 0),
+    "twitter": (506, 253, 10),
+    "instagram": (510, 510, 0),
+    "linkedin": (1104, 736, 0),
 }
 
 IMAGES_DIRECTORY = Path.cwd() / "app" / "images"

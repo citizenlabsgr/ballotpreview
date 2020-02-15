@@ -17,12 +17,12 @@ def image(
     proposals: List,
     votes: Dict,
 ) -> Tuple[io.BytesIO, str]:
-    width, height = settings.TARGET_SIZES[target]
+    width, height, crop = settings.TARGET_SIZES[target]
     unit = max(1, height // 50)
 
     # Background image
     img = Image.open(settings.IMAGES_DIRECTORY / "michigan.jpg")
-    img = img.resize(settings.TARGET_SIZES[target])
+    img = img.resize((width, height))
     converter = ImageEnhance.Color(img)
     img = converter.enhance(0.25)
     converter = ImageEnhance.Brightness(img)
@@ -30,7 +30,7 @@ def image(
     draw = ImageDraw.Draw(img, "RGBA")
 
     # Title text
-    border = 4 * unit
+    border = (4 * unit) + crop
     text = _get_title(share or "", positions, proposals)
     font = _get_font(text, width - (2 * border), height)
     draw.text(
@@ -41,14 +41,14 @@ def image(
     )
 
     # Response box
-    border = 2 * unit
+    border = (2 * unit) + crop
     draw.rectangle(
-        ((border, height // 2), (width - border, height - border)),
+        ((border - 1, height // 2), (width - border, height - border)),
         fill=(255, 255, 255, 110),
     )
 
     # Response text
-    border = 4 * unit
+    border = (4 * unit) + crop
     mark, fill, text = _get_response(share or "", positions, proposals, votes)
     font = _get_font(mark + text, width - (2 * border), height)
     draw.text(
@@ -56,7 +56,7 @@ def image(
     )
 
     # Response mark
-    border = 4 * unit
+    border = (4 * unit) + crop
     draw.text((border, height // 2), mark, fill=fill, font=font)
 
     stream = io.BytesIO()
