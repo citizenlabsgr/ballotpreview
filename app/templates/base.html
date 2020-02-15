@@ -45,21 +45,22 @@
     </head>
     <body>
         <div class="container">
-            <div class="row mt-sm-5 mt-2 mb-5">
-                <div class="col">
+            <div class="row justify-content-center mt-sm-5 mt-2 mb-5">
+                <div class="col-lg-8">
                     {% block content %}{% endblock %}
                 </div>
             </div>
         </div>
 
         <footer class="footer">
-            <div class="container">
+            <div class="container text-center">
                 <small class="text-muted">
-                    <a href="{{ url_for('about') }}">Ballot Preview</a>
+                    <a class="text-muted" href="{{ url_for('about') }}"><b>Ballot Preview</b></a>
                     is an
-                    <a href="https://github.com/citizenlabsgr/ballotshare" target="_blank">open source</a>
+                    <a class="text-muted" href="https://github.com/citizenlabsgr/ballotshare" target="_blank"><b>open source</b></a>
                     project by
-                    <a href="https://citizenlabs.org/" target="_blank">Citizen Labs</a>.
+                    <a class="text-muted" href="https://citizenlabs.org/" target="_blank">
+                    <b>Citizen Labs</b></a>.
                 </small>
             </div>
         </footer>
