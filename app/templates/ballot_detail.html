@@ -28,11 +28,11 @@
 
 <form action="{{ request.url }}" method="post">
 
-<h1>{% if name %}{{ name }}'s{% endif %} Michigan Ballot Preview</h1>
+<h1>{% if name %}{{ name }}'s{% endif %} Voting Plan</h1>
 
-<div class="ml-4">
+<div>
     <h5>
-        {{ ballot['election']['name'] }}
+        Michigan {{ ballot['election']['name'] }}
         <span class="text-muted">
             ({{ ballot['election']['date_humanized'] }})
         </span>
