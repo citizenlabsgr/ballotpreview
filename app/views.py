@@ -27,7 +27,7 @@ bugsnag_quart.handle_exceptions(app)
 async def index():
     elections = await api.get_elections()
 
-    for election in reversed(elections):
+    for election in elections:
         if election["active"]:
             return redirect(url_for("election_detail", election_id=election["id"]))
 

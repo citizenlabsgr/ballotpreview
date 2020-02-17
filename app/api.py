@@ -39,7 +39,7 @@ async def get_elections() -> List:
         async with session.get(url) as response:
             data = await response.json()
 
-    return data["results"]
+    return list(reversed(data["results"]))
 
 
 async def get_election(election_id: int) -> Dict:
