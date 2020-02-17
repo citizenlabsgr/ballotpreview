@@ -7,19 +7,19 @@ interactions:
   response:
     body:
       string: '{"url":"http://michiganelections.io/api/elections/3/","id":3,"name":"State
-        General","date":"2018-11-06","date_humanized":"Tuesday, November 6, 2018","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20General.md","active":false,"reference_url":"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf"}'
+        General","date":"2018-11-06","date_humanized":"Tuesday, November 6th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20General.md","active":false,"reference_url":"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf"}'
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 563d7349acc6c548-ORD
+      CF-RAY: 566390ae8b01ea86-IAD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Wed, 12 Feb 2020 09:14:05 GMT
+      Date: Mon, 17 Feb 2020 00:15:08 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d1a10e5cd55b7cf12e207f5e854c708221581498845; expires=Fri,
-        13-Mar-20 09:14:05 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=deadf745850e5a8608c3bd08468c32aea1581898508; expires=Wed,
+        18-Mar-20 00:15:08 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur

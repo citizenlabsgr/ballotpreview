@@ -3,32 +3,27 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/elections/
+    uri: https://michiganelections.io/api/elections/?active=true
   response:
     body:
-      string: '{"count":7,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/elections/39/","id":39,"name":"May
-        Consolidated","date":"2020-05-05","date_humanized":"Tuesday, May 5, 2020","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/May%20Consolidated.md","active":true,"reference_url":null},{"url":"http://michiganelections.io/api/elections/38/","id":38,"name":"Presidential
-        Primary","date":"2020-03-10","date_humanized":"Tuesday, March 10, 2020","description":"The
+      string: '{"count":2,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/elections/39/","id":39,"name":"May
+        Consolidated","date":"2020-05-05","date_humanized":"Tuesday, May 5th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/May%20Consolidated.md","active":true,"reference_url":null},{"url":"http://michiganelections.io/api/elections/38/","id":38,"name":"Presidential
+        Primary","date":"2020-03-10","date_humanized":"Tuesday, March 10th","description":"The
         presidential primary elections and caucuses held in the various states, the
         District of Columbia, and territories of the United States form part of the
-        nominating process of candidates for United States presidential elections.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/Presidential%20Primary.md","active":true,"reference_url":null},{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
-        Consolidated","date":"2019-11-05","date_humanized":"Tuesday, November 5, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null},{"url":"http://michiganelections.io/api/elections/4/","id":4,"name":"May
-        Consolidated","date":"2019-05-07","date_humanized":"Tuesday, May 7, 2019","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/May%20Consolidated.md","active":false,"reference_url":"https://www.michigan.gov/documents/sos/May_2019_Calendar_643102_7.pdf"},{"url":"http://michiganelections.io/api/elections/3/","id":3,"name":"State
-        General","date":"2018-11-06","date_humanized":"Tuesday, November 6, 2018","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20General.md","active":false,"reference_url":"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf"},{"url":"http://michiganelections.io/api/elections/1/","id":1,"name":"State
-        Primary","date":"2018-08-07","date_humanized":"Tuesday, August 7, 2018","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":false,"reference_url":null},{"url":"http://michiganelections.io/api/elections/2/","id":2,"name":"November
-        Consolidated","date":"2017-11-07","date_humanized":"Tuesday, November 7, 2017","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/November%20Consolidated.md","active":false,"reference_url":null}]}'
+        nominating process of candidates for United States presidential elections.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/Presidential%20Primary.md","active":true,"reference_url":null}]}'
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 563d7347f911f9f3-ORD
+      CF-RAY: 56638f484c4f2442-IAD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Wed, 12 Feb 2020 09:14:05 GMT
+      Date: Mon, 17 Feb 2020 00:14:11 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=dc0209f875851ce609fb24c727751ee1d1581498845; expires=Fri,
-        13-Mar-20 09:14:05 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=dc711bd92f467d8dec82f513328e40a6c1581898451; expires=Wed,
+        18-Mar-20 00:14:11 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -37,5 +32,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/elections/
+    url: https://michiganelections.io/api/elections/?active=true
 version: 1

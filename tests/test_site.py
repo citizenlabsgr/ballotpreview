@@ -26,7 +26,7 @@ def describe_elections():
         client = app.test_client()
         response = await client.get("/elections/")
         html = get_html(response)
-        expect(html).contains("State General")
+        expect(html).contains("Presidential Primary")
 
 
 def describe_election():
