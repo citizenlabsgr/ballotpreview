@@ -11,15 +11,15 @@ interactions:
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 566390ae8b01ea86-IAD
+      CF-RAY: 56724fbdc9e5c52c-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Mon, 17 Feb 2020 00:15:08 GMT
+      Date: Tue, 18 Feb 2020 19:12:15 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=deadf745850e5a8608c3bd08468c32aea1581898508; expires=Wed,
-        18-Mar-20 00:15:08 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=da56aa32d1bb0e4c6d64dd6f7cba739dc1582053135; expires=Thu,
+        19-Mar-20 19:12:15 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur

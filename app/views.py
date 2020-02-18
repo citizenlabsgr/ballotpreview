@@ -54,12 +54,14 @@ async def election_detail(election_id: int):
         status = await api.get_status(**form)
         if status["registered"]:
             precinct_id = status["precinct"]["id"]
+            extra = {"recently_moved": "true"} if status["recently_moved"] else {}
             return redirect(
                 url_for(
                     "ballot_detail",
                     election_id=election_id,
                     precinct_id=precinct_id,
                     name=form["first_name"],
+                    **extra,  # type: ignore
                 )
             )
 
@@ -78,6 +80,12 @@ async def ballot_detail(election_id: int, precinct_id: int):
     share = params.pop("share", None)
     target = params.pop("target", None)
 
+    if params.pop("recently_moved", False):
+        return (
+            await render_template("ballot_404.html", name=name, recently_moved=True),
+            404,
+        )
+
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 
     if target:
@@ -91,7 +99,10 @@ async def ballot_detail(election_id: int, precinct_id: int):
         )
 
     if ballot is None:
-        return await render_template("ballot_404.html", name=name), 404
+        return (
+            await render_template("ballot_404.html", name=name),
+            404,
+        )
 
     form = await request.form
     votes, votes_changed = utils.validate_ballot(

@@ -4,10 +4,20 @@
 
 <h1>{% if name %}{{ name }}'s{% endif %} Michigan Ballot Preview</h1>
 
+{% if recently_moved %}
 <div class="alert alert-danger" role="alert">
-We can't find a sample ballot for this election. Please check with the
-<a href="https://mvic.sos.state.mi.us/" target="_blank">Michigan Secretary of State<a>.
+    The
+    <a href="https://mvic.sos.state.mi.us/" target="_blank">Michigan Secretary of State<a>
+    indicates that you've recently moved,
+    so we can't find your sample ballot at this time.
+    Plese try again later or visit their site for more informaiton.
 </div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    We can't find a sample ballot for this election. Please check with the
+    <a href="https://mvic.sos.state.mi.us/" target="_blank">Michigan Secretary of State<a>.
+</div>
+{% endif %}
 
 <a href="{{ url_for('election_list') }}" class="btn btn-primary">
     View All Elections

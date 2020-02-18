@@ -11,15 +11,15 @@ interactions:
     headers:
       Allow: OPTIONS, GET
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 5663945679fe5775-IAD
+      CF-RAY: 56724f280b34e1fa-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Mon, 17 Feb 2020 00:17:38 GMT
+      Date: Tue, 18 Feb 2020 19:11:51 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d4cce152ef2a9a2979f1ff5d2266ae4b91581898658; expires=Wed,
-        18-Mar-20 00:17:38 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=dd57af1574dfda5d2718b48d8739a21b61582053111; expires=Thu,
+        19-Mar-20 19:11:51 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur
@@ -37,7 +37,7 @@ interactions:
   response:
     body:
       string: '{"registered":true,"absentee":true,"polling_location":["Mayfair Christian
-        Reformed Church","1736 Lyon Ne","Grand Rapids, Michigan 49503"],"precinct":{"url":"http://michiganelections.io/api/precincts/1173/","id":1173,"county":"Kent","jurisdiction":"City
+        Reformed Church","1736 Lyon Ne","Grand Rapids, Michigan 49503"],"recently_moved":false,"precinct":{"url":"http://michiganelections.io/api/precincts/1173/","id":1173,"county":"Kent","jurisdiction":"City
         of Grand Rapids","ward":"2","number":"30"},"districts":[{"url":"http://michiganelections.io/api/districts/1/","id":1,"category":"Circuit
         Court District","name":"17th Circuit"},{"url":"http://michiganelections.io/api/districts/1548/","id":1548,"category":"Community
         College District","name":"Grand Rapids Community College"},{"url":"http://michiganelections.io/api/districts/56/","id":56,"category":"County","name":"Kent"},{"url":"http://michiganelections.io/api/districts/1666/","id":1666,"category":"County
@@ -54,15 +54,15 @@ interactions:
     headers:
       Allow: GET, HEAD, OPTIONS
       CF-Cache-Status: DYNAMIC
-      CF-RAY: 566394580cb9c1de-IAD
+      CF-RAY: 56724f2b6f062535-ORD
       Connection: keep-alive
       Content-Encoding: gzip
       Content-Type: application/json
-      Date: Mon, 17 Feb 2020 00:17:39 GMT
+      Date: Tue, 18 Feb 2020 19:11:54 GMT
       Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server: cloudflare
-      Set-Cookie: __cfduid=d09e2f57ce52a3080418054b8ce90c4271581898658; expires=Wed,
-        18-Mar-20 00:17:38 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Set-Cookie: __cfduid=d228075177d0e0a37dcf9c7538aabffc11582053111; expires=Thu,
+        19-Mar-20 19:11:51 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
       Transfer-Encoding: chunked
       Vary: Accept, Cookie, Origin
       Via: 1.1 vegur

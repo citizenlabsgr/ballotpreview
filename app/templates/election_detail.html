@@ -17,11 +17,13 @@
 
 <div class="alert alert-danger" role="alert">
   It looks like you might not be registered to vote. Please check with the
-  <a href="https://mvic.sos.state.mi.us/" target="_blank">Michigan Secretary of State<a>.
+  <a href="https://mvic.sos.state.mi.us/" target="_blank">Michigan Secretary of State<a>
+  website on status of your registration.
 </div>
 
 {% endif %}
 
+<div>
 <form action="{{ request.url }}" method="post">
 
     <div class="form-group">
@@ -45,15 +47,16 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Find Your Ballot</button>
-    <span class="mt-2 float-right">
+    <div class="mt-2 float-right">
     <small>
         We'll never save this information.
         Read
         <a href="{{ url_for('about') }}">about</a>
         how it's used.
     </small>
-    </span>
+    </div>
 
 </form>
+</div>
 
 {% endblock %}
