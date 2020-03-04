@@ -2,15 +2,7 @@ from typing import Dict, List
 
 import bugsnag
 import log
-from quart import (
-    Quart,
-    redirect,
-    render_template,
-    request,
-    send_file,
-    send_from_directory,
-    url_for,
-)
+from quart import Quart, redirect, render_template, request, send_file, url_for
 
 from . import api, bugsnag_quart, render, settings, utils
 
@@ -32,6 +24,14 @@ async def index():
             return redirect(url_for("election_detail", election_id=election["id"]))
 
     return redirect(url_for("election_list"))
+
+
+@app.route("/banner.png")
+async def banner():
+    elections = await api.get_elections()
+    target = request.args.pop("target", None)
+    image, mimetype = render.election_image("PNG", target=target, election=elections[0])
+    return await send_file(image, mimetype)
 
 
 @app.route("/about/")
@@ -73,6 +73,14 @@ async def election_detail(election_id: int):
     )
 
 
+@app.route("/elections/<election_id>/banner.png")
+async def election_image(election_id: int):
+    election = await api.get_election(election_id)
+    target = request.args.pop("target", None)
+    image, mimetype = render.election_image("PNG", target=target, election=election)
+    return await send_file(image, mimetype)
+
+
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
 async def ballot_detail(election_id: int, precinct_id: int):
     params = request.args
@@ -92,7 +100,6 @@ async def ballot_detail(election_id: int, precinct_id: int):
         return await ballot_image(
             share=share,
             target=target,
-            ballot=ballot,
             positions=positions,
             proposals=proposals,
             votes=params,
@@ -132,17 +139,9 @@ async def ballot_detail(election_id: int, precinct_id: int):
 
 
 async def ballot_image(
-    share: str,
-    target: str,
-    ballot: Dict,
-    positions: List,
-    proposals: List,
-    votes: Dict,
+    share: str, target: str, positions: List, proposals: List, votes: Dict,
 ):
-    if ballot is None:
-        return await send_from_directory(settings.IMAGES_DIRECTORY, "logo.png")
-
-    image, mimetype = render.image(
+    image, mimetype = render.ballot_image(
         "PNG",
         share=share,
         target=target,

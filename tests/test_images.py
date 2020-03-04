@@ -87,7 +87,7 @@ def index(images_directory):
 def describe_images():
     def with_position_vote(positions, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = render.image(
+            image, _ = render.ballot_image(
                 "PNG",
                 share="position-5141",
                 target=target,
@@ -101,7 +101,7 @@ def describe_images():
 
     def with_position_nonvote(positions, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = render.image(
+            image, _ = render.ballot_image(
                 "PNG",
                 share="position-5141",
                 target=target,
@@ -115,7 +115,7 @@ def describe_images():
 
     def with_proposal_approve(proposals, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = render.image(
+            image, _ = render.ballot_image(
                 "PNG",
                 share="proposal-1882",
                 target=target,
@@ -129,7 +129,7 @@ def describe_images():
 
     def with_proposal_reject(proposals, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = render.image(
+            image, _ = render.ballot_image(
                 "PNG",
                 share="proposal-123",
                 target=target,
@@ -143,7 +143,7 @@ def describe_images():
 
     def with_proposal_nonvote(proposals, votes, images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = render.image(
+            image, _ = render.ballot_image(
                 "PNG",
                 share="proposal-1882",
                 target=target,
@@ -157,7 +157,7 @@ def describe_images():
 
     def with_no_highlighted_item(images_directory):
         for target in settings.TARGET_SIZES:
-            image, _ = render.image(
+            image, _ = render.ballot_image(
                 "PNG",
                 share=None,  # type: ignore
                 target=target,
@@ -171,7 +171,7 @@ def describe_images():
 
     def with_unknown_share_position(expect, positions, proposals):
         with expect.raises(LookupError):
-            render.image(
+            render.ballot_image(
                 "PNG",
                 share="position-99999",
                 target="default",
@@ -182,7 +182,7 @@ def describe_images():
 
     def with_unknown_share_proposal(expect, positions, proposals):
         with expect.raises(LookupError):
-            render.image(
+            render.ballot_image(
                 "PNG",
                 share="proposal-99999",
                 target="default",
@@ -193,7 +193,7 @@ def describe_images():
 
     def with_unknown_vote_position(expect, positions, proposals):
         with expect.raises(LookupError):
-            render.image(
+            render.ballot_image(
                 "PNG",
                 share="position-5141",
                 target="default",
