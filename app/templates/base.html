@@ -13,7 +13,7 @@
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://share.michiganelections.io/">
+        <meta property="og:url" content="{{ request.url }}">
         <meta property="og:title" content="Michigan Ballot Preview">
         <meta property="og:description" content="Share how you plan to vote in Michigan.">
         <meta property="og:image" content="{{ request.url }}banner.png?target=facebook">
@@ -22,7 +22,7 @@
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://share.michiganelections.io/">
+        <meta property="twitter:url" content="{{ request.url }}/">
         <meta property="twitter:title" content="Michigan Ballot Preview">
         <meta property="twitter:description" content="Share how you plan to vote in Michigan.">
         <meta property="twitter:image" content="{{ request.url }}banner.png?target=twitter">
