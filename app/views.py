@@ -84,11 +84,11 @@ async def election_image(election_id: int):
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
 async def ballot_detail(election_id: int, precinct_id: int):
     params = request.args
-    name = params.pop("name", None)
-    share = params.pop("share", None)
-    target = params.pop("target", None)
+    name = params.get("name", None)
+    share = params.get("share", None)
+    target = params.get("target", None)
 
-    if params.pop("recently_moved", False):
+    if params.get("recently_moved", False):
         return (
             await render_template("ballot_404.html", name=name, recently_moved=True),
             404,
@@ -113,7 +113,11 @@ async def ballot_detail(election_id: int, precinct_id: int):
 
     form = await request.form
     votes, votes_changed = utils.validate_ballot(
-        positions, proposals, form or params, keep_extra_parameters=share
+        positions,
+        proposals,
+        original_votes=form or params,
+        allowed_parameters=("name", "share", "target", "recently_moved"),
+        keep_extra_parameters=share,
     )
 
     if request.method == "POST" or votes_changed:

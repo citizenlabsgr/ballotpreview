@@ -1,7 +1,7 @@
 [tool.poetry]
 
 name = "ballotshare"
-version = "0.0"
+version = "1.0"
 description = "Share how you plan to vote in Michigan."
 
 authors = ["Citizen Labs <info@citizenlabs.org>"]
@@ -16,7 +16,7 @@ packages = [
 python = "^3.7"
 
 # Server
-quart = "~0.10.0"
+quart = "~0.11.3"
 bugsnag = "^3.6.0"
 
 # Images
