@@ -16,6 +16,7 @@ def run():
             time.sleep(3)
         else:
             app.run(debug=True)
+            break
 
 
 if __name__ == "__main__":
