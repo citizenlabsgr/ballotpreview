@@ -1,19 +1,21 @@
 from typing import Dict, List, Optional, Tuple
 
 import log
+from werkzeug.datastructures import MultiDict
 
 
 def validate_ballot(
     positions: List,
     proposals: List,
-    original_votes: Dict,
     *,
+    original_votes: MultiDict,
+    allowed_parameters: Tuple = (),
     keep_extra_parameters: bool = False,
 ) -> Tuple[Dict, int]:
     votes: Dict = {}
     votes_changed = False
 
-    for key, value in original_votes.items():
+    for key, value in original_votes.items(multi=True):
         if key.startswith("position-"):
             if key in votes:
                 votes[key].append(value)
@@ -32,9 +34,10 @@ def validate_ballot(
                 log.warning(f"Removed unexpected proposal: {key}")
                 votes_changed = True
 
-        elif keep_extra_parameters:
+        elif key in allowed_parameters or keep_extra_parameters:
             log.debug(f"Keeping extra parameter: {key}")
             votes[key] = value
+
         else:
             log.warning(f"Removed unexpected ballot item: {key}")
             votes_changed = True
