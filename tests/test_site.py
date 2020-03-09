@@ -75,6 +75,22 @@ def describe_election():
         )
 
 
+def describe_election_image():
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def with_target(app, expect):
+        client = app.test_client()
+        response = await client.get("/elections/3/banner.png?target=facebook")
+        expect(response.status_code) == 200
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def without_target(app, expect):
+        client = app.test_client()
+        response = await client.get("/elections/3/banner.png")
+        expect(response.status_code) == 200
+
+
 def describe_ballot():
     def describe_get():
         @pytest.mark.vcr()
