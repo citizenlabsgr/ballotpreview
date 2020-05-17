@@ -65,7 +65,7 @@ def votes():
 
 @pytest.fixture(scope="session")
 def images_directory():
-    path = IMAGES_DIRECTORY = Path.cwd() / "tests" / "images"
+    path = Path.cwd() / "tests" / "images"
     if RESET_IMAGES:
         shutil.rmtree(path)
         path.mkdir()
