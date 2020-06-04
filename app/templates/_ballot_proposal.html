@@ -1,0 +1,45 @@
+{% set proposal_key = 'proposal-' + proposal['id']|string %}
+
+<h4>
+    {{ proposal['name'] }}
+    <span class="text-muted">
+        ({{ proposal['district']['name'] }})
+    </span>
+</h4>
+
+<div class="ml-4 text-justify">
+    <p class="mb-2">{{ proposal['description'] }}</p>
+
+    <h5>Approve</h5>
+
+    <div class="ml-4 mb-2">
+
+        <div class="form-check">
+            <input class="form-check-input"
+                    type="radio"
+                    name="{{ proposal_key }}"
+                    value="approve"
+                    onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
+                    {% if votes[proposal_key] == 'approve' %}checked{% endif %}
+                    {% if "share=" in request.query_string|string %}disabled{% endif %}>
+            <label class="form-check-label" for="{{ proposal_key }}">
+                Yes
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input"
+                    type="radio"
+                    name="{{ proposal_key }}"
+                    value="reject"
+                    onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
+                    {% if votes[proposal_key] == 'reject' %}checked{% endif %}
+                    {% if "share=" in request.query_string|string %}disabled{% endif %}>
+            <label class="form-check-label" for="{{ proposal_key }}">
+                No
+            </label>
+        </div>
+
+    </div>
+
+</div>

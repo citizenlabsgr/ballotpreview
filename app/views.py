@@ -86,6 +86,7 @@ async def election_image(election_id: int):
 async def ballot_detail(election_id: int, precinct_id: int):
     params = request.args
     name = params.get("name", None)
+    party = params.get("party", None)
     share = params.get("share", None)
     target = params.get("target", None)
 
@@ -95,7 +96,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
             404,
         )
 
-    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
+    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id, party)
 
     if target:
         return await ballot_image(
@@ -117,13 +118,15 @@ async def ballot_detail(election_id: int, precinct_id: int):
         positions,
         proposals,
         original_votes=form or params,
-        allowed_parameters=("name", "share", "target", "recently_moved"),
+        allowed_parameters=("name", "party", "share", "target", "recently_moved"),
         keep_extra_parameters=share,
     )
 
     if request.method == "POST" or votes_changed:
         if name:
             votes["name"] = name
+        if party:
+            votes["party"] = party
         return redirect(
             url_for(
                 "ballot_detail",

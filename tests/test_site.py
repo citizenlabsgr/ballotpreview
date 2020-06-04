@@ -104,6 +104,30 @@ def describe_ballot():
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
+        async def it_prompts_for_party_when_primary_ballot(app, expect):
+            client = app.test_client()
+            response = await client.get("/elections/40/precincts/1209/")
+            html = get_html(response)
+            expect(html).contains("Democratic Primary Ballot")  # party selection
+            expect(html).excludes("Candidates")  # positions listing
+
+        # TODO: enable VCR once passing
+        # @pytest.mark.vcr()
+        @pytest.mark.xfail
+        @pytest.mark.asyncio
+        async def it_filters_primary_ballot_based_on_party(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/40/precincts/1209/?party=Democratic"
+            )
+            html = get_html(response)
+            expect(html).excludes("Democratic Primary Ballot")  # party selection
+            expect(html).contains("Gary Peters")  # Democratic primary candidate
+            expect(html).excludes("John James")  # Republican primary candidate
+            expect(html).contains("Donna Adams")  # nonpartisan candidate
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
         async def it_redirects_to_remove_extra_votes(app, expect):
             client = app.test_client()
             response = await client.get(
@@ -183,6 +207,17 @@ def describe_ballot():
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
+        async def it_keeps_party_through_redirect(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/5/precincts/1172/?foo=bar&party=Democratic"
+            )
+            expect(response.status_code) == 302
+            html = get_html(response)
+            expect(html).contains("?party=Democratic</a>")
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
         async def it_handles_unknown_ballots(app, expect):
             client = app.test_client()
             response = await client.get("/elections/5/precincts/99999/")
@@ -223,6 +258,30 @@ def describe_ballot():
             expect(response.status_code) == 302
             html = get_html(response)
             expect(html).contains("?proposal-1009=approve</a>")
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
+        async def it_keeps_name_through_submit(app, expect):
+            client = app.test_client()
+            response = await client.post(
+                "/elections/5/precincts/1172/?name=Jane",
+                form={"proposal-1009": "approve"},
+            )
+            expect(response.status_code) == 302
+            html = get_html(response)
+            expect(html).contains("&name=Jane</a>")
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
+        async def it_keeps_party_through_submit(app, expect):
+            client = app.test_client()
+            response = await client.post(
+                "/elections/5/precincts/1172/?party=Democratic",
+                form={"proposal-1009": "approve"},
+            )
+            expect(response.status_code) == 302
+            html = get_html(response)
+            expect(html).contains("&party=Democratic</a>")
 
 
 def describe_share():

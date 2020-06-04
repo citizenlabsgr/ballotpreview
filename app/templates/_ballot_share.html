@@ -1,0 +1,83 @@
+<span class="dropdown" id="copy" data-clipboard-text="">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="share-menu-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Share on Facebook
+    </button>
+    <div class="dropdown-menu" aria-labelledby="share-menu-button">
+        <h6 class="dropdown-header">Higlight Position</h6>
+        {% for position in positions %}
+            <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
+                🔗&nbsp;&nbsp;{{ position['name'] }}
+            </a>
+        {% else %}
+            <button class="dropdown-item" type="button">
+                <span class="pl-4">(no positions on this ballot)</span>
+            </button>
+        {% endfor %}
+        <h6 class="dropdown-header">Higlight Proposal</h6>
+        {% for proposal in proposals %}
+            <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                🔗&nbsp;&nbsp;{{ proposal['name'] }}
+            </a>
+        {% else %}
+            <button class="dropdown-item" type="button" disabled>
+                <span class="pl-4">(no proposals on this ballot)</span>
+            </button>
+        {% endfor %}
+    </div>
+</span>
+
+<span class="dropdown" id="copy" data-clipboard-text="">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="share-menu-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Share on Twitter
+    </button>
+    <div class="dropdown-menu" aria-labelledby="share-menu-button">
+        <h6 class="dropdown-header">Higlight Position</h6>
+        {% for position in positions %}
+            <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
+                🔗&nbsp;&nbsp;{{ position['name'] }}
+            </a>
+        {% else %}
+            <button class="dropdown-item" type="button">
+                <span class="pl-4">(no positions on this ballot)</span>
+            </button>
+        {% endfor %}
+        <h6 class="dropdown-header">Higlight Proposal</h6>
+        {% for proposal in proposals %}
+            <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                🔗&nbsp;&nbsp;{{ proposal['name'] }}
+            </a>
+        {% else %}
+            <button class="dropdown-item" type="button" disabled>
+                <span class="pl-4">(no proposals on this ballot)</span>
+            </button>
+        {% endfor %}
+    </div>
+</span>
+
+<span class="dropdown" id="copy" data-clipboard-text="">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="share-menu-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Copy Link
+    </button>
+    <div class="dropdown-menu" aria-labelledby="share-menu-button">
+        <h6 class="dropdown-header">Higlight Position</h6>
+        {% for position in positions %}
+            <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=position-{{ position['id'] }}">
+                🔗&nbsp;&nbsp;{{ position['name'] }}
+            </button>
+        {% else %}
+            <button class="dropdown-item" type="button">
+                <span class="pl-4">(no positions on this ballot)</span>
+            </button>
+        {% endfor %}
+        <h6 class="dropdown-header">Higlight Proposal</h6>
+        {% for proposal in proposals %}
+            <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=proposal-{{ proposal['id'] }}">
+                🔗&nbsp;&nbsp;{{ proposal['name'] }}
+            </button>
+        {% else %}
+            <button class="dropdown-item" type="button" disabled>
+                <span class="pl-4">(no proposals on this ballot)</span>
+            </button>
+        {% endfor %}
+    </div>
+</span>

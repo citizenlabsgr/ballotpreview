@@ -1,0 +1,47 @@
+{% set position_key = 'position-' + position['id']|string %}
+
+<h4>
+    {{ position['name'] }}
+    <span class="text-muted">
+        ({{ position['district']['name'] }})
+    </span>
+</h4>
+
+<div class="ml-4 mb-2">
+    <p class="mb-2 text-justify">
+        {{ position['description'] }}
+    </p>
+
+    <h5>
+        Candidates
+        <span class="text-muted">
+        ({{ position['seats'] }} Seat
+        {%- if position['seats'] > 1 %}s{% endif -%}
+        {%- if position['term'] %}, {{ position['term'] }}{% endif -%})
+        </span>
+    </h5>
+
+    <div class="ml-4">
+    {% for candidate in position['candidates'] %}
+        {% set candidate_key = 'candidate-' + candidate['id']|string %}
+
+        <div class="form-check">
+            <input class="form-check-input"
+                    type={% if position['seats'] == 1%}"radio"{% else %}"checkbox"{% endif %}
+                    name="{{ position_key }}"
+                    value="{{ candidate_key }}"
+                    onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
+                    {% if candidate_key in votes[position_key] %}checked{% endif %}
+                    {% if "share=" in request.query_string|string %}disabled{% endif %}>
+            <label class="form-check-label"
+                    for="{{ position_key }}">
+                {{ candidate['name'] }}
+                <span class="text-muted">
+                (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
+                </span>
+            </label>
+        </div>
+
+    {% endfor %}
+    </div>
+</div>
