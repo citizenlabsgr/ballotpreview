@@ -9,7 +9,7 @@ from app import render, settings
 
 
 RESET_IMAGES = False
-REFRESH_RATE = 30
+REFRESH_RATE = 60
 IMAGE_KEYS = [
     "overall",
     "position-vote",
@@ -19,6 +19,15 @@ IMAGE_KEYS = [
     "proposal-nonvote",
 ]
 IMAGE_TARGETS = ["default", "reddit", "twitter"]
+SCRIPT = r"""<script>
+setInterval(function() {
+    var images = document.images;
+    for (var i=0; i<images.length; i++) {
+        images[i].src = images[i].src.replace(/\btime=[^&]*/, 'time=' + new Date().getTime());
+    }
+}, 2000);
+</script>
+"""
 
 
 @pytest.fixture(scope="session")
@@ -79,8 +88,12 @@ def index(images_directory):
         f.write(f'<meta http-equiv="refresh" content="{REFRESH_RATE}">\n')
         for target in IMAGE_TARGETS:
             for key in IMAGE_KEYS:
-                path = images_directory / f"{key}-{target}.png"
+                path = images_directory / f"{key}-{target}.png?time=0"
                 f.write(f'<img src="{path}" style="padding: 10px;">\n')
+        f.write(SCRIPT)
+    path = images_directory / ".gitignore"
+    with path.open("w") as f:
+        f.write("index.html\n")
     return path
 
 
