@@ -111,15 +111,11 @@ def describe_ballot():
             expect(html).contains("Democratic Primary Ballot")  # party selection
             expect(html).excludes("Candidates")  # positions listing
 
-        # TODO: enable VCR once passing
-        # @pytest.mark.vcr()
-        @pytest.mark.xfail
+        @pytest.mark.vcr()
         @pytest.mark.asyncio
         async def it_filters_primary_ballot_based_on_party(app, expect):
             client = app.test_client()
-            response = await client.get(
-                "/elections/40/precincts/1209/?party=Democratic"
-            )
+            response = await client.get("/elections/40/precincts/591/?party=Democratic")
             html = get_html(response)
             expect(html).excludes("Democratic Primary Ballot")  # party selection
             expect(html).contains("Gary Peters")  # Democratic primary candidate

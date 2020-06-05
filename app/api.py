@@ -73,9 +73,9 @@ async def get_ballot(
             )
 
     async with aiohttp.ClientSession() as session:
-        # TODO: include &party={party}
-        print(party)
         url = f"{BASE_URL}/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
+        if party:
+            url += f"&section={party}"
         async with session.get(url) as response:
             positions = await response.json()
 
