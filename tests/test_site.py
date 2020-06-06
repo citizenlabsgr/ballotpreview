@@ -252,7 +252,6 @@ def describe_ballot():
             html = get_html(response)
             expect(html).contains("Share on Facebook")
             expect(html).excludes("Find Your Ballot")
-            expect(html).contains("official ballot")
 
     def describe_post():
         @pytest.mark.vcr()
