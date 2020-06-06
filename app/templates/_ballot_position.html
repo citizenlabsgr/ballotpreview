@@ -10,14 +10,12 @@
 </h4>
 
 <div class="ml-4 mb-2">
-    {% if position['description'] %}
-        <p class="mb-2 text-justify">
-            <small>
-                {{ position['description'] }}
-                <a href="{{ position['description_edit_url'] }}" target="_blank">✎</a>
-            </small>
-        </p>
-    {% endif %}
+    <p class="mb-2 text-justify">
+        <small>
+            {{ position['description'] or "(no description)" }}
+            <a href="{{ position['description_edit_url'] }}" target="_blank">✎</a>
+        </small>
+    </p>
 
     <h5>
         Candidates
