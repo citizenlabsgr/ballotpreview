@@ -1,0 +1,130 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=1209&active_election=null
+  response:
+    body:
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/ballots/30347/","id":30347,"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"precinct":{"url":"http://michiganelections.io/api/precincts/1209/","id":1209,"county":"Kent","jurisdiction":"City
+        of Grand Rapids","ward":"1","number":"9"},"mi_sos_url":"https://mvic.sos.state.mi.us/Voter/GetMvicBallot/1828/682/"}]}'
+    headers:
+      Allow: OPTIONS, GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 59ef14bc3f0a0357-ORD
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Sat, 06 Jun 2020 03:35:01 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=de2abbf4d8fda6d213834de82dd3754ee1591414501; expires=Mon,
+        06-Jul-20 03:35:01 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 03294b49a600000357e30d3200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=1209&active_election=null
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/positions/?election_id=40&precinct_id=1209&active_election=null&limit=1000&section=Democratic
+  response:
+    body:
+      string: "{\"count\":10,\"next\":null,\"previous\":null,\"results\":[{\"url\":\"http://michiganelections.io/api/positions/17256/\",\"id\":17256,\"name\":\"Clerk
+        & Register of Deeds\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Clerk%20&%20Register%20of%20Deeds.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/43600/\",\"id\":43600,\"name\":\"Devin
+        Ortega-Furgeson\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/56/\",\"id\":56,\"category\":\"County\",\"name\":\"Kent\"}},{\"url\":\"http://michiganelections.io/api/positions/19198/\",\"id\":19198,\"name\":\"County
+        Commissioner\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/County%20Commissioner.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/45748/\",\"id\":45748,\"name\":\"Jim
+        Talen\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/45747/\",\"id\":45747,\"name\":\"Melissa
+        LaGrand\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/3490/\",\"id\":3490,\"category\":\"County
+        Commissioner District\",\"name\":\"Kent County, 15th District\"}},{\"url\":\"http://michiganelections.io/api/positions/30918/\",\"id\":30918,\"name\":\"Delegate
+        to County Convention\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Delegate%20to%20County%20Convention.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":2,\"term\":\"\",\"candidates\":[],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/6145/\",\"id\":6145,\"category\":\"Precinct\",\"name\":\"City
+        of Grand Rapids, Ward 1, Precinct 9\"}},{\"url\":\"http://michiganelections.io/api/positions/17258/\",\"id\":17258,\"name\":\"Drain
+        Commissioner\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Drain%20Commissioner.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/43603/\",\"id\":43603,\"name\":\"Elaine
+        Isely\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/56/\",\"id\":56,\"category\":\"County\",\"name\":\"Kent\"}},{\"url\":\"http://michiganelections.io/api/positions/17254/\",\"id\":17254,\"name\":\"Prosecuting
+        Attorney\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Prosecuting%20Attorney.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/56/\",\"id\":56,\"category\":\"County\",\"name\":\"Kent\"}},{\"url\":\"http://michiganelections.io/api/positions/17859/\",\"id\":17859,\"name\":\"Representative
+        in Congress\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Representative%20in%20Congress.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/44432/\",\"id\":44432,\"name\":\"Hillary
+        Scholten\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/14/\",\"id\":14,\"category\":\"US
+        Congress District\",\"name\":\"3rd District\"}},{\"url\":\"http://michiganelections.io/api/positions/30885/\",\"id\":30885,\"name\":\"Representative
+        in State Legislature\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Representative%20in%20State%20Legislature.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/56249/\",\"id\":56249,\"name\":\"David
+        LaGrand\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/12/\",\"id\":12,\"category\":\"State
+        House District\",\"name\":\"75th District\"}},{\"url\":\"http://michiganelections.io/api/positions/17255/\",\"id\":17255,\"name\":\"Sheriff\",\"description\":\"An
+        official in a county or independent city responsible for keeping the peace
+        and enforcing the law.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Sheriff.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/43599/\",\"id\":43599,\"name\":\"Marc
+        Burns\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/56/\",\"id\":56,\"category\":\"County\",\"name\":\"Kent\"}},{\"url\":\"http://michiganelections.io/api/positions/17257/\",\"id\":17257,\"name\":\"Treasurer\",\"description\":\"Responsible
+        for managing the revenue and cash flow of the agency, banking, collection,
+        receipt, reporting, custody, investment or disbursement of municipal funds.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Treasurer.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/43602/\",\"id\":43602,\"name\":\"Beth
+        White\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/43601/\",\"id\":43601,\"name\":\"Jos\xE9
+        L. Reyna\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/56/\",\"id\":56,\"category\":\"County\",\"name\":\"Kent\"}},{\"url\":\"http://michiganelections.io/api/positions/17099/\",\"id\":17099,\"name\":\"United
+        States Senator\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/United%20States%20Senator.md\",\"reference_url\":null,\"section\":\"Democratic\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/43453/\",\"id\":43453,\"name\":\"Gary
+        Peters\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/40/\",\"id\":40,\"name\":\"State
+        Primary\",\"date\":\"2020-08-04\",\"date_humanized\":\"Tuesday, August 4th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}}]}"
+    headers:
+      Allow: GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 59ef14bd4fab0364-ORD
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Sat, 06 Jun 2020 03:35:02 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=d76fa73e05973d226df41a93ae34b17a71591414501; expires=Mon,
+        06-Jul-20 03:35:01 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 03294b4a4b000003640ca50200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/positions/?election_id=40&precinct_id=1209&active_election=null&limit=1000&section=Democratic
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=1209&active_election=null&limit=1000
+  response:
+    body:
+      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+    headers:
+      Allow: GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 59ef14be7d7fc51c-ORD
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Sat, 06 Jun 2020 03:35:02 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=dc09629224f6cca3c3cfdf39b92b317d11591414502; expires=Mon,
+        06-Jul-20 03:35:02 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 03294b4b0f0000c51cb00c6200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=1209&active_election=null&limit=1000
+version: 1

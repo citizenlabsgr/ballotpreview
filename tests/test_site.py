@@ -124,6 +124,17 @@ def describe_ballot():
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
+        async def it_hides_positions_with_zero_candidates(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/40/precincts/1209/?party=Democratic&position-17099=candidate-43453"
+            )
+            html = get_html(response)
+            expect(html).includes("County Commissioner")
+            expect(html).excludes("Delegate to County Convention")
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
         async def it_redirects_to_remove_extra_votes(app, expect):
             client = app.test_client()
             response = await client.get(

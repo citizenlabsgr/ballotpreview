@@ -79,7 +79,7 @@
             <a href="{{ request.url }}?party=Republican" class="btn btn-dark" role="button">Republican Primary Ballot</a>
         {% endif %}
     {% else %}
-        {% for position in positions %}
+        {% for position in positions if position['candidates'] %}
             {% include "_ballot_position.html" %}
         {% else %}
             <h4 class="text-muted">(no positions on this ballot)</h4>
