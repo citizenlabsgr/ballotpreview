@@ -61,7 +61,15 @@
     {% else %}
         <div class="alert alert-info" role="alert">
             Fill out this sample ballot to share with your friends and family.
-            No one will see your choices until you decide to share them.
+            No one will see your choices until you decide to share the link we generate.
+            <br><br>
+            <small>
+                Something seem off? View your
+                <a href="{{ ballot['mi_sos_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank">official ballot<a>
+                and open
+                <a href="https://github.com/citizenlabsgr/ballotshare/issues" target="_blank">an issue</a>
+                to let us know.
+            </small>
         </div>
     {% endif %}
     </div>
@@ -98,17 +106,6 @@
 </div>
 
 {% if "share=" not in request.query_string|string %}
-<div>
-    <hr>
-    <small>
-        Something seem off? View your
-        <a href="{{ ballot['mi_sos_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank">official ballot<a>
-        and open
-        <a href="https://github.com/citizenlabsgr/ballotshare/issues" target="_blank">an issue</a>
-        to let us know.
-    </small>
-</div>
-
 <div class="pt-5" id="save-toolbar" style="display: none;">
     <div class="p-4 fixed-bottom bg-dark">
         <span class="py-2 float-left text-light">
