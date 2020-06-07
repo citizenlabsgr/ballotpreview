@@ -19,7 +19,7 @@ def describe_index():
         expect(html).contains('redirected to <a href="/elections/38/">')
 
 
-def describe_elections():
+def describe_election_list():
     @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_links_to_elections(app, expect):
@@ -29,7 +29,7 @@ def describe_elections():
         expect(html).contains("Presidential Primary")
 
 
-def describe_election():
+def describe_election_detail():
     @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_includes_election_name(app, expect):
@@ -91,7 +91,7 @@ def describe_election_image():
         expect(response.status_code) == 200
 
 
-def describe_ballot():
+def describe_ballot_detail():
     def describe_get():
         @pytest.mark.vcr()
         @pytest.mark.asyncio
@@ -290,7 +290,19 @@ def describe_ballot():
             expect(html).contains("&party=Democratic</a>")
 
 
-def describe_share():
+def describe_ballot_share_preview():
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_shows_images(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/40/precincts/591/share?position-17099=candidate-43453&position-17100=candidate-43454&position-17084=candidate-43433&position-17084=candidate-43430&proposal-3190=approve"
+        )
+        html = get_html(response)
+        expect(html.count("<img ")) == 5
+
+
+def describe_ballot_share():
     @pytest.mark.vcr()
     @pytest.mark.asyncio
     async def it_shows_find_button_after_sharing(app, expect):
