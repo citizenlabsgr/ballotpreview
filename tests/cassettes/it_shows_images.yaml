@@ -1,0 +1,286 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=591&active_election=null
+  response:
+    body:
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/ballots/33935/","id":33935,"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"precinct":{"url":"http://michiganelections.io/api/precincts/591/","id":591,"county":"Marquette","jurisdiction":"Township
+        of Forsyth","ward":null,"number":"2"},"mi_sos_url":"https://mvic.sos.state.mi.us/Voter/GetMvicBallot/911/682/"}]}'
+    headers:
+      Allow: OPTIONS, GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 59fd970cbe0f03a0-ORD
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Sun, 07 Jun 2020 21:50:40 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=d5b633fe3e3fb987f55ce8cd342c227f31591566640; expires=Tue,
+        07-Jul-20 21:50:40 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 03325cbbee000003a0c19a2200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=591&active_election=null
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/positions/?election_id=40&precinct_id=591&active_election=null&limit=1000
+  response:
+    body:
+      string: '{"count":33,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/positions/17099/","id":17099,"name":"United
+        States Senator","description":"Approves of treaties, and the confirmation
+        of Cabinet secretaries, Supreme Court justices, federal judges, regulatory
+        officials, ambassadors, other federal executive officials. Furthermore, the
+        Senate has the responsibility of conducting the trials of those impeached
+        by the House.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/United%20States%20Senator.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43453/","id":43453,"name":"Gary
+        Peters","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/17115/","id":17115,"name":"United
+        States Senator","description":"Approves of treaties, and the confirmation
+        of Cabinet secretaries, Supreme Court justices, federal judges, regulatory
+        officials, ambassadors, other federal executive officials. Furthermore, the
+        Senate has the responsibility of conducting the trials of those impeached
+        by the House.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/United%20States%20Senator.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43464/","id":43464,"name":"John
+        James","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/17100/","id":17100,"name":"Representative
+        in Congress","description":"Charged with the passage of federal legislation,
+        which, after concurrence by the Senate, are sent to the president for consideration.
+        In addition to this basic power, the House has certain exclusive powers, among
+        them the power to initiate all bills related to revenue and the impeachment
+        of federal officers, who are sent to trial before the Senate.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Representative%20in%20Congress.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43454/","id":43454,"name":"Dana
+        Ferguson","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/43455/","id":43455,"name":"Linda
+        O''Dell","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1461/","id":1461,"category":"US
+        Congress District","name":"1st District"}},{"url":"http://michiganelections.io/api/positions/17116/","id":17116,"name":"Representative
+        in Congress","description":"Charged with the passage of federal legislation,
+        which, after concurrence by the Senate, are sent to the president for consideration.
+        In addition to this basic power, the House has certain exclusive powers, among
+        them the power to initiate all bills related to revenue and the impeachment
+        of federal officers, who are sent to trial before the Senate.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Representative%20in%20Congress.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43465/","id":43465,"name":"Jack
+        Bergman","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1461/","id":1461,"category":"US
+        Congress District","name":"1st District"}},{"url":"http://michiganelections.io/api/positions/17098/","id":17098,"name":"Representative
+        in State Legislature","description":"Works alongside the governor of Michigan
+        to create laws and establish a state budget. Responsibilities of the Michigan
+        House of Representatives include passing bills on public policy matters, setting
+        levels for state spending, and raising and lowering taxes.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Representative%20in%20State%20Legislature.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43452/","id":43452,"name":"Sara
+        Cambensy","description":"","reference_url":"$","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1706/","id":1706,"category":"State
+        House District","name":"109th District"}},{"url":"http://michiganelections.io/api/positions/17114/","id":17114,"name":"Representative
+        in State Legislature","description":"Works alongside the governor of Michigan
+        to create laws and establish a state budget. Responsibilities of the Michigan
+        House of Representatives include passing bills on public policy matters, setting
+        levels for state spending, and raising and lowering taxes.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Representative%20in%20State%20Legislature.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43462/","id":43462,"name":"Matthew
+        Goss","description":"","reference_url":"$","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/43463/","id":43463,"name":"Melody
+        Wagner","description":"","reference_url":"$","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1706/","id":1706,"category":"State
+        House District","name":"109th District"}},{"url":"http://michiganelections.io/api/positions/17087/","id":17087,"name":"Clerk","description":"Responsible
+        for accounting of all receipts and disbursements of in regard to city funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Clerk.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43437/","id":43437,"name":"Linda
+        K. Talsma","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17103/","id":17103,"name":"Clerk","description":"Responsible
+        for accounting of all receipts and disbursements of in regard to city funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Clerk.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17091/","id":17091,"name":"Drain
+        Commissioner","description":"Responsible for planning, developing and maintaining
+        surface water drainage systems.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Drain%20Commissioner.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43445/","id":43445,"name":"Mike
+        Farrell","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/43444/","id":43444,"name":"Paul
+        Altobello","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17107/","id":17107,"name":"Drain
+        Commissioner","description":"Responsible for planning, developing and maintaining
+        surface water drainage systems.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Drain%20Commissioner.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17090/","id":17090,"name":"Mine
+        Inspector","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Mine%20Inspector.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43443/","id":43443,"name":"Allan
+        E. Koski","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/43442/","id":43442,"name":"John
+        A. Hamel","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/43441/","id":43441,"name":"Steven
+        Bertucci","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17106/","id":17106,"name":"Mine
+        Inspector","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Mine%20Inspector.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17085/","id":17085,"name":"Prosecuting
+        Attorney","description":"The legal party responsible for presenting the case
+        against an individual or a corporation suspected of breaking the law, initiating
+        and directing further criminal investigations, guiding and recommending the
+        sentencing of offenders, and are the only attorneys allowed to participate
+        in grand jury proceedings.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Prosecuting%20Attorney.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43435/","id":43435,"name":"Matt
+        Wiese","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17101/","id":17101,"name":"Prosecuting
+        Attorney","description":"The legal party responsible for presenting the case
+        against an individual or a corporation suspected of breaking the law, initiating
+        and directing further criminal investigations, guiding and recommending the
+        sentencing of offenders, and are the only attorneys allowed to participate
+        in grand jury proceedings.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Prosecuting%20Attorney.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17089/","id":17089,"name":"Register
+        of Deeds","description":"Records all documents pertaining to real property,
+        including deeds, mortgages, land contracts, liens and other documents pertaining
+        to real estate.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Register%20of%20Deeds.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43440/","id":43440,"name":"Carla
+        A. L''Huillier","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17105/","id":17105,"name":"Register
+        of Deeds","description":"Records all documents pertaining to real property,
+        including deeds, mortgages, land contracts, liens and other documents pertaining
+        to real estate.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Register%20of%20Deeds.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17086/","id":17086,"name":"Sheriff","description":"Responsible
+        for keeping the peace and enforcing the law. They operate the county jail,
+        serve and execute all civil writs and process as well as criminal process
+        that are issued pursuant to rule, and produce and maintain records as prescribed
+        by law.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Sheriff.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43436/","id":43436,"name":"Gregory
+        S. Zyburt","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17102/","id":17102,"name":"Sheriff","description":"Responsible
+        for keeping the peace and enforcing the law. They operate the county jail,
+        serve and execute all civil writs and process as well as criminal process
+        that are issued pursuant to rule, and produce and maintain records as prescribed
+        by law.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Sheriff.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43456/","id":43456,"name":"Joseph
+        Kozub","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17088/","id":17088,"name":"Treasurer","description":"Responsible
+        for managing the revenue and cash flow of the agency, banking, collection,
+        receipt, reporting, custody, investment or disbursement of municipal funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Treasurer.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43438/","id":43438,"name":"Nicholas
+        Laporte Benson","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/43439/","id":43439,"name":"Russell
+        A. Pomeroy","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17104/","id":17104,"name":"Treasurer","description":"Responsible
+        for managing the revenue and cash flow of the agency, banking, collection,
+        receipt, reporting, custody, investment or disbursement of municipal funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Treasurer.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}},{"url":"http://michiganelections.io/api/positions/17092/","id":17092,"name":"County
+        Commissioner","description":"Acts as the executive of the local government,
+        levying local taxes, administering county governmental services such as correctional
+        institutions, courts, public health oversight, property registration, building
+        code enforcement, and public works.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/County%20Commissioner.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43446/","id":43446,"name":"Bill
+        Nordeen","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/6597/","id":6597,"category":"County
+        Commissioner District","name":"Marquette County, 5th District"}},{"url":"http://michiganelections.io/api/positions/17108/","id":17108,"name":"County
+        Commissioner","description":"Acts as the executive of the local government,
+        levying local taxes, administering county governmental services such as correctional
+        institutions, courts, public health oversight, property registration, building
+        code enforcement, and public works.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/County%20Commissioner.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/6597/","id":6597,"category":"County
+        Commissioner District","name":"Marquette County, 5th District"}},{"url":"http://michiganelections.io/api/positions/17095/","id":17095,"name":"Clerk","description":"Responsible
+        for accounting of all receipts and disbursements of in regard to city funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Clerk.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43448/","id":43448,"name":"Jane
+        E. Nordeen","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17111/","id":17111,"name":"Clerk","description":"Responsible
+        for accounting of all receipts and disbursements of in regard to city funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Clerk.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43458/","id":43458,"name":"Michelle
+        Borrett","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17084/","id":17084,"name":"Library
+        Board Director","description":"Responsible for managing library services,
+        overseeing staff, coordinating with patrons and working to improve library
+        facilities.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Library%20Board%20Director.md","reference_url":null,"section":"Nonpartisan","seats":6,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43433/","id":43433,"name":"Brian
+        Rice","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/43434/","id":43434,"name":"Catrina
+        Suardini","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/43430/","id":43430,"name":"Donna
+        Adams","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/43432/","id":43432,"name":"Frances
+        E. Lukkarinen","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/43431/","id":43431,"name":"Linda
+        R. Buck","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17094/","id":17094,"name":"Supervisor","description":"Responsible
+        for setting and enacting policies and resolutions, levying taxes and setting
+        budgets.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Supervisor.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43447/","id":43447,"name":"Joe
+        Boogren","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17110/","id":17110,"name":"Supervisor","description":"Responsible
+        for setting and enacting policies and resolutions, levying taxes and setting
+        budgets.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Supervisor.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17096/","id":17096,"name":"Treasurer","description":"Responsible
+        for managing the revenue and cash flow of the agency, banking, collection,
+        receipt, reporting, custody, investment or disbursement of municipal funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Treasurer.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43449/","id":43449,"name":"Chris
+        Adams","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17112/","id":17112,"name":"Treasurer","description":"Responsible
+        for managing the revenue and cash flow of the agency, banking, collection,
+        receipt, reporting, custody, investment or disbursement of municipal funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Treasurer.md","reference_url":null,"section":"Republican","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43459/","id":43459,"name":"Steven
+        Kevern","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17097/","id":17097,"name":"Trustee","description":"Maintains
+        a position of public trust with fiduciary responsibilities to manage the funds
+        of the township in the best interests of the public. Trustees are required
+        to attend township board meetings and participate in decisions and deliberations.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Trustee.md","reference_url":null,"section":"Democratic","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43451/","id":43451,"name":"Leonard
+        A. Bodenus II","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/43450/","id":43450,"name":"Neil
+        Armatti","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17113/","id":17113,"name":"Trustee","description":"Maintains
+        a position of public trust with fiduciary responsibilities to manage the funds
+        of the township in the best interests of the public. Trustees are required
+        to attend township board meetings and participate in decisions and deliberations.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Trustee.md","reference_url":null,"section":"Republican","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43460/","id":43460,"name":"Connie
+        Heikkila","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/43461/","id":43461,"name":"Dale
+        Throenle","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/493/","id":493,"category":"Jurisdiction","name":"Township
+        of Forsyth"}},{"url":"http://michiganelections.io/api/positions/17093/","id":17093,"name":"Delegate
+        to County Convention","description":"Serves as the bridge between a neighborhood
+        (precinct) and a political party.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Delegate%20to%20County%20Convention.md","reference_url":null,"section":"Democratic","seats":1,"term":"","candidates":[],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/6627/","id":6627,"category":"Precinct","name":"Township
+        of Forsyth, Precinct 2"}},{"url":"http://michiganelections.io/api/positions/17109/","id":17109,"name":"Delegate
+        to County Convention","description":"Serves as the bridge between a neighborhood
+        (precinct) and a political party.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/positions/Delegate%20to%20County%20Convention.md","reference_url":null,"section":"Republican","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/43457/","id":43457,"name":"Eric
+        D. Rehorst","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/6627/","id":6627,"category":"Precinct","name":"Township
+        of Forsyth, Precinct 2"}}]}'
+    headers:
+      Allow: GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 59fd970e1deffdd1-ORD
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Sun, 07 Jun 2020 21:50:40 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=d9efa0f03df2455b32cd2cde2b08f3b881591566640; expires=Tue,
+        07-Jul-20 21:50:40 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 03325cbcd00000fdd1cc3d6200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/positions/?election_id=40&precinct_id=591&active_election=null&limit=1000
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=591&active_election=null&limit=1000
+  response:
+    body:
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/proposals/3190/","id":3190,"name":"Millage
+        for the Continuation of the Marquette County Transit Authority (MARQ-TRAN)","description":"To
+        provide local funds for the continuing operations and capital purchases of
+        the Marquette County Transit Authority (MARQ-TRAN) on all properties within
+        the County of Marquette, Michigan, shall the total amount of ad valorem taxes
+        collected be renewed at and increased up to the previously authorized six-tenths
+        (.6) of a mill ($0.60 per $1,000.00 of Taxable Valuation of real and taxable
+        personal property), of which .5911 mill is a renewal of the previously authorized
+        millage and .0089 mill is a new additional millage, for a period of seven
+        (7) years, 2020 through 2026? The taxes collected the first year would amount
+        to approximately $1,461,643.","reference_url":null,"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
+        Primary","date":"2020-08-04","date_humanized":"Tuesday, August 4th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/master/content/elections/State%20Primary.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/487/","id":487,"category":"County","name":"Marquette"}}]}'
+    headers:
+      Allow: GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 59fd97115bfbc528-ORD
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Sun, 07 Jun 2020 21:50:40 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=d98b93fc6517e971ead95bb651585ed511591566640; expires=Tue,
+        07-Jul-20 21:50:40 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 03325cbed90000c52831ab8200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=591&active_election=null&limit=1000
+version: 1

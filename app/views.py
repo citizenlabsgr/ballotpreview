@@ -139,6 +139,27 @@ async def ballot_detail(election_id: int, precinct_id: int):
     )
 
 
+@app.route("/elections/<election_id>/precincts/<precinct_id>/share", methods=["GET"])
+async def ballot_share(election_id: int, precinct_id: int):
+    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
+
+    votes, _votes_changed = utils.validate_ballot(
+        positions, proposals, original_votes=request.args,
+    )
+
+    ballot_url = url_for(
+        "ballot_detail", election_id=election_id, precinct_id=precinct_id,
+    )
+
+    return await render_template(
+        "ballot_share.html",
+        name=request.args.get("name"),
+        ballot=ballot,
+        votes=votes,
+        ballot_url=ballot_url,
+    )
+
+
 @app.route(
     "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.png",
     methods=["GET"],
