@@ -1,5 +1,3 @@
-from typing import Dict, List
-
 import bugsnag
 import log
 from quart import Quart, redirect, render_template, request, send_file, url_for
@@ -99,13 +97,8 @@ async def ballot_detail(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id, party)
 
     if target:
-        return await ballot_image(
-            share=share,
-            target=target,
-            positions=positions,
-            proposals=proposals,
-            votes=params,
-        )
+        vote = params.get(share)
+        return await ballot_image(election_id, precinct_id, share, vote)
 
     if ballot is None:
         return (
@@ -146,9 +139,18 @@ async def ballot_detail(election_id: int, precinct_id: int):
     )
 
 
-async def ballot_image(
-    share: str, target: str, positions: List, proposals: List, votes: Dict,
-):
+@app.route(
+    "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.png",
+    methods=["GET"],
+)
+async def ballot_image(election_id: int, precinct_id: int, item: str, vote: str):
+    share = item
+    votes = {item: vote}
+    target = request.args.get("target", "default")
+
+    positions = await api.get_positions(election_id, precinct_id)
+    proposals = await api.get_proposals(election_id, precinct_id)
+
     image, mimetype = render.ballot_image(
         "PNG",
         share=share,
