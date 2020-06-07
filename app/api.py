@@ -52,7 +52,7 @@ async def get_election(election_id: int) -> Dict:
 
 
 async def get_ballot(
-    election_id: int, precinct_id: int, party: str
+    election_id: int, precinct_id: int, party: str = ""
 ) -> Tuple[Dict, List, List]:
     async with aiohttp.ClientSession() as session:
         url = f"{BASE_URL}/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
@@ -72,6 +72,13 @@ async def get_ballot(
                 },
             )
 
+    positions = await get_positions(election_id, precinct_id, party)
+    proposals = await get_proposals(election_id, precinct_id)
+
+    return ballot, positions, proposals
+
+
+async def get_positions(election_id: int, precinct_id: int, party: str = "") -> List:
     async with aiohttp.ClientSession() as session:
         url = f"{BASE_URL}/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
         if party:
@@ -79,9 +86,13 @@ async def get_ballot(
         async with session.get(url) as response:
             positions = await response.json()
 
+    return positions["results"]
+
+
+async def get_proposals(election_id: int, precinct_id: int) -> List:
     async with aiohttp.ClientSession() as session:
         url = f"{BASE_URL}/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
         async with session.get(url) as response:
             proposals = await response.json()
 
-    return ballot, positions["results"], proposals["results"]
+    return proposals["results"]
