@@ -3,26 +3,22 @@
         Share on Facebook
     </button>
     <div class="dropdown-menu" aria-labelledby="share-menu-button">
-        <h6 class="dropdown-header">Higlight Position</h6>
-        {% for position in positions if position['candidates']%}
-            <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
-                🔗&nbsp;&nbsp;{{ position['name'] }}
-            </a>
-        {% else %}
-            <button class="dropdown-item" type="button">
-                <span class="pl-4">(no positions on this ballot)</span>
-            </button>
-        {% endfor %}
-        <h6 class="dropdown-header">Higlight Proposal</h6>
-        {% for proposal in proposals %}
-            <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
-                🔗&nbsp;&nbsp;{{ proposal['name'] }}
-            </a>
-        {% else %}
-            <button class="dropdown-item" type="button" disabled>
-                <span class="pl-4">(no proposals on this ballot)</span>
-            </button>
-        {% endfor %}
+        {% if positions %}
+            <h6 class="dropdown-header">Higlight your planned vote for:</h6>
+            {% for position in positions if position['candidates']%}
+                <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
+                    🔗&nbsp;&nbsp;{{ position['name'] }}
+                </a>
+            {% endfor %}
+        {% endif %}
+        {% if proposals %}
+            <h6 class="dropdown-header">Higlight your planned vote on:</h6>
+            {% for proposal in proposals %}
+                <a class="dropdown-item" type="button" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                    🔗&nbsp;&nbsp;{{ proposal['name'] }}
+                </a>
+            {% endfor %}
+        {% endif %}
     </div>
 </span>
 
@@ -31,26 +27,22 @@
         Share on Twitter
     </button>
     <div class="dropdown-menu" aria-labelledby="share-menu-button">
-        <h6 class="dropdown-header">Higlight Position</h6>
-        {% for position in positions if position['candidates'] %}
-            <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
-                🔗&nbsp;&nbsp;{{ position['name'] }}
-            </a>
-        {% else %}
-            <button class="dropdown-item" type="button">
-                <span class="pl-4">(no positions on this ballot)</span>
-            </button>
-        {% endfor %}
-        <h6 class="dropdown-header">Higlight Proposal</h6>
-        {% for proposal in proposals %}
-            <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
-                🔗&nbsp;&nbsp;{{ proposal['name'] }}
-            </a>
-        {% else %}
-            <button class="dropdown-item" type="button" disabled>
-                <span class="pl-4">(no proposals on this ballot)</span>
-            </button>
-        {% endfor %}
+        {% if positions %}
+            <h6 class="dropdown-header">Higlight your planned vote for:</h6>
+            {% for position in positions if position['candidates'] %}
+                <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=position-{{ position['id'] }}" target="_blank">
+                    🔗&nbsp;&nbsp;{{ position['name'] }}
+                </a>
+            {% endfor %}
+        {% endif %}
+        {% if proposals %}
+            <h6 class="dropdown-header">Higlight your planned vote on:</h6>
+            {% for proposal in proposals %}
+                <a class="dropdown-item" type="button" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26')}}%26share=proposal-{{ proposal['id'] }}" target="_blank">
+                    🔗&nbsp;&nbsp;{{ proposal['name'] }}
+                </a>
+            {% endfor %}
+        {% endif %}
     </div>
 </span>
 
@@ -59,25 +51,21 @@
         Copy Link
     </button>
     <div class="dropdown-menu" aria-labelledby="share-menu-button">
-        <h6 class="dropdown-header">Higlight Position</h6>
-        {% for position in positions if position['candidates'] %}
-            <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=position-{{ position['id'] }}">
-                🔗&nbsp;&nbsp;{{ position['name'] }}
-            </button>
-        {% else %}
-            <button class="dropdown-item" type="button">
-                <span class="pl-4">(no positions on this ballot)</span>
-            </button>
-        {% endfor %}
-        <h6 class="dropdown-header">Higlight Proposal</h6>
-        {% for proposal in proposals %}
-            <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=proposal-{{ proposal['id'] }}">
-                🔗&nbsp;&nbsp;{{ proposal['name'] }}
-            </button>
-        {% else %}
-            <button class="dropdown-item" type="button" disabled>
-                <span class="pl-4">(no proposals on this ballot)</span>
-            </button>
-        {% endfor %}
+        {% if positions %}
+            <h6 class="dropdown-header">Higlight your planned vote for:</h6>
+            {% for position in positions if position['candidates'] %}
+                <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=position-{{ position['id'] }}">
+                    🔗&nbsp;&nbsp;{{ position['name'] }}
+                </button>
+            {% endfor %}
+        {% endif %}
+        {% if proposals %}
+            <h6 class="dropdown-header">Higlight your planned vote on:</h6>
+            {% for proposal in proposals %}
+                <button class="dropdown-item" type="button" data-clipboard-text="{{ request.url }}&share=proposal-{{ proposal['id'] }}">
+                    🔗&nbsp;&nbsp;{{ proposal['name'] }}
+                </button>
+            {% endfor %}
+        {% endif %}
     </div>
 </span>

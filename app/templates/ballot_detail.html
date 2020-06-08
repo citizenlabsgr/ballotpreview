@@ -31,25 +31,7 @@
 <h1>{% if name %}{{ name }}'s{% endif %} Voting Plan</h1>
 
 <div>
-    <h5>
-        Michigan {{ ballot['election']['name'] }}
-        <span class="text-muted">
-            ({{ ballot['election']['date_humanized'] }})
-        </span>
-    </h5>
-
-    <h5>
-        {{ ballot['precinct']['county'] }} County,
-        {{ ballot['precinct']['jurisdiction'] }}
-
-        {%- if ballot['precinct']['ward'] -%}
-        , Ward {{ ballot['precinct']['ward']}}
-        {%- endif %}
-
-        {%- if ballot['precinct']['number'] -%}
-        , Precinct {{ ballot['precinct']['number'] }}
-        {% endif %}
-    </h5>
+    {% include "_ballot_header.html" %}
 
     <div>
     {% if "share=" in request.query_string|string %}
@@ -75,6 +57,7 @@
     </div>
 </div>
 
+{% if positions %}
 <div>
     <hr>
     <h2>Positions</h2>
@@ -91,21 +74,20 @@
     {% else %}
         {% for position in positions if position['candidates'] %}
             {% include "_ballot_position.html" %}
-        {% else %}
-            <h4 class="text-muted">(no positions on this ballot)</h4>
         {% endfor %}
     {% endif %}
 </div>
+{% endif %}
 
+{% if proposals %}
 <div>
     <hr>
     <h2>Proposals</h2>
     {% for proposal in proposals %}
         {% include "_ballot_proposal.html" %}
-    {% else %}
-        <h4 class="text-muted">(no proposals on this ballot)</h4>
     {% endfor %}
 </div>
+{% endif %}
 
 {% if "share=" not in request.query_string|string %}
 <div class="pt-5" id="save-toolbar" style="display: none;">
