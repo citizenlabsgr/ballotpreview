@@ -58,6 +58,24 @@ def describe_election_detail():
 
     @pytest.mark.vcr()
     @pytest.mark.asyncio
+    async def it_converts_polyfill_dates_to_RFC_3339(app, expect):
+        client = app.test_client()
+        response = await client.post(
+            "/elections/3/",
+            form={
+                "first_name": "Rosalynn",
+                "last_name": "Bliss",
+                "birth_date": "8/3/1975",
+                "zip_code": 49503,
+            },
+        )
+        html = get_html(response)
+        expect(html).contains(
+            'redirected to <a href="/elections/3/precincts/1173/?name=Rosalynn">'
+        )
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
     async def it_display_error_with_invalid_voter_information(app, expect):
         client = app.test_client()
         response = await client.post(
