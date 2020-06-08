@@ -1,0 +1,21 @@
+<div>
+    <h5>
+        Michigan {{ ballot['election']['name'] }}
+        <span class="text-muted">
+            ({{ ballot['election']['date_humanized'] }})
+        </span>
+    </h5>
+
+    <h5>
+        {{ ballot['precinct']['county'] }} County,
+        {{ ballot['precinct']['jurisdiction'] }}
+
+        {%- if ballot['precinct']['ward'] -%}
+        , Ward {{ ballot['precinct']['ward']}}
+        {%- endif %}
+
+        {%- if ballot['precinct']['number'] -%}
+        , Precinct {{ ballot['precinct']['number'] }}
+        {% endif %}
+    </h5>
+<div>
