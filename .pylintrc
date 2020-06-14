@@ -149,6 +149,7 @@ disable=print-statement,
         invalid-name,
         too-many-locals,
         fixme,
+        too-many-return-statements,
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option

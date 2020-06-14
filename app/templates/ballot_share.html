@@ -17,10 +17,10 @@
 {% for item, choice in votes.items() %}
     {% if item.startswith('position-') %}
         {% for choice in choice %}
-            {% include "_ballot_share_item.html" %}
+            {% include "_share_item.html" %}
         {% endfor %}
     {% elif item.startswith('proposal-') %}
-        {% include "_ballot_share_item.html" %}
+        {% include "_share_item.html" %}
     {% endif %}
 {% endfor %}
 
