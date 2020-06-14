@@ -268,8 +268,7 @@ def describe_ballot_detail():
                 "/elections/3/precincts/1172/?position-710=candidate-10590"
             )
             html = get_html(response)
-            expect(html).contains("Share on Facebook")
-            expect(html).excludes("Find Your Ballot")
+            expect(html).contains("Share Your Voting Plan")
 
     def describe_post():
         @pytest.mark.vcr()
@@ -314,7 +313,7 @@ def describe_ballot_share_preview():
     async def it_shows_images(app, expect):
         client = app.test_client()
         response = await client.get(
-            "/elections/40/precincts/591/share?position-17099=candidate-43453&position-17100=candidate-43454&position-17084=candidate-43433&position-17084=candidate-43430&proposal-3190=approve"
+            "/elections/40/precincts/591/?position-17099=candidate-43453&position-17100=candidate-43454&position-17084=candidate-43433&position-17084=candidate-43430&proposal-3190=approve&share="
         )
         html = get_html(response)
         expect(html.count("<img ")) == 5

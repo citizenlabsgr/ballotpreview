@@ -94,6 +94,9 @@ async def ballot_detail(election_id: int, precinct_id: int):
             404,
         )
 
+    if share == "":
+        return await ballot_share(election_id, precinct_id)
+
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id, party)
 
     if target:
@@ -139,7 +142,6 @@ async def ballot_detail(election_id: int, precinct_id: int):
     )
 
 
-@app.route("/elections/<election_id>/precincts/<precinct_id>/share", methods=["GET"])
 async def ballot_share(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 

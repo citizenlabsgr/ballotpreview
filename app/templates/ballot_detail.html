@@ -28,7 +28,13 @@
 
 <form action="{{ request.url }}" method="post">
 
-<h1>{% if name %}{{ name }}'s{% endif %} Voting Plan</h1>
+<h1>
+{% if "share=" in request.query_string|string %}
+    {% if name %}{{ name }}'s{% endif %} Voting Plan
+{% else %}
+    Your Voting Plan
+{% endif %}
+</h1>
 
 <div>
     {% include "_ballot_header.html" %}
@@ -39,7 +45,9 @@
             Find Your Ballot
         </a>
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
-        {% include "_ballot_share.html" %}
+        <a class="btn btn-primary" href="{{ request.url }}&share=" role="button" target="_blank">
+            Share Your Voting Plan...
+        </a>
     {% else %}
         <div class="alert alert-info" role="alert">
             Fill out this sample ballot to share with your friends and family.
