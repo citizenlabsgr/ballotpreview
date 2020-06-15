@@ -38,9 +38,13 @@
                     onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                     {% if candidate_key in votes[position_key] %}checked{% endif %}
                     {% if "share=" in request.query_string|string %}disabled{% endif %}>
-            <label class="form-check-label"
-                    for="{{ position_key }}">
+            <label class="form-check-label" for="{{ position_key }}">
                 {{ candidate['name'] }}
+
+                {% if candidate['reference_url'] %}
+                <a href="{{ candidate['reference_url']}}" target="_blank">🔗</a>
+                {% endif %}
+
                 <span class="text-muted">
                 (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
                 </span>
