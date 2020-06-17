@@ -16,7 +16,7 @@ packages = [
 python = "^3.7"
 
 # Server
-quart = "~0.11.3"
+quart = "~0.12.0"
 bugsnag = "^3.6.0"
 
 # Images
