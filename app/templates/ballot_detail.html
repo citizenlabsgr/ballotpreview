@@ -45,8 +45,8 @@
             Find Your Ballot
         </a>
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
-        <a class="btn btn-primary" href="{{ request.url }}&share=" role="button" target="_blank">
-            Share Your Voting Plan...
+        <a class="btn btn-primary" href="{{ request.url }}&share=" role="button">
+            Share Your Voting Plan
         </a>
     {% else %}
         <div class="alert alert-info" role="alert">

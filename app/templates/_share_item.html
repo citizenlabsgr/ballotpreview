@@ -2,11 +2,11 @@
     <img src="{{ ballot_url }}{{ item }}/{{ choice }}.png" style="max-width: 100%">
 
     <div>
-        <a class="btn btn-primary mt-1" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" role="button">
+        <a class="btn btn-primary mt-1" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" target="_blank" role="button">
             Share on Facebook
         </a>
 
-        <a class="btn btn-primary mt-1" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" role="button">
+        <a class="btn btn-primary mt-1" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" target="_blank" role="button">
             Share on Twitter
         </a>
 
