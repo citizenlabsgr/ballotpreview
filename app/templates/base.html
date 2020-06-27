@@ -44,6 +44,10 @@
         <!-- Custom -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='custom.css') }}">
 
+        <style type="text/css" media="print">
+            .no-print { display: none; }
+        </style>
+
     </head>
     <body>
         <div class="container">
@@ -54,7 +58,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer no-print">
             <div class="container text-center">
                 <small class="text-muted">
                     <a class="text-muted" href="{{ url_for('about') }}"><b>Ballot Preview</b></a>
