@@ -343,3 +343,10 @@ def describe_ballot_share():
         expect(html).excludes("Share on Facebook")
         expect(html).contains(" disabled>")
         expect(html).excludes("official ballot")
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_handles_sharing_without_highlighted_item(app, expect):
+        client = app.test_client()
+        response = await client.get("/elections/3/precincts/1172/?target=facebook")
+        expect(response.status_code) == 200
