@@ -84,7 +84,7 @@ def _get_title(share: str, positions: List, proposals: List):
     if category == "position":
         for position in positions:
             if position["id"] == key:
-                return _shorten(position["name"])
+                return _shorten(position["name"], position["district"]["name"])
 
     if category == "proposal":
         for proposal in proposals:
@@ -94,11 +94,14 @@ def _get_title(share: str, positions: List, proposals: List):
     raise LookupError(f"{share} not found in {positions} or {proposals}")
 
 
-def _shorten(text: str) -> str:
+def _shorten(text: str, district: str = "") -> str:
     words = text.split(" ")
 
+    if district and district != "Michigan":
+        words.append(f"({district})")
+
     line = " ".join(words)
-    while len(line) > 30:
+    while len(line) > 35 or words[-1].startswith("."):
         words.pop()
         line = " ".join(words)
 

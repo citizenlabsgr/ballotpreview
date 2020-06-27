@@ -36,6 +36,7 @@ def positions():
         {
             "id": 5141,
             "name": "President of The United States",
+            "district": {"name": "Michigan"},
             "candidates": [
                 {
                     "id": 21685,
