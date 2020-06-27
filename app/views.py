@@ -97,14 +97,14 @@ async def ballot_detail(election_id: int, precinct_id: int):
     if share == "":
         return await ballot_share(election_id, precinct_id)
 
-    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id, party)
-
     if target:
-        if "~" in share:
+        if share and "~" in share:
             share, vote = share.split("~")
         else:
             vote = params.get(share)
         return await ballot_image(election_id, precinct_id, share, vote)
+
+    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id, party)
 
     if ballot is None:
         return (
