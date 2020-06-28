@@ -13,7 +13,9 @@
     <p class="mb-2 text-justify">
         <small>
             {{ position['description'] or "(no description)" }}
-            <a href="{{ position['description_edit_url'] }}" target="_blank" class="no-print">✎</a>
+            {% if "share=" not in request.query_string|string %}
+                <a href="{{ position['description_edit_url'] }}" target="_blank" class="no-print">✎</a>
+            {% endif %}
         </small>
     </p>
 
