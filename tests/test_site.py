@@ -333,6 +333,14 @@ def describe_ballot_share():
 
     @pytest.mark.vcr()
     @pytest.mark.asyncio
+    async def it_hides_edit_links(app, expect):
+        client = app.test_client()
+        response = await client.get("/elections/3/precincts/1172/?share=position-710")
+        html = get_html(response)
+        expect(html).excludes("edit")
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
     async def it_allows_sites_to_add_tracking_parameters(app, expect):
         client = app.test_client()
         response = await client.get(
