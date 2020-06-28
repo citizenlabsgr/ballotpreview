@@ -30,7 +30,12 @@
 
 <h1>
 {% if "share=" in request.query_string|string %}
-    {% if name %}{{ name }}'s{% endif %} Voting Plan
+    {% if name %}
+        {{ name }}'s
+    {% else %}
+        Your Friend's
+    {% endif %}
+    Voting Plan
 {% else %}
     Your Voting Plan
 {% endif %}
