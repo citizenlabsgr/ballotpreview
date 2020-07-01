@@ -66,7 +66,17 @@ def ballot_image(
 
     # Response mark
     border = (4 * unit) + crop
-    draw.text((border, height // 2), mark, fill=fill, font=font)
+    x = border
+    y = height // 2
+    draw.text((x - 1, y), mark, fill=settings.BLACK, font=font)
+    draw.text((x + 1, y), mark, fill=settings.BLACK, font=font)
+    draw.text((x, y - 1), mark, fill=settings.BLACK, font=font)
+    draw.text((x, y + 1), mark, fill=settings.BLACK, font=font)
+    draw.text((x - 1, y - 1), mark, fill=settings.BLACK, font=font)
+    draw.text((x + 1, y - 1), mark, fill=settings.BLACK, font=font)
+    draw.text((x - 1, y + 1), mark, fill=settings.BLACK, font=font)
+    draw.text((x + 1, y + 1), mark, fill=settings.BLACK, font=font)
+    draw.text((x, y), mark, fill=fill, font=font)
 
     stream = io.BytesIO()
     img.save(stream, format=extension)
