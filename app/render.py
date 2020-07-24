@@ -9,7 +9,7 @@ from . import settings
 
 
 def election_image(
-    extension: str, *, target: str, election: Dict
+    extension: str, target: str, election: Dict
 ) -> Tuple[io.BytesIO, str]:
     log.debug(election)  # Include election date in image
     return ballot_image(
@@ -19,7 +19,6 @@ def election_image(
 
 def ballot_image(
     extension: str,
-    *,
     share: str,
     target: str,
     positions: List,
