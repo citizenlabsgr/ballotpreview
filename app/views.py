@@ -1,3 +1,5 @@
+import asyncio
+
 import bugsnag
 import log
 from quart import Quart, redirect, render_template, request, send_file, url_for
@@ -28,8 +30,10 @@ async def index():
 @app.route("/banner.png")
 async def banner():
     elections = await api.get_elections()
-    target = request.args.pop("target", None)
-    image, mimetype = render.election_image("PNG", target=target, election=elections[0])
+    target = request.args.get("target", "default")
+    image, mimetype = await asyncio.get_running_loop().run_in_executor(
+        None, render.election_image, "PNG", target, elections[0]
+    )
     return await send_file(image, mimetype)
 
 
@@ -76,7 +80,9 @@ async def election_detail(election_id: int):
 async def election_image(election_id: int):
     election = await api.get_election(election_id)
     target = request.args.get("target", "default")
-    image, mimetype = render.election_image("PNG", target=target, election=election)
+    image, mimetype = await asyncio.get_event_loop().run_in_executor(
+        None, render.election_image, "PNG", target, election
+    )
     return await send_file(image, mimetype)
 
 
@@ -177,12 +183,7 @@ async def ballot_image(election_id: int, precinct_id: int, item: str, vote: str)
     positions = await api.get_positions(election_id, precinct_id)
     proposals = await api.get_proposals(election_id, precinct_id)
 
-    image, mimetype = render.ballot_image(
-        "PNG",
-        share=share,
-        target=target,
-        positions=positions,
-        proposals=proposals,
-        votes=votes,
+    image, mimetype = await asyncio.get_event_loop().run_in_executor(
+        None, render.ballot_image, "PNG", share, target, positions, proposals, votes,
     )
     return await send_file(image, mimetype)
