@@ -50,8 +50,9 @@
             Find Your Ballot
         </a>
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
-        <input type="button" class="btn btn-secondary" value="Print / Download Choices" onClick="window.print()">
-        <a class="btn btn-primary" href="{{ request.url }}&share=" role="button">
+        <input type="button" class="btn btn-secondary mt-1" value="Print / Download Choices" onClick="window.print()">
+        <a class="btn btn-secondary mt-1" href="https://absentee.michiganelections.io" target="_blank">Vote By Mail</a>
+        <a class="btn btn-primary mt-1" href="{{ request.url }}&share=" role="button">
             Share Your Voting Plan...
         </a>
     {% else %}
