@@ -27,6 +27,13 @@ body {
 /* Print styling
 ---------------------------------------------------------------------------- */
 
+@media screen {
+  .print-only,
+  .print-only * {
+    display: none !important;
+  }
+}
+
 @media print {
   .no-print,
   .no-print * {
