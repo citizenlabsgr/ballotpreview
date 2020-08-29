@@ -28,7 +28,7 @@
 
 <form action="{{ request.url }}" method="post">
 
-<h1>
+<h1 class="no-print">
 {% if "share=" in request.query_string|string %}
     {% if name %}
         {{ name }}'s
@@ -39,6 +39,15 @@
 {% else %}
     Your Voting Plan
 {% endif %}
+</h1>
+
+<h1 class="print-only">
+{% if name %}
+    {{ name }}'s
+{% else %}
+    Your
+{% endif %}
+Voting Plan
 </h1>
 
 <div>
@@ -52,6 +61,7 @@
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
         <input type="button" class="btn btn-secondary mt-1" value="Print / Download Choices" onClick="window.print()">
         <a class="btn btn-secondary mt-1" href="https://absentee.michiganelections.io" target="_blank">Vote By Mail</a>
+        <a class="btn btn-secondary mt-1" href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank">Find Polling Location</a>
         <a class="btn btn-primary mt-1" href="{{ request.url }}&share=" role="button">
             Share Your Voting Plan...
         </a>
@@ -73,7 +83,9 @@
 </div>
 
 <div class="print-only" >
-    <h5>Edit / Share Your Choices:</h5>
+    <h5>Find Your Polling Location:</h5>
+    <div style="color: blue;">https://mvic.sos.state.mi.us/Voter/Index</div>
+    <h5 class="mt-2">Edit / Share Your Choices:</h5>
     <div style="color: blue; font-size: {{ 1 + 800 / request.url|length }}px;">{{ request.url }}</div>
 </div>
 
