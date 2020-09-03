@@ -18,7 +18,10 @@ async def get_status(
     async with aiohttp.ClientSession() as session:
         url = f"{BASE_URL}/registrations/?first_name={first_name}&last_name={last_name}&birth_date={birth_date}&zip_code={zip_code}"
         async with session.get(url) as response:
-            data = await response.json()
+            try:
+                data = await response.json()
+            except aiohttp.ContentTypeError:
+                data = {}
 
     if "registered" not in data:
         bugsnag.notify(
