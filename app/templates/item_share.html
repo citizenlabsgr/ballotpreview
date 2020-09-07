@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block meta %}
+
+<!-- Primary Meta Tags -->
+<title>Michigan Ballot Preview</title>
+
+{% endblock %}
+{% block content %}
+
+<h1>Share Your Voting Plan</h1>
+
+{% include "_ballot_header.html" %}
+
+<hr>
+
+{% for item, choice in votes.items() %}
+    {% if item.startswith('position-') %}
+        {% for choice in choice %}
+            {% include "_share_item.html" %}
+        {% endfor %}
+    {% elif item.startswith('proposal-') %}
+        {% include "_share_item.html" %}
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
+{% block scripts %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
+
+<script>
+
+// Clipboard
+
+var clipboard = new Clipboard('.btn');
+
+clipboard.on('success', function(event) {
+    $.notify({
+        message: 'Ballot preview link copied to the clipboard!',
+    }, {
+        type: 'success',
+        delay: 3000,
+    });
+});
+
+clipboard.on('error', function(event) {
+    console.log(event);
+});
+
+</script>
+
+{% endblock %}

@@ -41,7 +41,7 @@
                     {% if candidate_key in votes[position_key] %}checked{% endif %}
                     {% if "share=" in request.query_string|string %}disabled{% endif %}>
             <label class="form-check-label" for="{{ position_key }}">
-                {{ candidate['name'] }}
+                <a href="{{ request.url }}?share=item&{{ position_key }}={{ candidate_key }}" target="_blank">{{ candidate['name'] }}</a>
 
                 {% if candidate['reference_url'] %}
                 <a href="{{ candidate['reference_url']}}" target="_blank" class="no-print">🔗</a>

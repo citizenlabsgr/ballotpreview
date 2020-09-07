@@ -100,6 +100,8 @@ async def ballot_detail(election_id: int, precinct_id: int):
             404,
         )
 
+    if share == "item":
+        return await item_share(election_id, precinct_id)
     if share == "":
         return await ballot_share(election_id, precinct_id)
 
@@ -151,6 +153,20 @@ async def ballot_detail(election_id: int, precinct_id: int):
     )
 
 
+async def item_share(election_id: int, precinct_id: int):
+    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
+
+    votes, _votes_changed = utils.validate_ballot(
+        positions, proposals, original_votes=request.args,
+    )
+
+    election_url = url_for("election_detail", election_id=election_id)
+
+    return await render_template(
+        "item_share.html", ballot=ballot, votes=votes, election_url=election_url,
+    )
+
+
 async def ballot_share(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 
@@ -172,10 +188,36 @@ async def ballot_share(election_id: int, precinct_id: int):
 
 
 @app.route(
+    "/elections/<election_id>/precincts/<precinct_id>/positions/<position_id>/candidates/<candidate_id>"
+)
+async def position_detail(
+    election_id: int, precinct_id: int, position_id: int, candidate_id: int
+):
+    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
+
+    # votes, _votes_changed = utils.validate_ballot(
+    #     positions,
+    #     proposals,
+    #     original_votes=,
+    # )
+
+    votes = {f"position-{position_id}": [f"candidate-{candidate_id}"]}
+
+    # election_url = url_for("election_detail", election_id=election_id)
+    ballot_url = url_for(
+        "ballot_detail", election_id=election_id, precinct_id=precinct_id,
+    )
+
+    return await render_template(
+        "item_share.html", ballot=ballot, votes=votes, ballot_url=ballot_url,
+    )
+
+
+@app.route(
     "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.png",
     methods=["GET"],
 )
-async def ballot_image(election_id: int, precinct_id: int, item: str, vote: str):
+async def item_image(election_id: int, precinct_id: int, item: str, vote: str):
     share = item
     votes = {item: vote}
     target = request.args.get("target", "default")
