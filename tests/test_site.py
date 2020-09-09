@@ -268,7 +268,7 @@ def describe_ballot_detail():
                 "/elections/3/precincts/1172/?position-710=candidate-10590"
             )
             html = get_html(response)
-            expect(html).contains("Share Your Voting Plan")
+            expect(html).contains("Share Your Plan")
 
     def describe_post():
         @pytest.mark.vcr()
@@ -352,9 +352,48 @@ def describe_ballot_share():
         expect(html).contains(" disabled>")
         expect(html).excludes("official ballot")
 
+
+def describe_ballot_image():
     @pytest.mark.vcr()
     @pytest.mark.asyncio
-    async def it_handles_sharing_without_highlighted_item(app, expect):
+    async def it_can_highlight_the_first_item(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/41/precincts/1209/?"
+            "position-46053=candidate-75615&position-46073=candidate-75684"
+            "&share=first"
+            "&target=default"
+        )
+        expect(response.status_code) == 200
+        expect(response.content_type) == "image/png"
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_can_highlight_a_specific_item(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/41/precincts/1209/?"
+            "position-46053=candidate-75615&position-46073=candidate-75684"
+            "&share=position-46073~candidate-75684"
+            "&target=default"
+        )
+        expect(response.status_code) == 200
+        expect(response.content_type) == "image/png"
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_handles_lack_of_highlighted_item(app, expect):
         client = app.test_client()
         response = await client.get("/elections/3/precincts/1172/?target=facebook")
         expect(response.status_code) == 200
+        expect(response.content_type) == "image/png"
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_handles_lack_of_votes(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/41/precincts/1209/?share=first&target=default"
+        )
+        expect(response.status_code) == 200
+        expect(response.content_type) == "image/png"
