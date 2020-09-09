@@ -1,0 +1,36 @@
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false">
+    Share Your Plan
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+    <div class="dropdown-header text-center pb-0">
+        <img src="{{ request.url }}&share=first&target=default" width="300px">
+        <br>
+        <a class="text-small" href="{{ request.url }}&share=">
+            <small>Change cover image...</small>
+        </a>
+    </div>
+
+    <div class="dropdown-divider"></div>
+
+    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26') }}%26share=first" target="_blank" role="button">
+        🔗
+        &nbsp;
+        Share on Facebook
+    </a>
+
+    <a class="dropdown-item" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26') }}%26share=first" target="_blank" role="button">
+        🔗
+        &nbsp;
+        Share on Twitter
+    </a>
+
+    <button type="button" class="dropdown-item" data-clipboard-text="{{ request.url }}&share=first">
+        📄
+        &nbsp;
+        Copy Link
+    </button>
+
+  </div>
+</div>

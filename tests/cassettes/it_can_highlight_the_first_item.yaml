@@ -1,0 +1,345 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+  response:
+    body:
+      string: '{"count":24,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/positions/47037/","id":47037,"name":"Electors
+        of President and Vice-president of The United States","description":"The president
+        of the United States (POTUS) is the head of state and head of government of
+        the United States of America. The president directs the executive branch of
+        the federal government and is the commander-in-chief of the United States
+        Armed Forces.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Electors%20of%20President%20and%20Vice-president%20of%20The%20United%20States.md","reference_url":null,"section":"","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/78221/","id":78221,"name":"Donald
+        J. Trump & Jeremy Cohen","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78223/","id":78223,"name":"Don
+        Blankenship & William Mohr","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78224/","id":78224,"name":"Howie
+        Hawkins & Angela Walker","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}},{"url":"http://michiganelections.io/api/candidates/78222/","id":78222,"name":"Jo
+        Jorgensen","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/78220/","id":78220,"name":"Joseph
+        R. Biden & Kamala D. Harris","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78225/","id":78225,"name":"Rocky
+        De La Fuente & Darcy Richardson","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/7/","id":7,"name":"Natural
+        Law","color":"#CA0F67"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/47036/","id":47036,"name":"Governor
+        of Wayne State University","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Governor%20of%20Wayne%20State%20University.md","reference_url":null,"section":"","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/78218/","id":78218,"name":"Christine
+        C. Schwartz","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519872","party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78216/","id":78216,"name":"Don
+        Gates","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519851","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78214/","id":78214,"name":"Eva
+        Garza Dewaelsche","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519494","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78217/","id":78217,"name":"Jon
+        Elgas","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519842","party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/78215/","id":78215,"name":"Shirley
+        Stancato","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519837","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78219/","id":78219,"name":"Susan
+        Odgers","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519813","party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}},{"url":"http://michiganelections.io/api/candidates/87147/","id":87147,"name":"Terri
+        Lynn Land","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519915","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/47033/","id":47033,"name":"Member
+        of The State Board of Education","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Member%20of%20The%20State%20Board%20of%20Education.md","reference_url":null,"section":"","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/78187/","id":78187,"name":"Bill
+        Hall","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519843","party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/78190/","id":78190,"name":"Douglas
+        Levesque","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519867","party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78183/","id":78183,"name":"Ellen
+        Cogen Lipton","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519852","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78192/","id":78192,"name":"Hali
+        McEachern","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519863","party":{"url":"http://michiganelections.io/api/parties/9/","id":9,"name":"Working
+        Class","color":"#A30000"}},{"url":"http://michiganelections.io/api/candidates/78184/","id":78184,"name":"Jason
+        Strayhorn","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519816","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78189/","id":78189,"name":"Karen
+        Adams","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519866","party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78191/","id":78191,"name":"Mary
+        Anne Hering","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519864","party":{"url":"http://michiganelections.io/api/parties/9/","id":9,"name":"Working
+        Class","color":"#A30000"}},{"url":"http://michiganelections.io/api/candidates/78186/","id":78186,"name":"Michelle
+        A. Frederick","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519839","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78188/","id":78188,"name":"Richard
+        A. Hewer","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519844","party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/78185/","id":78185,"name":"Tami
+        Carlone","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519825","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78193/","id":78193,"name":"Tom
+        Mair","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519810","party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/47034/","id":47034,"name":"Regent
+        of The University of Michigan","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Regent%20of%20The%20University%20of%20Michigan.md","reference_url":null,"section":"","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/78197/","id":78197,"name":"Carl
+        Meyers","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519783","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78201/","id":78201,"name":"Crystal
+        Van Sickle","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519870","party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78199/","id":78199,"name":"Eric
+        Larson","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519847","party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/78198/","id":78198,"name":"James
+        L. Hudler","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519846","party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/78203/","id":78203,"name":"Keith
+        Butkovich","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519819","party":{"url":"http://michiganelections.io/api/parties/7/","id":7,"name":"Natural
+        Law","color":"#CA0F67"}},{"url":"http://michiganelections.io/api/candidates/78194/","id":78194,"name":"Mark
+        Bernstein","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/515550","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78202/","id":78202,"name":"Michael
+        Mawilai","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519811","party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}},{"url":"http://michiganelections.io/api/candidates/78200/","id":78200,"name":"Ronald
+        E. Graeser","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519871","party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78196/","id":78196,"name":"Sarah
+        Hubbard","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519790","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78195/","id":78195,"name":"Shauna
+        Ryder Diggs","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/515732","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/47035/","id":47035,"name":"Trustee
+        of Michigan State University","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Trustee%20of%20Michigan%20State%20University.md","reference_url":null,"section":"","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/78211/","id":78211,"name":"Brandon
+        Hu","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519812","party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}},{"url":"http://michiganelections.io/api/candidates/78204/","id":78204,"name":"Brian
+        Mosallam","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/514224","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78213/","id":78213,"name":"Bridgette
+        Abraham-Guzman","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519886","party":{"url":"http://michiganelections.io/api/parties/7/","id":7,"name":"Natural
+        Law","color":"#CA0F67"}},{"url":"http://michiganelections.io/api/candidates/78209/","id":78209,"name":"Janet
+        M. Sanger","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519869","party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78210/","id":78210,"name":"John
+        Paul Sanger","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519868","party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}},{"url":"http://michiganelections.io/api/candidates/78206/","id":78206,"name":"Pat
+        O''Keefe","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519793","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78205/","id":78205,"name":"Rema
+        Ella Vassar","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519780","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78212/","id":78212,"name":"Robin
+        Lea Laurain","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519317","party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}},{"url":"http://michiganelections.io/api/candidates/78207/","id":78207,"name":"Tonya
+        Schuitmaker","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519826","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/78208/","id":78208,"name":"Will
+        Tyler White","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519845","party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/46053/","id":46053,"name":"United
+        States Senator","description":"Approves of treaties, and the confirmation
+        of Cabinet secretaries, Supreme Court justices, federal judges, regulatory
+        officials, ambassadors, other federal executive officials. Furthermore, the
+        Senate has the responsibility of conducting the trials of those impeached
+        by the House.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/United%20States%20Senator.md","reference_url":null,"section":"","seats":1,"term":"6
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/75619/","id":75619,"name":"Doug
+        Dern","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/7/","id":7,"name":"Natural
+        Law","color":"#CA0F67"}},{"url":"http://michiganelections.io/api/candidates/75615/","id":75615,"name":"Gary
+        Peters","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/75616/","id":75616,"name":"John
+        James","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/75618/","id":75618,"name":"Marcia
+        Squier","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}},{"url":"http://michiganelections.io/api/candidates/75617/","id":75617,"name":"Valerie
+        L. Willis","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/8/","id":8,"name":"U.S.
+        Taxpayers","color":"#A356DE"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1427/","id":1427,"category":"State","name":"Michigan"}},{"url":"http://michiganelections.io/api/positions/46073/","id":46073,"name":"Representative
+        in Congress","description":"Charged with the passage of federal legislation,
+        which, after concurrence by the Senate, are sent to the president for consideration.
+        In addition to this basic power, the House has certain exclusive powers, among
+        them the power to initiate all bills related to revenue and the impeachment
+        of federal officers, who are sent to trial before the Senate.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Representative%20in%20Congress.md","reference_url":null,"section":"","seats":1,"term":"2
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/75684/","id":75684,"name":"Hillary
+        Scholten","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/75685/","id":75685,"name":"Peter
+        Meijer","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/14/","id":14,"category":"US
+        Congress District","name":"3rd District"}},{"url":"http://michiganelections.io/api/positions/46195/","id":46195,"name":"Representative
+        in State Legislature","description":"Works alongside the governor of Michigan
+        to create laws and establish a state budget. Responsibilities of the Michigan
+        House of Representatives include passing bills on public policy matters, setting
+        levels for state spending, and raising and lowering taxes.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Representative%20in%20State%20Legislature.md","reference_url":null,"section":"","seats":1,"term":"2
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/76002/","id":76002,"name":"David
+        LaGrand","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/517249","party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/76003/","id":76003,"name":"James
+        McKeiver","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519609","party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/76004/","id":76004,"name":"Louis
+        Palus","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519888","party":{"url":"http://michiganelections.io/api/parties/9/","id":9,"name":"Working
+        Class","color":"#A30000"}},{"url":"http://michiganelections.io/api/candidates/76005/","id":76005,"name":"Marco
+        T. Bulnes","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519889","party":{"url":"http://michiganelections.io/api/parties/4/","id":4,"name":"Green","color":"#00A95C"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/12/","id":12,"category":"State
+        House District","name":"75th District"}},{"url":"http://michiganelections.io/api/positions/40409/","id":40409,"name":"Clerk
+        & Register of Deeds","description":"Records all documents pertaining to real
+        property, including deeds, mortgages, land contracts, liens and other documents
+        pertaining to real estate.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Clerk%20&%20Register%20of%20Deeds.md","reference_url":null,"section":"","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/66180/","id":66180,"name":"Devin
+        Ortega-Furgeson","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/78475/","id":78475,"name":"Jamie
+        Lewis","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/66181/","id":66181,"name":"Lisa
+        Posthumus Lyons","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/56/","id":56,"category":"County","name":"Kent"}},{"url":"http://michiganelections.io/api/positions/40411/","id":40411,"name":"Drain
+        Commissioner","description":"Responsible for planning, developing and maintaining
+        surface water drainage systems.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Drain%20Commissioner.md","reference_url":null,"section":"","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/78476/","id":78476,"name":"Alex
+        Avery","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/66184/","id":66184,"name":"Elaine
+        Isely","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/66185/","id":66185,"name":"Ken
+        Yonker","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/56/","id":56,"category":"County","name":"Kent"}},{"url":"http://michiganelections.io/api/positions/40407/","id":40407,"name":"Prosecuting
+        Attorney","description":"The legal party responsible for presenting the case
+        against an individual or a corporation suspected of breaking the law, initiating
+        and directing further criminal investigations, guiding and recommending the
+        sentencing of offenders, and are the only attorneys allowed to participate
+        in grand jury proceedings.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Prosecuting%20Attorney.md","reference_url":null,"section":"","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/66177/","id":66177,"name":"Chris
+        Becker","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/56/","id":56,"category":"County","name":"Kent"}},{"url":"http://michiganelections.io/api/positions/40408/","id":40408,"name":"Sheriff","description":"Responsible
+        for keeping the peace and enforcing the law. They operate the county jail,
+        serve and execute all civil writs and process as well as criminal process
+        that are issued pursuant to rule, and produce and maintain records as prescribed
+        by law.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Sheriff.md","reference_url":null,"section":"","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/78474/","id":78474,"name":"John
+        Glen Stedman","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/3/","id":3,"name":"Libertarian","color":"#ECC850"}},{"url":"http://michiganelections.io/api/candidates/66178/","id":66178,"name":"Marc
+        Burns","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/66179/","id":66179,"name":"Michelle
+        LaJoye-Young","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/56/","id":56,"category":"County","name":"Kent"}},{"url":"http://michiganelections.io/api/positions/40410/","id":40410,"name":"Treasurer","description":"Responsible
+        for managing the revenue and cash flow of the agency, banking, collection,
+        receipt, reporting, custody, investment or disbursement of municipal funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Treasurer.md","reference_url":null,"section":"","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/66182/","id":66182,"name":"Beth
+        White","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}},{"url":"http://michiganelections.io/api/candidates/66183/","id":66183,"name":"Peter
+        MacGregor","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/56/","id":56,"category":"County","name":"Kent"}},{"url":"http://michiganelections.io/api/positions/44678/","id":44678,"name":"County
+        Commissioner","description":"Acts as the executive of the local government,
+        levying local taxes, administering county governmental services such as correctional
+        institutions, courts, public health oversight, property registration, building
+        code enforcement, and public works.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/County%20Commissioner.md","reference_url":null,"section":"","seats":1,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/73234/","id":73234,"name":"Brian
+        Boersema","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/2/","id":2,"name":"Republican","color":"#E81B23"}},{"url":"http://michiganelections.io/api/candidates/73235/","id":73235,"name":"Joel
+        Townsend","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/6/","id":6,"name":"No
+        Party Affiliation","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/73233/","id":73233,"name":"Melissa
+        LaGrand","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/1/","id":1,"name":"Democratic","color":"#3333FF"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/3490/","id":3490,"category":"County
+        Commissioner District","name":"Kent County, 15th District"}},{"url":"http://michiganelections.io/api/positions/47245/","id":47245,"name":"Justice
+        of Supreme Court","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Justice%20of%20Supreme%20Court.md","reference_url":null,"section":"Nonpartisan","seats":2,"term":"8
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/79081/","id":79081,"name":"Bridget
+        Mary McCormack & Justice of Supreme Court","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/515711","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/79084/","id":79084,"name":"Brock
+        Swartzle","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519794","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/79085/","id":79085,"name":"Elizabeth
+        M. Welch","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519388","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/79083/","id":79083,"name":"Katherine
+        Mary Nepton","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519785","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/79082/","id":79082,"name":"Kerry
+        Lee Morgan","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519848","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/79080/","id":79080,"name":"Mary
+        Kelly","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519802","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/79079/","id":79079,"name":"Susan
+        L. Hubbard","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519814","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/8/","id":8,"category":"Jurisdiction","name":"City
+        of Grand Rapids"}},{"url":"http://michiganelections.io/api/positions/47106/","id":47106,"name":"Judge
+        of Circuit Court","description":"Hears the more serious criminal cases. Circuit
+        courts are also the appellate court for cases heard in the district courts.
+        They have original jurisdiction over all civil suits where the amount contended
+        in the case exceeds $25,000 and all criminal cases involving felonies.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Circuit%20Court.md","reference_url":null,"section":"Nonpartisan","seats":2,"term":"6
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/78485/","id":78485,"name":"Jenny
+        Johnsen Sarber","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519460","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/78484/","id":78484,"name":"Maureen
+        A. Gottlieb","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519346","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/78486/","id":78486,"name":"Scott
+        A. Noto","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/518552","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/78487/","id":78487,"name":"Stephen
+        Willison","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519459","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1476/","id":1476,"category":"Circuit
+        Court District","name":"17th Circuit Court"}},{"url":"http://michiganelections.io/api/positions/47107/","id":47107,"name":"Judge
+        of Circuit Court","description":"Hears the more serious criminal cases. Circuit
+        courts are also the appellate court for cases heard in the district courts.
+        They have original jurisdiction over all civil suits where the amount contended
+        in the case exceeds $25,000 and all criminal cases involving felonies.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Circuit%20Court.md","reference_url":null,"section":"Nonpartisan","seats":1,"term":"6
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/78488/","id":78488,"name":"Kathleen
+        A. Feeney","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/509773","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1476/","id":1476,"category":"Circuit
+        Court District","name":"17th Circuit Court"}},{"url":"http://michiganelections.io/api/positions/46061/","id":46061,"name":"Judge
+        of Court of Appeals","description":"Hears all appeals from the district courts
+        and the other lower level courts. They examine the application of the law
+        and not the facts of the case, unless there has been grievous error pertaining
+        to questions of fact.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Court%20of%20Appeals.md","reference_url":null,"section":"Nonpartisan","seats":2,"term":"6
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/77162/","id":77162,"name":"Jane
+        E. Markey","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/504831","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/77161/","id":77161,"name":"Mark
+        Thomas Boonstra","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/515816","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1582/","id":1582,"category":"Court
+        of Appeals District","name":"Court of Appeals District 3"}},{"url":"http://michiganelections.io/api/positions/47068/","id":47068,"name":"Judge
+        of Court of Appeals","description":"Hears all appeals from the district courts
+        and the other lower level courts. They examine the application of the law
+        and not the facts of the case, unless there has been grievous error pertaining
+        to questions of fact.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Court%20of%20Appeals.md","reference_url":null,"section":"Nonpartisan","seats":1,"term":"Partial
+        Term Ending 01/01/2023","candidates":[{"url":"http://michiganelections.io/api/candidates/78340/","id":78340,"name":"James
+        Robert Redford","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519424","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1582/","id":1582,"category":"Court
+        of Appeals District","name":"Court of Appeals District 3"}},{"url":"http://michiganelections.io/api/positions/47246/","id":47246,"name":"Judge
+        of District Court","description":"Hears cases involving less serious criminal
+        offenses. District courts are trial courts of limited jurisdiction, handling
+        most traffic violations, small claims, misdemeanors, and civil suits where
+        the amount contended is below $25,000. District courts are often responsible
+        for handling the preliminary examination and for setting bail in felony cases.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20District%20Court.md","reference_url":null,"section":"Nonpartisan","seats":2,"term":"6
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/79086/","id":79086,"name":"David
+        J. Buter","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/507803","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/79087/","id":79087,"name":"Kimberly
+        A. Schaefer","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/513961","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1583/","id":1583,"category":"District
+        Court District","name":"61st District Court"}},{"url":"http://michiganelections.io/api/positions/47247/","id":47247,"name":"Judge
+        of District Court","description":"Hears cases involving less serious criminal
+        offenses. District courts are trial courts of limited jurisdiction, handling
+        most traffic violations, small claims, misdemeanors, and civil suits where
+        the amount contended is below $25,000. District courts are often responsible
+        for handling the preliminary examination and for setting bail in felony cases.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20District%20Court.md","reference_url":null,"section":"Nonpartisan","seats":1,"term":"Partial
+        Term Ending 01/01/2023","candidates":[{"url":"http://michiganelections.io/api/candidates/79088/","id":79088,"name":"Nicholas
+        Ayoub","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/519536","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1583/","id":1583,"category":"District
+        Court District","name":"61st District Court"}},{"url":"http://michiganelections.io/api/positions/47108/","id":47108,"name":"Judge
+        of Probate Court","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Probate%20Court.md","reference_url":null,"section":"Nonpartisan","seats":1,"term":"6
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/78489/","id":78489,"name":"David
+        Murkowski","description":"","reference_url":"https://cfrsearch.nictusa.com/committees/513649","party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/10/","id":10,"category":"Probate
+        Court District","name":"Kent County Probate Court"}},{"url":"http://michiganelections.io/api/positions/38347/","id":38347,"name":"Community
+        College Board of Trustees Member","description":"Trustees have general supervision
+        over the university and its funds.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Community%20College%20Board%20of%20Trustees%20Member.md","reference_url":null,"section":"Nonpartisan","seats":2,"term":"","candidates":[{"url":"http://michiganelections.io/api/candidates/62607/","id":62607,"name":"Brandon
+        Sinclair","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/62606/","id":62606,"name":"Brandy
+        Lovelady Mitchell","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/62608/","id":62608,"name":"Daniel
+        Williams","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1548/","id":1548,"category":"Community
+        College District","name":"Grand Rapids Community College"}},{"url":"http://michiganelections.io/api/positions/45991/","id":45991,"name":"Board
+        Member","description":"Steers an organization towards a sustainable future
+        by adopting sound, ethical, and legal governance and financial management
+        policies.","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Board%20Member.md","reference_url":null,"section":"Nonpartisan","seats":4,"term":"4
+        Year Term","candidates":[{"url":"http://michiganelections.io/api/candidates/75499/","id":75499,"name":"Jen
+        Schottke","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/75497/","id":75497,"name":"Katherine
+        Downes Lewis","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/75496/","id":75496,"name":"Kristian
+        Grant","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}},{"url":"http://michiganelections.io/api/candidates/75498/","id":75498,"name":"Raynard
+        L. Ross","description":"","reference_url":null,"party":{"url":"http://michiganelections.io/api/parties/5/","id":5,"name":"Nonpartisan","color":"#999"}}],"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
+        General","date":"2020-11-03","date_humanized":"Tuesday, November 3rd","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1584/","id":1584,"category":"Local
+        School District","name":"Grand Rapids Public Schools"}}]}'
+    headers:
+      Allow: GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 5cfd686baa53fe16-DTW
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Wed, 09 Sep 2020 02:16:34 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=de6b430fbac56059ce455c387b2b350851599617793; expires=Fri,
+        09-Oct-20 02:16:33 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 05123f974c0000fe1645b8f200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+  response:
+    body:
+      string: "{\"count\":4,\"next\":null,\"previous\":null,\"results\":[{\"url\":\"http://michiganelections.io/api/proposals/4694/\",\"id\":4694,\"name\":\"Proposal
+        20-1\",\"description\":\"A proposed constitutional amendment to allow money
+        from oil and gas mining on state-owned lands to continue to be collected in
+        state funds for land protection and creation and maintenance of parks, nature
+        areas, and public recreation facilities; and to describe how money in those
+        state funds can be spent.\\n\\nThis proposed constitutional amendment would:\\n\\n\u2022
+        Allow the State Parks Endowment Fund to continue receiving money from sales
+        of oil and gas from state-owned lands to improve, maintain and purchase land
+        for State parks, and for Fund administration, until its balance reaches $800,000,000.\\n\\n\u2022
+        Require subsequent oil and gas revenue from state-owned lands to go into the
+        Natural Resources Trust Fund.\\n\\n\u2022 Require at least 20% of Endowment
+        Fund annual spending go toward State park improvement.\\n\\n\u2022 Require
+        at least 25% of Trust Fund annual spending go toward parks and public recreation
+        areas and at least 25% toward land conservation.\\n\\nShould this proposal
+        be adopted?\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/41/\",\"id\":41,\"name\":\"State
+        General\",\"date\":\"2020-11-03\",\"date_humanized\":\"Tuesday, November 3rd\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/proposals/4695/\",\"id\":4695,\"name\":\"Proposal
+        20-2\",\"description\":\"A proposed constitutional amendment to require a
+        search warrant in order to access a person\u2019s electronic data or electronic
+        communications.\\n\\nThis proposed constitutional amendment would:\\n\\n\u2022
+        Prohibit unreasonable searches or seizures of a person\u2019s electronic data
+        and electronic communications.\\n\\n\u2022 Require a search warrant to access
+        a person\u2019s electronic data or electronic communications, under the same
+        conditions currently required for the government to obtain a search warrant
+        to search a person\u2019s house or seize a person\u2019s things.\\n\\nShould
+        this proposal be adopted?\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/41/\",\"id\":41,\"name\":\"State
+        General\",\"date\":\"2020-11-03\",\"date_humanized\":\"Tuesday, November 3rd\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/proposals/4623/\",\"id\":4623,\"name\":\"II.
+        Proposed Amendment to Title III (Registration-nominations-elections), Section
+        15 (who Nominated and Elected) of The Charter of The City of Grand Rapids,
+        Concerning Elimination of The Provision Allowing Candidates to Be Elected
+        to City Office by Winning A Certain Percentage of Votes at The August Primary
+        Election.\",\"description\":\"A proposal to amend the Grand Rapids City Charter
+        to eliminate the provision allowing candidates to be elected to City office
+        by winning a certain percentage of the votes cast at the August primary election.\\n\\nShall
+        this amendment be adopted?\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/41/\",\"id\":41,\"name\":\"State
+        General\",\"date\":\"2020-11-03\",\"date_humanized\":\"Tuesday, November 3rd\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/8/\",\"id\":8,\"category\":\"Jurisdiction\",\"name\":\"City
+        of Grand Rapids\"}},{\"url\":\"http://michiganelections.io/api/proposals/4622/\",\"id\":4622,\"name\":\"I.
+        Proposed Amendment to Title III (Registration-nominations-elections), Section
+        6 (non-partisan Election) of The Charter of The City of Grand Rapids, Moving
+        All City Elections From Odd Number Years to Even Number Years.\",\"description\":\"If
+        passed this proposal would temporarily suspend term limits as provided in
+        City Charter Title II, Section 9. Any Commissioner with a term set to expire
+        in 2021 would have their term extended until the elections of 2022.\\n\\nA
+        proposal to amend the Grand Rapids City Charter to require all City elections
+        take place in even number years.\\n\\nShall this amendment be adopted?\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/41/\",\"id\":41,\"name\":\"State
+        General\",\"date\":\"2020-11-03\",\"date_humanized\":\"Tuesday, November 3rd\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":true,\"reference_url\":null},\"district\":{\"url\":\"http://michiganelections.io/api/districts/8/\",\"id\":8,\"category\":\"Jurisdiction\",\"name\":\"City
+        of Grand Rapids\"}}]}"
+    headers:
+      Allow: GET
+      CF-Cache-Status: DYNAMIC
+      CF-RAY: 5cfd686dda2dfe1c-DTW
+      Connection: keep-alive
+      Content-Encoding: gzip
+      Content-Type: application/json
+      Date: Wed, 09 Sep 2020 02:16:34 GMT
+      Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server: cloudflare
+      Set-Cookie: __cfduid=d9dde4a3d424a0389fd2852c05532c7df1599617794; expires=Fri,
+        09-Oct-20 02:16:34 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding: chunked
+      Vary: Accept, Cookie, Origin
+      Via: 1.1 vegur
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      cf-request-id: 05123f98a60000fe1c6588d200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+version: 1
