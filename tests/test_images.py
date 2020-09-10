@@ -49,7 +49,19 @@ def positions():
                     "party": {"name": "Republican", "color": "#E81B23",},
                 },
             ],
-        }
+        },
+        {
+            "id": 48794,
+            "name": "Electors of President and Vice-President of The United States",
+            "district": {"name": "Michigan"},
+            "candidates": [
+                {
+                    "id": 88287,
+                    "name": "Rocky De La Fuente & Darcy Richardson",
+                    "party": {"name": "Natural Law", "color": "#CA0F67",},
+                },
+            ],
+        },
     ]
 
 
@@ -110,6 +122,19 @@ def describe_images():
             votes=votes,
         )
         path = images_directory / f"position-vote-{target}.png"
+        with path.open("wb") as f:
+            f.write(image.getvalue())
+
+    def with_position_vote_multiline(positions, images_directory):
+        image, _ = render.ballot_image(
+            "PNG",
+            share="position-48794",
+            target="default",
+            positions=positions,
+            proposals=[],
+            votes={"position-48794": "candidate-88287",},
+        )
+        path = images_directory / "position-vote-multiline.png"
         with path.open("wb") as f:
             f.write(image.getvalue())
 

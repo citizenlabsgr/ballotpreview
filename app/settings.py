@@ -2,6 +2,10 @@ import os
 from pathlib import Path
 
 
+SHORTENED_NAMES = {
+    "Electors of President and Vice-President of The United States": "President and Vice President"
+}
+
 TARGET_SIZES = {
     "default": (400, 200, 0),
     "facebook": (1200, 628, 0),

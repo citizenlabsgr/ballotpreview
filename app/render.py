@@ -1,4 +1,5 @@
 import io
+from contextlib import suppress
 from typing import Dict, List, Tuple
 
 import bugsnag
@@ -40,7 +41,7 @@ def ballot_image(
     # Title text
     border = (4 * unit) + crop
     text = _get_title(share or "", positions, proposals)
-    font = _get_font(text, width - (2 * border), height)
+    font = _get_font(text, width - (2 * border), height, border)
     draw.text(
         (border, height // 2 - border - int(font.size * 1.1)),
         text,
@@ -58,9 +59,9 @@ def ballot_image(
     # Response text
     border = (4 * unit) + crop
     mark, fill, text = _get_response(share or "", positions, proposals, votes)
-    font = _get_font(mark + text, width - (2 * border), height)
+    font = _get_font(mark + text, width - (2 * border), height, border)
     draw.text(
-        (border, height // 2), mark + text, fill=settings.BLACK, font=font,
+        (border, height // 2), mark + text, fill=settings.BLACK, font=font, spacing=0
     )
 
     # Response mark
@@ -104,6 +105,9 @@ def _get_title(share: str, positions: List, proposals: List):
 
 
 def _shorten(text: str, district: str = "") -> str:
+    with suppress(KeyError):
+        return settings.SHORTENED_NAMES[text]
+
     words = text.split(" ")
 
     if district and district != "Michigan":
@@ -135,7 +139,11 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
                 key2 = int(vote.split("-")[1])
                 for candidate in position["candidates"]:
                     if candidate["id"] == key2:
-                        return "■ ", candidate["party"]["color"], candidate["name"]
+                        return (
+                            "■ ",
+                            candidate["party"]["color"],
+                            candidate["name"].replace(" & ", "\n &  "),
+                        )
 
     if category == "proposal":
         return (
@@ -147,7 +155,7 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
     raise LookupError(f"{vote} not found in {positions} or {proposals}")
 
 
-def _get_font(text: str, image_width: int, image_height: int):
+def _get_font(text: str, image_width: int, image_height: int, border: int):
     maximum_size = image_height // 4
     minimum_size = max(10, image_height // 30)
     font = ImageFont.truetype(str(settings.FONT), size=minimum_size)
@@ -155,8 +163,8 @@ def _get_font(text: str, image_width: int, image_height: int):
 
     for size in range(maximum_size, minimum_size, -1):
         font = ImageFont.truetype(str(settings.FONT), size=size)
-        text_width, _text_height = font.getsize(text)
-        if text_width < image_width:
+        text_width, text_height = _get_text_size(text, font)
+        if text_width < image_width and text_height < image_height / 2 - border:
             cutoff = False
             break
 
@@ -166,3 +174,9 @@ def _get_font(text: str, image_width: int, image_height: int):
         bugsnag.notify(ValueError(message), context="get_font")
 
     return font
+
+
+def _get_text_size(text: str, font: ImageFont) -> Tuple[int, int]:
+    image = Image.new("RGB", (100, 100))
+    draw = ImageDraw.Draw(image)
+    return draw.textsize(text, font)
