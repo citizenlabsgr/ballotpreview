@@ -313,7 +313,9 @@ def describe_ballot_share_preview():
     async def it_shows_images(app, expect):
         client = app.test_client()
         response = await client.get(
-            "/elections/40/precincts/591/?position-17099=candidate-43453&position-17100=candidate-43454&position-17084=candidate-43433&position-17084=candidate-43430&proposal-3190=approve&share="
+            "/elections/40/precincts/591/"
+            "?position-17099=candidate-43453&position-17100=candidate-43454&position-17084=candidate-43433&position-17084=candidate-43430&proposal-3190=approve"
+            "&share="
         )
         html = get_html(response)
         expect(html.count("<img ")) == 5
@@ -324,12 +326,31 @@ def describe_ballot_share():
     @pytest.mark.asyncio
     async def it_shows_find_button_after_sharing(app, expect):
         client = app.test_client()
-        response = await client.get("/elections/3/precincts/1172/?share=position-710")
+        response = await client.get(
+            "/elections/3/precincts/1172/"
+            "?position-3137=candidate-10258"
+            "&share=position-3137"
+        )
         html = get_html(response)
         expect(html).contains("Find Your Ballot")
         expect(html).excludes("Share on Facebook")
         expect(html).contains(" disabled>")
         expect(html).excludes("official ballot")
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_hides_items_without_votes(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/41/precincts/1209/"
+            "?position-46073=candidate-75684&position-46195=candidate-76005"
+            "&share=first"
+        )
+        html = get_html(response)
+        expect(html).contains("Positions")
+        expect(html).contains("Representative in Congress")
+        expect(html).excludes("United States Senator")
+        expect(html).excludes("Proposals")
 
     @pytest.mark.vcr()
     @pytest.mark.asyncio
@@ -344,7 +365,10 @@ def describe_ballot_share():
     async def it_allows_sites_to_add_tracking_parameters(app, expect):
         client = app.test_client()
         response = await client.get(
-            "/elections/3/precincts/1172/?share=position-710&fbclid=abc123"
+            "/elections/3/precincts/1172/"
+            "?position-3137=candidate-10258"
+            "&share=position-3137"
+            "&fbclid=abc123"
         )
         html = get_html(response)
         expect(html).contains("Find Your Ballot")

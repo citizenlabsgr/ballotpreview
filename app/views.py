@@ -143,6 +143,15 @@ async def ballot_detail(election_id: int, precinct_id: int):
             )
         )
 
+    if share:
+        for position in positions.copy():
+            if f"position-{position['id']}" not in votes:
+                positions.remove(position)
+
+        for proposal in proposals.copy():
+            if f"proposal-{proposal['id']}" not in votes:
+                proposals.remove(proposal)
+
     return await render_template(
         "ballot_detail.html",
         name=name,
