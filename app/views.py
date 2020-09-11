@@ -34,7 +34,7 @@ async def banner():
     image, mimetype = await asyncio.get_running_loop().run_in_executor(
         None, render.election_image, "PNG", target, elections[0]
     )
-    return await send_file(image, mimetype)
+    return await send_file(image, mimetype, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
 @app.route("/about/")
@@ -83,7 +83,7 @@ async def election_image(election_id: int):
     image, mimetype = await asyncio.get_event_loop().run_in_executor(
         None, render.election_image, "PNG", target, election
     )
-    return await send_file(image, mimetype)
+    return await send_file(image, mimetype, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
@@ -188,4 +188,4 @@ async def ballot_image(election_id: int, precinct_id: int, item: str, vote: str)
     image, mimetype = await asyncio.get_event_loop().run_in_executor(
         None, render.ballot_image, "PNG", share, target, positions, proposals, votes,
     )
-    return await send_file(image, mimetype)
+    return await send_file(image, mimetype, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
