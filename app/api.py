@@ -103,4 +103,4 @@ async def get_proposals(election_id: int, precinct_id: int) -> List:
         async with session.get(url) as response:
             proposals = await response.json()
 
-    return proposals["results"]
+    return sorted(proposals["results"], key=lambda d: d["name"])
