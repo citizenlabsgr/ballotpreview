@@ -115,10 +115,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id, party)
 
     if ballot is None:
-        return (
-            await render_template("ballot_404.html", name=name),
-            404,
-        )
+        return (await render_template("ballot_404.html", name=name), 404)
 
     form = await request.form
     votes, votes_changed = utils.validate_ballot(
@@ -166,11 +163,11 @@ async def ballot_share(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 
     votes, _votes_changed = utils.validate_ballot(
-        positions, proposals, original_votes=request.args,
+        positions, proposals, original_votes=request.args
     )
 
     ballot_url = url_for(
-        "ballot_detail", election_id=election_id, precinct_id=precinct_id,
+        "ballot_detail", election_id=election_id, precinct_id=precinct_id
     )
 
     return await render_template(
@@ -195,6 +192,6 @@ async def ballot_image(election_id: int, precinct_id: int, item: str, vote: str)
     proposals = await api.get_proposals(election_id, precinct_id)
 
     image, mimetype = await asyncio.get_event_loop().run_in_executor(
-        None, render.ballot_image, "PNG", share, target, positions, proposals, votes,
+        None, render.ballot_image, "PNG", share, target, positions, proposals, votes
     )
     return await send_file(image, mimetype, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)

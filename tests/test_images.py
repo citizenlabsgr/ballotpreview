@@ -41,12 +41,12 @@ def positions():
                 {
                     "id": 21685,
                     "name": "Elizabeth Warren",
-                    "party": {"name": "Democratic", "color": "#3333FF",},
+                    "party": {"name": "Democratic", "color": "#3333FF"},
                 },
                 {
                     "id": 21691,
                     "name": "Bill Weld",
-                    "party": {"name": "Republican", "color": "#E81B23",},
+                    "party": {"name": "Republican", "color": "#E81B23"},
                 },
             ],
         },
@@ -58,7 +58,7 @@ def positions():
                 {
                     "id": 88287,
                     "name": "Rocky De La Fuente & Darcy Richardson",
-                    "party": {"name": "Natural Law", "color": "#CA0F67",},
+                    "party": {"name": "Natural Law", "color": "#CA0F67"},
                 },
             ],
         },
@@ -68,7 +68,10 @@ def positions():
 @pytest.fixture(scope="session")
 def proposals():
     return [
-        {"id": 123, "name": "Proposal 123",},
+        {
+            "id": 123,
+            "name": "Proposal 123",
+        },
         {
             "id": 1882,
             "name": "Millage Renewal Proposition .9672 Mill For Operation of County-wide E-911 Emergency Answering and Dispatch System",
@@ -132,7 +135,7 @@ def describe_images():
             target="default",
             positions=positions,
             proposals=[],
-            votes={"position-48794": "candidate-88287",},
+            votes={"position-48794": "candidate-88287"},
         )
         path = images_directory / "position-vote-multiline.png"
         with path.open("wb") as f:

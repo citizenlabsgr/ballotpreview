@@ -49,7 +49,7 @@ run: install
 
 .PHONY: format
 format: install
-	poetry run isort app tests --recursive --apply
+	poetry run isort app tests
 	poetry run black app tests
 
 .PHONY: check
