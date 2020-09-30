@@ -13,7 +13,6 @@ if settings.BUGSNAG_API_KEY:
 
 app = Quart(__name__)
 bugsnag_quart.handle_exceptions(app)
-log.silence("asyncio", allow_warning=True)
 
 
 @app.route("/")
