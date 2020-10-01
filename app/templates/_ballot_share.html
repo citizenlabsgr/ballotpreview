@@ -14,13 +14,13 @@
 
     <div class="dropdown-divider"></div>
 
-    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26') }}%26share=first" target="_blank" role="button">
+    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('?', '%3F').replace('&', '%26') }}%26share=first" target="_blank" role="button">
         🔗
         &nbsp;
         Share on Facebook
     </a>
 
-    <a class="dropdown-item" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26') }}%26share=first" target="_blank" role="button">
+    <a class="dropdown-item" href="https://twitter.com/intent/tweet?text={{ request.url.replace('?', '%3F').replace('&', '%26') }}%26share=first" target="_blank" role="button">
         🔗
         &nbsp;
         Share on Twitter
