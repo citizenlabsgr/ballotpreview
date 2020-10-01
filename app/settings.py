@@ -3,7 +3,10 @@ from pathlib import Path
 
 
 SHORTENED_NAMES = {
-    "Electors of President and Vice-President of The United States": "President and Vice President"
+    "Electors of President and Vice-President of the United States": "President and Vice President",
+    "Member of the State Board of Education": "State Board of Education",
+    "Regent of the University of Michigan": "Regent for U of M",
+    "Trustee of Michigan State University": "Trustee of MSU",
 }
 
 TARGET_SIZES = {

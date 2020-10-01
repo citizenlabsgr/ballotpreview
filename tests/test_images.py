@@ -52,7 +52,7 @@ def positions():
         },
         {
             "id": 48794,
-            "name": "Electors of President and Vice-President of The United States",
+            "name": "Electors of President and Vice-President of the United States",
             "district": {"name": "Michigan"},
             "candidates": [
                 {
