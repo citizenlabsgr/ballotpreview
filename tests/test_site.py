@@ -343,7 +343,7 @@ def describe_ballot_share():
         html = get_html(response)
         expect(html).contains("Find Your Ballot")
         expect(html).excludes("Share on Facebook")
-        expect(html).contains(" disabled>")
+        expect(html).contains("pointer-events:none")
         expect(html).excludes("official ballot")
 
     @pytest.mark.vcr()
@@ -382,7 +382,7 @@ def describe_ballot_share():
         html = get_html(response)
         expect(html).contains("Find Your Ballot")
         expect(html).excludes("Share on Facebook")
-        expect(html).contains(" disabled>")
+        expect(html).contains("pointer-events:none")
         expect(html).excludes("official ballot")
 
 

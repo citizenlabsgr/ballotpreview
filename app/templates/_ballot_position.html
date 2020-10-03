@@ -39,7 +39,7 @@
                     value="{{ candidate_key }}"
                     onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                     {% if candidate_key in votes[position_key] %}checked{% endif %}
-                    {% if "share=" in request.query_string|string %}disabled{% endif %}>
+                    {% if "share=" in request.query_string|string %}style="pointer-events:none;"{% endif %}>
             <label class="form-check-label" for="{{ position_key }}">
                 {{ candidate['name'] }}
 
