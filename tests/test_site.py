@@ -153,6 +153,17 @@ def describe_ballot_detail():
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
+        async def it_accepts_commas_to_separate_candidates(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/3/precincts/1172/?position-710=candidate-10590,candidate-10589"
+            )
+            expect(response.status_code) == 200
+            html = get_html(response)
+            expect(html.count("checked")) == 2
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
         async def it_redirects_to_remove_extra_votes(app, expect):
             client = app.test_client()
             response = await client.get(
@@ -171,9 +182,7 @@ def describe_ballot_detail():
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains(
-                "?position-710=candidate-10590&position-710=candidate-10589</a>"
-            )
+            expect(html).contains("?position-710=candidate-10590,candidate-10589</a>")
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
@@ -399,6 +408,19 @@ def describe_ballot_image():
             "/elections/41/precincts/1209/?"
             "position-46053=candidate-75615&position-46073=candidate-75684"
             "&share=position-46073~candidate-75684"
+            "&target=default"
+        )
+        expect(response.status_code) == 200
+        expect(response.content_type) == "image/png"
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
+    async def it_support_multiple_position_votes(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/41/precincts/1209/?"
+            "position-46053=candidate-75615,candidate-75684"
+            "&share=first"
             "&target=default"
         )
         expect(response.status_code) == 200

@@ -1,0 +1,589 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/ballots/?election_id=3&precinct_id=1172&active_election=null
+  response:
+    body:
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/ballots/10664/","id":10664,"election":{"url":"http://michiganelections.io/api/elections/3/","id":3,"name":"State
+        General","date":"2018-11-06","date_humanized":"Tuesday, November 6th","description":"","description_edit_url":"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md","active":false,"reference_url":"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf"},"precinct":{"url":"http://michiganelections.io/api/precincts/1172/","id":1172,"county":"Kent","jurisdiction":"City
+        of Grand Rapids","ward":"2","number":"36"},"mvic_url":"https://mvic.sos.state.mi.us/Voter/GetMvicBallot/1791/676/"}]}'
+    headers:
+      Allow:
+      - OPTIONS, GET
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 5dc9a1a6cf20fdfe-DTW
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 03 Oct 2020 21:07:13 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      NEL:
+      - '{"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?lkg-colo=116&lkg-time=1601759233"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=d8f63a8effa40d3e370812838e9c51c081601759233; expires=Mon, 02-Nov-20
+        21:07:13 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie, Origin
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      cf-request-id:
+      - 0591e35c3a0000fdfe31ac8200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/ballots/?election_id=3&precinct_id=1172&active_election=null
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/positions/?election_id=3&precinct_id=1172&active_election=null&limit=1000
+  response:
+    body:
+      string: "{\"count\":25,\"next\":null,\"previous\":null,\"results\":[{\"url\":\"http://michiganelections.io/api/positions/3136/\",\"id\":3136,\"name\":\"Attorney
+        General\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Attorney%20General.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10256/\",\"id\":10256,\"name\":\"Chris
+        Graveline\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/6/\",\"id\":6,\"name\":\"No
+        Party Affiliation\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10253/\",\"id\":10253,\"name\":\"Dana
+        Nessel\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10255/\",\"id\":10255,\"name\":\"Gerald
+        T. Van Sickle\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10254/\",\"id\":10254,\"name\":\"Lisa
+        Lane Gioia\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10252/\",\"id\":10252,\"name\":\"Tom
+        Leonard\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3134/\",\"id\":3134,\"name\":\"Governor
+        and Lieutenant Governor\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Governor%20and%20Lieutenant%20Governor.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10244/\",\"id\":10244,\"name\":\"Bill
+        Gelineau\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/18170/\",\"id\":18170,\"name\":\"Bill
+        GelineauAngelique Chaiser Thomas\",\"description\":\"\",\"reference_url\":\"$$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10242/\",\"id\":10242,\"name\":\"Bill
+        Schuette\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18168/\",\"id\":18168,\"name\":\"Bill
+        SchuetteLisa Posthumus Lyons\",\"description\":\"\",\"reference_url\":\"$$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10243/\",\"id\":10243,\"name\":\"Gretchen
+        Whitmer\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18169/\",\"id\":18169,\"name\":\"Gretchen
+        WhitmerGarlin D. Gilchrist II\",\"description\":\"\",\"reference_url\":\"$$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10246/\",\"id\":10246,\"name\":\"Jennifer
+        V. Kurland\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/18172/\",\"id\":18172,\"name\":\"Jennifer
+        V. KurlandCharin H. Davenport\",\"description\":\"\",\"reference_url\":\"$$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/10247/\",\"id\":10247,\"name\":\"Keith
+        Butkovich\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/7/\",\"id\":7,\"name\":\"Natural
+        Law\",\"color\":\"#CA0F67\"}},{\"url\":\"http://michiganelections.io/api/candidates/18173/\",\"id\":18173,\"name\":\"Keith
+        ButkovichRaymond Warner\",\"description\":\"\",\"reference_url\":\"$$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/7/\",\"id\":7,\"name\":\"Natural
+        Law\",\"color\":\"#CA0F67\"}},{\"url\":\"http://michiganelections.io/api/candidates/10245/\",\"id\":10245,\"name\":\"Todd
+        Schleiger\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/18171/\",\"id\":18171,\"name\":\"Todd
+        SchleigerEarl P. Lackie\",\"description\":\"\",\"reference_url\":\"$$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3143/\",\"id\":3143,\"name\":\"Governor
+        of Wayne State University\",\"description\":\"Elects the president of the
+        university, has general supervision of the university, and the control and
+        direction of all expenditures from university funds.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Governor%20of%20Wayne%20State%20University.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10303/\",\"id\":10303,\"name\":\"Anil
+        Kumar\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10302/\",\"id\":10302,\"name\":\"Bryan
+        C. Barnhill\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10306/\",\"id\":10306,\"name\":\"Christine
+        C. Schwartz\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10301/\",\"id\":10301,\"name\":\"David
+        Nicholson\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10300/\",\"id\":10300,\"name\":\"Diane
+        Dunaskiss\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10305/\",\"id\":10305,\"name\":\"John
+        T. Hargenrader\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10304/\",\"id\":10304,\"name\":\"Jon
+        Elgas\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10307/\",\"id\":10307,\"name\":\"Marc
+        Joseph Sosnowski\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3943/\",\"id\":3943,\"name\":\"Judge
+        of Circuit Court\",\"description\":\"Hears the more serious criminal cases.
+        Circuit courts are also the appellate court for cases heard in the district
+        courts. They have original jurisdiction over all civil suits where the amount
+        contended in the case exceeds $25,000 and all criminal cases involving felonies.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Circuit%20Court.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/18241/\",\"id\":18241,\"name\":\"Alida
+        Bryant\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18406/\",\"id\":18406,\"name\":\"Brian
+        S. Pickell\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18207/\",\"id\":18207,\"name\":\"Carol
+        KuhnkeJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18403/\",\"id\":18403,\"name\":\"Chris
+        Christenson\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18242/\",\"id\":18242,\"name\":\"Christina
+        Elmore\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18245/\",\"id\":18245,\"name\":\"Christopher
+        P. YatesJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18240/\",\"id\":18240,\"name\":\"Curt
+        Benson\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18508/\",\"id\":18508,\"name\":\"Darnell
+        JacksonJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18404/\",\"id\":18404,\"name\":\"Elizabeth
+        Kelly\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18507/\",\"id\":18507,\"name\":\"Janet
+        M. BoesJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18501/\",\"id\":18501,\"name\":\"Jim
+        JamoJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18500/\",\"id\":18500,\"name\":\"Laura
+        L. BairdJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18244/\",\"id\":18244,\"name\":\"Mark
+        A. TrusockJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18483/\",\"id\":18483,\"name\":\"Pamela
+        L. LightvoetJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18482/\",\"id\":18482,\"name\":\"Paul
+        J. BridenstineJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18405/\",\"id\":18405,\"name\":\"Richard
+        F. McNally\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18243/\",\"id\":18243,\"name\":\"Scott
+        A. Noto\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18206/\",\"id\":18206,\"name\":\"Timothy
+        Patrick ConnorsJudge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3940/\",\"id\":3940,\"name\":\"Judge
+        of Court of Appeals\",\"description\":\"Hears all appeals from the district
+        courts and the other lower level courts. They examine the application of the
+        law and not the facts of the case, unless there has been grievous error pertaining
+        to questions of fact.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Court%20of%20Appeals.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/18197/\",\"id\":18197,\"name\":\"Douglas
+        B. ShapiroJudge of Court of Appeals\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18196/\",\"id\":18196,\"name\":\"Jane
+        Marie BeckeringJudge of Court of Appeals\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18284/\",\"id\":18284,\"name\":\"Kirsten
+        Frank KellyJudge of Court of Appeals\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18285/\",\"id\":18285,\"name\":\"Michael
+        J. RiordanJudge of Court of Appeals\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3951/\",\"id\":3951,\"name\":\"Judge
+        of District Court\",\"description\":\"Hears cases involving less serious criminal
+        offenses. District courts are trial courts of limited jurisdiction, handling
+        most traffic violations, small claims, misdemeanors, and civil suits where
+        the amount contended is below $25,000. District courts are often responsible
+        for handling the preliminary examination and for setting bail in felony cases.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20District%20Court.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/18485/\",\"id\":18485,\"name\":\"Anne
+        E. BlatchfordJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18486/\",\"id\":18486,\"name\":\"Chris
+        HaenickeJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18394/\",\"id\":18394,\"name\":\"Douglas
+        ShepherdJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18249/\",\"id\":18249,\"name\":\"Jeanine
+        N. LaVilleJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18236/\",\"id\":18236,\"name\":\"John
+        M. ChmuraJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18678/\",\"id\":18678,\"name\":\"Jr.Judge
+        of District Court Herman Marable\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18395/\",\"id\":18395,\"name\":\"Kimberley
+        A. WiegandJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18237/\",\"id\":18237,\"name\":\"Matthew
+        P. SabaughJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18248/\",\"id\":18248,\"name\":\"Michael
+        J. DistelJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18677/\",\"id\":18677,\"name\":\"William
+        H. Crawford IIJudge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3953/\",\"id\":3953,\"name\":\"Judge
+        of Probate Court\",\"description\":\"Ensures estates are distributed correctly
+        afer someone's death.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Probate%20Court.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/18312/\",\"id\":18312,\"name\":\"Frank
+        SzymanskiJudge of Probate Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18247/\",\"id\":18247,\"name\":\"G.
+        Patrick HillaryJudge of Probate Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18311/\",\"id\":18311,\"name\":\"Jr.Judge
+        of Probate Court Freddie G. Burton\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18246/\",\"id\":18246,\"name\":\"Patricia
+        D. GardnerJudge of Probate Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3140/\",\"id\":3140,\"name\":\"Member
+        of the State Board of Education\",\"description\":\"Serves as the general
+        planning and coordinating body for all public education, including higher
+        education, and shall advise the legislature on financial requirements.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Member%20of%20the%20State%20Board%20of%20Education.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10276/\",\"id\":10276,\"name\":\"Douglas
+        Levesque\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10274/\",\"id\":10274,\"name\":\"John
+        J. Tatar\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10271/\",\"id\":10271,\"name\":\"Judith
+        P. Pritchett\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10275/\",\"id\":10275,\"name\":\"Karen
+        Adams\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10279/\",\"id\":10279,\"name\":\"Logan
+        R. Smith\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/10278/\",\"id\":10278,\"name\":\"Mary
+        Anne Hering\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/10270/\",\"id\":10270,\"name\":\"Richard
+        Zeile\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10273/\",\"id\":10273,\"name\":\"Scotty
+        Boman\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10277/\",\"id\":10277,\"name\":\"Sherry
+        A. Wells\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/10269/\",\"id\":10269,\"name\":\"Tami
+        Carlone\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10272/\",\"id\":10272,\"name\":\"Tiffany
+        Tilley\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3141/\",\"id\":3141,\"name\":\"Regent
+        of the University of Michigan\",\"description\":\"Provides general supervision
+        of the institution and the control and direction of all expenditures from
+        the institution's funds.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Regent%20of%20the%20University%20of%20Michigan.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10280/\",\"id\":10280,\"name\":\"Andrea
+        Fischer Newman\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10281/\",\"id\":10281,\"name\":\"Andrew
+        Richner\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10287/\",\"id\":10287,\"name\":\"Crystal
+        Van Sickle\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10284/\",\"id\":10284,\"name\":\"James
+        Lewis Hudler\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10286/\",\"id\":10286,\"name\":\"Joe
+        Sanger\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10285/\",\"id\":10285,\"name\":\"John
+        Jascob\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10282/\",\"id\":10282,\"name\":\"Jordan
+        Acker\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10288/\",\"id\":10288,\"name\":\"Kevin
+        A. Graves\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/10289/\",\"id\":10289,\"name\":\"Marge
+        Katchmark Sallows\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/7/\",\"id\":7,\"name\":\"Natural
+        Law\",\"color\":\"#CA0F67\"}},{\"url\":\"http://michiganelections.io/api/candidates/10283/\",\"id\":10283,\"name\":\"Paul
+        Brown\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3931/\",\"id\":3931,\"name\":\"Representative
+        in Congress\",\"description\":\"Charged with the passage of federal legislation,
+        which, after concurrence by the Senate, are sent to the president for consideration.
+        In addition to this basic power, the House has certain exclusive powers, among
+        them the power to initiate all bills related to revenue and the impeachment
+        of federal officers, who are sent to trial before the Senate.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Representative%20in%20Congress.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"2
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/18223/\",\"id\":18223,\"name\":\"Andrea
+        Kirby\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/18221/\",\"id\":18221,\"name\":\"Andy
+        Levin\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18429/\",\"id\":18429,\"name\":\"Bill
+        Huizenga\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18353/\",\"id\":18353,\"name\":\"Brenda
+        Lawrence\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18385/\",\"id\":18385,\"name\":\"Brian
+        Ellison\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/18220/\",\"id\":18220,\"name\":\"Candius
+        Stearns\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18189/\",\"id\":18189,\"name\":\"Cathy
+        Albro\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18321/\",\"id\":18321,\"name\":\"Cooper
+        Nye\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/6/\",\"id\":6,\"name\":\"No
+        Party Affiliation\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18399/\",\"id\":18399,\"name\":\"Daniel
+        T. Kildee\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18386/\",\"id\":18386,\"name\":\"David
+        J. Lillis\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/18212/\",\"id\":18212,\"name\":\"Debbie
+        Dingell\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18279/\",\"id\":18279,\"name\":\"D.
+        Etta Wilcoxon\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/18384/\",\"id\":18384,\"name\":\"Elissa
+        Slotkin\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18261/\",\"id\":18261,\"name\":\"Fred
+        Upton\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18213/\",\"id\":18213,\"name\":\"Gary
+        Walkowicz\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/18205/\",\"id\":18205,\"name\":\"Gretchen
+        Driskell\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18319/\",\"id\":18319,\"name\":\"Haley
+        Stevens\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18392/\",\"id\":18392,\"name\":\"Harley
+        Mikkelson\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/18419/\",\"id\":18419,\"name\":\"Jack
+        Bergman\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18211/\",\"id\":18211,\"name\":\"Jeff
+        Jones\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18393/\",\"id\":18393,\"name\":\"Jeremy
+        Peruski\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/6/\",\"id\":6,\"name\":\"No
+        Party Affiliation\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18178/\",\"id\":18178,\"name\":\"Jerry
+        Hilliard\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18177/\",\"id\":18177,\"name\":\"John
+        Moolenaar\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18222/\",\"id\":18222,\"name\":\"John
+        V. McDermott\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/18188/\",\"id\":18188,\"name\":\"Justin
+        Amash\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18400/\",\"id\":18400,\"name\":\"Kathy
+        Goodwin\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/18391/\",\"id\":18391,\"name\":\"Kimberly
+        Bizon\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18318/\",\"id\":18318,\"name\":\"Lena
+        Epstein\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18320/\",\"id\":18320,\"name\":\"Leonard
+        Schwartz\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/18352/\",\"id\":18352,\"name\":\"Marc
+        S. Herschfus\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18420/\",\"id\":18420,\"name\":\"Matthew
+        W. Morgan\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18262/\",\"id\":18262,\"name\":\"Matt
+        Longjohn\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18383/\",\"id\":18383,\"name\":\"Mike
+        Bishop\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18214/\",\"id\":18214,\"name\":\"Niles
+        Niemuth\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/6/\",\"id\":6,\"name\":\"No
+        Party Affiliation\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18390/\",\"id\":18390,\"name\":\"Paul
+        Mitchell\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18354/\",\"id\":18354,\"name\":\"Philip
+        Kolody\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/18278/\",\"id\":18278,\"name\":\"Rashida
+        Tlaib\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18430/\",\"id\":18430,\"name\":\"Rob
+        Davidson\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18431/\",\"id\":18431,\"name\":\"Ronald
+        E. Graeser\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/18280/\",\"id\":18280,\"name\":\"Sam
+        Johnson\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/18263/\",\"id\":18263,\"name\":\"Stephen
+        J. Young\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/18190/\",\"id\":18190,\"name\":\"Ted
+        Gerrard\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/18204/\",\"id\":18204,\"name\":\"Tim
+        Walberg\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18398/\",\"id\":18398,\"name\":\"Travis
+        Wines\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3135/\",\"id\":3135,\"name\":\"Secretary
+        of State\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Secretary%20of%20State.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10250/\",\"id\":10250,\"name\":\"Gregory
+        Scott Stempfle\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10249/\",\"id\":10249,\"name\":\"Jocelyn
+        Benson\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10248/\",\"id\":10248,\"name\":\"Mary
+        Treder Lang\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10251/\",\"id\":10251,\"name\":\"Robert
+        Gale\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3142/\",\"id\":3142,\"name\":\"Trustee
+        of Michigan State University\",\"description\":\"Provides general supervision
+        over the university and its funds.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Trustee%20of%20Michigan%20State%20University.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10298/\",\"id\":10298,\"name\":\"Aaron
+        Mariasy\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/10292/\",\"id\":10292,\"name\":\"Brianna
+        T. Scott\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10299/\",\"id\":10299,\"name\":\"Bridgette
+        R. Abraham-Guzman\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/7/\",\"id\":7,\"name\":\"Natural
+        Law\",\"color\":\"#CA0F67\"}},{\"url\":\"http://michiganelections.io/api/candidates/10294/\",\"id\":10294,\"name\":\"Bruce
+        Campbell\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10290/\",\"id\":10290,\"name\":\"Dave
+        Dutch\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10296/\",\"id\":10296,\"name\":\"Janet
+        M. Sanger\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10297/\",\"id\":10297,\"name\":\"John
+        Paul Sanger\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10293/\",\"id\":10293,\"name\":\"Kelly
+        Charron Tebay\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10291/\",\"id\":10291,\"name\":\"Mike
+        Miller\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10295/\",\"id\":10295,\"name\":\"Tim
+        Orzechowski\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3137/\",\"id\":3137,\"name\":\"United
+        States Senator\",\"description\":\"Approves of treaties, and the confirmation
+        of Cabinet secretaries, Supreme Court justices, federal judges, regulatory
+        officials, ambassadors, other federal executive officials. Furthermore, the
+        Senate has the responsibility of conducting the trials of those impeached
+        by the House.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/United%20States%20Senator.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"6
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10258/\",\"id\":10258,\"name\":\"Debbie
+        Stabenow\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10259/\",\"id\":10259,\"name\":\"George
+        E. Huffman III\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}},{\"url\":\"http://michiganelections.io/api/candidates/10261/\",\"id\":10261,\"name\":\"John
+        Howard Wilhelm\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/7/\",\"id\":7,\"name\":\"Natural
+        Law\",\"color\":\"#CA0F67\"}},{\"url\":\"http://michiganelections.io/api/candidates/10257/\",\"id\":10257,\"name\":\"John
+        James\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10260/\",\"id\":10260,\"name\":\"Marcia
+        Squier\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/positions/3153/\",\"id\":3153,\"name\":\"Representative
+        in Congress\",\"description\":\"Charged with the passage of federal legislation,
+        which, after concurrence by the Senate, are sent to the president for consideration.
+        In addition to this basic power, the House has certain exclusive powers, among
+        them the power to initiate all bills related to revenue and the impeachment
+        of federal officers, who are sent to trial before the Senate.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Representative%20in%20Congress.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"2
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10569/\",\"id\":10569,\"name\":\"Cathy
+        Albro\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/10568/\",\"id\":10568,\"name\":\"Justin
+        Amash\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10570/\",\"id\":10570,\"name\":\"Ted
+        Gerrard\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/8/\",\"id\":8,\"name\":\"U.S.
+        Taxpayers\",\"color\":\"#A356DE\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/14/\",\"id\":14,\"category\":\"US
+        Congress District\",\"name\":\"3rd District\"}},{\"url\":\"http://michiganelections.io/api/positions/3952/\",\"id\":3952,\"name\":\"Representative
+        in State Legislature\",\"description\":\"Works alongside the governor of Michigan
+        to create laws and establish a state budget. Responsibilities of the Michigan
+        House of Representatives include passing bills on public policy matters, setting
+        levels for state spending, and raising and lowering taxes.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Representative%20in%20State%20Legislature.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"2
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/18757/\",\"id\":18757,\"name\":\"Amanda
+        Brand\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18239/\",\"id\":18239,\"name\":\"Bill
+        SaxtonFormerly: Formerly: William Fretts-Saxton\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/20801/\",\"id\":20801,\"name\":\"Daniel
+        Allen Schutte\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/20802/\",\"id\":20802,\"name\":\"David
+        LaGrand\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/20803/\",\"id\":20803,\"name\":\"Jacob
+        Straley\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}},{\"url\":\"http://michiganelections.io/api/candidates/18337/\",\"id\":18337,\"name\":\"Lauren
+        Taylor\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18238/\",\"id\":18238,\"name\":\"Lynn
+        Afendoulis\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/18758/\",\"id\":18758,\"name\":\"Rachel
+        Hood\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/18338/\",\"id\":18338,\"name\":\"Sue
+        Norman\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/6/\",\"id\":6,\"name\":\"No
+        Party Affiliation\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18336/\",\"id\":18336,\"name\":\"Thomas
+        A. Albert\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/13/\",\"id\":13,\"category\":\"State
+        Senate District\",\"name\":\"29th District\"}},{\"url\":\"http://michiganelections.io/api/positions/3161/\",\"id\":3161,\"name\":\"State
+        Senator\",\"description\":\"Works alongside the governor of Michigan to create
+        laws and establish a state budget. Responsibilities of the Michigan State
+        Senate of Representatives include passing bills on public policy matters,
+        setting levels for state spending, and raising and lowering taxes.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/State%20Senator.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10891/\",\"id\":10891,\"name\":\"Chris
+        Afendoulis\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/10894/\",\"id\":10894,\"name\":\"Louis
+        Palus\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/9/\",\"id\":9,\"name\":\"Working
+        Class\",\"color\":\"#A30000\"}},{\"url\":\"http://michiganelections.io/api/candidates/10893/\",\"id\":10893,\"name\":\"Robert
+        VanNoller\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/3/\",\"id\":3,\"name\":\"Libertarian\",\"color\":\"#ECC850\"}},{\"url\":\"http://michiganelections.io/api/candidates/10892/\",\"id\":10892,\"name\":\"Winnie
+        Brinks\",\"description\":\"\",\"reference_url\":\"$\",\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/13/\",\"id\":13,\"category\":\"State
+        Senate District\",\"name\":\"29th District\"}},{\"url\":\"http://michiganelections.io/api/positions/3162/\",\"id\":3162,\"name\":\"Representative
+        in State Legislature\",\"description\":\"Works alongside the governor of Michigan
+        to create laws and establish a state budget. Responsibilities of the Michigan
+        House of Representatives include passing bills on public policy matters, setting
+        levels for state spending, and raising and lowering taxes.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Representative%20in%20State%20Legislature.md\",\"reference_url\":null,\"section\":\"\",\"seats\":1,\"term\":\"2
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/12490/\",\"id\":12490,\"name\":\"Daniel
+        Allen Schutte\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/2/\",\"id\":2,\"name\":\"Republican\",\"color\":\"#E81B23\"}},{\"url\":\"http://michiganelections.io/api/candidates/12491/\",\"id\":12491,\"name\":\"David
+        LaGrand\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/1/\",\"id\":1,\"name\":\"Democratic\",\"color\":\"#3333FF\"}},{\"url\":\"http://michiganelections.io/api/candidates/12492/\",\"id\":12492,\"name\":\"Jacob
+        Straley\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/4/\",\"id\":4,\"name\":\"Green\",\"color\":\"#00A95C\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/12/\",\"id\":12,\"category\":\"State
+        House District\",\"name\":\"75th District\"}},{\"url\":\"http://michiganelections.io/api/positions/832/\",\"id\":832,\"name\":\"Judge
+        of Circuit Court\",\"description\":\"Hears the more serious criminal cases.
+        Circuit courts are also the appellate court for cases heard in the district
+        courts. They have original jurisdiction over all civil suits where the amount
+        contended in the case exceeds $25,000 and all criminal cases involving felonies.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Circuit%20Court.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term, Non-Incumbent Position\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10582/\",\"id\":10582,\"name\":\"Alida
+        Bryant\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10583/\",\"id\":10583,\"name\":\"Christina
+        Elmore\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10581/\",\"id\":10581,\"name\":\"Curt
+        Benson\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10584/\",\"id\":10584,\"name\":\"Scott
+        A. Noto\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1476/\",\"id\":1476,\"category\":\"Circuit
+        Court District\",\"name\":\"17th Circuit Court\"}},{\"url\":\"http://michiganelections.io/api/positions/833/\",\"id\":833,\"name\":\"Judge
+        of Circuit Court\",\"description\":\"Hears the more serious criminal cases.
+        Circuit courts are also the appellate court for cases heard in the district
+        courts. They have original jurisdiction over all civil suits where the amount
+        contended in the case exceeds $25,000 and all criminal cases involving felonies.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Circuit%20Court.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term, Incumbent Position\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10586/\",\"id\":10586,\"name\":\"Christopher
+        P. Yates\_\_Judge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10585/\",\"id\":10585,\"name\":\"Mark
+        A. Trusock\_\_Judge of Circuit Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1476/\",\"id\":1476,\"category\":\"Circuit
+        Court District\",\"name\":\"17th Circuit Court\"}},{\"url\":\"http://michiganelections.io/api/positions/765/\",\"id\":765,\"name\":\"Judge
+        of Court of Appeals\",\"description\":\"Hears all appeals from the district
+        courts and the other lower level courts. They examine the application of the
+        law and not the facts of the case, unless there has been grievous error pertaining
+        to questions of fact.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Court%20of%20Appeals.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term, Incumbent Position\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10317/\",\"id\":10317,\"name\":\"Douglas
+        B. Shapiro\_\_Judge of Court of Appeals\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10316/\",\"id\":10316,\"name\":\"Jane
+        Marie Beckering\_\_Judge of Court of Appeals\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1582/\",\"id\":1582,\"category\":\"Court
+        of Appeals District\",\"name\":\"Court of Appeals District 3\"}},{\"url\":\"http://michiganelections.io/api/positions/1522/\",\"id\":1522,\"name\":\"Judge
+        of District Court\",\"description\":\"Hears cases involving less serious criminal
+        offenses. District courts are trial courts of limited jurisdiction, handling
+        most traffic violations, small claims, misdemeanors, and civil suits where
+        the amount contended is below $25,000. District courts are often responsible
+        for handling the preliminary examination and for setting bail in felony cases.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20District%20Court.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term, Incumbent Position\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/12478/\",\"id\":12478,\"name\":\"Jeanine
+        N. LaVille\_\_Judge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/12477/\",\"id\":12477,\"name\":\"Michael
+        J. Distel\_\_Judge of District Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1583/\",\"id\":1583,\"category\":\"District
+        Court District\",\"name\":\"61st District Court\"}},{\"url\":\"http://michiganelections.io/api/positions/834/\",\"id\":834,\"name\":\"Judge
+        of Probate Court\",\"description\":\"Ensures estates are distributed correctly
+        afer someone's death.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Judge%20of%20Probate%20Court.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"6
+        Year Term, Incumbent Position\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10588/\",\"id\":10588,\"name\":\"G.
+        Patrick Hillary\_\_Judge of Probate Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10587/\",\"id\":10587,\"name\":\"Patricia
+        D. Gardner\_\_Judge of Probate Court\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/10/\",\"id\":10,\"category\":\"Probate
+        Court District\",\"name\":\"Kent County Probate Court\"}},{\"url\":\"http://michiganelections.io/api/positions/710/\",\"id\":710,\"name\":\"Community
+        College Board of Trustees Member\",\"description\":\"Trustees have general
+        supervision over the university and its funds.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Community%20College%20Board%20of%20Trustees%20Member.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"Partial
+        Term Ending \",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/10590/\",\"id\":10590,\"name\":\"Carlos
+        Sanchez\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10589/\",\"id\":10589,\"name\":\"Kathy
+        Crosby\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10591/\",\"id\":10591,\"name\":\"Sheryl
+        Siegel\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/10592/\",\"id\":10592,\"name\":\"Troy
+        Williams\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1548/\",\"id\":1548,\"category\":\"Community
+        College District\",\"name\":\"Grand Rapids Community College\"}},{\"url\":\"http://michiganelections.io/api/positions/3954/\",\"id\":3954,\"name\":\"Community
+        College Board of Trustees Member\",\"description\":\"Trustees have general
+        supervision over the university and its funds.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Community%20College%20Board%20of%20Trustees%20Member.md\",\"reference_url\":null,\"section\":\"\",\"seats\":2,\"term\":\"\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/18251/\",\"id\":18251,\"name\":\"Carlos
+        Sanchez\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18250/\",\"id\":18250,\"name\":\"Kathy
+        Crosby\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18252/\",\"id\":18252,\"name\":\"Sheryl
+        Siegel\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/18253/\",\"id\":18253,\"name\":\"Troy
+        Williams\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1548/\",\"id\":1548,\"category\":\"Community
+        College District\",\"name\":\"Grand Rapids Community College\"}},{\"url\":\"http://michiganelections.io/api/positions/1523/\",\"id\":1523,\"name\":\"Board
+        Member\",\"description\":\"Steers an organization towards a sustainable future
+        by adopting sound, ethical, and legal governance and financial management
+        policies.\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/positions/Board%20Member.md\",\"reference_url\":null,\"section\":\"\",\"seats\":5,\"term\":\"4
+        Year Term\",\"candidates\":[{\"url\":\"http://michiganelections.io/api/candidates/12484/\",\"id\":12484,\"name\":\"Chad
+        Patton\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/12483/\",\"id\":12483,\"name\":\"John
+        M. Matias\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/12482/\",\"id\":12482,\"name\":\"Jos\xE9
+        Flores\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/12485/\",\"id\":12485,\"name\":\"Kimberley
+        Williams\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/12481/\",\"id\":12481,\"name\":\"Kymberlie
+        Davis\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/12480/\",\"id\":12480,\"name\":\"Michael
+        Bukala\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}},{\"url\":\"http://michiganelections.io/api/candidates/12479/\",\"id\":12479,\"name\":\"Tony
+        Baker\",\"description\":\"\",\"reference_url\":null,\"party\":{\"url\":\"http://michiganelections.io/api/parties/5/\",\"id\":5,\"name\":\"Nonpartisan\",\"color\":\"#999\"}}],\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1584/\",\"id\":1584,\"category\":\"Local
+        School District\",\"name\":\"Grand Rapids Public Schools\"}}]}"
+    headers:
+      Allow:
+      - GET
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 5dc9a1a7cbe07e49-DTW
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 03 Oct 2020 21:07:13 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      NEL:
+      - '{"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?lkg-colo=116&lkg-time=1601759234"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=d495631b6ed1d48f5e1e478b35f0195fd1601759233; expires=Mon, 02-Nov-20
+        21:07:13 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie, Origin
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      cf-request-id:
+      - 0591e35cd800007e49d1000200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/positions/?election_id=3&precinct_id=1172&active_election=null&limit=1000
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/proposals/?election_id=3&precinct_id=1172&active_election=null&limit=1000
+  response:
+    body:
+      string: "{\"count\":4,\"next\":null,\"previous\":null,\"results\":[{\"url\":\"http://michiganelections.io/api/proposals/191/\",\"id\":191,\"name\":\"18-1\",\"description\":\"A
+        proposed initiated law to authorize and legalize possession, use and cultivation
+        of marijuana products by individuals who are at least 21 years of age and
+        older, and commercial sales of marijuana through state-licensed retailers\\n\_\\n\_\\nThis
+        proposal would:\\n\xB7\_\_\_\_\_\_Allow individuals 21 and older to purchase,
+        possess and use marijuana and marijuana-infused edibles, and grow up to 12
+        marijuana plants for personal consumption.\\n\xB7\_\_\_\_\_\_Impose a 10-ounce
+        limit for marijuana kept at residences and require amounts over 2.5 ounces
+        be secured in locked containers.\\n\xB7\_\_\_\_\_\_Create a state licensing
+        system for marijuana businesses and allow municipalities to ban or restrict
+        them.\\n\xB7\_\_\_\_\_\_Permit retail sales of marijuana and edibles subject
+        to a 10% tax, dedicated to implementation costs, clinical trials, schools,
+        roads, and municipalities where marijuana businesses are located.\\n\xB7\_\_\_\_\_\_Change
+        several current violations from crimes to civil infractions.\\nShould this
+        proposal be adopted?\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/proposals/192/\",\"id\":192,\"name\":\"18-2\",\"description\":\"A
+        proposed constitutional amendment to establish a commission of citizens with
+        exclusive authority to adopt district boundaries for the Michigan Senate,
+        Michigan House of Representatives and U.S. Congress, every 10 years\\n\_\\n\_\\nThis
+        proposed constitutional amendment would:\\n\xB7\_\_\_\_\_\_Create a commission
+        of 13 registered voters randomly selected by the Secretary of State:\\n \_\_\_\_-
+        4 each who self-identify as affiliated with the 2 major political parties;
+        and\\n \_\_\_\_- 5 who self-identify as unaffiliated with major political
+        parties\\n\xB7\_\_\_\_\_\_Prohibit partisan officeholders and candidates,
+        their employees, certain relatives, and lobbyists from serving as commissioners\\n\xB7\_\_\_\_\_\_Establish
+        new redistricting criteria including geographically compact and contiguous
+        districts of equal population, reflecting Michigan's diverse population and
+        communities of interest. Districts shall not provide disproportionate advantage
+        to political parties or candidates.\\n\xB7\_\_\_\_\_\_Require an appropriation
+        of funds for commission operations and commissioner compensation.\\nShould
+        this proposal be adopted?\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/proposals/193/\",\"id\":193,\"name\":\"18-3\",\"description\":\"A
+        proposal to authorize automatic and Election Day voter registration, no-reason
+        absentee voting, and straight ticket voting; and add current legal requirements
+        for military and overseas voting and post-election audits to the Michigan
+        Constitution\\nThis proposed constitutional amendment would allow a United
+        States citizen who is qualified to vote in Michigan to:\\n\xB7\_\_\_\_\_\_Become
+        automatically registered to vote when applying for, updating or renewing a
+        driver's license or state-issued personal identification card, unless the
+        person declines.\\n\xB7\_\_\_\_\_\_Simultaneously register to vote with proof
+        of residency and obtain a ballot during the 2-week period prior to an election,
+        up to and including Election Day.\\n\xB7\_\_\_\_\_\_Obtain an absent voter
+        ballot without providing a reason.\\n\xB7\_\_\_\_\_\_Cast a straight-ticket
+        vote for all candidates of a particular political party when voting in a partisan
+        general election.\\nShould this proposal be adopted?\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/1427/\",\"id\":1427,\"category\":\"State\",\"name\":\"Michigan\"}},{\"url\":\"http://michiganelections.io/api/proposals/194/\",\"id\":194,\"name\":\"Kent
+        County Ready By Five Early Childhood Proposal\",\"description\":\"Shall Kent
+        County levy .25 of one mill which is equal to 25 cents per $1,000 of the taxable
+        value on all real and personal property subject to taxation for the period
+        2018 through 2024 inclusive for the purpose of providing planning, evaluating,
+        and providing early childhood development services to persons up to age 5
+        and their parents? The amount raised by the levy in the first calendar year
+        is estimated at $5,702,887\\nIn Kent County there are local authorities that
+        capture and use, for authorized purposes, tax increment revenues from property
+        taxes levied by the County. Such capture would include a portion of the millage
+        levy. The total amount of captured tax increment revenue from such millage
+        in the first calendar year of the levy is an estimated $243,962. Tax increment
+        authorities in Kent County include the following.\\nAda Township\u2014Brownfield
+        Redevelopment AuthorityBowne Township -\_Alto Downtown Development AuthorityByron
+        Township\u2014Downtown Development Authority, Corridor Improvement AuthorityCascade
+        Charter Township -\_Downtown Development AuthorityCedar Springs, City of -\_Downtown
+        Development Authority, Local Development Finance AuthorityGrand Rapids, City
+        of -\_Downtown Development Authority, Monroe North-Tax Increment Finance Authority,
+        Smart Zone Local Development Finance Authority, Brownfield Redevelopment Finance
+        Authority, Corridor Improvement AuthorityGrandville, City of -\_Downtown Development
+        Authority, Brownfield Redevelopment AuthorityKent City, Village of -\_Downtown
+        Development AuthorityKentwood, City of -\_Brownfield Redevelopment AuthorityLowell,
+        City of - Downtown Development AuthorityRockford, City of -\_Downtown Development
+        Authority, Brownfield Redevelopment AuthoritySparta, Village of -\_Downtown
+        Development AuthorityWalker, City of -\_Downtown Development Authority, Brownfield
+        Redevelopment AuthorityWyoming, City of -\_Downtown Development Authority,
+        Local Development Finance Authority, Brownfield Redevelopment Authority\",\"reference_url\":null,\"election\":{\"url\":\"http://michiganelections.io/api/elections/3/\",\"id\":3,\"name\":\"State
+        General\",\"date\":\"2018-11-06\",\"date_humanized\":\"Tuesday, November 6th\",\"description\":\"\",\"description_edit_url\":\"https://github.com/citizenlabsgr/elections-api/edit/main/content/elections/State%20General.md\",\"active\":false,\"reference_url\":\"https://www.michigan.gov/documents/sos/2018_Dates_600221_7.pdf\"},\"district\":{\"url\":\"http://michiganelections.io/api/districts/56/\",\"id\":56,\"category\":\"County\",\"name\":\"Kent\"}}]}"
+    headers:
+      Allow:
+      - GET
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 5dc9a1aafc1efe0e-DTW
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 03 Oct 2020 21:07:13 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      NEL:
+      - '{"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?lkg-colo=116&lkg-time=1601759234"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=de63704f1fc795093f728fe826eeef1971601759233; expires=Mon, 02-Nov-20
+        21:07:13 GMT; path=/; domain=.michiganelections.io; HttpOnly; SameSite=Lax
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie, Origin
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      cf-request-id:
+      - 0591e35eda0000fe0e2023c200000001
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/proposals/?election_id=3&precinct_id=1172&active_election=null&limit=1000
+version: 1

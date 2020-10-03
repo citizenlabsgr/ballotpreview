@@ -11,6 +11,7 @@ def validate_ballot(
     original_votes: MultiDict,
     allowed_parameters: Tuple = (),
     keep_extra_parameters: bool = False,
+    merge_votes: bool = False,
 ) -> Tuple[Dict, int]:
     votes: Dict = {}
     votes_changed = False
@@ -18,9 +19,9 @@ def validate_ballot(
     for key, value in original_votes.items(multi=True):
         if key.startswith("position-"):
             if key in votes:
-                votes[key].append(value)
+                votes[key].extend(value.split(","))
             else:
-                votes[key] = [value]
+                votes[key] = value.split(",")
 
         elif key.startswith("proposal-"):
             proposal_id = int(key.split("-")[-1])
@@ -50,6 +51,11 @@ def validate_ballot(
                 log.warning(f"Removed extra candidate vote: {value}")
                 votes_changed = True
                 value.pop()
+
+    if merge_votes:
+        for key, value in votes.items():
+            if value and isinstance(value, list):
+                votes[key] = ",".join(value)
 
     return votes, votes_changed
 
