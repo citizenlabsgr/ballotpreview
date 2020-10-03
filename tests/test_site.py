@@ -153,6 +153,17 @@ def describe_ballot_detail():
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
+        async def it_accepts_commas_to_separate_candidates(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/3/precincts/1172/?position-710=candidate-10590,candidate-10589"
+            )
+            expect(response.status_code) == 200
+            html = get_html(response)
+            expect(html.count("checked")) == 2
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
         async def it_redirects_to_remove_extra_votes(app, expect):
             client = app.test_client()
             response = await client.get(

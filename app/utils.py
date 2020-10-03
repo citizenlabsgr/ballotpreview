@@ -18,9 +18,9 @@ def validate_ballot(
     for key, value in original_votes.items(multi=True):
         if key.startswith("position-"):
             if key in votes:
-                votes[key].append(value)
+                votes[key].extend(value.split(","))
             else:
-                votes[key] = [value]
+                votes[key] = value.split(",")
 
         elif key.startswith("proposal-"):
             proposal_id = int(key.split("-")[-1])
