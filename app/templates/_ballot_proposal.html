@@ -25,7 +25,7 @@
                     value="approve"
                     onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                     {% if votes[proposal_key] == 'approve' %}checked{% endif %}
-                    {% if "share=" in request.query_string|string %}disabled{% endif %}>
+                    {% if "share=" in request.query_string|string %}style="pointer-events:none;"{% endif %}>
             <label class="form-check-label" for="{{ proposal_key }}">
                 Yes
             </label>
@@ -38,7 +38,7 @@
                     value="reject"
                     onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                     {% if votes[proposal_key] == 'reject' %}checked{% endif %}
-                    {% if "share=" in request.query_string|string %}disabled{% endif %}>
+                    {% if "share=" in request.query_string|string %}style="pointer-events:none;"{% endif %}>
             <label class="form-check-label" for="{{ proposal_key }}">
                 No
             </label>
