@@ -105,6 +105,8 @@ async def ballot_detail(election_id: int, precinct_id: int):
     if target:
         if share == "first":
             share, vote = list(params.items())[0]
+            if "," in vote:
+                vote = vote.split(",")[0]
         elif share and "~" in share:
             share, vote = share.split("~")
         else:

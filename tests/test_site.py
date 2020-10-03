@@ -417,6 +417,19 @@ def describe_ballot_image():
 
     @pytest.mark.vcr()
     @pytest.mark.asyncio
+    async def it_support_multiple_position_votes(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/41/precincts/1209/?"
+            "position-46053=candidate-75615,candidate-75684"
+            "&share=first"
+            "&target=default"
+        )
+        expect(response.status_code) == 200
+        expect(response.content_type) == "image/png"
+
+    @pytest.mark.vcr()
+    @pytest.mark.asyncio
     async def it_handles_lack_of_highlighted_item(app, expect):
         client = app.test_client()
         response = await client.get("/elections/3/precincts/1172/?target=facebook")
