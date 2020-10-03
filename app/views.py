@@ -125,6 +125,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
         original_votes=form or params,
         allowed_parameters=("name", "party", "share", "target", "recently_moved"),
         keep_extra_parameters=share,
+        merge_votes=True,
     )
 
     if request.method == "POST" or votes_changed:
@@ -138,7 +139,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
                 election_id=election_id,
                 precinct_id=precinct_id,
                 **votes,
-            )
+            ).replace("%2C", ",")
         )
 
     if share:

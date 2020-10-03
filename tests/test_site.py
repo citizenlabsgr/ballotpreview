@@ -182,9 +182,7 @@ def describe_ballot_detail():
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains(
-                "?position-710=candidate-10590&position-710=candidate-10589</a>"
-            )
+            expect(html).contains("?position-710=candidate-10590,candidate-10589</a>")
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
