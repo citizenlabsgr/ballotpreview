@@ -1,6 +1,7 @@
-import io
+import hashlib
 from contextlib import suppress
-from typing import Dict, List, Tuple
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
 
 import bugsnag
 import log
@@ -9,25 +10,36 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 from . import settings
 
 
-def election_image(
-    extension: str, target: str, election: Dict
-) -> Tuple[io.BytesIO, str]:
-    log.debug(election)  # Include election date in image
-    return ballot_image(
-        extension, share="", target=target, positions=[], proposals=[], votes={}
-    )
+def election_image(target: str, election: Dict) -> Path:
+    log.debug(election)  # TODO: Include election date in image
+    return ballot_image(share="", target=target, positions=[], proposals=[], votes={})
 
 
 def ballot_image(
-    extension: str,
     share: str,
     target: str,
     positions: List,
     proposals: List,
     votes: Dict,
-) -> Tuple[io.BytesIO, str]:
+    *,
+    path: Optional[Path] = None,
+) -> Path:
     width, height, crop = settings.TARGET_SIZES[target]
     unit = max(1, height // 50)
+
+    title = _get_title(share or "", positions, proposals)
+    mark, fill, response = _get_response(share or "", positions, proposals, votes)
+
+    if path is None:
+        variant = title + mark + response + target
+        fingerprint = hashlib.sha1(variant.encode()).hexdigest()
+        images = Path("images")
+        images.mkdir(exist_ok=True)
+        path = images / f"{fingerprint}.png"
+
+        if path.exists():
+            log.info(f"Found image at {path}")
+            return path
 
     # Background image
     img = Image.open(settings.IMAGES_DIRECTORY / "michigan.jpg")
@@ -40,11 +52,10 @@ def ballot_image(
 
     # Title text
     border = (4 * unit) + crop
-    text = _get_title(share or "", positions, proposals)
-    font = _get_font(text, width - (2 * border), height, border)
+    font = _get_font(title, width - (2 * border), height, border)
     draw.text(
         (border, height // 2 - border - int(font.size * 1.1)),
-        text,
+        title,
         fill=settings.WHITE,
         font=font,
     )
@@ -58,10 +69,13 @@ def ballot_image(
 
     # Response text
     border = (4 * unit) + crop
-    mark, fill, text = _get_response(share or "", positions, proposals, votes)
-    font = _get_font(mark + text, width - (2 * border), height, border)
+    font = _get_font(mark + response, width - (2 * border), height, border)
     draw.text(
-        (border, height // 2), mark + text, fill=settings.BLACK, font=font, spacing=0
+        (border, height // 2),
+        mark + response,
+        fill=settings.BLACK,
+        font=font,
+        spacing=0,
     )
 
     # Response mark
@@ -78,10 +92,9 @@ def ballot_image(
     draw.text((x + 1, y + 1), mark, fill=settings.BLACK, font=font)
     draw.text((x, y), mark, fill=fill, font=font)
 
-    stream = io.BytesIO()
-    img.save(stream, format=extension)
+    img.save(path, quality=95)
 
-    return stream, Image.MIME[extension]
+    return path
 
 
 def _get_title(share: str, positions: List, proposals: List):

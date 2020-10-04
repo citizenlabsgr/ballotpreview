@@ -116,105 +116,83 @@ def index(images_directory):
 def describe_images():
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
     def with_position_vote(positions, votes, images_directory, target):
-        image, _ = render.ballot_image(
-            "PNG",
+        render.ballot_image(
             share="position-5141",
             target=target,
             positions=positions,
             proposals=[],
             votes=votes,
+            path=images_directory / f"position-vote-{target}.png",
         )
-        path = images_directory / f"position-vote-{target}.png"
-        with path.open("wb") as f:
-            f.write(image.getvalue())
 
     def with_position_vote_multiline(positions, images_directory):
-        image, _ = render.ballot_image(
-            "PNG",
+        render.ballot_image(
             share="position-48794",
             target="default",
             positions=positions,
             proposals=[],
             votes={"position-48794": "candidate-88287"},
+            path=images_directory / "position-vote-multiline.png",
         )
-        path = images_directory / "position-vote-multiline.png"
-        with path.open("wb") as f:
-            f.write(image.getvalue())
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
     def with_position_nonvote(positions, votes, images_directory, target):
-        image, _ = render.ballot_image(
-            "PNG",
+        render.ballot_image(
             share="position-5141",
             target=target,
             positions=positions,
             proposals=[],
             votes={},
+            path=images_directory / f"position-nonvote-{target}.png",
         )
-        path = images_directory / f"position-nonvote-{target}.png"
-        with path.open("wb") as f:
-            f.write(image.getvalue())
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
     def with_proposal_approve(proposals, votes, images_directory, target):
-        image, _ = render.ballot_image(
-            "PNG",
+        render.ballot_image(
             share="proposal-1882",
             target=target,
             positions=[],
             proposals=proposals,
             votes=votes,
+            path=images_directory / f"proposal-approve-{target}.png",
         )
-        path = images_directory / f"proposal-approve-{target}.png"
-        with path.open("wb") as f:
-            f.write(image.getvalue())
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
     def with_proposal_reject(proposals, votes, images_directory, target):
-        image, _ = render.ballot_image(
-            "PNG",
+        render.ballot_image(
             share="proposal-123",
             target=target,
             positions=[],
             proposals=proposals,
             votes=votes,
+            path=images_directory / f"proposal-reject-{target}.png",
         )
-        path = images_directory / f"proposal-reject-{target}.png"
-        with path.open("wb") as f:
-            f.write(image.getvalue())
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
     def with_proposal_nonvote(proposals, votes, images_directory, target):
-        image, _ = render.ballot_image(
-            "PNG",
+        render.ballot_image(
             share="proposal-1882",
             target=target,
             positions=[],
             proposals=proposals,
             votes={},
+            path=images_directory / f"proposal-nonvote-{target}.png",
         )
-        path = images_directory / f"proposal-nonvote-{target}.png"
-        with path.open("wb") as f:
-            f.write(image.getvalue())
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
     def with_no_highlighted_item(images_directory, target):
-        image, _ = render.ballot_image(
-            "PNG",
+        render.ballot_image(
             share=None,  # type: ignore
             target=target,
             positions=[],
             proposals=[],
             votes={},
+            path=images_directory / f"overall-{target}.png",
         )
-        path = images_directory / f"overall-{target}.png"
-        with path.open("wb") as f:
-            f.write(image.getvalue())
 
     def with_unknown_share_position(expect, positions, proposals):
         with expect.raises(LookupError):
             render.ballot_image(
-                "PNG",
                 share="position-99999",
                 target="default",
                 positions=positions,
@@ -225,7 +203,6 @@ def describe_images():
     def with_unknown_share_proposal(expect, positions, proposals):
         with expect.raises(LookupError):
             render.ballot_image(
-                "PNG",
                 share="proposal-99999",
                 target="default",
                 positions=positions,
@@ -236,7 +213,6 @@ def describe_images():
     def with_unknown_vote_position(expect, positions, proposals):
         with expect.raises(LookupError):
             render.ballot_image(
-                "PNG",
                 share="position-5141",
                 target="default",
                 positions=positions,
