@@ -6,6 +6,7 @@ setup.py
 # Cache
 __pycache__/
 .cache/
+/images/
 
 # Testing
 .pytest_cache/
