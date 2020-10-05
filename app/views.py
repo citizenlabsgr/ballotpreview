@@ -182,10 +182,12 @@ async def ballot_share(election_id: int, precinct_id: int):
 
 
 @app.route(
-    "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.png",
+    "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.<ext>",
     methods=["GET"],
 )
-async def ballot_image(election_id: int, precinct_id: int, item: str, vote: str):
+async def ballot_image(
+    election_id: int, precinct_id: int, item: str, vote: str, ext: str = "png"
+):
     share = item
     votes = {item: vote}
     target = request.args.get("target", "default")
@@ -194,7 +196,7 @@ async def ballot_image(election_id: int, precinct_id: int, item: str, vote: str)
     proposals = await api.get_proposals(election_id, precinct_id)
 
     image = await asyncio.get_event_loop().run_in_executor(
-        None, render.ballot_image, share, target, positions, proposals, votes
+        None, render.ballot_image, share, target, positions, proposals, votes, ext
     )
 
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
