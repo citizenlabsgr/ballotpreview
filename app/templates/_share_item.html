@@ -1,5 +1,5 @@
 <div class="py-2 text-center">
-    <img src="{{ ballot_url }}{{ item }}/{{ choice }}.jpg" style="max-width: 100%">
+    <img src="{{ ballot_url }}{{ item }}/{{ choice }}.jpg" loading="lazy" height="200">
 
     <div>
         <a class="btn btn-outline-dark btn-sm mt-2 mr-1" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" target="_blank" role="button">
