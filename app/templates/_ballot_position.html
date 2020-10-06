@@ -4,6 +4,9 @@
 
 <h4>
     {{ position['name'] }}
+    {% if position['reference_url'] %}
+        <a href="{{ position['reference_url']}}" target="_blank" class="no-print">🔗</a>
+    {% endif %}
     <span class="text-muted">
         ({{ position['district']['name'] }})
     </span>
