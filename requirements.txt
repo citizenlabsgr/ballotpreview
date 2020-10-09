@@ -1,3 +1,6 @@
+aiocache==0.11.1 \
+    --hash=sha256:e55c7caaa5753794fd301c3a2e592737fa1d036db9f8d04ae154facdfb48a157 \
+    --hash=sha256:f2ebe0b05cec45782e7b5ea0bb74640f157dd4bb1028b4565364dda9fe33be7f
 aiofiles==0.5.0 \
     --hash=sha256:377fdf7815cc611870c59cbd07b68b180841d2a2b79812d8c218be02448c2acb \
     --hash=sha256:98e6bcfd1b50f97db4980e182ddd509b7cc35909e903a8fe50d8849e02d815af
@@ -56,9 +59,9 @@ httptools==0.1.1; sys_platform != "win32" and sys_platform != "cygwin" and platf
     --hash=sha256:3592e854424ec94bd17dc3e0c96a64e459ec4147e6d53c0a42d0ebcef9cb9c5d \
     --hash=sha256:0a4b1b2012b28e68306575ad14ad5e9120b34fccd02a81eb08838d7e3bbb48be \
     --hash=sha256:41b573cf33f64a8f8f3400d0a7faf48e1888582b6f6e02b82b9bd4f0bf7497ce
-hypercorn==0.11.0 \
-    --hash=sha256:b5c479023757e279f954b46a4ec9dd85e58a2bcbf4d959d5601cbced593e711d \
-    --hash=sha256:6540faeba9dd44f7e74c7cc1beae3a438a7efb5f77323d1199457da46d32c2c2
+hypercorn==0.11.1 \
+    --hash=sha256:e3f317d6d64d15ce589f49e4f5057947259fa35332d169e62cb060e9997189e4 \
+    --hash=sha256:81c69dd84a87b8e8b3ebf06ef5dd92836a8238f0ac65ded3d86befb8ba9acfeb
 hyperframe==6.0.0 \
     --hash=sha256:a51026b1591cac726fc3d0b7994fbc7dc5efab861ef38503face2930fd7b2d34 \
     --hash=sha256:742d2a4bc3152a340a49d59f32e33ec420aa8e7054c1444ef5c7efff255842f1
@@ -167,7 +170,7 @@ six==1.15.0 \
 toml==0.10.1 \
     --hash=sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88 \
     --hash=sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f
-typing-extensions==3.7.4.3 \
+typing-extensions==3.7.4.3; python_version < "3.8" \
     --hash=sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f \
     --hash=sha256:7cb407020f00f7bfc3cb3e7881628838e69d8f3fcab2f64742a5e76b2f841918 \
     --hash=sha256:99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c

@@ -3,6 +3,7 @@ from typing import Dict, List, Tuple
 
 import aiohttp
 import bugsnag
+from aiocache import cached
 
 
 BASE_URL = "https://michiganelections.io/api"
@@ -86,6 +87,7 @@ async def get_ballot(
     return ballot, positions, proposals
 
 
+@cached()
 async def get_positions(election_id: int, precinct_id: int, party: str = "") -> List:
     async with aiohttp.ClientSession() as session:
         url = f"{BASE_URL}/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
@@ -97,6 +99,7 @@ async def get_positions(election_id: int, precinct_id: int, party: str = "") -> 
     return positions["results"]
 
 
+@cached()
 async def get_proposals(election_id: int, precinct_id: int) -> List:
     async with aiohttp.ClientSession() as session:
         url = f"{BASE_URL}/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
