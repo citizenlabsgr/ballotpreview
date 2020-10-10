@@ -64,6 +64,13 @@ Voting Plan
         {% include "_ballot_share.html" %}
         </div>
     {% else %}
+        {% if "recently_moved=true" in request.query_string|string %}
+        <div class="alert alert-warning" role="alert">
+            Records indicate you've recently moved, which may affect where you can vote.
+            Please check with the <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank">Secretary of State<a>
+            for more information.
+        </div>
+        {% endif %}
         <div class="alert alert-info" role="alert">
             Fill out this sample ballot to share with your friends and family.
             No one will see your choices until you decide to share the link we generate.

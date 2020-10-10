@@ -93,12 +93,6 @@ async def ballot_detail(election_id: int, precinct_id: int):
     share = params.get("share", None)
     target = params.get("target", None)
 
-    if params.get("recently_moved", False):
-        return (
-            await render_template("ballot_404.html", name=name, recently_moved=True),
-            404,
-        )
-
     if share == "":
         return await ballot_share(election_id, precinct_id)
 

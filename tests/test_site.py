@@ -119,6 +119,19 @@ def describe_ballot_detail():
             html = get_html(response)
             expect(html).contains("Attorney General")
             expect(html).contains("18-1")
+            expect(html).excludes("recently moved")
+
+        @pytest.mark.vcr()
+        @pytest.mark.asyncio
+        async def it_warns_when_voter_has_moved(app, expect):
+            client = app.test_client()
+            response = await client.get(
+                "/elections/3/precincts/1172/?recently_moved=true"
+            )
+            html = get_html(response)
+            expect(html).contains("Attorney General")
+            expect(html).contains("18-1")
+            expect(html).includes("recently moved")
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio
