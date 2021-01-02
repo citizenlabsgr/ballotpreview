@@ -25,7 +25,7 @@ install: .venv/.flag
 ifndef CI
 
 poetry.lock: pyproject.toml
-	poetry lock
+	poetry lock --no-update
 	@ touch $@
 
 runtime.txt: .python-version
@@ -64,7 +64,7 @@ endif
 .PHONY: test
 test: install
 	poetry run pytest --failed-first --maxfail=1 --cov=app --cov-branch --cov-report=term-missing:skip-covered --cov-report=html
-	poetry run coveragespace citizenlabsgr/ballotshare overall --exit-code
+	poetry run coveragespace update overall --exit-code
 
 .PHONY: watch
 watch: install
