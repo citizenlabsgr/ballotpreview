@@ -73,12 +73,12 @@ watch: install
 ###############################################################################
 # Release Tasks
 
-SITE ?= share.michiganelections.io
+DOMAIN ?= share.michiganelections.io
 
 .PHONY: e2e
 e2e: install
 	poetry install --extras e2e
-	poetry run pomace run $(SITE) -p first_name -p last_name -p birth_date -p zip_code
+	poetry run pomace run $(DOMAIN) -p first_name -p last_name -p birth_date -p zip_code
 
 ###############################################################################
 # Production Tasks
