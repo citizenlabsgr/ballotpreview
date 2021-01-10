@@ -1,0 +1,143 @@
+locators:
+  inclusions:
+    - mode: id
+      value: dropdownMenuButton
+      index: 0
+      uses: 14
+  exclusions:
+    - mode: value
+      value: Change cover image...
+      index: 0
+      uses: 3
+    - mode: css
+      value: '[onclick="window.print()"]'
+      index: 0
+      uses: 4
+actions:
+  - verb: ''
+    name: ''
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+  - verb: click
+    name: radio_1
+    locators:
+      - mode: css
+        value: '[type="radio"]'
+        index: 0
+        uses: 4
+  - verb: click
+    name: radio_2
+    locators:
+      - mode: css
+        value: '[type="radio"]'
+        index: 1
+        uses: 4
+  - verb: click
+    name: checkbox_1
+    locators:
+      - mode: css
+        value: '[type="checkbox"]'
+        index: 0
+        uses: 1
+  - verb: click
+    name: checkbox_2
+    locators:
+      - mode: css
+        value: '[type="checkbox"]'
+        index: 1
+        uses: 1
+  - verb: click
+    name: checkbox_3
+    locators:
+      - mode: css
+        value: '[type="checkbox"]'
+        index: 2
+        uses: 1
+  - verb: click
+    name: save_choices
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Save Choices
+        index: 0
+        uses: 2
+      - mode: text
+        value: Save choices
+        index: 0
+        uses: 0
+      - mode: value
+        value: Save Choices
+        index: 0
+        uses: 0
+      - mode: value
+        value: Save choices
+        index: 0
+        uses: 0
+  - verb: click
+    name: plan_to_vote
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Plan To Vote
+        index: 0
+        uses: -1
+      - mode: text
+        value: Plan to vote
+        index: 0
+        uses: -1
+      - mode: value
+        value: Plan To Vote
+        index: 0
+        uses: -1
+      - mode: value
+        value: Plan to vote
+        index: 0
+        uses: -1
+      - mode: id
+        value: dropdownMenuButton
+        index: 0
+        uses: 2
+  - verb: click
+    name: share_your_plan
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Share Your Plan
+        index: 0
+        uses: -1
+      - mode: text
+        value: Share your plan
+        index: 0
+        uses: -1
+      - mode: value
+        value: Share Your Plan
+        index: 0
+        uses: -1
+      - mode: value
+        value: Share your plan
+        index: 0
+        uses: -1
+      - mode: id
+        value: dropdownMenuButton
+        index: 1
+        uses: -1
+      - mode: partial_text
+        value: Share Your Plan
+        index: 0
+        uses: -1
+      - mode: css
+        value: .btn-primary
+        index: 0
+        uses: 3

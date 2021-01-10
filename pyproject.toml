@@ -30,8 +30,6 @@ bugsnag = "*"
 gunicorn = "~20.0.4"
 uvicorn = "~0.11.8"
 
-[tool.poetry.dev-dependencies]
-
 # Formatting
 isort = "=5.5.3"
 black = "=20.8b1"
@@ -48,6 +46,7 @@ pytest-describe = "^1.0"
 pytest-expecter = "^2.0"
 pytest-cov = "^2.7"
 pytest-watch = "^4.2"
+pomace = { version = "~0.6.7", optional = true }
 
 # Coverage
 coveragespace = "^4.0"
@@ -55,6 +54,10 @@ coveragespace = "^4.0"
 # Utilities
 honcho = "^1.0"
 rope = "^0.14.0"
+
+[tool.poetry.extras]
+
+e2e = ["pomace"]
 
 [build-system]
 

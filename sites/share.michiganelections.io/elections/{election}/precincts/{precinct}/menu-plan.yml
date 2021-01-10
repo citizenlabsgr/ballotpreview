@@ -1,0 +1,19 @@
+locators:
+  inclusions:
+    - mode: css
+      value: '[onclick="window.print()"]'
+      index: 0
+      uses: 4
+  exclusions:
+    - mode: value
+      value: Change cover image...
+      index: 0
+      uses: 3
+actions:
+  - verb: click
+    name: plan_to_vote
+    locators:
+      - mode: id
+        value: dropdownMenuButton
+        index: 0
+        uses: 3

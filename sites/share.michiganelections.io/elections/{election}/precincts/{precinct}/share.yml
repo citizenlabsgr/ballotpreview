@@ -1,0 +1,43 @@
+locators:
+  inclusions:
+    - mode: text
+      value: Share Your Voting Plan
+      index: 0
+      uses: 3
+  exclusions:
+    -
+actions:
+  - verb: ''
+    name: ''
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+  - verb: click
+    name: go_back
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Go Back
+        index: 0
+        uses: -1
+      - mode: text
+        value: Go back
+        index: 0
+        uses: -1
+      - mode: value
+        value: Go Back
+        index: 0
+        uses: -1
+      - mode: value
+        value: Go back
+        index: 0
+        uses: -1
+      - mode: value
+        value: go back
+        index: 0
+        uses: 1

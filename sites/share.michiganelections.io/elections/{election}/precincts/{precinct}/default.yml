@@ -1,0 +1,105 @@
+locators:
+  inclusions:
+    -
+  exclusions:
+    - mode: id
+      value: dropdownMenuButton
+      index: 0
+      uses: 16
+    - mode: text
+      value: Share Your Voting Plan
+      index: 0
+      uses: 2
+actions:
+  - verb: ''
+    name: ''
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+  - verb: click
+    name: official_ballot
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Official Ballot
+        index: 0
+        uses: -1
+      - mode: text
+        value: Official ballot
+        index: 0
+        uses: -1
+      - mode: value
+        value: Official Ballot
+        index: 0
+        uses: -1
+      - mode: value
+        value: Official ballot
+        index: 0
+        uses: -1
+      - mode: value
+        value: official ballot
+        index: 0
+        uses: 1
+  - verb: click
+    name: radio_1
+    locators:
+      - mode: css
+        value: '[type="radio"]'
+        index: 0
+        uses: 4
+  - verb: click
+    name: radio_2
+    locators:
+      - mode: css
+        value: '[type="radio"]'
+        index: 1
+        uses: 4
+  - verb: click
+    name: checkbox_1
+    locators:
+      - mode: css
+        value: '[type="checkbox"]'
+        index: 0
+        uses: 2
+  - verb: click
+    name: checkbox_2
+    locators:
+      - mode: css
+        value: '[type="checkbox"]'
+        index: 1
+        uses: 1
+  - verb: click
+    name: checkbox_3
+    locators:
+      - mode: css
+        value: '[type="checkbox"]'
+        index: 2
+        uses: 1
+  - verb: click
+    name: save_choices
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Save Choices
+        index: 0
+        uses: 3
+      - mode: text
+        value: Save choices
+        index: 0
+        uses: 0
+      - mode: value
+        value: Save Choices
+        index: 0
+        uses: 0
+      - mode: value
+        value: Save choices
+        index: 0
+        uses: 0

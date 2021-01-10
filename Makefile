@@ -71,6 +71,16 @@ watch: install
 	poetry run pytest-watch --nobeep --runner="make test" --onpass="make check && clear && echo 'All tests passed.'"
 
 ###############################################################################
+# Release Tasks
+
+SITE ?= share.michiganelections.io
+
+.PHONY: e2e
+e2e: install
+	poetry install --extras e2e
+	poetry run pomace run $(SITE) -p first_name -p last_name -p birth_date -p zip_code
+
+###############################################################################
 # Production Tasks
 
 .PHONY: run-production
