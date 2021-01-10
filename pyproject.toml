@@ -7,9 +7,7 @@ description = "Share how you plan to vote in Michigan."
 authors = ["Citizen Labs <info@citizenlabs.org>"]
 license = "GPLv3"
 
-packages = [
-    { include = "app" },
-]
+packages = [ { include = "app" } ]
 
 [tool.poetry.dependencies]
 
