@@ -32,7 +32,7 @@ runtime.txt: .python-version
 	echo "python-$(shell cat $<)" > $@
 
 requirements.txt: poetry.lock
-	poetry export --format requirements.txt --output $@
+	poetry export --format requirements.txt --output $@ --without-hashes
 
 endif
 
@@ -69,6 +69,16 @@ test: install
 .PHONY: watch
 watch: install
 	poetry run pytest-watch --nobeep --runner="make test" --onpass="make check && clear && echo 'All tests passed.'"
+
+###############################################################################
+# Release Tasks
+
+DOMAIN ?= share.michiganelections.io
+
+.PHONY: e2e
+e2e: install
+	poetry install --extras e2e
+	poetry run pomace run $(DOMAIN) -p first_name -p last_name -p birth_date -p zip_code
 
 ###############################################################################
 # Production Tasks

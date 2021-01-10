@@ -1,0 +1,71 @@
+locators:
+  inclusions:
+    - mode: value
+      value: Change cover image...
+      index: 0
+      uses: 4
+  exclusions:
+    -
+actions:
+  - verb: click
+    name: share_your_plan
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Share Your Plan
+        index: 0
+        uses: -1
+      - mode: text
+        value: Share your plan
+        index: 0
+        uses: -1
+      - mode: value
+        value: Share Your Plan
+        index: 0
+        uses: -1
+      - mode: value
+        value: Share your plan
+        index: 0
+        uses: -1
+      - mode: id
+        value: dropdownMenuButton
+        index: 1
+        uses: -1
+      - mode: partial_text
+        value: Share Your Plan
+        index: 0
+        uses: -1
+      - mode: css
+        value: .btn-primary
+        index: 0
+        uses: 3
+  - verb: click
+    name: change_cover_image
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Change Cover Image
+        index: 0
+        uses: -1
+      - mode: text
+        value: Change cover image
+        index: 0
+        uses: -1
+      - mode: value
+        value: Change Cover Image
+        index: 0
+        uses: -1
+      - mode: value
+        value: Change cover image
+        index: 0
+        uses: -1
+      - mode: value
+        value: Change cover image...
+        index: 0
+        uses: 1

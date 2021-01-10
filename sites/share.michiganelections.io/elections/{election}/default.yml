@@ -1,0 +1,187 @@
+locators:
+  inclusions:
+    -
+  exclusions:
+    -
+actions:
+  - verb: ''
+    name: ''
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+  - verb: fill
+    name: first_name
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: name
+        value: first_name
+        index: 0
+        uses: 4
+      - mode: name
+        value: first-name
+        index: 0
+        uses: 0
+      - mode: id
+        value: first_name
+        index: 0
+        uses: 0
+      - mode: id
+        value: first-name
+        index: 0
+        uses: 0
+      - mode: css
+        value: '[aria-label="First Name"]'
+        index: 0
+        uses: 0
+      - mode: id
+        value: FirstName
+        index: 0
+        uses: 0
+  - verb: fill
+    name: last_name
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: name
+        value: last_name
+        index: 0
+        uses: 4
+      - mode: name
+        value: last-name
+        index: 0
+        uses: 0
+      - mode: id
+        value: last_name
+        index: 0
+        uses: 0
+      - mode: id
+        value: last-name
+        index: 0
+        uses: 0
+      - mode: css
+        value: '[aria-label="Last Name"]'
+        index: 0
+        uses: 0
+      - mode: id
+        value: LastName
+        index: 0
+        uses: 0
+  - verb: fill
+    name: birth_date
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: name
+        value: birth_date
+        index: 0
+        uses: 6
+      - mode: name
+        value: birth-date
+        index: 0
+        uses: 0
+      - mode: id
+        value: birth_date
+        index: 0
+        uses: 0
+      - mode: id
+        value: birth-date
+        index: 0
+        uses: 0
+      - mode: css
+        value: '[aria-label="Birth Date"]'
+        index: 0
+        uses: 0
+      - mode: id
+        value: BirthDate
+        index: 0
+        uses: 0
+  - verb: fill
+    name: zip_code
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: name
+        value: zip_code
+        index: 0
+        uses: 4
+      - mode: name
+        value: zip-code
+        index: 0
+        uses: 0
+      - mode: id
+        value: zip_code
+        index: 0
+        uses: 0
+      - mode: id
+        value: zip-code
+        index: 0
+        uses: 0
+      - mode: css
+        value: '[aria-label="Zip Code"]'
+        index: 0
+        uses: 0
+      - mode: id
+        value: ZipCode
+        index: 0
+        uses: 0
+  - verb: click
+    name: find_your_ballot
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Find Your Ballot
+        index: 0
+        uses: 3
+      - mode: text
+        value: Find your ballot
+        index: 0
+        uses: 0
+      - mode: value
+        value: Find Your Ballot
+        index: 0
+        uses: 0
+      - mode: value
+        value: Find your ballot
+        index: 0
+        uses: 0
+  - verb: click
+    name: about
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: About
+        index: 0
+        uses: -1
+      - mode: text
+        value: About
+        index: 0
+        uses: -1
+      - mode: value
+        value: About
+        index: 0
+        uses: -1
+      - mode: value
+        value: About
+        index: 0
+        uses: -1
+      - mode: value
+        value: about
+        index: 0
+        uses: 1

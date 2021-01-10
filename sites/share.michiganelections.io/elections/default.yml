@@ -1,0 +1,40 @@
+locators:
+  inclusions:
+    -
+  exclusions:
+    -
+actions:
+  - verb: ''
+    name: ''
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+  - verb: click
+    name: election
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Election
+        index: 0
+        uses: -1
+      - mode: text
+        value: Election
+        index: 0
+        uses: -1
+      - mode: value
+        value: Election
+        index: 0
+        uses: -1
+      - mode: value
+        value: Election
+        index: 0
+        uses: -1
+      - mode: tag
+        value: a
+        index: 0
+        uses: 3

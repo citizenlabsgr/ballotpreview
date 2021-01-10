@@ -1,0 +1,48 @@
+locators:
+  inclusions:
+    -
+  exclusions:
+    -
+actions:
+  - verb: ''
+    name: ''
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+  - verb: click
+    name: view_elections
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: View Elections
+        index: 0
+        uses: -1
+      - mode: text
+        value: View elections
+        index: 0
+        uses: -1
+      - mode: value
+        value: View Elections
+        index: 0
+        uses: -1
+      - mode: value
+        value: View elections
+        index: 0
+        uses: -1
+      - mode: value
+        value: View Elections
+        index: 0
+        uses: -1
+      - mode: text
+        value: View Elections
+        index: 0
+        uses: -1
+      - mode: css
+        value: .btn-primary
+        index: 0
+        uses: 4
