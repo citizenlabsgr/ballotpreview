@@ -44,7 +44,7 @@ pytest-describe = "^1.0"
 pytest-expecter = "^2.0"
 pytest-cov = "^2.7"
 pytest-watch = "^4.2"
-pomace = { version = "~0.6.7", optional = true }
+pomace = { version = "~0.6.9", optional = true }
 
 # Coverage
 coveragespace = "^4.0"

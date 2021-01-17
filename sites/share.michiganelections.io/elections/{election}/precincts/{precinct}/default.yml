@@ -19,33 +19,6 @@ actions:
         index: 0
         uses: 0
   - verb: click
-    name: official_ballot
-    locators:
-      - mode: ''
-        value: ''
-        index: 0
-        uses: 0
-      - mode: text
-        value: Official Ballot
-        index: 0
-        uses: -1
-      - mode: text
-        value: Official ballot
-        index: 0
-        uses: -1
-      - mode: value
-        value: Official Ballot
-        index: 0
-        uses: -1
-      - mode: value
-        value: Official ballot
-        index: 0
-        uses: -1
-      - mode: value
-        value: official ballot
-        index: 0
-        uses: 1
-  - verb: click
     name: radio_1
     locators:
       - mode: css
@@ -65,7 +38,7 @@ actions:
       - mode: css
         value: '[type="checkbox"]'
         index: 0
-        uses: 2
+        uses: 3
   - verb: click
     name: checkbox_2
     locators:
@@ -90,7 +63,7 @@ actions:
       - mode: text
         value: Save Choices
         index: 0
-        uses: 3
+        uses: 4
       - mode: text
         value: Save choices
         index: 0
@@ -101,5 +74,36 @@ actions:
         uses: 0
       - mode: value
         value: Save choices
+        index: 0
+        uses: 0
+  - verb: click
+    name: official_ballot
+    locators:
+      - mode: ''
+        value: ''
+        index: 0
+        uses: 0
+      - mode: text
+        value: Official Ballot
+        index: 0
+        uses: -1
+      - mode: text
+        value: Official ballot
+        index: 0
+        uses: -1
+      - mode: text
+        value: official ballot
+        index: 0
+        uses: 1
+      - mode: value
+        value: Official Ballot
+        index: 0
+        uses: 0
+      - mode: value
+        value: Official ballot
+        index: 0
+        uses: 0
+      - mode: value
+        value: official ballot
         index: 0
         uses: 0

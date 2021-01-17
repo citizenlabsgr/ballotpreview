@@ -726,7 +726,7 @@ dev = ["pre-commit", "tox"]
 
 [[package]]
 name = "pomace"
-version = "0.6.7"
+version = "0.6.9"
 description = "Dynamic page objects for browser automation."
 category = "main"
 optional = true
@@ -740,7 +740,7 @@ datafiles = ">=0.11.1,<0.12.0"
 faker = ">=4.1.1,<5.0.0"
 gitman = ">=2.3b2,<3.0"
 inflection = ">=0.4.0,<0.5.0"
-ipython = ">=7.12.0,<8.0.0"
+ipython = ">=7.19.0,<8.0.0"
 jedi = "0.17.2"
 minilog = ">=2.0,<3.0"
 parse = ">=1.14.0,<2.0.0"
@@ -1288,7 +1288,7 @@ e2e = ["pomace"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "a0824ba777da2f736662dd71531b6a38b8eca092138987e7cd63e57dda324617"
+content-hash = "d9c16ff8c8705ad1f984b208b57abffe4c9b7ff4ccf69522ccfb820def39c16c"
 
 [metadata.files]
 aiofiles = [
@@ -1767,8 +1767,8 @@ pluggy = [
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
 ]
 pomace = [
-    {file = "pomace-0.6.7-py3-none-any.whl", hash = "sha256:53c2718e6aebaf09e34caf1f5c7c98e73a6e49b93249dd84f0e522cce49c2fd6"},
-    {file = "pomace-0.6.7.tar.gz", hash = "sha256:f01f78f1d9e2829d1aa044ca2310449d45585b5450a9c6ea003b67fa8a5126d9"},
+    {file = "pomace-0.6.9-py3-none-any.whl", hash = "sha256:04066056c5b57fb6641c15b59f8197416acfb04e6616e6f7b269eee58e404e27"},
+    {file = "pomace-0.6.9.tar.gz", hash = "sha256:f021a33764cc94f011a3566f3f7f63f3a02f6e44edda5c7198583e182bf738c6"},
 ]
 priority = [
     {file = "priority-1.3.0-py2.py3-none-any.whl", hash = "sha256:be4fcb94b5e37cdeb40af5533afe6dd603bd665fe9c8b3052610fc1001d5d1eb"},

@@ -3,7 +3,7 @@ locators:
     - mode: id
       value: dropdownMenuButton
       index: 0
-      uses: 14
+      uses: 15
   exclusions:
     - mode: value
       value: Change cover image...
