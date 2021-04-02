@@ -73,7 +73,7 @@ watch: install
 ###############################################################################
 # Release Tasks
 
-DOMAIN ?= share.michiganelections.io
+DOMAIN ?= localhost:5000
 
 .PHONY: e2e
 e2e: install

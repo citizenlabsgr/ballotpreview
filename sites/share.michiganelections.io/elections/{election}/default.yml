@@ -21,7 +21,7 @@ actions:
       - mode: name
         value: first_name
         index: 0
-        uses: 7
+        uses: 8
       - mode: name
         value: first-name
         index: 0
@@ -52,7 +52,7 @@ actions:
       - mode: name
         value: last_name
         index: 0
-        uses: 6
+        uses: 7
       - mode: name
         value: last-name
         index: 0
@@ -83,7 +83,7 @@ actions:
       - mode: name
         value: birth_date
         index: 0
-        uses: 8
+        uses: 9
       - mode: name
         value: birth-date
         index: 0
@@ -114,7 +114,7 @@ actions:
       - mode: name
         value: zip_code
         index: 0
-        uses: 6
+        uses: 7
       - mode: name
         value: zip-code
         index: 0
@@ -145,7 +145,7 @@ actions:
       - mode: text
         value: Find Your Ballot
         index: 0
-        uses: 6
+        uses: 7
       - mode: text
         value: Find your ballot
         index: 0

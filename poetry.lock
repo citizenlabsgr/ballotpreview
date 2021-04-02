@@ -291,7 +291,7 @@ colorama = "*"
 
 [[package]]
 name = "datafiles"
-version = "0.11.1"
+version = "0.12"
 description = "File-based ORM for dataclasses."
 category = "main"
 optional = true
@@ -336,15 +336,45 @@ python-dateutil = ">=2.4"
 text-unidecode = "1.3"
 
 [[package]]
+name = "flask"
+version = "1.1.2"
+description = "A simple framework for building complex web applications."
+category = "main"
+optional = true
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+click = ">=5.1"
+itsdangerous = ">=0.24"
+Jinja2 = ">=2.10.1"
+Werkzeug = ">=0.15"
+
+[package.extras]
+dev = ["pytest", "coverage", "tox", "sphinx", "pallets-sphinx-themes", "sphinxcontrib-log-cabinet", "sphinx-issues"]
+docs = ["sphinx", "pallets-sphinx-themes", "sphinxcontrib-log-cabinet", "sphinx-issues"]
+dotenv = ["python-dotenv"]
+
+[[package]]
+name = "flask-api"
+version = "2.0"
+description = "Browsable web APIs for Flask."
+category = "main"
+optional = true
+python-versions = "*"
+
+[package.dependencies]
+Flask = ">=1.1"
+
+[[package]]
 name = "gitman"
-version = "2.3b2"
+version = "2.3.1"
 description = "A language-agnostic dependency manager using Git."
 category = "main"
 optional = true
 python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
-datafiles = ">=0.11,<0.12"
+datafiles = ">=0.11"
 minilog = ">=2.0,<3.0"
 
 [[package]]
@@ -478,7 +508,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "ipython"
-version = "7.19.0"
+version = "7.22.0"
 description = "IPython: Productive Interactive Computing"
 category = "main"
 optional = true
@@ -489,7 +519,7 @@ appnope = {version = "*", markers = "sys_platform == \"darwin\""}
 backcall = "*"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
 decorator = "*"
-jedi = ">=0.10"
+jedi = ">=0.16"
 pexpect = {version = ">4.3", markers = "sys_platform != \"win32\""}
 pickleshare = "*"
 prompt-toolkit = ">=2.0.0,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.1.0"
@@ -497,7 +527,7 @@ pygments = "*"
 traitlets = ">=4.2"
 
 [package.extras]
-all = ["Sphinx (>=1.3)", "ipykernel", "ipyparallel", "ipywidgets", "nbconvert", "nbformat", "nose (>=0.10.1)", "notebook", "numpy (>=1.14)", "pygments", "qtconsole", "requests", "testpath"]
+all = ["Sphinx (>=1.3)", "ipykernel", "ipyparallel", "ipywidgets", "nbconvert", "nbformat", "nose (>=0.10.1)", "notebook", "numpy (>=1.16)", "pygments", "qtconsole", "requests", "testpath"]
 doc = ["Sphinx (>=1.3)"]
 kernel = ["ipykernel"]
 nbconvert = ["nbconvert"]
@@ -505,7 +535,7 @@ nbformat = ["nbformat"]
 notebook = ["notebook", "ipywidgets"]
 parallel = ["ipyparallel"]
 qtconsole = ["qtconsole"]
-test = ["nose (>=0.10.1)", "requests", "testpath", "pygments", "nbformat", "ipykernel", "numpy (>=1.14)"]
+test = ["nose (>=0.10.1)", "requests", "testpath", "pygments", "nbformat", "ipykernel", "numpy (>=1.16)"]
 
 [[package]]
 name = "ipython-genutils"
@@ -726,7 +756,7 @@ dev = ["pre-commit", "tox"]
 
 [[package]]
 name = "pomace"
-version = "0.6.9"
+version = "0.7.4"
 description = "Dynamic page objects for browser automation."
 category = "main"
 optional = true
@@ -735,13 +765,14 @@ python-versions = ">=3.7,<4.0"
 [package.dependencies]
 beautifulsoup4 = ">=4.8.2,<5.0.0"
 bullet = ">=2.1.0,<3.0.0"
+cached-property = ">=1.5.2,<2.0.0"
 cleo = ">=0.8.1,<0.9.0"
-datafiles = ">=0.11.1,<0.12.0"
+datafiles = ">=0.12,<0.13"
 faker = ">=4.1.1,<5.0.0"
-gitman = ">=2.3b2,<3.0"
+flask-api = ">=2.0,<3.0"
+gitman = ">=2.3,<3.0"
 inflection = ">=0.4.0,<0.5.0"
-ipython = ">=7.19.0,<8.0.0"
-jedi = "0.17.2"
+ipython = ">=7.20.0,<8.0.0"
 minilog = ">=2.0,<3.0"
 parse = ">=1.14.0,<2.0.0"
 splinter = ">=0.14.0,<0.15.0"
@@ -1288,7 +1319,7 @@ e2e = ["pomace"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "73b73ada188683ab08de085719e38d54f57fa6c1f9f6ed8a1d75aab253a8339d"
+content-hash = "80a7e066d5518ceb6ae0533e44df1d7d1d4aeb880987db328673d002d3c98cbb"
 
 [metadata.files]
 aiofiles = [
@@ -1480,8 +1511,8 @@ crayons = [
     {file = "crayons-0.4.0.tar.gz", hash = "sha256:bd33b7547800f2cfbd26b38431f9e64b487a7de74a947b0fafc89b45a601813f"},
 ]
 datafiles = [
-    {file = "datafiles-0.11.1-py3-none-any.whl", hash = "sha256:6a587ac1d67ac51e7ef0c2efe08121927d079964d0ab9d8fad204fb560002dc1"},
-    {file = "datafiles-0.11.1.tar.gz", hash = "sha256:99e70b84394129a41f5faeb15e4e8b41ab07fd8abd39cd2733e6dce663ff59c0"},
+    {file = "datafiles-0.12-py3-none-any.whl", hash = "sha256:8301a6d2d22dd47860a549b2a5150f88d1763259bcff80e9bc5d0f5c43b174d5"},
+    {file = "datafiles-0.12.tar.gz", hash = "sha256:b14b94a36f6914ad217b6d2fe98281ce08e3f5d110c82cac1d0e6bb52a9d8b8b"},
 ]
 decorator = [
     {file = "decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760"},
@@ -1494,9 +1525,17 @@ faker = [
     {file = "Faker-4.18.0-py3-none-any.whl", hash = "sha256:2ba20a4438429cb08d729175d7bb0435ef3c2c4cedc7b1ceb703ee6da8dad906"},
     {file = "Faker-4.18.0.tar.gz", hash = "sha256:6279746aed175a693108238e6d1ab8d7e26d0ec7ff8474f61025b9fdaae15d65"},
 ]
+flask = [
+    {file = "Flask-1.1.2-py2.py3-none-any.whl", hash = "sha256:8a4fdd8936eba2512e9c85df320a37e694c93945b33ef33c89946a340a238557"},
+    {file = "Flask-1.1.2.tar.gz", hash = "sha256:4efa1ae2d7c9865af48986de8aeb8504bf32c7f3d6fdc9353d34b21f4b127060"},
+]
+flask-api = [
+    {file = "Flask-API-2.0.tar.gz", hash = "sha256:6986642e5b25b7def710ca9489ed2b88c94006bfc06eca01c78da7cf447e66e5"},
+    {file = "Flask_API-2.0-py3-none-any.whl", hash = "sha256:3d4cfb2ff214af9957f61455f660b5cfa181d6112e56cda526011bbe7af2a09e"},
+]
 gitman = [
-    {file = "gitman-2.3b2-py3-none-any.whl", hash = "sha256:86dd884cb67604650c979943be6d0e63c7e0cf0c4d2198848cb217d26cbe9e21"},
-    {file = "gitman-2.3b2.tar.gz", hash = "sha256:627a9fb77e9d9574f998f7261677bda2be2321564a536a8046a2c010743e71d0"},
+    {file = "gitman-2.3.1-py3-none-any.whl", hash = "sha256:c7cd907d72acdcce51f10ced3e9598b6fcbd8d644af061772baebbda9fc514e5"},
+    {file = "gitman-2.3.1.tar.gz", hash = "sha256:8ad15fead00fb6f6d1dc4e4d64a3497d74f41f328e839d7780c7494358ddf841"},
 ]
 gunicorn = [
     {file = "gunicorn-20.0.4-py2.py3-none-any.whl", hash = "sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c"},
@@ -1553,8 +1592,8 @@ inflection = [
     {file = "inflection-0.4.0.tar.gz", hash = "sha256:32a5c3341d9583ec319548b9015b7fbdf8c429cbcb575d326c33ae3a0e90d52c"},
 ]
 ipython = [
-    {file = "ipython-7.19.0-py3-none-any.whl", hash = "sha256:c987e8178ced651532b3b1ff9965925bfd445c279239697052561a9ab806d28f"},
-    {file = "ipython-7.19.0.tar.gz", hash = "sha256:cbb2ef3d5961d44e6a963b9817d4ea4e1fa2eb589c371a470fed14d8d40cbd6a"},
+    {file = "ipython-7.22.0-py3-none-any.whl", hash = "sha256:c0ce02dfaa5f854809ab7413c601c4543846d9da81010258ecdab299b542d199"},
+    {file = "ipython-7.22.0.tar.gz", hash = "sha256:9c900332d4c5a6de534b4befeeb7de44ad0cc42e8327fa41b7685abde58cec74"},
 ]
 ipython-genutils = [
     {file = "ipython_genutils-0.2.0-py2.py3-none-any.whl", hash = "sha256:72dd37233799e619666c9f639a9da83c34013a73e8bbc79a7a6348d93c61fab8"},
@@ -1791,8 +1830,8 @@ pluggy = [
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
 ]
 pomace = [
-    {file = "pomace-0.6.9-py3-none-any.whl", hash = "sha256:04066056c5b57fb6641c15b59f8197416acfb04e6616e6f7b269eee58e404e27"},
-    {file = "pomace-0.6.9.tar.gz", hash = "sha256:f021a33764cc94f011a3566f3f7f63f3a02f6e44edda5c7198583e182bf738c6"},
+    {file = "pomace-0.7.4-py3-none-any.whl", hash = "sha256:8da8fbb43eabf90e621da46aa46993953d779f45212431217f7a789df9fab1c1"},
+    {file = "pomace-0.7.4.tar.gz", hash = "sha256:69b315a9445b3f399f14f34659ea486e3ab754a1010f0073bfbebfdcbd8034f6"},
 ]
 priority = [
     {file = "priority-1.3.0-py2.py3-none-any.whl", hash = "sha256:be4fcb94b5e37cdeb40af5533afe6dd603bd665fe9c8b3052610fc1001d5d1eb"},
