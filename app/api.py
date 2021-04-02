@@ -41,9 +41,11 @@ async def get_status(
     return data
 
 
-async def get_elections() -> List:
+async def get_elections(*, active=None) -> List:
+    url = f"{BASE_URL}/elections/"
+    if active:
+        url += "?active=true"
     async with aiohttp.ClientSession() as session:
-        url = f"{BASE_URL}/elections/?active=true"
         async with session.get(url) as response:
             data = await response.json()
 

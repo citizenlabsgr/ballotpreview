@@ -27,7 +27,7 @@ idna==2.7; python_version >= "3.6" and python_full_version < "3.0.0" and python_
 importlib-metadata==3.3.0; python_version < "3.8" and python_version >= "3.6" and (python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "3.8" or python_full_version >= "3.4.0" and python_version >= "3.6" and python_version < "3.8")
 isort==5.5.3; python_version >= "3.6" and python_version < "4.0"
 itsdangerous==1.1.0; python_full_version >= "3.7.0"
-jinja2==2.11.2; python_full_version >= "3.7.0"
+jinja2==2.11.3; python_full_version >= "3.7.0"
 lazy-object-proxy==1.4.3; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.5"
 markupsafe==1.1.1; python_full_version >= "3.7.0"
 mccabe==0.6.1; python_version >= "3.5"
@@ -51,7 +51,7 @@ pytest-expecter==2.2; python_version >= "3.6" and python_version < "4.0"
 pytest-vcr==1.0.2
 pytest-watch==4.2.0
 pytest==5.4.3; python_version >= "3.5"
-pyyaml==5.3.1; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.5"
+pyyaml==5.4; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" and python_version >= "3.5"
 quart==0.12.0; python_full_version >= "3.7.0"
 regex==2020.11.13; python_version >= "3.6"
 requests==2.20.0; python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "4.0" or python_version >= "3.6" and python_version < "4.0" and python_full_version >= "3.4.0"
