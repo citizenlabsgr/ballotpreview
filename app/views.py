@@ -1,4 +1,5 @@
 import asyncio
+from collections import defaultdict
 
 import bugsnag
 import log
@@ -17,7 +18,7 @@ bugsnag_quart.handle_exceptions(app)
 
 @app.route("/")
 async def index():
-    elections = await api.get_elections()
+    elections = await api.get_elections(active=True)
 
     for election in elections:
         if election["active"]:
@@ -28,7 +29,7 @@ async def index():
 
 @app.route("/banner.png")
 async def banner():
-    elections = await api.get_elections()
+    elections = await api.get_elections(active=True)
     target = request.args.get("target", "default")
     image = await asyncio.get_running_loop().run_in_executor(
         None, render.election_image, target, elections[0]
@@ -44,7 +45,15 @@ async def about():
 @app.route("/elections/")
 async def election_list():
     elections = await api.get_elections()
-    return await render_template("election_list.html", elections=elections)
+
+    years = defaultdict(list)
+    for election in elections:
+        year = election["date"].split("-")[0]
+        years[year].append(election)
+
+    return await render_template(
+        "election_list.html", years=dict(sorted(years.items(), reverse=True))
+    )
 
 
 @app.route("/elections/<election_id>/", methods=["GET", "POST"])

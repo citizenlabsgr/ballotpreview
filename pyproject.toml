@@ -7,7 +7,7 @@ description = "Share how you plan to vote in Michigan."
 authors = ["Citizen Labs <info@citizenlabs.org>"]
 license = "GPLv3"
 
-packages = [ { include = "app" } ]
+packages = [{ include = "app" }]
 
 [tool.poetry.dependencies]
 
@@ -24,7 +24,7 @@ aiohttp = "^3.7.4"
 minilog = "^2.0"
 
 # Production
-bugsnag = "*"
+bugsnag = "^4.0"
 gunicorn = "~20.0.4"
 uvicorn = "~0.11.8"
 

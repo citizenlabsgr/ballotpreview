@@ -1288,7 +1288,7 @@ e2e = ["pomace"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "2530a2dde28d5b2f1ade26654e5b4b35359570f0b8da44f49e4f91bb45c40dd6"
+content-hash = "73b73ada188683ab08de085719e38d54f57fa6c1f9f6ed8a1d75aab253a8339d"
 
 [metadata.files]
 aiofiles = [

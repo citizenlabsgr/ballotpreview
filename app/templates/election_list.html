@@ -4,12 +4,17 @@
 
 <h1>Michigan Elections</h1>
 
-{% for election in elections %}
-<h5>
-    <a href="{{ url_for('election_detail', election_id=election['id']) }}">
-        {{ election['name'] }} ({{ election['date_humanized'] }})
-    </a>
-</h5>
+{% for year, elections in years.items() %}
+<h2 class="text-muted">{{ year }}</h2>
+<ul>
+    {% for election in elections %}
+    <li>
+        <a href="{{ url_for('election_detail', election_id=election['id']) }}">
+            {{ election['name'] }} ({{ election['date_humanized'] }})
+        </a>
+    </li>
+    {% endfor %}
+</ul>
 {% endfor %}
 
 {% endblock %}
