@@ -267,10 +267,12 @@ def describe_ballot_detail():
         @pytest.mark.asyncio
         async def it_handles_unknown_ballots(app, expect):
             client = app.test_client()
-            response = await client.get("/elections/5/precincts/99999/")
+            response = await client.get("/elections/42/precincts/99999/")
             expect(response.status_code) == 404
             html = get_html(response)
+            expect(html.count("May Consolidated")) == 1
             expect(html).contains("can't find a sample ballot")
+            expect(html).contains("Special Election")
 
         @pytest.mark.vcr()
         @pytest.mark.asyncio

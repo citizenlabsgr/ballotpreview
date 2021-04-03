@@ -22,15 +22,11 @@ def add_quart_request_to_notification(notification):
     if "id" not in notification.user:
         notification.set_user(id=quart.request.remote_addr)
     notification.add_tab("session", dict(quart.session))
-    notification.add_tab("environment", dict(quart.request.environ))
     notification.add_tab(
         "request",
         {
             "url": quart.request.base_url,
             "headers": dict(quart.request.headers),
-            "params": dict(quart.request.form),
-            "data": quart.request.get_json(silent=True)
-            or dict(body=quart.request.data),
         },
     )
 
