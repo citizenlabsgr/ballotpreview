@@ -119,7 +119,24 @@ async def ballot_detail(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id, party)
 
     if ballot is None:
-        return (await render_template("ballot_404.html", name=name), 404)
+        this_election = None
+        other_elections = []
+        for election in reversed(await api.get_elections()):
+            if election["id"] == int(election_id):
+                this_election = election
+            else:
+                other_elections.append(election)
+                if not election["active"]:
+                    break
+
+        html = await render_template(
+            "ballot_404.html",
+            election=this_election,
+            elections=other_elections,
+            precinct_id=precinct_id,
+            name=name,
+        )
+        return html, 404
 
     form = await request.form
     votes, votes_changed = utils.validate_ballot(
