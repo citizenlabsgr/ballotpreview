@@ -27,7 +27,7 @@ async def get_status(
         bugsnag.notify(
             ValueError(f"No registration status: {url}"),
             context="get_status",
-            meta_data={
+            metadata={
                 "registration": {
                     "first_name": first_name,
                     "last_name": last_name,
@@ -77,7 +77,7 @@ async def get_ballot(
             bugsnag.notify(
                 LookupError(f"No ballot: {url}"),
                 context="get_ballot",
-                meta_data={
+                metadata={
                     "ballot": {"election_id": election_id, "precinct_id": precinct_id}
                 },
             )
