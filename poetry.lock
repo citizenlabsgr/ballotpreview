@@ -256,7 +256,7 @@ toml = ["toml"]
 
 [[package]]
 name = "coveragespace"
-version = "4.0"
+version = "4.2"
 description = "A place to track your code coverage metrics."
 category = "main"
 optional = false
@@ -1274,7 +1274,7 @@ e2e = ["pomace"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "7071dac3c2bcbe49458bdc42f1393664d58e70e21f270695e0a2ad6f764b524d"
+content-hash = "8c0795143177cdc10fbc075e4517f7caad3faae7b3531078012ca9e42a949c75"
 
 [metadata.files]
 aiofiles = [
@@ -1454,8 +1454,8 @@ coverage = [
     {file = "coverage-5.3.1.tar.gz", hash = "sha256:38f16b1317b8dd82df67ed5daa5f5e7c959e46579840d77a67a4ceb9cef0a50b"},
 ]
 coveragespace = [
-    {file = "coveragespace-4.0-py3-none-any.whl", hash = "sha256:fef3c1f17685e72ff008b32248849a473ebf7be51c827eb786fa57dc33b3f366"},
-    {file = "coveragespace-4.0.tar.gz", hash = "sha256:659ec5c86ded8b505004bd7532835aaea6e790608abacc6c8ad807f4108ede3d"},
+    {file = "coveragespace-4.2-py3-none-any.whl", hash = "sha256:3b8651c97b0741f89786eb57fb0b27a606502207439825d9f1c6f99b0e598e68"},
+    {file = "coveragespace-4.2.tar.gz", hash = "sha256:b23263b7b9689fd7ded975809b134453c0e0cdbf1dea6b60bf8ebed2c78f9270"},
 ]
 crashtest = [
     {file = "crashtest-0.3.1-py3-none-any.whl", hash = "sha256:300f4b0825f57688b47b6d70c6a31de33512eb2fa1ac614f780939aa0cf91680"},

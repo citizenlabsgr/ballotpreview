@@ -4,6 +4,8 @@ from typing import Dict, List, Tuple
 import aiohttp
 import bugsnag
 
+from . import settings
+
 
 BASE_URL = "https://michiganelections.io/api"
 
@@ -73,7 +75,7 @@ async def get_ballot(
             except LookupError:
                 ballot = None
 
-        if ballot is None:
+        if ballot is None and settings.BUGSNAG_VERBOSE:
             bugsnag.notify(
                 LookupError(f"No ballot: {url}"),
                 context="get_ballot",
