@@ -24,7 +24,6 @@ httptools==0.1.1; sys_platform != "win32" and sys_platform != "cygwin" and platf
 hypercorn==0.11.2; python_version >= "3.7" and python_full_version >= "3.7.0"
 hyperframe==6.0.0; python_version >= "3.7" and python_full_version >= "3.7.0"
 idna==2.7; python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "4.0" or python_version >= "3.6" and python_version < "4.0" and python_full_version >= "3.5.0"
-importlib-metadata==3.3.0; python_version < "3.8" and python_version >= "3.6" and (python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "3.8" or python_full_version >= "3.4.0" and python_version >= "3.6" and python_version < "3.8")
 isort==5.5.3; python_version >= "3.6" and python_version < "4.0"
 itsdangerous==1.1.0; python_full_version >= "3.7.0"
 jinja2==2.11.3; python_full_version >= "3.7.0"
@@ -58,8 +57,8 @@ requests==2.25.1; python_version >= "3.6" and python_full_version < "3.0.0" and 
 rope==0.14.0
 six==1.15.0; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.5"
 toml==0.10.2; python_full_version >= "3.7.0" and python_version >= "3.7" and (python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.5")
-typed-ast==1.4.2; python_version < "3.8" and python_version >= "3.6" and implementation_name == "cpython"
-typing-extensions==3.7.4.3; python_version < "3.8" and python_full_version >= "3.7.0" and python_version >= "3.7"
+typed-ast==1.4.2; python_version >= "3.6"
+typing-extensions==3.7.4.3; python_version >= "3.6"
 urllib3==1.26.5; python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "4.0" or python_full_version >= "3.5.0" and python_version < "4" and python_version >= "3.6"
 uvicorn==0.11.8
 uvloop==0.14.0; sys_platform != "win32" and sys_platform != "cygwin" and platform_python_implementation != "PyPy"
@@ -72,4 +71,3 @@ werkzeug==2.0.1; python_version >= "3.6" and python_full_version >= "3.7.0"
 wrapt==1.12.1; python_version >= "3.5"
 wsproto==1.0.0; python_version >= "3.7" and python_full_version >= "3.7.0"
 yarl==1.6.3; python_version >= "3.6"
-zipp==3.4.0; python_version < "3.8" and python_version >= "3.6"

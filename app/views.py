@@ -128,7 +128,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
                 this_election = election
             else:
                 other_elections.append(election)
-                if not election["active"]:
+                if this_election and not election["active"]:
                     break
 
         html = await render_template(
