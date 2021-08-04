@@ -24,7 +24,7 @@ actions:
       - mode: css
         value: '[type="radio"]'
         index: 0
-        uses: 4
+        uses: 5
   - verb: click
     name: radio_2
     locators:
@@ -63,7 +63,7 @@ actions:
       - mode: text
         value: Save Choices
         index: 0
-        uses: 4
+        uses: 5
       - mode: text
         value: Save choices
         index: 0
