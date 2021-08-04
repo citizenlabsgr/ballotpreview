@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+        "*.egg-info": true,
+        "**/__pycache__/": true,
+        "**/.cache/": true,
+        "**/.coverage": true,
+        "**/.pytest_cache/": true,
+        "**/.venv/": true,
+        "**/dist/": true,
+        "**/node_modules/": true,
+        "setup.py": true
+    },
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintEnabled": true,
+    "html.format.wrapAttributes": "force-aligned",
+    "editor.formatOnSave": true,
+    "cSpell.words": [
+        "aiohttp"
+    ]
+}

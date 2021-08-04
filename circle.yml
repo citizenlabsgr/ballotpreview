@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/ballotshare
 
     docker:
-      - image: circleci/python:3.7.5-stretch
+      - image: circleci/python:3.9
 
     steps:
       - checkout

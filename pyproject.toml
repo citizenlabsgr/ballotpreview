@@ -11,7 +11,7 @@ packages = [{ include = "app" }]
 
 [tool.poetry.dependencies]
 
-python = "^3.7"
+python = "^3.9"
 
 # Server
 quart = "~0.15.1"
@@ -47,7 +47,7 @@ pytest-watch = "^4.2"
 pomace = { version = "~0.7.3", optional = true }
 
 # Coverage
-coveragespace = "^4.0"
+coveragespace = "^4.2"
 
 # Utilities
 honcho = "^1.0"
