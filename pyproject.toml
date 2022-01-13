@@ -26,18 +26,18 @@ minilog = "^2.0"
 # Production
 bugsnag = "^4.0"
 gunicorn = "~20.0.4"
-uvicorn = "~0.11.8"
+uvicorn = "~0.16"
 
 # Formatting
-isort = "=5.5.3"
-black = "=20.8b1"
+black = "~21.12b0"
+isort = "~5.10.1"
 
 # Type Checking
 mypy = "^0.902"
 pylint = "^2.4.4"
 
 # Testing
-pytest = "^5.0"
+pytest = "^6.2.5"
 pytest-asyncio = "*"
 pytest-vcr = "*"
 pytest-describe = "^1.0"
@@ -57,13 +57,13 @@ rope = "^0.14.0"
 
 e2e = ["pomace"]
 
-[tool.isort]
-
-profile = "black"
-
 [tool.black]
 
 quiet = true
+
+[tool.isort]
+
+profile = "black"
 
 [build-system]
 
