@@ -17,7 +17,7 @@ python = "^3.9"
 quart = "~0.15.1"
 
 # Images
-pillow = "^8.3"
+pillow = "^9.0"
 
 # Utilities
 aiohttp = "^3.7.4"
