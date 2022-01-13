@@ -7,7 +7,6 @@ from quart import Quart, redirect, render_template, request, send_file, url_for
 
 from . import api, bugsnag_quart, render, settings, utils
 
-
 if settings.BUGSNAG_API_KEY:
     bugsnag.configure(api_key=settings.BUGSNAG_API_KEY)
 

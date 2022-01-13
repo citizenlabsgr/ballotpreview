@@ -6,7 +6,6 @@ import bugsnag
 
 from . import settings
 
-
 BASE_URL = "https://michiganelections.io/api"
 
 

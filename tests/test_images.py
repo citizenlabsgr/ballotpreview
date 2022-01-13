@@ -7,7 +7,6 @@ import pytest
 
 from app import render, settings
 
-
 RESET_IMAGES = False
 REFRESH_RATE = 60
 IMAGE_KEYS = [

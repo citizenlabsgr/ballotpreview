@@ -57,6 +57,14 @@ rope = "^0.14.0"
 
 e2e = ["pomace"]
 
+[tool.isort]
+
+profile = "black"
+
+[tool.black]
+
+quiet = true
+
 [build-system]
 
 requires = ["poetry>=0.12"]
