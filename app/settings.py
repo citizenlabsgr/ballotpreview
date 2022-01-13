@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 
-
 SHORTENED_NAMES = {
     "Electors of President and Vice-President of the United States": "President and Vice President",
     "Member of the State Board of Education": "State Board of Education",
