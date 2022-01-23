@@ -56,26 +56,10 @@ actions:
   - verb: click
     name: save_choices
     locators:
-      - mode: ''
-        value: ''
-        index: 0
-        uses: 0
       - mode: text
         value: Save Choices
         index: 0
         uses: 4
-      - mode: text
-        value: Save choices
-        index: 0
-        uses: 0
-      - mode: value
-        value: Save Choices
-        index: 0
-        uses: 0
-      - mode: value
-        value: Save choices
-        index: 0
-        uses: 0
   - verb: click
     name: official_ballot
     locators:

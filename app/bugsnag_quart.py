@@ -4,6 +4,8 @@ Quart version of Bugsnag's Flask support.
 Reference: https://github.com/bugsnag/bugsnag-python/blob/master/bugsnag/flask/__init__.py
 """
 
+from importlib.metadata import version
+
 import bugsnag
 import quart
 from bugsnag.wsgi import request_path
@@ -33,7 +35,7 @@ def add_quart_request_to_notification(notification):
 
 def handle_exceptions(app):
     middleware = bugsnag.configure().internal_middleware
-    bugsnag.configure().runtime_versions["quart"] = quart.__version__
+    bugsnag.configure().runtime_versions["quart"] = version("quart")
     middleware.before_notify(add_quart_request_to_notification)
     quart.got_request_exception.connect(__log_exception, app)
     quart.request_started.connect(__track_session, app)

@@ -78,6 +78,7 @@ DOMAIN ?= localhost:5000
 .PHONY: e2e
 e2e: install
 	poetry install --extras e2e
+	poetry run pomace alias $(DOMAIN) share.michiganelections.io
 	poetry run pomace run $(DOMAIN) -p first_name -p last_name -p birth_date -p zip_code
 
 ###############################################################################
