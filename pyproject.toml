@@ -14,7 +14,7 @@ packages = [{ include = "app" }]
 python = "^3.9"
 
 # Server
-quart = "~0.15.1"
+quart = "~0.16.2"
 
 # Images
 pillow = "^9.0"
@@ -26,7 +26,7 @@ minilog = "^2.0"
 # Production
 bugsnag = "^4.0"
 gunicorn = "~20.0.4"
-uvicorn = "~0.16"
+uvicorn = "~0.17"
 
 # Formatting
 black = "~21.12b0"
@@ -44,7 +44,7 @@ pytest-describe = "^1.0"
 pytest-expecter = "^2.0"
 pytest-cov = "^2.7"
 pytest-watch = "^4.2"
-pomace = { version = "~0.7.3", optional = true }
+pomace = { version = "~0.9.3", optional = true }
 
 # Coverage
 coveragespace = "^4.2"
