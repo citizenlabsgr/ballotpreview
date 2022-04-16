@@ -66,8 +66,8 @@ test: install
 	poetry run pytest --failed-first --maxfail=1 --cov=app --cov-branch --cov-report=term-missing:skip-covered --cov-report=html
 	poetry run coveragespace update overall --exit-code
 
-.PHONY: watch
-watch: install
+.PHONY: dev
+dev: install
 	poetry run pytest-watch --nobeep --runner="make test" --onpass="make check && clear && echo 'All tests passed.'"
 
 ###############################################################################
