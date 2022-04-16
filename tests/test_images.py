@@ -218,3 +218,18 @@ def describe_images():
                 proposals=proposals,
                 votes={"position-5141": "candidate-99999"},
             )
+
+
+@pytest.mark.parametrize(
+    ("text", "district", "title"),
+    [
+        ("Text", "District", "Text (District)"),
+        (
+            "Countywide Law Enforcement and Safety Millage Renewal Proposition",
+            "Kalamazoo",
+            "Countywide Law Enforcement",
+        ),
+    ],
+)
+def test_shorten(expect, text, district, title):
+    expect(render._shorten(text, district)) == title  # pylint: disable=protected-access

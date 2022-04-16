@@ -131,7 +131,7 @@ def _shorten(text: str, district: str = "") -> str:
         words.pop()
         line = " ".join(words)
 
-    return line
+    return line.removesuffix(" and")
 
 
 def _get_response(share: str, positions: List, proposals: List, votes: Dict):
