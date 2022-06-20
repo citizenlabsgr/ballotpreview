@@ -10,6 +10,7 @@
         "**/node_modules/": true,
         "setup.py": true
     },
+    "python.defaultInterpreterPath": ".venv/bin/python",
     "python.formatting.provider": "black",
     "python.linting.enabled": true,
     "python.linting.mypyEnabled": true,
@@ -17,6 +18,7 @@
     "html.format.wrapAttributes": "force-aligned",
     "editor.formatOnSave": true,
     "cSpell.words": [
-        "aiohttp"
+        "aiohttp",
+        "bugsnag"
     ]
 }
