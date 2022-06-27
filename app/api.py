@@ -3,10 +3,12 @@ from typing import Dict, List, Tuple
 
 import aiohttp
 import bugsnag
+import log
 
 from . import settings
 
 BASE_URL = "https://michiganelections.io/api"
+BUDDIES_URL = "https://buddies.michiganelections.io/api/update-ballot/"
 
 
 async def get_status(
@@ -107,3 +109,25 @@ async def get_proposals(election_id: int, precinct_id: int) -> List:
             proposals = await response.json()
 
     return sorted(proposals["results"], key=lambda d: d["name"])
+
+
+async def update_ballot(slug: str, url: str):
+    if slug and url:
+        data = {"voter": slug, "url": url}
+    else:
+        return
+
+    log.info("Updating voter's ballot on Ballot Buddies")
+    async with aiohttp.ClientSession() as session:
+        async with session.post(BUDDIES_URL, data=data) as response:
+            try:
+                data = await response.json()
+            except Exception as e:
+                log.error(f"Exception while calling API: {e}")
+                data = {}
+
+            if response.status == 200:
+                message = data["message"].strip(".")
+                log.info(f"{response.status} response from API: {message}")
+            else:
+                log.error(f"{response.status} response from API: {data}")

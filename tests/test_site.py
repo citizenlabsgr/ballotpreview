@@ -76,7 +76,7 @@ def describe_election_detail():
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
-    async def it_display_error_with_invalid_voter_information(app, expect):
+    async def it_displays_error_with_invalid_voter_information(app, expect):
         client = app.test_client()
         response = await client.post(
             "/elections/3/",
@@ -320,12 +320,12 @@ def describe_ballot_detail():
         async def it_keeps_name_through_submit(app, expect):
             client = app.test_client()
             response = await client.post(
-                "/elections/5/precincts/1172/?name=Jane",
+                "/elections/5/precincts/1172/?name=Jane&slug=test",
                 form={"proposal-1009": "approve"},
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("&name=Jane</a>")
+            expect(html).contains("&name=Jane&slug=test</a>")
 
         @pytest.mark.vcr
         @pytest.mark.asyncio

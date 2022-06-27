@@ -100,6 +100,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
     party = params.get("party", None)
     share = params.get("share", None)
     target = params.get("target", None)
+    slug = params.get("slug", "")
 
     if share == "":
         return await ballot_share(election_id, precinct_id)
@@ -144,24 +145,43 @@ async def ballot_detail(election_id: int, precinct_id: int):
         positions,
         proposals,
         original_votes=form or params,
-        allowed_parameters=("name", "party", "share", "target", "recently_moved"),
+        allowed_parameters=(
+            "name",
+            "party",
+            "share",
+            "target",
+            "recently_moved",
+            "slug",
+        ),
         keep_extra_parameters=bool(share),
         merge_votes=True,
     )
 
     if request.method == "POST" or votes_changed:
-        if name:
-            votes["name"] = name
         if party:
             votes["party"] = party
-        return redirect(
-            url_for(
-                "ballot_detail",
-                election_id=election_id,
-                precinct_id=precinct_id,
-                **votes,
-            ).replace("%2C", ",")
-        )
+
+        url = url_for(
+            "ballot_detail",
+            election_id=election_id,
+            precinct_id=precinct_id,
+            **votes,
+            _external=True,
+        ).replace("%2C", ",")
+        await api.update_ballot(slug, url)
+
+        if name:
+            votes["name"] = name
+        if slug:
+            votes["slug"] = slug
+
+        url = url_for(
+            "ballot_detail",
+            election_id=election_id,
+            precinct_id=precinct_id,
+            **votes,
+        ).replace("%2C", ",")
+        return redirect(url)
 
     if share:
         for position in positions.copy():

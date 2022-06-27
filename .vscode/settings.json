@@ -19,6 +19,8 @@
     "editor.formatOnSave": true,
     "cSpell.words": [
         "aiohttp",
-        "bugsnag"
+        "bugsnag",
+        "Rosalynn",
+        "werkzeug"
     ]
 }

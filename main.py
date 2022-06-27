@@ -4,9 +4,12 @@ Quart development server with automatic restarts.
 
 import time
 import traceback
+import log
 
 
 def run():
+    log.init()
+    log.silence("quart.serving")
     while True:
         try:
             from app.views import app
