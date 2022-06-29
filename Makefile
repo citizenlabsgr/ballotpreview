@@ -11,6 +11,14 @@ ci: format check test
 doctor:
 	bin/verchew --exit-code
 
+.envrc:
+	echo > $@
+	echo export BUGSNAG_API_KEY=??? >> $@
+	echo >> $@
+	echo export ELECTIONS_HOST=https://michiganelections.io >> $@
+	echo export BUDDIES_HOST=https://buddies.michiganelections.io >> $@
+	- direnv allow
+
 ###############################################################################
 # Project Dependencies
 
@@ -42,11 +50,7 @@ clean:
 	rm -rf .venv
 
 ###############################################################################
-# Development Tasks
-
-.PHONY: run
-run: install
-	poetry run python main.py
+# Validation Targets
 
 .PHONY: format
 format: install
@@ -71,6 +75,17 @@ dev: install
 	poetry run pytest-watch --nobeep --runner="make test" --onpass="make check && clear && echo 'All tests passed.'"
 
 ###############################################################################
+# Server Tasks
+
+.PHONY: run
+run: install .envrc
+	poetry run python main.py
+
+.PHONY: run-production .envrc
+run-production: install
+	poetry run heroku local
+
+###############################################################################
 # Release Tasks
 
 DOMAIN ?= localhost:5000
@@ -80,10 +95,3 @@ e2e: install
 	poetry install --extras e2e
 	poetry run pomace alias $(DOMAIN) share.michiganelections.io
 	poetry run pomace run $(DOMAIN) -p first_name -p last_name -p birth_date -p zip_code
-
-###############################################################################
-# Production Tasks
-
-.PHONY: run-production
-run-production: install
-	poetry run heroku local
