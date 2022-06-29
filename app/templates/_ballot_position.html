@@ -16,7 +16,7 @@
     <p class="mb-2 text-justify">
         <small>
             {{ position['description'].replace('\n\n', '<p class="mb-3"></p>')|safe or "(no description)" }}
-            {% if "share=" not in request.query_string|string %}
+            {% if not position['description'] and "share=" not in request.query_string|string or "name=" not in request.query_string|string %}
                 <a href="{{ position['description_edit_url'] }}" target="_blank" class="no-print">✎</a>
             {% endif %}
         </small>

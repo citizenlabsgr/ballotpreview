@@ -2,6 +2,7 @@
 .venv/
 setup.py
 *.egg-info
+.envrc
 
 # Cache
 __pycache__/
