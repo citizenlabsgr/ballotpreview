@@ -60,6 +60,7 @@ Voting Plan
         </a>
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
         <div class="btn-group">
+        {% include "_ballot_buddies.html" %}
         {% include "_ballot_plan.html" %}
         {% include "_ballot_share.html" %}
         </div>
@@ -83,6 +84,7 @@ Voting Plan
                 to let us know.
             </small>
         </div>
+        {% include "_ballot_buddies.html" %}
     {% endif %}
     </div>
 </div>

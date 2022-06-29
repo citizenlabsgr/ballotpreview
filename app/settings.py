@@ -32,3 +32,6 @@ IMAGE_CACHE_TIMEOUT = 60 * 60 * 24 * 7
 
 BUGSNAG_API_KEY = os.getenv("BUGSNAG_API_KEY")
 BUGSNAG_VERBOSE = os.getenv("BUGSNAG_VERBOSE")
+
+ELECTIONS_HOST = os.getenv("ELECTIONS_HOST", "https://michiganelections.io")
+BUDDIES_HOST = os.getenv("BUDDIES_HOST", "https://buddies.michiganelections.io")

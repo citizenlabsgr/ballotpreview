@@ -162,7 +162,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
             votes["name"] = name
         if party:
             votes["party"] = party
-            
+
         url = url_for(
             "ballot_detail",
             election_id=election_id,
@@ -174,7 +174,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
 
         if slug:
             votes["slug"] = slug
-            
+
         url = url_for(
             "ballot_detail",
             election_id=election_id,
@@ -199,6 +199,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
         positions=positions,
         proposals=proposals,
         votes=votes,
+        buddies_url=f"{settings.BUDDIES_HOST}/friends/{slug}" if slug else "",
     )
 
 

@@ -7,9 +7,6 @@ import log
 
 from . import settings
 
-BASE_URL = "https://michiganelections.io/api"
-BUDDIES_URL = "https://buddies.michiganelections.io/api/update-ballot/"
-
 
 async def get_status(
     first_name: str, last_name: str, birth_date: str, zip_code: int
@@ -19,7 +16,7 @@ async def get_status(
         birth_date = dt.date().isoformat()
 
     async with aiohttp.ClientSession() as session:
-        url = f"{BASE_URL}/registrations/?first_name={first_name}&last_name={last_name}&birth_date={birth_date}&zip_code={zip_code}"
+        url = f"{settings.ELECTIONS_HOST}/api/registrations/?first_name={first_name}&last_name={last_name}&birth_date={birth_date}&zip_code={zip_code}"
         async with session.get(url) as response:
             try:
                 data = await response.json()
@@ -45,7 +42,7 @@ async def get_status(
 
 
 async def get_elections(*, active=None) -> List:
-    url = f"{BASE_URL}/elections/"
+    url = f"{settings.ELECTIONS_HOST}/api/elections/"
     if active:
         url += "?active=true"
     async with aiohttp.ClientSession() as session:
@@ -57,7 +54,7 @@ async def get_elections(*, active=None) -> List:
 
 async def get_election(election_id: int) -> Dict:
     async with aiohttp.ClientSession() as session:
-        url = f"{BASE_URL}/elections/{election_id}/"
+        url = f"{settings.ELECTIONS_HOST}/api/elections/{election_id}/"
         async with session.get(url) as response:
             data = await response.json()
 
@@ -68,7 +65,7 @@ async def get_ballot(
     election_id: int, precinct_id: int, party: str = ""
 ) -> Tuple[Dict, List, List]:
     async with aiohttp.ClientSession() as session:
-        url = f"{BASE_URL}/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
+        url = f"{settings.ELECTIONS_HOST}/api/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
         async with session.get(url) as response:
             data = await response.json()
             try:
@@ -93,7 +90,7 @@ async def get_ballot(
 
 async def get_positions(election_id: int, precinct_id: int, party: str = "") -> List:
     async with aiohttp.ClientSession() as session:
-        url = f"{BASE_URL}/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
+        url = f"{settings.ELECTIONS_HOST}/api/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
         if party:
             url += f"&section={party}"
         async with session.get(url) as response:
@@ -104,7 +101,7 @@ async def get_positions(election_id: int, precinct_id: int, party: str = "") -> 
 
 async def get_proposals(election_id: int, precinct_id: int) -> List:
     async with aiohttp.ClientSession() as session:
-        url = f"{BASE_URL}/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
+        url = f"{settings.ELECTIONS_HOST}/api/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
         async with session.get(url) as response:
             proposals = await response.json()
 
@@ -119,7 +116,8 @@ async def update_ballot(slug: str, url: str):
 
     log.info("Updating voter's ballot on Ballot Buddies")
     async with aiohttp.ClientSession() as session:
-        async with session.post(BUDDIES_URL, data=data) as response:
+        url = f"{settings.BUDDIES_HOST}/api/update-ballot/"
+        async with session.post(url, data=data) as response:
             try:
                 data = await response.json()
             except Exception as e:

@@ -291,6 +291,7 @@ def describe_ballot_detail():
             html = get_html(response)
             expect(html).excludes("Share on Facebook")
             expect(html).excludes("Find Your Ballot")
+            expect(html).excludes("Return to Ballot Buddies")
             expect(html).contains("official ballot")
 
         @pytest.mark.vcr
@@ -302,6 +303,15 @@ def describe_ballot_detail():
             )
             html = get_html(response)
             expect(html).contains("Share Your Plan")
+            expect(html).excludes("Return to Ballot Buddies")
+
+        @pytest.mark.vcr
+        @pytest.mark.asyncio
+        async def it_shows_back_button_with_slug(app, expect):
+            client = app.test_client()
+            response = await client.get("/elections/3/precincts/1172/?slug=foobar")
+            html = get_html(response)
+            expect(html).contains("Return to Ballot Buddies")
 
     def describe_post():
         @pytest.mark.vcr
