@@ -12,7 +12,6 @@ doctor:
 	bin/verchew --exit-code
 
 .envrc:
-	echo > $@
 	echo export BUGSNAG_API_KEY=??? >> $@
 	echo >> $@
 	echo export ELECTIONS_HOST=https://michiganelections.io >> $@
@@ -78,11 +77,11 @@ dev: install
 # Server Tasks
 
 .PHONY: run
-run: install .envrc
+run: .envrc install
 	poetry run python main.py
 
-.PHONY: run-production .envrc
-run-production: install
+.PHONY: run-production
+run-production: .envrc install
 	poetry run heroku local
 
 ###############################################################################
