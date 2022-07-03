@@ -158,8 +158,6 @@ async def ballot_detail(election_id: int, precinct_id: int):
     )
 
     if request.method == "POST" or votes_changed:
-        if name:
-            votes["name"] = name
         if party:
             votes["party"] = party
 
@@ -172,6 +170,8 @@ async def ballot_detail(election_id: int, precinct_id: int):
         ).replace("%2C", ",")
         await api.update_ballot(slug, url)
 
+        if name:
+            votes["name"] = name
         if slug:
             votes["slug"] = slug
 
