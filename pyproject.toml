@@ -1,6 +1,6 @@
 [tool.poetry]
 
-name = "ballotshare"
+name = "ballotpreview"
 version = "1.0"
 description = "Share how you plan to vote in Michigan."
 

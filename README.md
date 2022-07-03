@@ -1,7 +1,7 @@
 # Michigan Ballot Preview
 
-[![CircleCI](https://img.shields.io/circleci/build/github/citizenlabsgr/ballotshare)](https://circleci.com/gh/citizenlabsgr/ballotshare)
-[![Coveralls](https://img.shields.io/coveralls/github/citizenlabsgr/ballotshare)](https://coveralls.io/github/citizenlabsgr/ballotshare)
+[![CircleCI](https://img.shields.io/circleci/build/github/citizenlabsgr/ballotpreview)](https://circleci.com/gh/citizenlabsgr/ballotpreview)
+[![Coveralls](https://img.shields.io/coveralls/github/citizenlabsgr/ballotpreview)](https://coveralls.io/github/citizenlabsgr/ballotpreview)
 
 Check for the required system dependencies:
 
