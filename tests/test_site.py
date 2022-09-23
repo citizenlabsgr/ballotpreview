@@ -397,6 +397,21 @@ def describe_ballot_share():
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
+    async def it_shows_all_items_when_sharing_all(app, expect):
+        client = app.test_client()
+        response = await client.get(
+            "/elections/41/precincts/1209/"
+            "?position-46073=candidate-75684&position-46195=candidate-76005"
+            "&share=all"
+        )
+        html = get_html(response)
+        expect(html).contains("Positions")
+        expect(html).contains("Representative in Congress")
+        expect(html).contains("United States Senator")
+        expect(html).contains("Proposals")
+
+    @pytest.mark.vcr
+    @pytest.mark.asyncio
     async def it_hides_edit_links(app, expect):
         client = app.test_client()
         response = await client.get("/elections/3/precincts/1172/?share=position-710")

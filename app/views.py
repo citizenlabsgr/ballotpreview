@@ -183,7 +183,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
         ).replace("%2C", ",")
         return redirect(url)
 
-    if share:
+    if share and share != "all":
         for position in positions.copy():
             if f"position-{position['id']}" not in votes:
                 positions.remove(position)
