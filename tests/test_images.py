@@ -229,6 +229,11 @@ def describe_images():
             "Kalamazoo",
             "Countywide Law Enforcement",
         ),
+        (
+            "Proposal 22-3 A Proposal to Amend the State Constitution",
+            "Michigan",
+            "Proposal 22-3",
+        ),
     ],
 )
 def test_shorten(expect, text, district, title):
