@@ -54,11 +54,11 @@ Voting Plan
     {% include "_ballot_header.html" %}
 
     <div class="no-print">
-    {% if "share=" in request.query_string|string %}
+    {% if "share=" in request.query_string|string and not buddies_url %}
         <a href="{{ url_for('election_detail', election_id=ballot['election']['id']) }}" class="btn btn-primary" role="button">
             Find Your Ballot
         </a>
-    {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
+    {% elif ("position-" in request.query_string|string or "proposal-" in request.query_string|string) and not buddies_url %}
         {% include "_ballot_buddies.html" %}
         <div class="btn-group">
         {% include "_ballot_plan.html" %}
@@ -72,6 +72,7 @@ Voting Plan
             for more information.
         </div>
         {% endif %}
+        {% if "share=" not in request.query_string|string %}
         <div class="alert alert-info" role="alert">
             Fill out this sample ballot to share with your friends and family.
             No one will see your choices until you decide to share the link we generate.
@@ -84,6 +85,7 @@ Voting Plan
                 to let us know.
             </small>
         </div>
+        {% endif %}
         {% include "_ballot_buddies.html" %}
     {% endif %}
     </div>
