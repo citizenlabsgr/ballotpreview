@@ -199,6 +199,9 @@ async def ballot_detail(election_id: int, precinct_id: int):
         positions=positions,
         proposals=proposals,
         votes=votes,
+        election_url=f"{settings.BUDDIES_HOST}?referrer={slug}"
+        if slug
+        else url_for("election_detail", election_id=election_id),
         buddies_url=f"{settings.BUDDIES_HOST}/friends/{slug}" if slug else "",
     )
 

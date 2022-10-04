@@ -114,6 +114,10 @@ async def update_ballot(slug: str, url: str):
     else:
         return
 
+    if "localhost" in url and "localhost" not in settings.BUDDIES_HOST:
+        log.warn(f"Refusing to update {settings.BUDDIES_HOST} with {url}")
+        return
+
     log.info("Updating voter's ballot on Ballot Buddies")
     async with aiohttp.ClientSession() as session:
         url = f"{settings.BUDDIES_HOST}/api/update-ballot/"

@@ -55,7 +55,7 @@ Voting Plan
 
     <div class="no-print">
     {% if "share=" in request.query_string|string %}
-        <a href="{{ url_for('election_detail', election_id=ballot['election']['id']) }}" class="btn btn-primary" role="button">
+        <a href="{{ election_url }}" class="btn btn-primary" role="button">
             Find Your Ballot
         </a>
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
