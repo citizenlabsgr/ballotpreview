@@ -19,7 +19,10 @@
     "editor.formatOnSave": true,
     "cSpell.words": [
         "aiohttp",
+        "ballotpreview",
         "bugsnag",
+        "cimg",
+        "htmlcov",
         "Rosalynn",
         "werkzeug"
     ]

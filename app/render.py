@@ -129,7 +129,7 @@ def _shorten(text: str, district: str = "") -> str:
     line = " ".join(words)
 
     if line.startswith("Proposal ") and " A Proposal " in line:
-        line = line.split(" A Proposal ")[0]
+        line = line.split(" A Proposal ", maxsplit=1)[0]
 
     while len(line) > 35 or words[-1].startswith("."):
         words.pop()

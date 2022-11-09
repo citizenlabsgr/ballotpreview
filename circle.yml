@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/ballotpreview
 
     docker:
-      - image: circleci/python:3.9
+      - image: circleci/python:3.11
 
     steps:
       - checkout
