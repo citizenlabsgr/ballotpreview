@@ -23,7 +23,9 @@
         "bugsnag",
         "cimg",
         "htmlcov",
+        "pyproject",
         "Rosalynn",
+        "verchew",
         "werkzeug"
     ]
 }
