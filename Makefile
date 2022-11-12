@@ -26,6 +26,7 @@ install: .venv/.flag
 
 .venv/.flag: poetry.lock runtime.txt requirements.txt
 	@ poetry config virtualenvs.in-project true
+	poetry run python -m pip install --upgrade pip setuptools
 	poetry install
 	@ touch $@
 

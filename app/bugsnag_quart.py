@@ -16,10 +16,7 @@ def add_quart_request_to_notification(notification):
         return
 
     if notification.context is None:
-        notification.context = "%s %s" % (
-            quart.request.method,
-            request_path(quart.request.environ),  # type: ignore
-        )
+        notification.context = f"{quart.request.method} {request_path(quart.request.environ)}"  # type: ignore
 
     if "id" not in notification.user:
         notification.set_user(id=quart.request.remote_addr)

@@ -19,8 +19,13 @@
     "editor.formatOnSave": true,
     "cSpell.words": [
         "aiohttp",
+        "ballotpreview",
         "bugsnag",
+        "cimg",
+        "htmlcov",
+        "pyproject",
         "Rosalynn",
+        "verchew",
         "werkzeug"
     ]
 }
