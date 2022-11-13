@@ -11,7 +11,7 @@ packages = [{ include = "app" }]
 
 [tool.poetry.dependencies]
 
-python = "^3.10"
+python = "~3.11"
 
 # Server
 quart = "~0.16.2"
@@ -51,6 +51,7 @@ pomace = { version = "~0.9.3", optional = true }
 
 # Coverage
 coveragespace = "^6.0"
+coveralls = "*"
 
 # Utilities
 honcho = "^1.0"

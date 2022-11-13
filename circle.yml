@@ -1,12 +1,11 @@
-version: 2
+version: 2.1
 
 jobs:
   build:
     working_directory: ~/ballotpreview
 
     docker:
-      # TODO: Use 3.11 when available, update `pyproject.toml` and `.verchew.ini`
-      - image: circleci/python:3.10
+      - image: cimg/python:3.11
 
     steps:
       - checkout
@@ -15,17 +14,17 @@ jobs:
           name: Checking System Dependencies
           command: make doctor
 
-      - type: cache-restore
-        key: poetry-{{ checksum "poetry.lock" }}
+      - restore_cache:
+          key: poetry-{{ checksum "poetry.lock" }}
 
       - run:
           name: Installing Project Dependencies
           command: make install
 
-      - type: cache-save
-        key: poetry-{{ checksum "poetry.lock" }}
-        paths:
-          - .venv
+      - save_cache:
+          key: poetry-{{ checksum "poetry.lock" }}
+          paths:
+            - .venv
 
       - run:
           name: Checking Code
@@ -33,7 +32,7 @@ jobs:
 
       - run:
           name: Running Tests
-          command: make test && sudo pip install coveralls && coveralls
+          command: make test
 
       - store_artifacts:
           path: htmlcov

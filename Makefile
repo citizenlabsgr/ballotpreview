@@ -69,6 +69,9 @@ endif
 test: install
 	poetry run pytest --failed-first --maxfail=1 --cov=app --cov-branch --cov-report=term-missing:skip-covered --cov-report=html
 	poetry run coveragespace update overall --exit-code
+ifdef CI
+	poetry run coveralls
+endif
 
 .PHONY: dev
 dev: install
