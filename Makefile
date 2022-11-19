@@ -15,7 +15,7 @@ doctor:
 	echo export BUGSNAG_API_KEY=??? >> $@
 	echo >> $@
 	echo export ELECTIONS_HOST=https://michiganelections.io >> $@
-	echo export BUDDIES_HOST=https://buddies.michiganelections.io >> $@
+	echo export BUDDIES_HOST=https://app.michiganelections.io >> $@
 	- direnv allow
 
 ###############################################################################

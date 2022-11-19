@@ -199,7 +199,7 @@ interactions:
       voter: test
     headers: {}
     method: POST
-    uri: https://buddies.michiganelections.io/api/update-ballot/
+    uri: https://app.michiganelections.io/api/update-ballot/
   response:
     body:
       string: '
@@ -263,5 +263,5 @@ interactions:
     status:
       code: 404
       message: Not Found
-    url: https://buddies.michiganelections.io/api/update-ballot/
+    url: https://app.michiganelections.io/api/update-ballot/
 version: 1
