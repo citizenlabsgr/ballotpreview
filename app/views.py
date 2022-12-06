@@ -114,7 +114,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
             share, vote = share.split("~")
         else:
             vote = params.get(share)  # type: ignore
-        return await ballot_image(election_id, precinct_id, share, vote)
+        return await ballot_image(election_id, precinct_id, share or "", vote)
 
     ballot, positions, proposals = await api.get_ballot(
         election_id, precinct_id, party or ""

@@ -14,7 +14,7 @@ packages = [{ include = "app" }]
 python = "~3.11"
 
 # Server
-quart = "~0.16.2"
+quart = "~0.18"
 
 # Images
 pillow = "^9.3"
@@ -71,5 +71,5 @@ profile = "black"
 
 [build-system]
 
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
