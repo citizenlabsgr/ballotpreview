@@ -16,7 +16,7 @@ def describe_index():
         client = app.test_client()
         response = await client.get("/")
         html = get_html(response)
-        expect(html).contains('redirected to <a href="/elections/38/">')
+        expect(html).contains('href="/elections/38/"')
 
 
 def describe_election_list():
@@ -52,9 +52,7 @@ def describe_election_detail():
             },
         )
         html = get_html(response)
-        expect(html).contains(
-            'redirected to <a href="/elections/3/precincts/1173/?name=Rosalynn">'
-        )
+        expect(html).contains('href="/elections/3/precincts/1173/?name=Rosalynn"')
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -70,9 +68,7 @@ def describe_election_detail():
             },
         )
         html = get_html(response)
-        expect(html).contains(
-            'redirected to <a href="/elections/3/precincts/1173/?name=Rosalynn">'
-        )
+        expect(html).contains('href="/elections/3/precincts/1173/?name=Rosalynn"')
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -88,9 +84,7 @@ def describe_election_detail():
             },
         )
         html = get_html(response)
-        expect(html).contains(
-            'redirected to <a href="/elections/3/?first_name=Jane&last_name=Doe&birth_date=1970-01-01&zip_code=9999"'
-        )
+        expect(html).contains('href="/elections/3/')
 
 
 def describe_election_image():
@@ -335,7 +329,7 @@ def describe_ballot_detail():
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("&name=Jane&slug=test</a>")
+            expect(html).contains("name=Jane&amp;slug=test</a>")
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -347,7 +341,7 @@ def describe_ballot_detail():
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("&party=Democratic</a>")
+            expect(html).contains("party=Democratic</a>")
 
 
 def describe_ballot_share_preview():
