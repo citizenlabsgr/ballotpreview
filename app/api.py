@@ -4,6 +4,7 @@ from typing import Dict, List, Tuple
 import aiohttp
 import bugsnag
 import log
+from markdown import markdown
 
 from . import settings
 
@@ -104,6 +105,11 @@ async def get_proposals(election_id: int, precinct_id: int) -> List:
         url = f"{settings.ELECTIONS_HOST}/api/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
         async with session.get(url) as response:
             proposals = await response.json()
+
+    for index, proposal in enumerate(proposals["results"]):
+        description = proposal["description"]
+        log.c((description, markdown(description)))
+        proposals["results"][index]["description"] = markdown(description)
 
     return sorted(proposals["results"], key=lambda d: d["name"])
 

@@ -21,6 +21,7 @@ pillow = "^9.3"
 
 # Utilities
 aiohttp = "^3.7.4"
+markdown = "^3.4"
 minilog = "^2.0"
 
 # Production
@@ -36,6 +37,7 @@ isort = "~5.11"
 mypy = "^0.902"
 pylint = "~2.15"
 types-cryptography = "*"
+types-markdown = "*"
 
 # Testing
 pytest = "^7.2"
