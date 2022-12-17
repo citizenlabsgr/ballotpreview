@@ -29,9 +29,8 @@ gunicorn = "~20.0.4"
 uvicorn = "~0.18.3"
 
 # Formatting
-black = "~22.10"
-tomli = "*" # missing 'black' dependency
-isort = "~5.10"
+black = "~22.12"
+isort = "~5.11"
 
 # Type Checking
 mypy = "^0.902"
@@ -45,7 +44,7 @@ pytest-asyncio = "*"
 pytest-vcr = "*"
 pytest-describe = "^2.0"
 pytest-expecter = "^3.0"
-pytest-cov = "^2.7"
+pytest-cov = "^4.0"
 pytest-watch = "^4.2"
 pomace = { version = "~0.9.3", optional = true }
 
