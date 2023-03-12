@@ -9,14 +9,20 @@ Check for the required system dependencies:
 $ make doctor
 ```
 
-Run the application:
+Start the application:
 
 ```
 $ make run
 ```
 
-Run CI checks continuously:
+Run all CI targets:
 
 ```
-$ make watch
+$ make all
+```
+
+or keep then running:
+
+```
+$ make dev
 ```
