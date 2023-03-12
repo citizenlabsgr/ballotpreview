@@ -1,14 +1,8 @@
-.PHONY: all
-all: install
-
-.PHONY: ci
-ci: format check test
-
 ###############################################################################
 # System Dependencies
 
 .PHONY: doctor
-doctor:
+doctor: ## Check for required system dependencies
 	bin/verchew --exit-code
 
 .envrc:
@@ -22,7 +16,7 @@ doctor:
 # Project Dependencies
 
 .PHONY: install
-install: .venv/.flag
+install: .venv/.flag ## Install project dependencies
 
 .venv/.flag: poetry.lock runtime.txt requirements.txt
 	@ poetry config virtualenvs.in-project true
@@ -36,29 +30,24 @@ poetry.lock: pyproject.toml
 	poetry lock --no-update
 	@ touch $@
 
-runtime.txt: .python-version
-	echo "python-$(shell cat $<)" > $@
+runtime.txt: .tool-versions
+	echo $(shell cat $< | tr ' ' '-') > $@
 
 requirements.txt: poetry.lock
 	poetry export --format requirements.txt --output $@ --without-hashes
 
 endif
 
-.PHONY: clean
-clean:
-	rm -rf images
-	rm -rf .venv
-
 ###############################################################################
 # Validation Targets
 
 .PHONY: format
-format: install
+format: install ## Format the code
 	poetry run isort app tests
 	poetry run black app tests
 
 .PHONY: check
-check: install format
+check: install format ## Run static analysis
 ifdef CI
 	git diff --exit-code
 endif
@@ -66,22 +55,25 @@ endif
 	poetry run pylint app tests
 
 .PHONY: test
-test: install
+test: install ## Run all tests
 	poetry run pytest --failed-first --maxfail=1 --cov=app --cov-branch --cov-report=term-missing:skip-covered --cov-report=html
 	poetry run coveragespace update overall --exit-code
 ifdef CI
 	poetry run coveralls
 endif
 
+.PHONY: all
+all: format check test ## Run all CI targets
+
 .PHONY: dev
-dev: install
+dev: install ## Run all CI targets (loop)
 	poetry run pytest-watch --nobeep --runner="make test" --onpass="make check && clear && echo 'All tests passed.'"
 
 ###############################################################################
 # Server Tasks
 
 .PHONY: run
-run: .envrc install
+run: .envrc install ## Run the development server
 	poetry run python main.py
 
 .PHONY: run-production
@@ -98,3 +90,17 @@ e2e: install
 	poetry install --extras e2e
 	poetry run pomace alias $(DOMAIN) share.michiganelections.io
 	poetry run pomace run $(DOMAIN) -p first_name -p last_name -p birth_date -p zip_code
+
+###############################################################################
+# Cleanup
+
+.PHONY: clean
+clean: ## Delete all temporary files
+	rm -rf images
+	rm -rf .venv
+
+.PHONY: help
+help: install
+	@ grep -E '^[a-zA-Z/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+.DEFAULT_GOAL := help
