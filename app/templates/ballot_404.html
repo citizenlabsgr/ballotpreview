@@ -4,6 +4,7 @@
 
 <h1>Your Voting Plan</h1>
 
+{% if election %}
 <div>
     <h5>
         Michigan {{ election['name'] }}
@@ -12,6 +13,7 @@
         </span>
     </h5>
 </div>
+{% endif %}
 
 {% if recently_moved %}
 
@@ -35,9 +37,15 @@
 <ul>
 {% for election in elections %}
     <li>
-        <a href="{{ url_for('ballot_detail', election_id=election['id'], precinct_id=precinct_id, name=name)}}">
+        {% if precinct_id %}
+        <a href="{{ url_for('precinct_detail', election_id=election['id'], precinct_id=precinct_id, name=name)}}">
             {{ election['name'] }} ({{ election['date'] }})
         </a>
+        {% else %}
+        <a href="{{ url_for('election_detail', election_id=election['id'], name=name)}}">
+            {{ election['name'] }} ({{ election['date'] }})
+        </a>
+        {% endif %}
     </li>
 {% endfor %}
 </ul>

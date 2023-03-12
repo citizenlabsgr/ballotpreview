@@ -103,7 +103,7 @@ def describe_election_image():
         expect(response.status_code) == 200
 
 
-def describe_ballot_detail():
+def describe_precinct_detail():
     def describe_get():
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -344,7 +344,7 @@ def describe_ballot_detail():
             expect(html).contains("party=Democratic</a>")
 
 
-def describe_ballot_share_preview():
+def describe_precinct_share_preview():
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def it_shows_images(app, expect):
@@ -358,7 +358,7 @@ def describe_ballot_share_preview():
         expect(html.count("<img ")) == 5
 
 
-def describe_ballot_share():
+def describe_precinct_share():
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def it_shows_find_button_after_sharing(app, expect):
@@ -429,7 +429,7 @@ def describe_ballot_share():
         expect(html).excludes("official ballot")
 
 
-def describe_ballot_image():
+def describe_precinct_image():
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def it_can_highlight_the_first_item(app, expect):
