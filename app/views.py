@@ -67,7 +67,7 @@ async def election_detail(election_id: int):
             extra = {"recently_moved": "true"} if status["recently_moved"] else {}
             return redirect(
                 url_for(
-                    "ballot_detail",
+                    "precinct_detail",
                     election_id=election_id,
                     precinct_id=precinct_id,
                     name=form["first_name"],
@@ -78,9 +78,12 @@ async def election_detail(election_id: int):
         log.warning(f"Not registered: {form}")
         return redirect(url_for("election_detail", election_id=election_id, **form))
 
-    return await render_template(
-        "election_detail.html", election=election, voter=request.args
-    )
+    if settings.TEST_VOTER["first_name"]:
+        voter = settings.TEST_VOTER
+    else:
+        voter = request.args
+
+    return await render_template("election_detail.html", election=election, voter=voter)
 
 
 @app.route("/elections/<election_id>/banner.png")
@@ -94,7 +97,7 @@ async def election_image(election_id: int):
 
 
 @app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
-async def ballot_detail(election_id: int, precinct_id: int):
+async def precinct_detail(election_id: int, precinct_id: int):
     params = request.args
     name = params.get("name", None)
     party = params.get("party", None)
@@ -103,7 +106,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
     slug = params.get("slug", "")
 
     if share == "":
-        return await ballot_share(election_id, precinct_id)
+        return await precinct_share(election_id, precinct_id)
 
     if target:
         if share == "first":
@@ -114,7 +117,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
             share, vote = share.split("~")
         else:
             vote = params.get(share)  # type: ignore
-        return await ballot_image(election_id, precinct_id, share or "", vote)
+        return await precinct_image(election_id, precinct_id, share or "", vote)
 
     ballot, positions, proposals = await api.get_ballot(
         election_id, precinct_id, party or ""
@@ -130,7 +133,6 @@ async def ballot_detail(election_id: int, precinct_id: int):
                 other_elections.append(election)
                 if this_election and not election["active"]:
                     break
-
         html = await render_template(
             "ballot_404.html",
             election=this_election,
@@ -162,7 +164,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
             votes["party"] = party
 
         url = url_for(
-            "ballot_detail",
+            "precinct_detail",
             election_id=election_id,
             precinct_id=precinct_id,
             **votes,
@@ -176,7 +178,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
             votes["slug"] = slug
 
         url = url_for(
-            "ballot_detail",
+            "precinct_detail",
             election_id=election_id,
             precinct_id=precinct_id,
             **votes,
@@ -206,7 +208,7 @@ async def ballot_detail(election_id: int, precinct_id: int):
     )
 
 
-async def ballot_share(election_id: int, precinct_id: int):
+async def precinct_share(election_id: int, precinct_id: int):
     ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
 
     votes, _votes_changed = utils.validate_ballot(
@@ -214,7 +216,7 @@ async def ballot_share(election_id: int, precinct_id: int):
     )
 
     ballot_url = url_for(
-        "ballot_detail", election_id=election_id, precinct_id=precinct_id
+        "precinct_detail", election_id=election_id, precinct_id=precinct_id
     )
 
     return await render_template(
@@ -230,7 +232,7 @@ async def ballot_share(election_id: int, precinct_id: int):
     "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.<ext>",
     methods=["GET"],
 )
-async def ballot_image(
+async def precinct_image(
     election_id: int, precinct_id: int, item: str, vote: str, ext: str = "png"
 ):
     share = item

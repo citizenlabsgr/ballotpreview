@@ -35,3 +35,11 @@ BUGSNAG_VERBOSE = os.getenv("BUGSNAG_VERBOSE")
 
 ELECTIONS_HOST = os.getenv("ELECTIONS_HOST", "https://michiganelections.io")
 BUDDIES_HOST = os.getenv("BUDDIES_HOST", "https://app.michiganelections.io")
+
+_values = os.getenv("TEST_VOTER", ",,,").split(",")
+TEST_VOTER = {
+    "first_name": _values[0],
+    "last_name": _values[1],
+    "birth_date": _values[2],
+    "zip_code": _values[3],
+}
