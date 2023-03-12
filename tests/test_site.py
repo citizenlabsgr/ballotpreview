@@ -486,3 +486,25 @@ def describe_precinct_image():
         )
         expect(response.status_code) == 200
         expect(response.content_type) == "image/png"
+
+
+def describe_ballot_detail():
+    def describe_get():
+        # @pytest.mark.vcr
+        @pytest.mark.asyncio
+        @pytest.mark.xfail(reason="API cannot yet filter by ballot_id")
+        async def it_includes_ballot_items(app, expect):
+            client = app.test_client()
+            response = await client.get("/ballots/10664/")
+            html = get_html(response)
+            expect(html).contains("Attorney General")
+            expect(html).contains("18-1")
+            expect(html).excludes("recently moved")
+
+        # @pytest.mark.vcr
+        @pytest.mark.asyncio
+        async def it_handles_unknown_ballots(app, expect):
+            client = app.test_client()
+            response = await client.get("/ballots/-1/")
+            html = get_html(response)
+            expect(html).contains("We can't find a sample ballot for this election")

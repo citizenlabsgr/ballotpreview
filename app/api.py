@@ -63,35 +63,65 @@ async def get_election(election_id: int) -> Dict:
 
 
 async def get_ballot(
-    election_id: int, precinct_id: int, party: str = ""
+    *, ballot_id: int = 0, election_id: int = 0, precinct_id: int = 0, party: str = ""
 ) -> Tuple[Dict, List, List]:
-    async with aiohttp.ClientSession() as session:
+    if ballot_id:
+        assert not (election_id or precinct_id)
+        # TODO: active_election=null shouldn't be required here
+        url = f"{settings.ELECTIONS_HOST}/api/ballots/{ballot_id}/?active_election=null"
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                if response.status == 200:
+                    ballot = await response.json()
+                else:
+                    ballot = None
+    else:
         url = f"{settings.ELECTIONS_HOST}/api/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
-        async with session.get(url) as response:
-            data = await response.json()
-            try:
-                ballot = data["results"][0]
-            except LookupError:
-                ballot = None
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                data = await response.json()
+                try:
+                    ballot = data["results"][0]
+                except LookupError:
+                    ballot = None
 
-        if ballot is None and settings.BUGSNAG_VERBOSE:
-            bugsnag.notify(
-                LookupError(f"No ballot: {url}"),
-                context="get_ballot",
-                metadata={
-                    "ballot": {"election_id": election_id, "precinct_id": precinct_id}
-                },
-            )
+            if ballot is None and settings.BUGSNAG_VERBOSE:
+                bugsnag.notify(
+                    LookupError(f"No ballot: {url}"),
+                    context="get_ballot",
+                    metadata={
+                        "ballot": {
+                            "election_id": election_id,
+                            "precinct_id": precinct_id,
+                        }
+                    },
+                )
 
-    positions = await get_positions(election_id, precinct_id, party)
-    proposals = await get_proposals(election_id, precinct_id)
+    positions = await get_positions(
+        ballot_id=ballot_id,
+        election_id=election_id,
+        precinct_id=precinct_id,
+        party=party,
+    )
+    proposals = await get_proposals(
+        ballot_id=ballot_id,
+        election_id=election_id,
+        precinct_id=precinct_id,
+    )
 
     return ballot, positions, proposals
 
 
-async def get_positions(election_id: int, precinct_id: int, party: str = "") -> List:
-    async with aiohttp.ClientSession() as session:
+async def get_positions(
+    *, ballot_id: int = 0, election_id: int = 0, precinct_id: int = 0, party: str = ""
+) -> List:
+    if ballot_id:
+        assert not (election_id or precinct_id)
+        url = f"{settings.ELECTIONS_HOST}/api/positions/?ballot_id={ballot_id}"
+    else:
         url = f"{settings.ELECTIONS_HOST}/api/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
+
+    async with aiohttp.ClientSession() as session:
         if party:
             url += f"&section={party}"
         async with session.get(url) as response:
@@ -100,9 +130,16 @@ async def get_positions(election_id: int, precinct_id: int, party: str = "") -> 
     return positions["results"]
 
 
-async def get_proposals(election_id: int, precinct_id: int) -> List:
-    async with aiohttp.ClientSession() as session:
+async def get_proposals(
+    *, ballot_id: int = 0, election_id: int = 0, precinct_id: int = 0
+) -> List:
+    if ballot_id:
+        assert not (election_id or precinct_id)
+        url = f"{settings.ELECTIONS_HOST}/api/proposals/?ballot_id={ballot_id}"
+    else:
         url = f"{settings.ELECTIONS_HOST}/api/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
+
+    async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             proposals = await response.json()
 
