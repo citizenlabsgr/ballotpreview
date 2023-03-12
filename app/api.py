@@ -108,7 +108,6 @@ async def get_proposals(election_id: int, precinct_id: int) -> List:
 
     for index, proposal in enumerate(proposals["results"]):
         description = proposal["description"]
-        log.c((description, markdown(description)))
         proposals["results"][index]["description"] = markdown(description)
 
     return sorted(proposals["results"], key=lambda d: d["name"])
