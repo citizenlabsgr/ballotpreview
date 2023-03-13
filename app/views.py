@@ -120,7 +120,7 @@ async def precinct_detail(election_id: int, precinct_id: int):
         return await precinct_image(election_id, precinct_id, share or "", vote)
 
     ballot, positions, proposals = await api.get_ballot(
-        election_id, precinct_id, party or ""
+        election_id=election_id, precinct_id=precinct_id, party=party or ""
     )
 
     if ballot is None:
@@ -209,7 +209,9 @@ async def precinct_detail(election_id: int, precinct_id: int):
 
 
 async def precinct_share(election_id: int, precinct_id: int):
-    ballot, positions, proposals = await api.get_ballot(election_id, precinct_id)
+    ballot, positions, proposals = await api.get_ballot(
+        election_id=election_id, precinct_id=precinct_id
+    )
 
     votes, _votes_changed = utils.validate_ballot(
         positions, proposals, original_votes=request.args
@@ -239,8 +241,147 @@ async def precinct_image(
     votes = {item: vote}
     target = request.args.get("target", "default")
 
-    positions = await api.get_positions(election_id, precinct_id)
-    proposals = await api.get_proposals(election_id, precinct_id)
+    positions = await api.get_positions(
+        election_id=election_id, precinct_id=precinct_id
+    )
+    proposals = await api.get_proposals(
+        election_id=election_id, precinct_id=precinct_id
+    )
+
+    image = await asyncio.get_event_loop().run_in_executor(
+        None, render.ballot_image, share, target, positions, proposals, votes, ext
+    )
+
+    return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
+
+
+@app.route("/ballots/<ballot_id>/", methods=["GET", "POST"])
+async def ballot_detail(ballot_id: int):
+    params = request.args
+    name = params.get("name", None)
+    party = params.get("party", None)
+    share = params.get("share", None)
+    target = params.get("target", None)
+    slug = params.get("slug", "")
+
+    if share == "":
+        return await ballot_share(ballot_id)
+
+    if target:
+        if share == "first":
+            share, vote = list(params.items())[0]
+            if "," in vote:
+                vote = vote.split(",")[0]
+        elif share and "~" in share:
+            share, vote = share.split("~")
+        else:
+            vote = params.get(share)  # type: ignore
+        return await ballot_image(ballot_id, share or "", vote)
+
+    ballot, positions, proposals = await api.get_ballot(
+        ballot_id=ballot_id, party=party or ""
+    )
+
+    if ballot is None:
+        elections = reversed(await api.get_elections())
+        html = await render_template(
+            "ballot_404.html",
+            election=None,
+            elections=elections,
+            name=name,
+        )
+        return html, 404
+
+    form = await request.form
+    votes, votes_changed = utils.validate_ballot(
+        positions,
+        proposals,
+        original_votes=form or params,
+        allowed_parameters=(
+            "name",
+            "party",
+            "share",
+            "target",
+            "recently_moved",
+            "slug",
+        ),
+        keep_extra_parameters=bool(share),
+        merge_votes=True,
+    )
+
+    if request.method == "POST" or votes_changed:
+        if party:
+            votes["party"] = party
+
+        url = url_for(
+            "ballot_detail",
+            ballot_id=ballot_id,
+            **votes,
+            _external=True,
+        ).replace("%2C", ",")
+        await api.update_ballot(slug, url)
+
+        if name:
+            votes["name"] = name
+        if slug:
+            votes["slug"] = slug
+
+        url = url_for(
+            "ballot_detail",
+            ballot_id=ballot_id,
+            **votes,
+        ).replace("%2C", ",")
+        return redirect(url)
+
+    if share and share != "all":
+        for position in positions.copy():
+            if f"position-{position['id']}" not in votes:
+                positions.remove(position)
+
+        for proposal in proposals.copy():
+            if f"proposal-{proposal['id']}" not in votes:
+                proposals.remove(proposal)
+
+    return await render_template(
+        "ballot_detail.html",
+        name=name,
+        ballot=ballot,
+        positions=positions,
+        proposals=proposals,
+        votes=votes,
+        election_url=f"{settings.BUDDIES_HOST}?referrer={slug}"
+        if slug
+        else url_for("election_detail", election_id=ballot["election"]["id"]),
+        buddies_url=f"{settings.BUDDIES_HOST}/friends/{slug}" if slug else "",
+    )
+
+
+async def ballot_share(ballot_id: int):
+    ballot, positions, proposals = await api.get_ballot(ballot_id=ballot_id)
+
+    votes, _votes_changed = utils.validate_ballot(
+        positions, proposals, original_votes=request.args
+    )
+
+    ballot_url = url_for("ballot_detail", ballot_id=ballot_id)
+
+    return await render_template(
+        "ballot_share.html",
+        name=request.args.get("name"),
+        ballot=ballot,
+        votes=votes,
+        ballot_url=ballot_url,
+    )
+
+
+@app.route("/ballots/<ballot_id>/<item>/<vote>.<ext>", methods=["GET"])
+async def ballot_image(ballot_id: int, item: str, vote: str, ext: str = "png"):
+    share = item
+    votes = {item: vote}
+    target = request.args.get("target", "default")
+
+    positions = await api.get_positions(ballot_id=ballot_id)
+    proposals = await api.get_proposals(ballot_id=ballot_id)
 
     image = await asyncio.get_event_loop().run_in_executor(
         None, render.ballot_image, share, target, positions, proposals, votes, ext
