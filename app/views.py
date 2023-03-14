@@ -63,15 +63,28 @@ async def election_detail(election_id: int):
         form = await request.form
         status = await api.get_status(**form)
         if status["registered"]:
+
+            kwargs = {"name": form["first_name"]}
+            if status["recently_moved"]:
+                kwargs["recently_moved"] = "true"
+
+            if ballots := status.get("ballots"):
+                ballot_id = ballots[0]["id"]
+                return redirect(
+                    url_for(
+                        "ballot_detail",
+                        ballot_id=ballot_id,
+                        **kwargs,
+                    )
+                )
+
             precinct_id = status["precinct"]["id"]
-            extra = {"recently_moved": "true"} if status["recently_moved"] else {}
             return redirect(
                 url_for(
                     "precinct_detail",
                     election_id=election_id,
                     precinct_id=precinct_id,
-                    name=form["first_name"],
-                    **extra,  # type: ignore
+                    **kwargs,
                 )
             )
 
