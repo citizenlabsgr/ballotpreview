@@ -234,6 +234,11 @@ def describe_images():
             "Michigan",
             "Proposal 22-3",
         ),
+        (
+            "Charter Amendment Authorizing the Levy of an Additional 1.50 Mills",
+            "City of Wyoming",
+            "Charter Amendment",
+        ),
     ],
 )
 def test_shorten(expect, text, district, title):
