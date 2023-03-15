@@ -1,0 +1,158 @@
+interactions:
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/ballots/56869/?active_election=null
+  response:
+    body:
+      string: '{"url":"http://michiganelections.io/api/ballots/56869/","id":56869,"election":{"url":"http://michiganelections.io/api/elections/50/","id":50,"name":"May
+        Consolidated","date":"2023-05-02","date_humanized":"Tuesday, May 2nd","active":true,"reference_url":null},"precinct":{"url":"http://michiganelections.io/api/precincts/6007/","id":6007,"county":"Kent","jurisdiction":"City
+        of Wyoming","ward":"1","number":"7"},"mvic_url":"https://mvic.sos.state.mi.us/Voter/GetMvicBallot/43755/693/"}'
+    headers:
+      Allow:
+      - OPTIONS, GET
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 7a80da8108317009-IAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 15 Mar 2023 01:06:23 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Referrer-Policy:
+      - same-origin
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=NvxnQxHVm1LYJo7roGyhtbYcxXr4YcQUl07skUi096FE0U7W3LB4LDsWU8fiBa00hhJtl4TUrGYykFR9y6hIIv5OGdLy%2BaaSqMrsfAPfGU5hl9oVLGCWOUF811VJ0yYpeAwJIgP55Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie, Origin
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      alt-svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/ballots/56869/?active_election=null
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/positions/?ballot_id=56869
+  response:
+    body:
+      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+    headers:
+      Allow:
+      - GET
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 7a80da81ccf2391f-IAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 15 Mar 2023 01:06:23 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Referrer-Policy:
+      - same-origin
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2BuNnB1FmZVUcKrVoMiSQZ92%2BrywOT6kb4F2K0Fc0vzChpvknRBKCgFpTo%2BPzVSbhK7ku8VxdauRebNQrLVDR%2BZtEfPNBrWu7twWaI%2Fr1tWGS87cLyEZfkOqVvJLsDk9RdYA2aveDZA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie, Origin
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      alt-svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/positions/?ballot_id=56869
+- request:
+    body: null
+    headers: {}
+    method: GET
+    uri: https://michiganelections.io/api/proposals/?ballot_id=56869
+  response:
+    body:
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/proposals/8073/","id":8073,"name":"Charter
+        Amendment Authorizing the Levy of an Additional 1.50 Mills For Fire Services,
+        Police and Law Enforcement Services, and First Responder Services Beginning
+        July 1, 2023, Until June 30, 2028.","description":"It is proposed that subsection
+        9.1(g) be added to the City Charter authorizing the levy of 1.50 mills on
+        the dollar ($1.50 per $1,000 of taxable value) for public safety including
+        fire services, police and law enforcement services, and first responder services,
+        expiring on June 30, 2028 which is estimated to raise $3,863,734.28 in the
+        first year.\n\nA portion of this amount ($749.96) will be captured by the
+        Wyoming Brownfield Redevelopment Authority and a portion of this amount ($6,388.89)
+        will be captured by the Wyoming Downtown Development Authority.\n\nShall this
+        amendment be adopted?","reference_url":null,"election":{"url":"http://michiganelections.io/api/elections/50/","id":50,"name":"May
+        Consolidated","date":"2023-05-02","date_humanized":"Tuesday, May 2nd","active":true,"reference_url":null},"district":{"url":"http://michiganelections.io/api/districts/1349/","id":1349,"category":"Jurisdiction","name":"City
+        of Wyoming"}}]}'
+    headers:
+      Allow:
+      - GET
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 7a80da82da7f3b3c-IAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 15 Mar 2023 01:06:23 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Referrer-Policy:
+      - same-origin
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=EqFu27eCnntLXmGIRXjaM0s7LOnurSmsrrBuUS6xJkw0osLWvOOVuA9Ehj89acVVsYngvRZ1aeBnuIcZQuOmJGMFTvoO62DH3DDyB72yiVydeJMHqWiUY14X7P6pzsNvkBfreJJKxQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie, Origin
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      alt-svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    status:
+      code: 200
+      message: OK
+    url: https://michiganelections.io/api/proposals/?ballot_id=56869
+version: 1

@@ -490,20 +490,17 @@ def describe_precinct_image():
 
 def describe_ballot_detail():
     def describe_get():
-        # @pytest.mark.vcr
+        @pytest.mark.vcr
         @pytest.mark.asyncio
-        @pytest.mark.xfail(reason="API cannot yet filter by ballot_id")
-        async def it_includes_ballot_items(app, expect):
+        async def it_includes_ballot_item(app, expect):
             client = app.test_client()
-            response = await client.get("/ballots/10664/")
+            response = await client.get("/ballots/56869/")
             html = get_html(response)
-            expect(html).contains("Attorney General")
-            expect(html).contains("18-1")
-            expect(html).excludes("recently moved")
+            expect(html).contains("Charter Amendment")
 
-        # @pytest.mark.vcr
+        @pytest.mark.vcr
         @pytest.mark.asyncio
-        async def it_handles_unknown_ballots(app, expect):
+        async def it_handles_invalid_ballots(app, expect):
             client = app.test_client()
             response = await client.get("/ballots/-1/")
             html = get_html(response)
