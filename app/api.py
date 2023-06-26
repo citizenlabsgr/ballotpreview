@@ -67,8 +67,7 @@ async def get_ballot(
 ) -> Tuple[Dict, List, List]:
     if ballot_id:
         assert not (election_id or precinct_id)
-        # TODO: active_election=null shouldn't be required here
-        url = f"{settings.ELECTIONS_HOST}/api/ballots/{ballot_id}/?active_election=null"
+        url = f"{settings.ELECTIONS_HOST}/api/ballots/{ballot_id}/"
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as response:
                 if response.status == 200:
