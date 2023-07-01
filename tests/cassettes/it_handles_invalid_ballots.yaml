@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/ballots/-1/?active_election=null
+    uri: https://michiganelections.io/api/ballots/-1/
   response:
     body:
       string: '{"detail":"Not found."}'
@@ -13,7 +13,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 7a80da83d8b73af3-IAD
+      - 7e002f1278d186d8-ORD
       Connection:
       - keep-alive
       Content-Length:
@@ -21,13 +21,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 15 Mar 2023 01:06:24 GMT
+      - Sat, 01 Jul 2023 16:56:42 GMT
       NEL:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Referrer-Policy:
       - same-origin
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=w6aMMRQTsixAfu2K2CZanR1Blmn0SkFX6nab8dxNXbk9q%2FpKiDxcJ9WMdmOVJcNXTJ36qLmJYz4BzRTc%2BdFDtXcqNroVIE2TRJeOOIe0VVVwdpnF0PvnEsoZMHO5zeaNSFBbBipQ0Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=DOvO7pJXV3fsshtiqSxIY%2BRoRIGA%2FIioWuqBh%2FCoSgYdwTUj%2F8XYwfZsnrJs55F0N61nXneo3JbrPILXUrFp1AnV7ry9V%2BgRgiKX9425BaMbjkpGVVwCmOkWRpQTKsopmrDSB1aGcA%3D%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Vary:
@@ -39,11 +39,11 @@ interactions:
       X-Frame-Options:
       - DENY
       alt-svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      - h3=":443"; ma=86400
     status:
       code: 404
       message: Not Found
-    url: https://michiganelections.io/api/ballots/-1/?active_election=null
+    url: https://michiganelections.io/api/ballots/-1/
 - request:
     body: null
     headers: {}
@@ -58,7 +58,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 7a80da8489e49c6d-IAD
+      - 7e002f14dc0b61c2-ORD
       Connection:
       - keep-alive
       Content-Encoding:
@@ -66,13 +66,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 15 Mar 2023 01:06:24 GMT
+      - Sat, 01 Jul 2023 16:56:43 GMT
       NEL:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Referrer-Policy:
       - same-origin
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=mP3UsYDfEmq58Nw29tMMqWfREx0fD7FIIfpoGuVwvje5xeH%2FhMtoaTQKmbQuv6POrO2iVQz4dryO5XFBAYy6h%2Bd3j9v%2BZUlhxs55lNBP3Dhmtx04LZB8vOC%2FWBF9eQ5z7VsHAlp3pg%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=JFdLZPIld%2BBhpDAA04sqtKSBUcIY%2FaH9IF92nnurIS%2FMpHjYnlsGuCwrMPwbI%2F4sfQsfCw9%2B7nU%2Fui4KVMzad9RgMdqE%2F6I%2BdGEzal04KjJ1fth6twRx%2B15nrJhEIOCDRlvAqRfSPA%3D%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -86,7 +86,7 @@ interactions:
       X-Frame-Options:
       - DENY
       alt-svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      - h3=":443"; ma=86400
     status:
       code: 200
       message: OK
@@ -105,7 +105,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 7a80da85bc791779-IAD
+      - 7e002f170b3b1133-ORD
       Connection:
       - keep-alive
       Content-Encoding:
@@ -113,13 +113,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 15 Mar 2023 01:06:24 GMT
+      - Sat, 01 Jul 2023 16:56:43 GMT
       NEL:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Referrer-Policy:
       - same-origin
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=r0XnQu%2B3VGxLbvJ1zIynhX9fLJDOdM1iRduhNaUCTZMR6AISRg3oppJq3zpg7PgErInWA%2FO68yQqxURAekVzEVBcjWe1nk4znM1QDBM8qRLdGWImswFM7SuQsG9%2BnK2IRKTA%2FUR1vw%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=z85UCOP3SNpOn%2FyM8pD5Byrs2tZgdOzp7%2FB9ZuHhik9iKCqfLxCxcO6YVP9a3YK4ddcLuUMAA2aRHd4lbeqDzXp02Q%2FVFqxeDQ9vyeMDUxzKy12Jrs285vLAHofGt3wACTk1fRaMYQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -133,7 +133,7 @@ interactions:
       X-Frame-Options:
       - DENY
       alt-svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      - h3=":443"; ma=86400
     status:
       code: 200
       message: OK
@@ -145,8 +145,9 @@ interactions:
     uri: https://michiganelections.io/api/elections/
   response:
     body:
-      string: '{"count":18,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/elections/50/","id":50,"name":"May
-        Consolidated","date":"2023-05-02","date_humanized":"Tuesday, May 2nd","active":true,"reference_url":null},{"url":"http://michiganelections.io/api/elections/49/","id":49,"name":"State
+      string: '{"count":19,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/elections/51/","id":51,"name":"August
+        Consolidated","date":"2023-08-08","date_humanized":"Tuesday, August 8th","active":true,"reference_url":null},{"url":"http://michiganelections.io/api/elections/50/","id":50,"name":"May
+        Consolidated","date":"2023-05-02","date_humanized":"Tuesday, May 2nd","active":false,"reference_url":null},{"url":"http://michiganelections.io/api/elections/49/","id":49,"name":"State
         General","date":"2022-11-08","date_humanized":"Tuesday, November 8th","active":false,"reference_url":null},{"url":"http://michiganelections.io/api/elections/48/","id":48,"name":"State
         Primary","date":"2022-08-02","date_humanized":"Tuesday, August 2nd","active":false,"reference_url":null},{"url":"http://michiganelections.io/api/elections/46/","id":46,"name":"May
         Consolidated","date":"2022-05-03","date_humanized":"Tuesday, May 3rd","active":false,"reference_url":null},{"url":"http://michiganelections.io/api/elections/47/","id":47,"name":"Special
@@ -170,7 +171,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 7a80da867ece3b12-IAD
+      - 7e002f191b9210b4-ORD
       Connection:
       - keep-alive
       Content-Encoding:
@@ -178,13 +179,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 15 Mar 2023 01:06:24 GMT
+      - Sat, 01 Jul 2023 16:56:43 GMT
       NEL:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Referrer-Policy:
       - same-origin
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=3XoMb6Pm6edksjsDe1dVZ0mcz9s2KiHw1UzUhYSenmixe7lnNNnqPWC39c8idQaz%2FTKOfzuo1EhIE9ca0jtt8K7Jjhvm8X7Ir%2BLF9E%2FKMCbQ1ogkY%2BJubhVNoIeoih2e7DfA2eezpg%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=MSTU%2BlyctJ343GnOrIvxZeoRMsh8CV4bvrRC2dXsYL9fte6zkfauv9p7Xojr9ubojxrxATccHhyewnSy0%2F1JRY871wGQz%2FMH%2FR%2Bt%2FHaxrtdwEv2UTF9N3UzXTWhTB6bCR2M998i43g%3D%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -198,7 +199,7 @@ interactions:
       X-Frame-Options:
       - DENY
       alt-svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      - h3=":443"; ma=86400
     status:
       code: 200
       message: OK

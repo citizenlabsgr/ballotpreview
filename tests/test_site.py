@@ -494,9 +494,9 @@ def describe_ballot_detail():
         @pytest.mark.asyncio
         async def it_includes_ballot_item(app, expect):
             client = app.test_client()
-            response = await client.get("/ballots/56869/")
+            response = await client.get("/ballots/57363/")
             html = get_html(response)
-            expect(html).contains("Charter Amendment")
+            expect(html).contains("Council Member at Large")
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
