@@ -34,8 +34,9 @@
     <div class="ml-4">
     {% for candidate in position['candidates'] %}
         {% set candidate_key = 'candidate-' + candidate['id']|string %}
+        {% set viewed = candidate_key in votes['viewed'] %}
 
-        <div class="form-check">
+        <div class="form-check" {% if viewed %}style="opacity: 40%"{% endif %}>
             <input class="form-check-input"
                     type={% if position['seats'] == 1%}"radio"{% else %}"checkbox"{% endif %}
                     name="{{ position_key }}"
@@ -47,12 +48,23 @@
                 {{ candidate['name'] }}
 
                 {% if candidate['reference_url'] %}
-                <a href="{{ candidate['reference_url']}}" target="_blank" class="no-print">🔗</a>
+                <a href="{{ candidate['reference_url']}}" target="_blank" class="no-print" title="Open link">
+                    🔗
+                </a>
                 {% endif %}
 
                 <span class="text-muted">
                 (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
                 </span>
+
+                {% if not viewed %}
+                <button class="btn btn-link p-0" title="Mark as viewed"
+                    hx-delete="{{ request.url }}"
+                    hx-vals='{"view": "{{ candidate_key }}"}'
+                    hx-redirect="true">
+                    👁️
+                </button>
+                {% endif %}
             </label>
         </div>
 

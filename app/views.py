@@ -3,7 +3,15 @@ from collections import defaultdict
 
 import bugsnag
 import log
-from quart import Quart, redirect, render_template, request, send_file, url_for
+from quart import (
+    Quart,
+    make_response,
+    redirect,
+    render_template,
+    request,
+    send_file,
+    url_for,
+)
 
 from . import api, bugsnag_quart, render, settings, utils
 
@@ -268,7 +276,7 @@ async def precinct_image(
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
-@app.route("/ballots/<ballot_id>/", methods=["GET", "POST"])
+@app.route("/ballots/<ballot_id>/", methods=["GET", "POST", "DELETE"])
 async def ballot_detail(ballot_id: int):
     params = request.args
     name = params.get("name", None)
@@ -276,6 +284,7 @@ async def ballot_detail(ballot_id: int):
     share = params.get("share", None)
     target = params.get("target", None)
     slug = params.get("slug", "")
+    viewed = params.get("viewed", "")
 
     if share == "":
         return await ballot_share(ballot_id)
@@ -322,9 +331,23 @@ async def ballot_detail(ballot_id: int):
         merge_votes=True,
     )
 
+    if request.method == "DELETE":
+        params = dict(params)  # type: ignore
+        data = await request.form
+        if "viewed" in params:
+            params["viewed"] = params["viewed"] + "," + data["view"]
+        else:
+            params["viewed"] = data["view"]
+        redirect_url = url_for("ballot_detail", ballot_id=ballot_id, **params)
+        response = await make_response("", 303)
+        response.headers["HX-Redirect"] = redirect_url
+        return response
+
     if request.method == "POST" or votes_changed:
         if party:
             votes["party"] = party
+        if viewed:
+            votes["viewed"] = viewed
 
         url = url_for(
             "ballot_detail",

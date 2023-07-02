@@ -35,6 +35,18 @@ def validate_ballot(
                 log.warning(f"Removed unexpected proposal: {key}")
                 votes_changed = True
 
+        elif key == "viewed":
+            if key in votes:
+                votes[key].extend(value.split(","))
+            else:
+                votes[key] = value.split(",")
+
+        elif key == "view":
+            try:
+                votes["viewed"].append(value)
+            except KeyError:
+                votes["viewed"] = [value]
+
         elif key in allowed_parameters or keep_extra_parameters:
             log.debug(f"Keeping extra parameter: {key}")
             votes[key] = value
