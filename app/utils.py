@@ -41,11 +41,17 @@ def validate_ballot(
             else:
                 votes[key] = value.split(",")
 
-        elif key == "view":
+        elif key == "hide":
             try:
                 votes["viewed"].append(value)
             except KeyError:
                 votes["viewed"] = [value]
+
+        elif key == "show":
+            try:
+                votes["viewed"].remove(value)
+            except KeyError:
+                votes["viewed"] = []
 
         elif key in allowed_parameters or keep_extra_parameters:
             log.debug(f"Keeping extra parameter: {key}")

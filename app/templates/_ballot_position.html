@@ -57,11 +57,16 @@
                 (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
                 </span>
 
-                {% if not viewed %}
+                {% if viewed %}
+                <button class="btn btn-link p-0" title="Mark as unviewed"
+                    hx-put="{{ request.url }}"
+                    hx-vals='{"show": "{{ candidate_key }}"}'>
+                    👁️
+                </button>
+                {% else %}
                 <button class="btn btn-link p-0" title="Mark as viewed"
-                    hx-delete="{{ request.url }}"
-                    hx-vals='{"view": "{{ candidate_key }}"}'
-                    hx-target="closest .form-check">
+                    hx-put="{{ request.url }}"
+                    hx-vals='{"hide": "{{ candidate_key }}"}'>
                     👁️
                 </button>
                 {% endif %}

@@ -120,7 +120,7 @@ async def election_image(election_id: int):
 
 @app.route(
     "/elections/<election_id>/precincts/<precinct_id>/",
-    methods=["GET", "POST", "DELETE"],
+    methods=["GET", "POST", "PUT"],
 )
 async def precinct_detail(election_id: int, precinct_id: int):
     params = request.args
@@ -169,7 +169,7 @@ async def precinct_detail(election_id: int, precinct_id: int):
         return html, 404
 
     form = await request.form
-    if request.method == "DELETE":
+    if request.method == "PUT":
         original_votes = MultiDict(params | form)
     else:
         original_votes = form or params
@@ -190,12 +190,12 @@ async def precinct_detail(election_id: int, precinct_id: int):
         merge_votes=True,
     )
 
-    if request.method == "DELETE":
+    if request.method == "PUT":
         url = url_for(
             "precinct_detail", election_id=election_id, precinct_id=precinct_id, **votes
         )
         await api.update_ballot(slug, url)
-        response = await make_response("", 204)
+        response = await make_response("", 200)
         response.headers["HX-Location"] = url
         return response
 
@@ -297,7 +297,7 @@ async def precinct_image(
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
-@app.route("/ballots/<ballot_id>/", methods=["GET", "POST", "DELETE"])
+@app.route("/ballots/<ballot_id>/", methods=["GET", "POST", "PUT"])
 async def ballot_detail(ballot_id: int):
     params = request.args
     name = params.get("name", None)
@@ -336,7 +336,7 @@ async def ballot_detail(ballot_id: int):
         return html, 404
 
     form = await request.form
-    if request.method == "DELETE":
+    if request.method == "PUT":
         original_votes = MultiDict(params | form)
     else:
         original_votes = form or params
@@ -357,10 +357,10 @@ async def ballot_detail(ballot_id: int):
         merge_votes=True,
     )
 
-    if request.method == "DELETE":
+    if request.method == "PUT":
         url = url_for("ballot_detail", ballot_id=ballot_id, **votes)
         await api.update_ballot(slug, url)
-        response = await make_response("", 204)
+        response = await make_response("", 200)
         response.headers["HX-Location"] = url
         return response
 
