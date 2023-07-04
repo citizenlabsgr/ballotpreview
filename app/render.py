@@ -196,4 +196,5 @@ def _get_font(text: str, image_width: int, image_height: int, border: int):
 def _get_text_size(text: str, font: ImageFont) -> Tuple[int, int]:
     image = Image.new("RGB", (100, 100))
     draw = ImageDraw.Draw(image)
-    return draw.textsize(text, font)
+    bbox = draw.textbbox((0, 0), text, font)
+    return bbox[2] - bbox[0], bbox[3] - bbox[1]
