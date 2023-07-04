@@ -20,8 +20,8 @@ doctor: ## Check for required system dependencies
 install: .venv/.flag ## Install project dependencies
 
 .venv/.flag: poetry.lock runtime.txt requirements.txt
+	@ rm -rf ~/Library/Preferences/pypoetry
 	@ poetry config virtualenvs.in-project true
-	poetry run python -m pip install --upgrade pip setuptools
 	poetry install
 	@ touch $@
 
@@ -32,7 +32,7 @@ poetry.lock: pyproject.toml
 	@ touch $@
 
 runtime.txt: .tool-versions
-	echo $(shell cat $< | tr ' ' '-') > $@
+	echo $(shell grep '^python ' $< | tr ' ' '-') > $@
 
 requirements.txt: poetry.lock
 	poetry export --format requirements.txt --output $@ --without-hashes

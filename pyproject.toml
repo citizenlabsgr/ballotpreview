@@ -34,7 +34,7 @@ black = "~22.12"
 isort = "~5.11"
 
 # Type Checking
-mypy = "^0.902"
+mypy = "^1.4"
 pylint = "~2.15"
 types-cryptography = "*"
 types-markdown = "*"
