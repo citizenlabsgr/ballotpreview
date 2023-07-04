@@ -343,6 +343,29 @@ def describe_precinct_detail():
             html = get_html(response)
             expect(html).contains("party=Democratic</a>")
 
+    def describe_put():
+        @pytest.mark.vcr
+        @pytest.mark.asyncio
+        async def it_hides_candidates(app, expect):
+            client = app.test_client()
+            response = await client.put(
+                "/elections/5/precincts/1172/?viewed=candidate-17339",
+                form={"hide": "candidate-17340"},
+            )
+            params = response.headers["HX-Location"].split("?")[-1]
+            expect(params) == "viewed=candidate-17339,candidate-17340"
+
+        @pytest.mark.vcr
+        @pytest.mark.asyncio
+        async def it_shows_candidates(app, expect):
+            client = app.test_client()
+            response = await client.put(
+                "/elections/5/precincts/1172/?viewed=candidate-17340,candidate-17341",
+                form={"show": "candidate-17340"},
+            )
+            params = response.headers["HX-Location"].split("?")[-1]
+            expect(params) == "viewed=candidate-17341"
+
 
 def describe_precinct_share_preview():
     @pytest.mark.vcr

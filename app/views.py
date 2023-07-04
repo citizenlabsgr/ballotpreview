@@ -3,7 +3,16 @@ from collections import defaultdict
 
 import bugsnag
 import log
-from quart import Quart, redirect, render_template, request, send_file, url_for
+from quart import (
+    Quart,
+    make_response,
+    redirect,
+    render_template,
+    request,
+    send_file,
+    url_for,
+)
+from werkzeug.datastructures import MultiDict
 
 from . import api, bugsnag_quart, render, settings, utils
 
@@ -109,7 +118,10 @@ async def election_image(election_id: int):
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
-@app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
+@app.route(
+    "/elections/<election_id>/precincts/<precinct_id>/",
+    methods=["GET", "POST", "PUT"],
+)
 async def precinct_detail(election_id: int, precinct_id: int):
     params = request.args
     name = params.get("name", None)
@@ -117,6 +129,7 @@ async def precinct_detail(election_id: int, precinct_id: int):
     share = params.get("share", None)
     target = params.get("target", None)
     slug = params.get("slug", "")
+    viewed = params.get("viewed", "")
 
     if share == "":
         return await precinct_share(election_id, precinct_id)
@@ -156,10 +169,18 @@ async def precinct_detail(election_id: int, precinct_id: int):
         return html, 404
 
     form = await request.form
+    if request.method == "PUT":
+        original_votes = params
+        actions = form
+    else:
+        original_votes = form or params
+        actions = MultiDict()
+
     votes, votes_changed = utils.validate_ballot(
         positions,
         proposals,
-        original_votes=form or params,
+        original_votes=original_votes,
+        actions=actions,
         allowed_parameters=(
             "name",
             "party",
@@ -172,9 +193,20 @@ async def precinct_detail(election_id: int, precinct_id: int):
         merge_votes=True,
     )
 
+    if request.method == "PUT":
+        url = url_for(
+            "precinct_detail", election_id=election_id, precinct_id=precinct_id, **votes
+        )
+        await api.update_ballot(slug, url)
+        response = await make_response("", 200)
+        response.headers["HX-Location"] = url
+        return response
+
     if request.method == "POST" or votes_changed:
         if party:
             votes["party"] = party
+        if viewed:
+            votes["viewed"] = viewed
 
         url = url_for(
             "precinct_detail",
@@ -227,7 +259,7 @@ async def precinct_share(election_id: int, precinct_id: int):
     )
 
     votes, _votes_changed = utils.validate_ballot(
-        positions, proposals, original_votes=request.args
+        positions, proposals, original_votes=request.args, actions=MultiDict()
     )
 
     ballot_url = url_for(
@@ -268,7 +300,7 @@ async def precinct_image(
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
-@app.route("/ballots/<ballot_id>/", methods=["GET", "POST"])
+@app.route("/ballots/<ballot_id>/", methods=["GET", "POST", "PUT"])
 async def ballot_detail(ballot_id: int):
     params = request.args
     name = params.get("name", None)
@@ -276,6 +308,7 @@ async def ballot_detail(ballot_id: int):
     share = params.get("share", None)
     target = params.get("target", None)
     slug = params.get("slug", "")
+    viewed = params.get("viewed", "")
 
     if share == "":
         return await ballot_share(ballot_id)
@@ -306,10 +339,18 @@ async def ballot_detail(ballot_id: int):
         return html, 404
 
     form = await request.form
+    if request.method == "PUT":
+        original_votes = params
+        actions = form
+    else:
+        original_votes = form or params
+        actions = MultiDict()
+
     votes, votes_changed = utils.validate_ballot(
         positions,
         proposals,
-        original_votes=form or params,
+        original_votes=original_votes,
+        actions=actions,
         allowed_parameters=(
             "name",
             "party",
@@ -322,9 +363,18 @@ async def ballot_detail(ballot_id: int):
         merge_votes=True,
     )
 
+    if request.method == "PUT":
+        url = url_for("ballot_detail", ballot_id=ballot_id, **votes)
+        await api.update_ballot(slug, url)
+        response = await make_response("", 200)
+        response.headers["HX-Location"] = url
+        return response
+
     if request.method == "POST" or votes_changed:
         if party:
             votes["party"] = party
+        if viewed:
+            votes["viewed"] = viewed
 
         url = url_for(
             "ballot_detail",
@@ -373,7 +423,7 @@ async def ballot_share(ballot_id: int):
     ballot, positions, proposals = await api.get_ballot(ballot_id=ballot_id)
 
     votes, _votes_changed = utils.validate_ballot(
-        positions, proposals, original_votes=request.args
+        positions, proposals, original_votes=request.args, actions=MultiDict()
     )
 
     ballot_url = url_for("ballot_detail", ballot_id=ballot_id)
