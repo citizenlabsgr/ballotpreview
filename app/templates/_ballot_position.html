@@ -35,14 +35,15 @@
     {% for candidate in position['candidates'] %}
         {% set candidate_key = 'candidate-' + candidate['id']|string %}
         {% set viewed = candidate_key in votes['viewed'] %}
+        {% set selected = candidate_key in votes[position_key] %}
 
-        <div class="form-check" {% if viewed %}style="opacity: 40%"{% endif %}>
+        <div class="form-check" {% if viewed and not selected %}style="opacity: 40%"{% endif %}>
             <input class="form-check-input"
                     type={% if position['seats'] == 1%}"radio"{% else %}"checkbox"{% endif %}
                     name="{{ position_key }}"
                     value="{{ candidate_key }}"
                     onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
-                    {% if candidate_key in votes[position_key] %}checked{% endif %}
+                    {% if selected %}checked{% endif %}
                     {% if "share=" in request.query_string|string %}style="pointer-events:none;"{% endif %}>
             <label class="form-check-label" for="{{ position_key }}">
                 {{ candidate['name'] }}
@@ -57,7 +58,8 @@
                 (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
                 </span>
 
-                {% if viewed %}
+                {% if selected %}
+                {% elif viewed %}
                 <button class="btn btn-link p-0" title="Mark as unviewed"
                     hx-put="{{ request.url }}"
                     hx-vals='{"show": "{{ candidate_key }}"}'>
