@@ -61,7 +61,7 @@
                 <button class="btn btn-link p-0" title="Mark as viewed"
                     hx-delete="{{ request.url }}"
                     hx-vals='{"view": "{{ candidate_key }}"}'
-                    hx-redirect="true">
+                    hx-target="closest .form-check">
                     👁️
                 </button>
                 {% endif %}

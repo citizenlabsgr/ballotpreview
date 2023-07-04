@@ -12,6 +12,7 @@ from quart import (
     send_file,
     url_for,
 )
+from werkzeug.datastructures import MultiDict
 
 from . import api, bugsnag_quart, render, settings, utils
 
@@ -315,10 +316,15 @@ async def ballot_detail(ballot_id: int):
         return html, 404
 
     form = await request.form
+    if request.method == "DELETE":
+        original_votes = MultiDict(params | form)
+    else:
+        original_votes = form or params
+
     votes, votes_changed = utils.validate_ballot(
         positions,
         proposals,
-        original_votes=form or params,
+        original_votes=original_votes,
         allowed_parameters=(
             "name",
             "party",
@@ -332,15 +338,11 @@ async def ballot_detail(ballot_id: int):
     )
 
     if request.method == "DELETE":
-        params = dict(params)  # type: ignore
-        data = await request.form
-        if "viewed" in params:
-            params["viewed"] = params["viewed"] + "," + data["view"]
-        else:
-            params["viewed"] = data["view"]
-        redirect_url = url_for("ballot_detail", ballot_id=ballot_id, **params)
+        url = url_for("ballot_detail", ballot_id=ballot_id, **votes)
+        await api.update_ballot(slug, url)
+        # TODO: Render candidate row with transparency
         response = await make_response("", 303)
-        response.headers["HX-Redirect"] = redirect_url
+        response.headers["HX-Replace-Url"] = url
         return response
 
     if request.method == "POST" or votes_changed:
