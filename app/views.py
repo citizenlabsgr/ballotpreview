@@ -118,7 +118,10 @@ async def election_image(election_id: int):
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
-@app.route("/elections/<election_id>/precincts/<precinct_id>/", methods=["GET", "POST"])
+@app.route(
+    "/elections/<election_id>/precincts/<precinct_id>/",
+    methods=["GET", "POST", "DELETE"],
+)
 async def precinct_detail(election_id: int, precinct_id: int):
     params = request.args
     name = params.get("name", None)
@@ -126,6 +129,7 @@ async def precinct_detail(election_id: int, precinct_id: int):
     share = params.get("share", None)
     target = params.get("target", None)
     slug = params.get("slug", "")
+    viewed = params.get("viewed", "")
 
     if share == "":
         return await precinct_share(election_id, precinct_id)
@@ -165,10 +169,15 @@ async def precinct_detail(election_id: int, precinct_id: int):
         return html, 404
 
     form = await request.form
+    if request.method == "DELETE":
+        original_votes = MultiDict(params | form)
+    else:
+        original_votes = form or params
+
     votes, votes_changed = utils.validate_ballot(
         positions,
         proposals,
-        original_votes=form or params,
+        original_votes=original_votes,
         allowed_parameters=(
             "name",
             "party",
@@ -181,9 +190,21 @@ async def precinct_detail(election_id: int, precinct_id: int):
         merge_votes=True,
     )
 
+    if request.method == "DELETE":
+        url = url_for(
+            "precinct_detail", election_id=election_id, precinct_id=precinct_id, **votes
+        )
+        await api.update_ballot(slug, url)
+        # TODO: Render candidate row with transparency
+        response = await make_response("", 303)
+        response.headers["HX-Replace-Url"] = url
+        return response
+
     if request.method == "POST" or votes_changed:
         if party:
             votes["party"] = party
+        if viewed:
+            votes["viewed"] = viewed
 
         url = url_for(
             "precinct_detail",
