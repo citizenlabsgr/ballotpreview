@@ -9,6 +9,7 @@ def validate_ballot(
     proposals: List,
     *,
     original_votes: MultiDict,
+    actions: MultiDict,
     allowed_parameters: Tuple = (),
     keep_extra_parameters: bool = False,
     merge_votes: bool = False,
@@ -41,7 +42,16 @@ def validate_ballot(
             else:
                 votes[key] = value.split(",")
 
-        elif key == "hide":
+        elif key in allowed_parameters or keep_extra_parameters:
+            log.debug(f"Keeping extra parameter: {key}")
+            votes[key] = value
+
+        else:
+            log.warning(f"Removed unexpected ballot item: {key}")
+            votes_changed = True
+
+    for key, value in actions.items(multi=True):
+        if key == "hide":
             try:
                 votes["viewed"].append(value)
             except KeyError:
@@ -52,14 +62,6 @@ def validate_ballot(
                 votes["viewed"].remove(value)
             except KeyError:
                 votes["viewed"] = []
-
-        elif key in allowed_parameters or keep_extra_parameters:
-            log.debug(f"Keeping extra parameter: {key}")
-            votes[key] = value
-
-        else:
-            log.warning(f"Removed unexpected ballot item: {key}")
-            votes_changed = True
 
     for key, value in votes.items():
         if key.startswith("position-"):

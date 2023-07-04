@@ -170,14 +170,17 @@ async def precinct_detail(election_id: int, precinct_id: int):
 
     form = await request.form
     if request.method == "PUT":
-        original_votes = MultiDict(params | form)
+        original_votes = params
+        actions = form
     else:
         original_votes = form or params
+        actions = MultiDict()
 
     votes, votes_changed = utils.validate_ballot(
         positions,
         proposals,
         original_votes=original_votes,
+        actions=actions,
         allowed_parameters=(
             "name",
             "party",
@@ -256,7 +259,7 @@ async def precinct_share(election_id: int, precinct_id: int):
     )
 
     votes, _votes_changed = utils.validate_ballot(
-        positions, proposals, original_votes=request.args
+        positions, proposals, original_votes=request.args, actions=MultiDict()
     )
 
     ballot_url = url_for(
@@ -337,14 +340,17 @@ async def ballot_detail(ballot_id: int):
 
     form = await request.form
     if request.method == "PUT":
-        original_votes = MultiDict(params | form)
+        original_votes = params
+        actions = form
     else:
         original_votes = form or params
+        actions = MultiDict()
 
     votes, votes_changed = utils.validate_ballot(
         positions,
         proposals,
         original_votes=original_votes,
+        actions=actions,
         allowed_parameters=(
             "name",
             "party",
@@ -417,7 +423,7 @@ async def ballot_share(ballot_id: int):
     ballot, positions, proposals = await api.get_ballot(ballot_id=ballot_id)
 
     votes, _votes_changed = utils.validate_ballot(
-        positions, proposals, original_votes=request.args
+        positions, proposals, original_votes=request.args, actions=MultiDict()
     )
 
     ballot_url = url_for("ballot_detail", ballot_id=ballot_id)
