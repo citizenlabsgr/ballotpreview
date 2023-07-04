@@ -195,9 +195,8 @@ async def precinct_detail(election_id: int, precinct_id: int):
             "precinct_detail", election_id=election_id, precinct_id=precinct_id, **votes
         )
         await api.update_ballot(slug, url)
-        # TODO: Render candidate row with transparency
-        response = await make_response("", 303)
-        response.headers["HX-Replace-Url"] = url
+        response = await make_response("", 204)
+        response.headers["HX-Location"] = url
         return response
 
     if request.method == "POST" or votes_changed:
@@ -361,9 +360,8 @@ async def ballot_detail(ballot_id: int):
     if request.method == "DELETE":
         url = url_for("ballot_detail", ballot_id=ballot_id, **votes)
         await api.update_ballot(slug, url)
-        # TODO: Render candidate row with transparency
-        response = await make_response("", 303)
-        response.headers["HX-Replace-Url"] = url
+        response = await make_response("", 204)
+        response.headers["HX-Location"] = url
         return response
 
     if request.method == "POST" or votes_changed:
