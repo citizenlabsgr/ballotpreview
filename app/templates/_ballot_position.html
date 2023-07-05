@@ -36,6 +36,7 @@
         {% set candidate_key = 'candidate-' + candidate['id']|string %}
         {% set viewed = candidate_key in votes['viewed'] %}
         {% set selected = candidate_key in votes[position_key] %}
+        {% set share = "share=" in request.query_string|string %}
 
         <div class="form-check" {% if viewed and not selected %}style="opacity: 40%"{% endif %}>
             <input class="form-check-input"
@@ -44,7 +45,7 @@
                     value="{{ candidate_key }}"
                     onChange="document.getElementById('save-toolbar').style.removeProperty('display');"
                     {% if selected %}checked{% endif %}
-                    {% if "share=" in request.query_string|string %}style="pointer-events:none;"{% endif %}>
+                    {% if share %}style="pointer-events:none;"{% endif %}>
             <label class="form-check-label" for="{{ position_key }}">
                 {{ candidate['name'] }}
 
@@ -58,7 +59,7 @@
                 (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
                 </span>
 
-                {% if selected %}
+                {% if selected or share %}
                 {% elif viewed %}
                 <button class="btn btn-link p-0" title="Mark as unviewed"
                     hx-put=""
