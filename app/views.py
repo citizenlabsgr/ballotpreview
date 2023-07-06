@@ -102,10 +102,14 @@ async def election_detail(election_id: int):
 
     if settings.TEST_VOTER["first_name"]:
         voter = settings.TEST_VOTER
+        test = True
     else:
         voter = request.args
+        test = False
 
-    return await render_template("election_detail.html", election=election, voter=voter)
+    return await render_template(
+        "election_detail.html", election=election, voter=voter, test=test
+    )
 
 
 @app.route("/elections/<election_id>/banner.png")

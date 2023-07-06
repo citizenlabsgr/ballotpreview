@@ -13,7 +13,7 @@
     </h5>
 </div>
 
-{% if voter['first_name'] %}
+{% if voter['first_name'] and not test %}
 
 <div class="alert alert-danger" role="alert">
   It looks like you might not be registered to vote. Please check with the
