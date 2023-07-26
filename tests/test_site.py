@@ -103,7 +103,7 @@ def describe_election_image():
         expect(response.status_code) == 200
 
 
-def describe_precinct_detail():
+def describe_ballot_detail():
     def describe_get():
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -279,6 +279,14 @@ def describe_precinct_detail():
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
+        async def it_handles_invalid_ballots(app, expect):
+            client = app.test_client()
+            response = await client.get("/ballots/-1/")
+            html = get_html(response)
+            expect(html).contains("can't find a sample ballot")
+
+        @pytest.mark.vcr
+        @pytest.mark.asyncio
         async def it_hides_share_button_when_no_votes(app, expect):
             client = app.test_client()
             response = await client.get("/elections/3/precincts/1172/?name=Jane")
@@ -367,7 +375,7 @@ def describe_precinct_detail():
             expect(params) == "viewed=candidate-17341"
 
 
-def describe_precinct_share_preview():
+def describe_ballot_share_preview():
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def it_shows_images(app, expect):
@@ -381,7 +389,7 @@ def describe_precinct_share_preview():
         expect(html.count("<img ")) == 5
 
 
-def describe_precinct_share():
+def describe_ballot_share():
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def it_shows_find_button_after_sharing(app, expect):
@@ -452,7 +460,7 @@ def describe_precinct_share():
         expect(html).excludes("official ballot")
 
 
-def describe_precinct_image():
+def describe_ballot_image():
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def it_can_highlight_the_first_item(app, expect):
@@ -509,22 +517,3 @@ def describe_precinct_image():
         )
         expect(response.status_code) == 200
         expect(response.content_type) == "image/png"
-
-
-def describe_ballot_detail():
-    def describe_get():
-        @pytest.mark.vcr
-        @pytest.mark.asyncio
-        async def it_includes_ballot_item(app, expect):
-            client = app.test_client()
-            response = await client.get("/ballots/57363/")
-            html = get_html(response)
-            expect(html).contains("Council Member at Large")
-
-        @pytest.mark.vcr
-        @pytest.mark.asyncio
-        async def it_handles_invalid_ballots(app, expect):
-            client = app.test_client()
-            response = await client.get("/ballots/-1/")
-            html = get_html(response)
-            expect(html).contains("We can't find a sample ballot for this election")
