@@ -92,14 +92,14 @@ def describe_election_image():
     @pytest.mark.asyncio
     async def with_target(app, expect):
         client = app.test_client()
-        response = await client.get("/elections/3/banner.png?target=facebook")
+        response = await client.get("/elections/3/banner.jpg?target=facebook")
         expect(response.status_code) == 200
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def without_target(app, expect):
         client = app.test_client()
-        response = await client.get("/elections/3/banner.png")
+        response = await client.get("/elections/3/banner.jpg")
         expect(response.status_code) == 200
 
 
@@ -474,7 +474,7 @@ def describe_ballot_image():
         expect(response.status_code) == 302
         expect(
             response.headers["Location"]
-        ) == "/elections/41/precincts/1209/position-46053/candidate-75615.png?target=default"
+        ) == "/elections/41/precincts/1209/position-46053/candidate-75615.jpg?target=default"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -489,7 +489,7 @@ def describe_ballot_image():
         expect(response.status_code) == 302
         expect(
             response.headers["Location"]
-        ) == "/elections/41/precincts/1209/position-46073/candidate-75684.png?target=default"
+        ) == "/elections/41/precincts/1209/position-46073/candidate-75684.jpg?target=default"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -504,7 +504,7 @@ def describe_ballot_image():
         expect(response.status_code) == 302
         expect(
             response.headers["Location"]
-        ) == "/elections/41/precincts/1209/position-46053/candidate-75615.png?target=default"
+        ) == "/elections/41/precincts/1209/position-46053/candidate-75615.jpg?target=default"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -514,7 +514,7 @@ def describe_ballot_image():
         expect(response.status_code) == 302
         expect(
             response.headers["Location"]
-        ) == "/elections/3/precincts/1172/_/_.png?target=facebook"
+        ) == "/elections/3/precincts/1172/_/_.jpg?target=facebook"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -526,4 +526,4 @@ def describe_ballot_image():
         expect(response.status_code) == 302
         expect(
             response.headers["Location"]
-        ) == "/elections/41/precincts/1209/share/first.png?target=default"
+        ) == "/elections/41/precincts/1209/share/first.jpg?target=default"

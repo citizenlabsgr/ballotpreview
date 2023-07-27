@@ -35,7 +35,7 @@ async def index():
     return redirect(url_for("election_list"))
 
 
-@app.route("/banner.png")
+@app.route("/banner.jpg")
 async def banner():
     elections = await api.get_elections(active=True)
     target = request.args.get("target", "default")
@@ -111,7 +111,7 @@ async def election_detail(election_id: int):
     )
 
 
-@app.route("/elections/<election_id>/banner.png")
+@app.route("/elections/<election_id>/banner.jpg")
 async def election_image(election_id: int):
     election = await api.get_election(election_id)
     target = request.args.get("target", "default")
@@ -283,7 +283,7 @@ async def _404(identifier: dict, name: str):
 
 
 @app.route(
-    "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.png",
+    "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.jpg",
     methods=["GET"],
 )
 async def precinct_image(election_id: int, precinct_id: int, item: str, vote: str):
@@ -291,7 +291,7 @@ async def precinct_image(election_id: int, precinct_id: int, item: str, vote: st
     return await _image(identifier, item, vote)
 
 
-@app.route("/ballots/<ballot_id>/<item>/<vote>.png", methods=["GET"])
+@app.route("/ballots/<ballot_id>/<item>/<vote>.jpg", methods=["GET"])
 async def ballot_image(ballot_id: int, item: str, vote: str):
     identifier = {"ballot_id": ballot_id}
     return await _image(identifier, item, vote)
