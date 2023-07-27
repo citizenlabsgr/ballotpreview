@@ -21,7 +21,6 @@ def ballot_image(
     positions: List,
     proposals: List,
     votes: Dict,
-    ext: str = "png",
     path: Optional[Path] = None,
 ) -> Path:
     width, height, crop = settings.TARGET_SIZES[target]
@@ -35,7 +34,7 @@ def ballot_image(
         fingerprint = hashlib.sha1(variant.encode()).hexdigest()
         images = Path("images")
         images.mkdir(exist_ok=True)
-        path = images / f"{fingerprint}.{ext}"
+        path = images / f"{fingerprint}.jpg"
 
         if path.exists():
             log.info(f"Found image at {path}")

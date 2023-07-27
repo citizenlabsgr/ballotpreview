@@ -103,7 +103,7 @@ def index(images_directory):
         f.write(f'<meta http-equiv="refresh" content="{REFRESH_RATE}">\n')
         for target in IMAGE_TARGETS:
             for key in IMAGE_KEYS:
-                path = images_directory / f"{key}-{target}.png?time=0"
+                path = images_directory / f"{key}-{target}.jpg?time=0"
                 f.write(f'<img src="{path}" style="padding: 10px;">\n')
         f.write(SCRIPT)
     path = images_directory / ".gitignore"
@@ -121,7 +121,7 @@ def describe_images():
             positions=positions,
             proposals=[],
             votes=votes,
-            path=images_directory / f"position-vote-{target}.png",
+            path=images_directory / f"position-vote-{target}.jpg",
         )
 
     def with_position_vote_multiline(positions, images_directory):
@@ -131,7 +131,7 @@ def describe_images():
             positions=positions,
             proposals=[],
             votes={"position-48794": "candidate-88287"},
-            path=images_directory / "position-vote-multiline.png",
+            path=images_directory / "position-vote-multiline.jpg",
         )
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
@@ -142,7 +142,7 @@ def describe_images():
             positions=positions,
             proposals=[],
             votes={},
-            path=images_directory / f"position-nonvote-{target}.png",
+            path=images_directory / f"position-nonvote-{target}.jpg",
         )
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
@@ -153,7 +153,7 @@ def describe_images():
             positions=[],
             proposals=proposals,
             votes=votes,
-            path=images_directory / f"proposal-approve-{target}.png",
+            path=images_directory / f"proposal-approve-{target}.jpg",
         )
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
@@ -164,7 +164,7 @@ def describe_images():
             positions=[],
             proposals=proposals,
             votes=votes,
-            path=images_directory / f"proposal-reject-{target}.png",
+            path=images_directory / f"proposal-reject-{target}.jpg",
         )
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
@@ -175,7 +175,7 @@ def describe_images():
             positions=[],
             proposals=proposals,
             votes={},
-            path=images_directory / f"proposal-nonvote-{target}.png",
+            path=images_directory / f"proposal-nonvote-{target}.jpg",
         )
 
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
@@ -186,7 +186,7 @@ def describe_images():
             positions=[],
             proposals=[],
             votes={},
-            path=images_directory / f"overall-{target}.png",
+            path=images_directory / f"overall-{target}.jpg",
         )
 
     def with_unknown_share_position(expect, positions, proposals):
