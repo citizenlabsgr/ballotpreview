@@ -158,7 +158,14 @@ async def _detail(route: str, identifier: dict):
             share, vote = share.split("~")
         else:
             vote = params.get(share or "", "")
-        return await _image(identifier, share or "", vote)
+        url = url_for(
+            route.replace("detail", "image"),
+            **identifier,
+            item=share or "_",
+            vote=vote or "_",
+            target=target,
+        )
+        return redirect(url)
 
     ballot, positions, proposals = await api.get_ballot(**identifier, party=party)
 
@@ -276,32 +283,34 @@ async def _404(identifier: dict, name: str):
 
 
 @app.route(
-    "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.<ext>",
+    "/elections/<election_id>/precincts/<precinct_id>/<item>/<vote>.png",
     methods=["GET"],
 )
-async def precinct_image(
-    election_id: int, precinct_id: int, item: str, vote: str, ext: str = "png"
-):
+async def precinct_image(election_id: int, precinct_id: int, item: str, vote: str):
     identifier = {"election_id": election_id, "precinct_id": precinct_id}
-    return await _image(identifier, item, vote, ext)
+    return await _image(identifier, item, vote)
 
 
-@app.route("/ballots/<ballot_id>/<item>/<vote>.<ext>", methods=["GET"])
-async def ballot_image(ballot_id: int, item: str, vote: str, ext: str = "png"):
+@app.route("/ballots/<ballot_id>/<item>/<vote>.png", methods=["GET"])
+async def ballot_image(ballot_id: int, item: str, vote: str):
     identifier = {"ballot_id": ballot_id}
-    return await _image(identifier, item, vote, ext)
+    return await _image(identifier, item, vote)
 
 
-async def _image(identifier: dict, item: str, vote: str, ext: str = "png"):
-    share = item
-    votes = {item: vote}
+async def _image(identifier: dict, share: str, vote: str):
+    if share in {"_", "share"}:
+        share = ""
+    if vote in {"_", "first"}:
+        vote = ""
+
+    votes = {share: vote}
     target = request.args.get("target", "default")
 
     positions = await api.get_positions(**identifier)
     proposals = await api.get_proposals(**identifier)
 
     image = await asyncio.get_event_loop().run_in_executor(
-        None, render.ballot_image, share, target, positions, proposals, votes, ext
+        None, render.ballot_image, share, target, positions, proposals, votes
     )
 
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)

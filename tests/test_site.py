@@ -471,8 +471,10 @@ def describe_ballot_image():
             "&share=first"
             "&target=default"
         )
-        expect(response.status_code) == 200
-        expect(response.content_type) == "image/png"
+        expect(response.status_code) == 302
+        expect(
+            response.headers["Location"]
+        ) == "/elections/41/precincts/1209/position-46053/candidate-75615.png?target=default"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -484,8 +486,10 @@ def describe_ballot_image():
             "&share=position-46073~candidate-75684"
             "&target=default"
         )
-        expect(response.status_code) == 200
-        expect(response.content_type) == "image/png"
+        expect(response.status_code) == 302
+        expect(
+            response.headers["Location"]
+        ) == "/elections/41/precincts/1209/position-46073/candidate-75684.png?target=default"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -497,16 +501,20 @@ def describe_ballot_image():
             "&share=first"
             "&target=default"
         )
-        expect(response.status_code) == 200
-        expect(response.content_type) == "image/png"
+        expect(response.status_code) == 302
+        expect(
+            response.headers["Location"]
+        ) == "/elections/41/precincts/1209/position-46053/candidate-75615.png?target=default"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
     async def it_handles_lack_of_highlighted_item(app, expect):
         client = app.test_client()
         response = await client.get("/elections/3/precincts/1172/?target=facebook")
-        expect(response.status_code) == 200
-        expect(response.content_type) == "image/png"
+        expect(response.status_code) == 302
+        expect(
+            response.headers["Location"]
+        ) == "/elections/3/precincts/1172/_/_.png?target=facebook"
 
     @pytest.mark.vcr
     @pytest.mark.asyncio
@@ -515,5 +523,7 @@ def describe_ballot_image():
         response = await client.get(
             "/elections/41/precincts/1209/?share=first&target=default"
         )
-        expect(response.status_code) == 200
-        expect(response.content_type) == "image/png"
+        expect(response.status_code) == 302
+        expect(
+            response.headers["Location"]
+        ) == "/elections/41/precincts/1209/share/first.png?target=default"
