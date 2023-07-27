@@ -139,7 +139,7 @@ async def ballot_detail(ballot_id: int):
 async def _detail(route: str, identifier: dict):
     params = request.args
     name = params.get("name", None)
-    party = params.get("party", None)
+    party = params.get("party", "")
     share = params.get("share", None)
     target = params.get("target", None)
     slug = params.get("slug", "")
@@ -149,6 +149,7 @@ async def _detail(route: str, identifier: dict):
         return await _share(route, identifier)
 
     if target:
+        vote: str | None
         if share == "first":
             share, vote = list(params.items())[0]
             if "," in vote:
@@ -156,29 +157,13 @@ async def _detail(route: str, identifier: dict):
         elif share and "~" in share:
             share, vote = share.split("~")
         else:
-            vote = params.get(share)  # type: ignore
+            vote = params.get(share or "", "")
         return await _image(identifier, share or "", vote)
 
-    ballot, positions, proposals = await api.get_ballot(**identifier, party=party or "")
+    ballot, positions, proposals = await api.get_ballot(**identifier, party=party)
 
     if ballot is None:
-        this_election = None
-        other_elections = []
-        for election in reversed(await api.get_elections()):
-            if election["id"] == int(identifier.get("election_id", -1)):
-                this_election = election
-            else:
-                other_elections.append(election)
-                if this_election and not election["active"]:
-                    break
-        html = await render_template(
-            "ballot_404.html",
-            election=this_election,
-            elections=other_elections,
-            name=name,
-            **identifier,
-        )
-        return html, 404
+        return await _404(identifier, name)
 
     form = await request.form
     if request.method == "PUT":
@@ -268,6 +253,26 @@ async def _share(route: str, identifier: dict):
         votes=votes,
         ballot_url=ballot_url,
     )
+
+
+async def _404(identifier: dict, name: str):
+    this_election = None
+    other_elections = []
+    for election in reversed(await api.get_elections()):
+        if election["id"] == int(identifier.get("election_id", -1)):
+            this_election = election
+        else:
+            other_elections.append(election)
+            if this_election and not election["active"]:
+                break
+    html = await render_template(
+        "ballot_404.html",
+        election=this_election,
+        elections=other_elections,
+        name=name,
+        **identifier,
+    )
+    return html, 404
 
 
 @app.route(

@@ -27,8 +27,8 @@ def ballot_image(
     width, height, crop = settings.TARGET_SIZES[target]
     unit = max(1, height // 50)
 
-    title = _get_title(share or "", positions, proposals)
-    mark, fill, response = _get_response(share or "", positions, proposals, votes)
+    title = _get_title(share, positions, proposals)
+    mark, fill, response = _get_response(share, positions, proposals, votes)
 
     if path is None:
         variant = title + mark + response + target

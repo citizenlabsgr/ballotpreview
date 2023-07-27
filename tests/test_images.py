@@ -181,7 +181,7 @@ def describe_images():
     @pytest.mark.parametrize("target", settings.TARGET_SIZES)
     def with_no_highlighted_item(images_directory, target):
         render.ballot_image(
-            share=None,  # type: ignore
+            share="",
             target=target,
             positions=[],
             proposals=[],
