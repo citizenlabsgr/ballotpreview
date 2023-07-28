@@ -1,7 +1,6 @@
 import hashlib
 from contextlib import suppress
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 import bugsnag
 import log
@@ -10,7 +9,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 from . import settings
 
 
-def election_image(target: str, election: Dict) -> Path:
+def election_image(target: str, election: dict) -> Path:
     log.debug(election)  # TODO: Include election date in image
     return ballot_image(share="", target=target, positions=[], proposals=[], votes={})
 
@@ -18,10 +17,10 @@ def election_image(target: str, election: Dict) -> Path:
 def ballot_image(
     share: str,
     target: str,
-    positions: List,
-    proposals: List,
-    votes: Dict,
-    path: Optional[Path] = None,
+    positions: list,
+    proposals: list,
+    votes: dict,
+    path: Path | None = None,
 ) -> Path:
     width, height, crop = settings.TARGET_SIZES[target]
     unit = max(1, height // 50)
@@ -96,7 +95,7 @@ def ballot_image(
     return path
 
 
-def _get_title(share: str, positions: List, proposals: List):
+def _get_title(share: str, positions: list, proposals: list):
     if "-" not in share:
         return "Michigan Election"
 
@@ -137,7 +136,7 @@ def _shorten(text: str, district: str = "") -> str:
     return line.removesuffix(" and").removesuffix(" the").removesuffix(" Authorizing")
 
 
-def _get_response(share: str, positions: List, proposals: List, votes: Dict):
+def _get_response(share: str, positions: list, proposals: list, votes: dict):
     if "-" not in share:
         return "", settings.BLACK, "Ballot Preview"
 
@@ -151,7 +150,6 @@ def _get_response(share: str, positions: List, proposals: List, votes: Dict):
     if category == "position":
         for position in positions:
             if position["id"] == key:
-
                 key2 = int(vote.split("-")[1])
                 for candidate in position["candidates"]:
                     if candidate["id"] == key2:
@@ -192,7 +190,7 @@ def _get_font(text: str, image_width: int, image_height: int, border: int):
     return font
 
 
-def _get_text_size(text: str, font: ImageFont) -> Tuple[int, int]:
+def _get_text_size(text: str, font: ImageFont) -> tuple[int, int]:
     image = Image.new("RGB", (100, 100))
     draw = ImageDraw.Draw(image)
     bbox = draw.textbbox((0, 0), text, font)

@@ -1,20 +1,18 @@
-from typing import Dict, List, Optional, Tuple
-
 import log
 from werkzeug.datastructures import MultiDict
 
 
 def validate_ballot(
-    positions: List,
-    proposals: List,
+    positions: list,
+    proposals: list,
     *,
     original_votes: MultiDict,
     actions: MultiDict,
-    allowed_parameters: Tuple = (),
+    allowed_parameters: tuple = (),
     keep_extra_parameters: bool = False,
     merge_votes: bool = False,
-) -> Tuple[Dict, int]:
-    votes: Dict = {}
+) -> tuple[dict, int]:
+    votes: dict = {}
     votes_changed = False
 
     for key, value in original_votes.items(multi=True):
@@ -80,7 +78,7 @@ def validate_ballot(
     return votes, votes_changed
 
 
-def _get_proposal(proposals: List, proposal_id: int) -> Optional[Dict]:
+def _get_proposal(proposals: list, proposal_id: int) -> dict | None:
     for proposal in proposals:
         if proposal["id"] == proposal_id:
             return proposal
@@ -89,7 +87,7 @@ def _get_proposal(proposals: List, proposal_id: int) -> Optional[Dict]:
     return None
 
 
-def _get_seats(positions: List, position_id: int) -> int:
+def _get_seats(positions: list, position_id: int) -> int:
     for position in positions:
         if position["id"] == position_id:
             return position["seats"]

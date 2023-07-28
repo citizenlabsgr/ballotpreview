@@ -6,7 +6,7 @@ doctor: ## Check for required system dependencies
 	bin/verchew --exit-code
 
 .envrc:
-	echo export BUGSNAG_API_KEY=??? >> $@
+	echo export #BUGSNAG_API_KEY=??? >> $@
 	echo >> $@
 	echo export ELECTIONS_HOST=https://michiganelections.io >> $@
 	echo export BUDDIES_HOST=https://app.michiganelections.io >> $@

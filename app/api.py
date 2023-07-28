@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Dict, List, Tuple
 
 import aiohttp
 import bugsnag
@@ -11,7 +10,7 @@ from . import settings
 
 async def get_status(
     first_name: str, last_name: str, birth_date: str, zip_code: int
-) -> Dict:
+) -> dict:
     if "-" not in birth_date:
         dt = datetime.strptime(birth_date, "%m/%d/%Y")
         birth_date = dt.date().isoformat()
@@ -24,7 +23,7 @@ async def get_status(
             except aiohttp.ContentTypeError:
                 data = {}
 
-    if "registered" not in data:
+    if "registered" not in data:  # pragma: no cover
         bugsnag.notify(
             ValueError(f"No registration status: {url}"),
             context="get_status",
@@ -42,7 +41,7 @@ async def get_status(
     return data
 
 
-async def get_elections(*, active=None) -> List:
+async def get_elections(*, active=None) -> list:
     url = f"{settings.ELECTIONS_HOST}/api/elections/"
     if active:
         url += "?active=true"
@@ -53,7 +52,7 @@ async def get_elections(*, active=None) -> List:
     return list(reversed(data["results"]))
 
 
-async def get_election(election_id: int) -> Dict:
+async def get_election(election_id: int) -> dict:
     async with aiohttp.ClientSession() as session:
         url = f"{settings.ELECTIONS_HOST}/api/elections/{election_id}/"
         async with session.get(url) as response:
@@ -64,7 +63,7 @@ async def get_election(election_id: int) -> Dict:
 
 async def get_ballot(
     *, ballot_id: int = 0, election_id: int = 0, precinct_id: int = 0, party: str = ""
-) -> Tuple[Dict, List, List]:
+) -> tuple[dict, list, list]:
     if ballot_id:
         assert not (election_id or precinct_id)
         url = f"{settings.ELECTIONS_HOST}/api/ballots/{ballot_id}/"
@@ -113,7 +112,7 @@ async def get_ballot(
 
 async def get_positions(
     *, ballot_id: int = 0, election_id: int = 0, precinct_id: int = 0, party: str = ""
-) -> List:
+) -> list:
     if ballot_id:
         assert not (election_id or precinct_id)
         url = f"{settings.ELECTIONS_HOST}/api/positions/?ballot_id={ballot_id}"
@@ -131,7 +130,7 @@ async def get_positions(
 
 async def get_proposals(
     *, ballot_id: int = 0, election_id: int = 0, precinct_id: int = 0
-) -> List:
+) -> list:
     if ballot_id:
         assert not (election_id or precinct_id)
         url = f"{settings.ELECTIONS_HOST}/api/proposals/?ballot_id={ballot_id}"

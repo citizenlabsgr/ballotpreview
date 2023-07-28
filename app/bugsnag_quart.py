@@ -4,6 +4,8 @@ Quart version of Bugsnag's Flask support.
 Reference: https://github.com/bugsnag/bugsnag-python/blob/master/bugsnag/flask/__init__.py
 """
 
+# pylint: disable=unused-argument
+
 from importlib.metadata import version
 
 import bugsnag
@@ -11,7 +13,7 @@ import quart
 from bugsnag.wsgi import request_path
 
 
-def add_quart_request_to_notification(notification):
+def add_quart_request_to_notification(notification):  # pragma: no cover
     if not quart.request:
         return
 
@@ -34,11 +36,11 @@ def handle_exceptions(app):
     middleware = bugsnag.configure().internal_middleware
     bugsnag.configure().runtime_versions["quart"] = version("quart")
     middleware.before_notify(add_quart_request_to_notification)
-    quart.got_request_exception.connect(__log_exception, app)
-    quart.request_started.connect(__track_session, app)
+    quart.got_request_exception.connect(_log_exception, app)
+    quart.request_started.connect(_track_session, app)
 
 
-def __log_exception(sender, exception, **extra):  # pylint: disable=unused-argument
+def _log_exception(sender, exception, **extra):  # pragma: no cover
     bugsnag.auto_notify(
         exception,
         severity_reason={
@@ -48,6 +50,6 @@ def __log_exception(sender, exception, **extra):  # pylint: disable=unused-argum
     )
 
 
-def __track_session(sender, **extra):  # pylint: disable=unused-argument
+def _track_session(sender, **extra):
     if bugsnag.configuration.auto_capture_sessions:
         bugsnag.start_session()

@@ -19,6 +19,16 @@ def describe_index():
         expect(html).contains('href="/elections/38/"')
 
 
+def describe_banner():
+    @pytest.mark.vcr
+    @pytest.mark.asyncio
+    async def it_returns_an_image(app, expect):
+        client = app.test_client()
+        response = await client.get("/banner.jpg")
+        expect(response.status_code) == 200
+        expect(response.content_type) == "image/jpeg"
+
+
 def describe_election_list():
     @pytest.mark.vcr
     @pytest.mark.asyncio
