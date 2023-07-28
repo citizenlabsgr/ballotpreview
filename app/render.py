@@ -10,12 +10,15 @@ from . import settings
 
 
 def election_image(target: str, election: dict) -> Path:
-    log.debug(election)  # TODO: Include election date in image
-    return ballot_image(share="", target=target, positions=[], proposals=[], votes={})
+    if election:
+        lines = ["Michigan Election", election["date_humanized"]]
+    else:
+        lines = ["Michigan Election", "Ballot Preview"]
+    return ballot_image(lines, target, positions=[], proposals=[], votes={})
 
 
 def ballot_image(
-    share: str,
+    share: str | list,
     target: str,
     positions: list,
     proposals: list,
@@ -25,8 +28,16 @@ def ballot_image(
     width, height, crop = settings.TARGET_SIZES[target]
     unit = max(1, height // 50)
 
-    title = _get_title(share, positions, proposals)
-    mark, fill, response = _get_response(share, positions, proposals, votes)
+    mark = ""
+    fill = settings.BLACK
+    if isinstance(share, list):
+        title, response = share
+    elif "-" not in share:
+        title = "Michigan Election"
+        response = "Ballot Preview"
+    else:
+        title = _get_title(share, positions, proposals)
+        mark, fill, response = _get_response(share, positions, proposals, votes)
 
     if path is None:
         variant = title + mark + response + target
@@ -35,7 +46,7 @@ def ballot_image(
         images.mkdir(exist_ok=True)
         path = images / f"{fingerprint}.jpg"
 
-        if path.exists():
+        if path.exists() and not settings.DEBUG:
             log.info(f"Found image at {path}")
             return path
 
@@ -96,9 +107,6 @@ def ballot_image(
 
 
 def _get_title(share: str, positions: list, proposals: list):
-    if "-" not in share:
-        return "Michigan Election"
-
     category, _key = share.split("-")
     key = int(_key)
 
@@ -137,9 +145,6 @@ def _shorten(text: str, district: str = "") -> str:
 
 
 def _get_response(share: str, positions: list, proposals: list, votes: dict):
-    if "-" not in share:
-        return "", settings.BLACK, "Ballot Preview"
-
     category, _key = share.split("-")
     key = int(_key)
 

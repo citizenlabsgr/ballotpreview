@@ -40,7 +40,7 @@ async def banner():
     elections = await api.get_elections(active=True)
     target = request.args.get("target", "default")
     image = await asyncio.get_running_loop().run_in_executor(
-        None, render.election_image, target, elections[0]
+        None, render.election_image, target, elections[0] if elections else {}
     )
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
