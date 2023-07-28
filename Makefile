@@ -11,6 +11,7 @@ doctor: ## Check for required system dependencies
 	echo export ELECTIONS_HOST=https://michiganelections.io >> $@
 	echo export BUDDIES_HOST=https://app.michiganelections.io >> $@
 	echo export #TEST_VOTER=First,Last,YYYY-MM-DD,12345 >> $@
+	echo export DEBUG=true >> $@
 	- direnv allow
 
 ###############################################################################
