@@ -11,7 +11,7 @@ packages = [{ include = "app" }]
 
 [tool.poetry.dependencies]
 
-python = "^3.11"
+python = "3.11.5"
 
 # Server
 quart = "~0.18"
