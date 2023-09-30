@@ -54,7 +54,7 @@ Voting Plan
     {% include "_ballot_header.html" %}
 
     <div class="no-print">
-    {% if "share=" in request.query_string|string %}
+    {% if "share=" in request.query_string|string and not buddies_url %}
         <a href="{{ election_url }}" class="btn btn-primary" role="button">
             Find Your Ballot
         </a>
