@@ -20,7 +20,7 @@ quart = "~0.18"
 pillow = "^10.0"
 
 # Utilities
-aiohttp = "^3.8.5"
+aiohttp = "^3.8.6"
 markdown = "^3.4"
 minilog = "^2.1"
 
