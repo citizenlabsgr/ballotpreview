@@ -201,6 +201,7 @@ async def _detail(route: str, identifier: dict):
         url = url_for(route, **identifier, **votes, _external=True).replace("%2C", ",")
         await api.update_ballot(slug, url)
         response = await make_response("", 200)
+        url = url_for(route, **identifier, **votes, _external=True)
         response.headers["HX-Location"] = url
         return response
 
