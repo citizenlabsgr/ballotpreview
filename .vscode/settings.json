@@ -11,10 +11,6 @@
         "setup.py": true
     },
     "python.defaultInterpreterPath": ".venv/bin/python",
-    "python.formatting.provider": "black",
-    "python.linting.enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.linting.pylintEnabled": true,
     "html.format.wrapAttributes": "force-aligned",
     "editor.formatOnSave": true,
     "cSpell.words": [
