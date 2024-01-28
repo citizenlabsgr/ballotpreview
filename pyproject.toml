@@ -22,7 +22,7 @@ pillow = "^10.2"
 # Utilities
 aiohttp = "^3.9.0"
 markdown = "^3.4"
-minilog = "^2.1"
+minilog = "^2.3"
 
 # Production
 bugsnag = "^4.0"

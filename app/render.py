@@ -11,7 +11,7 @@ from . import settings
 
 def election_image(target: str, election: dict) -> Path:
     if election:
-        lines = ["Michigan Election", election["date_humanized"]]
+        lines = [election["name"], election["date_humanized"]]
     else:
         lines = ["Michigan Election", "Ballot Preview"]
     return ballot_image(lines, target, positions=[], proposals=[], votes={})
