@@ -41,15 +41,19 @@ async def get_status(
     return data
 
 
-async def get_elections(*, active=None) -> list:
+async def get_elections(*, past: bool = True) -> list:
+    elections = []
+
     url = f"{settings.ELECTIONS_HOST}/api/elections/"
-    if active:
-        url += "?active=true"
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             data = await response.json()
 
-    return list(reversed(data["results"]))
+    for election in reversed(data["results"]):
+        if past or election["date"] > datetime.now().isoformat():
+            elections.append(election)
+
+    return elections
 
 
 async def get_election(election_id: int) -> dict:

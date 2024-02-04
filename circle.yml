@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/ballotpreview
 
     docker:
-      - image: cimg/python:3.11.5
+      - image: cimg/python:3.11.7
 
     steps:
       - checkout
