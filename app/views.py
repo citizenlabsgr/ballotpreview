@@ -26,7 +26,7 @@ bugsnag_quart.handle_exceptions(app)
 
 @app.route("/")
 async def index():
-    elections = await api.get_elections(active=True)
+    elections = await api.get_elections(past=False)
 
     for election in elections:
         if election["active"]:
@@ -37,11 +37,13 @@ async def index():
 
 @app.route("/banner.jpg")
 async def banner():
-    elections = await api.get_elections(active=True)
+    elections = await api.get_elections(past=False)
+
     target = request.args.get("target", "default")
     image = await asyncio.get_running_loop().run_in_executor(
         None, render.election_image, target, elections[0] if elections else {}
     )
+
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 
 
@@ -238,9 +240,11 @@ async def _detail(route: str, identifier: dict):
         positions=positions,
         proposals=proposals,
         votes=votes,
-        election_url=f"{settings.BUDDIES_HOST}?referrer={slug}"
-        if slug
-        else url_for("election_detail", election_id=ballot["election"]["id"]),
+        election_url=(
+            f"{settings.BUDDIES_HOST}?referrer={slug}"
+            if slug
+            else url_for("election_detail", election_id=ballot["election"]["id"])
+        ),
         buddies_url=f"{settings.BUDDIES_HOST}/friends/{slug}" if slug else "",
     )
 

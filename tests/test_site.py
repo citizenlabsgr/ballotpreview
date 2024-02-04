@@ -3,6 +3,7 @@
 from urllib.parse import unquote
 
 import pytest
+import time_machine
 
 
 def get_html(response):
@@ -12,6 +13,7 @@ def get_html(response):
 def describe_index():
     @pytest.mark.vcr
     @pytest.mark.asyncio
+    @time_machine.travel("2020-03-01")
     async def it_redirects_to_active_election(app, expect):
         client = app.test_client()
         response = await client.get("/")
@@ -22,6 +24,7 @@ def describe_index():
 def describe_banner():
     @pytest.mark.vcr
     @pytest.mark.asyncio
+    @time_machine.travel("2023-08-01")
     async def it_returns_an_image(app, expect):
         client = app.test_client()
         response = await client.get("/banner.jpg")

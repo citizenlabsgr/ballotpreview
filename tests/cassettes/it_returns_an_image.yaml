@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/elections/?active=true
+    uri: https://michiganelections.io/api/elections/
   response:
     body:
       string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/elections/51/","id":51,"name":"August
@@ -46,5 +46,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/elections/?active=true
+    url: https://michiganelections.io/api/elections/
 version: 1
