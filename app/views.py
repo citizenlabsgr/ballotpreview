@@ -44,7 +44,7 @@ async def banner():
         None, render.election_image, target, elections[0] if elections else {}
     )
 
-    return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
+    return await send_file(image, cache_timeout=60 * 60)
 
 
 @app.route("/about/")
