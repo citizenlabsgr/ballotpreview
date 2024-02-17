@@ -17,7 +17,8 @@ def banner_image(
     explore: bool = False,
 ) -> Path:
     if election and explore:
-        lines = ["Explore Ballots", f'{election["name"]}\n({election["date"]})']
+        year = election["date"].split("-")[0]
+        lines = ["Explore Ballots", f'{year} {election["name"]}']
     elif district and explore:
         if district["category"] in {"County"}:
             lines = ["Explore Ballots", f'{district["name"]} {district["category"]}']
