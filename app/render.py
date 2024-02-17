@@ -9,8 +9,37 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 from . import settings
 
 
-def election_image(target: str, election: dict) -> Path:
-    if election:
+def banner_image(
+    target: str,
+    *,
+    election: dict | None = None,
+    district: dict | None = None,
+    explore: bool = False,
+) -> Path:
+    if election and explore:
+        lines = ["Explore Ballots", f'{election["name"]}\n({election["date"]})']
+    elif district and explore:
+        if district["category"] in {"County"}:
+            lines = ["Explore Ballots", f'{district["name"]} {district["category"]}']
+        elif (
+            district["category"]
+            in {
+                "State",
+                "City",
+                "Township",
+                "Jurisdiction",
+                "Village",
+                "Ward",
+                "Precinct",
+            }
+            or "Library" in district["category"]
+            or "School" in district["category"]
+            or "Court" in district["category"]
+        ):
+            lines = ["Explore Ballots", district["name"]]
+        else:
+            lines = ["Explore Ballots", f'{district["name"]}\n({district["category"]})']
+    elif election:
         lines = [election["name"], election["date_humanized"]]
     else:
         lines = ["Michigan Election", "Ballot Preview"]
