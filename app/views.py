@@ -1,5 +1,6 @@
 import asyncio
 from collections import defaultdict
+from functools import partial
 
 import bugsnag
 import log
@@ -37,11 +38,17 @@ async def index():
 
 @app.route("/banner.jpg")
 async def banner():
-    elections = await api.get_elections(past=False)
+    if election_id := int(request.args.get("election_id", "0")):
+        kwargs = {"election": await api.get_election(election_id), "explore": True}
+    elif district_id := int(request.args.get("district_id", "0")):
+        kwargs = {"district": await api.get_district(district_id), "explore": True}
+    else:
+        elections = await api.get_elections(past=False)
+        kwargs = {"election": elections[0] if elections else None}
 
     target = request.args.get("target", "default")
     image = await asyncio.get_running_loop().run_in_executor(
-        None, render.election_image, target, elections[0] if elections else {}
+        None, partial(render.banner_image, target, **kwargs)
     )
 
     return await send_file(image, cache_timeout=60 * 60)
@@ -118,7 +125,7 @@ async def election_image(election_id: int):
     election = await api.get_election(election_id)
     target = request.args.get("target", "default")
     image = await asyncio.get_event_loop().run_in_executor(
-        None, render.election_image, target, election
+        None, partial(render.banner_image, target, election=election)
     )
     return await send_file(image, cache_timeout=settings.IMAGE_CACHE_TIMEOUT)
 

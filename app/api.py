@@ -65,6 +65,15 @@ async def get_election(election_id: int) -> dict:
     return data
 
 
+async def get_district(district_id: int) -> dict:
+    async with aiohttp.ClientSession() as session:
+        url = f"{settings.ELECTIONS_HOST}/api/districts/{district_id}/"
+        async with session.get(url) as response:
+            data = await response.json()
+
+    return data
+
+
 async def get_ballot(
     *, ballot_id: int = 0, election_id: int = 0, precinct_id: int = 0, party: str = ""
 ) -> tuple[dict, list, list]:
