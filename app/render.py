@@ -35,7 +35,6 @@ def banner_image(
             }
             or "Library" in district["category"]
             or "School" in district["category"]
-            or "Court" in district["category"]
         ):
             lines = ["Explore Ballots", district["name"]]
         else:

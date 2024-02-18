@@ -1,5 +1,6 @@
 # pylint: disable=redefined-outer-name,unused-argument,unused-variable,expression-not-assigned
 
+from unittest.mock import patch
 from urllib.parse import unquote
 
 import pytest
@@ -30,6 +31,36 @@ def describe_banner():
         response = await client.get("/banner.jpg")
         expect(response.status_code) == 200
         expect(response.content_type) == "image/jpeg"
+
+    @pytest.mark.vcr
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize(
+        ("parameter", "lines"),
+        [
+            (
+                "election_id=52",
+                ["Explore Ballots", "2023 November Consolidated"],
+            ),
+            (
+                "district_id=5",
+                ["Explore Ballots", "3rd District\n(Court of Appeals District)"],
+            ),
+            (
+                "district_id=7",
+                ["Explore Ballots", "Kent ISD"],
+            ),
+            (
+                "district_id=16",
+                ["Explore Ballots", "Macomb County"],
+            ),
+        ],
+    )
+    @patch("app.render.ballot_image")
+    async def it_can_be_customized(mock_ballot_image, app, expect, parameter, lines):
+        client = app.test_client()
+        response = await client.get(f"/banner.jpg?{parameter}&debug=true")
+        expect(response.status_code) == 200
+        expect(mock_ballot_image.call_args[0][0]) == lines
 
 
 def describe_election_list():

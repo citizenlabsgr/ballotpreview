@@ -51,6 +51,9 @@ async def banner():
         None, partial(render.banner_image, target, **kwargs)
     )
 
+    if "debug" in request.args:
+        return str(image)
+
     return await send_file(image, cache_timeout=60 * 60)
 
 
