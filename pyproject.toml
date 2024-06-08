@@ -11,7 +11,7 @@ packages = [{ include = "app" }]
 
 [tool.poetry.dependencies]
 
-python = "3.11.7"
+python = "3.11.9"
 
 # Server
 quart = "~0.18"
@@ -34,6 +34,7 @@ uvicorn = "~0.18.3"
 # Formatting
 black = "~22.12"
 isort = "~5.11"
+djlint = "^1.34.1"
 
 # Type Checking
 mypy = "^1.4"
