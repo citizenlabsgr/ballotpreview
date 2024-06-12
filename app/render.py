@@ -5,6 +5,7 @@ from pathlib import Path
 import bugsnag
 import log
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont
+from PIL.ImageFont import FreeTypeFont as FontType
 
 from . import settings
 
@@ -82,10 +83,8 @@ def ballot_image(
     # Background image
     img = Image.open(settings.IMAGES_DIRECTORY / "michigan.jpg")
     img = img.resize((width, height))
-    converter = ImageEnhance.Color(img)
-    img = converter.enhance(0.25)
-    converter = ImageEnhance.Brightness(img)
-    img = converter.enhance(0.75)
+    img = ImageEnhance.Color(img).enhance(0.25)
+    img = ImageEnhance.Brightness(img).enhance(0.75)
     draw = ImageDraw.Draw(img, "RGBA")
 
     # Title text
@@ -224,7 +223,7 @@ def _get_font(text: str, image_width: int, image_height: int, border: int):
     return font
 
 
-def _get_text_size(text: str, font: ImageFont) -> tuple[int, int]:
+def _get_text_size(text: str, font: FontType) -> tuple[int, int]:
     image = Image.new("RGB", (100, 100))
     draw = ImageDraw.Draw(image)
     bbox = draw.textbbox((0, 0), text, font)
