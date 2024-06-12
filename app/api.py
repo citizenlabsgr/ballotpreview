@@ -174,6 +174,7 @@ async def update_ballot(slug: str, url: str):
     log.info("Updating voter's ballot on Ballot Buddies")
     async with aiohttp.ClientSession() as session:
         url = f"{settings.BUDDIES_HOST}/api/update-ballot/"
+        log.info(f"POST {data} => {url}")
         async with session.post(url, data=data) as response:
             try:
                 data = await response.json()
@@ -183,6 +184,6 @@ async def update_ballot(slug: str, url: str):
 
             if response.status == 200:
                 message = data["message"].strip(".")
-                log.info(f"{response.status} response from API: {message}")
+                log.info(f"{response.status} response from {url} => {message}")
             else:
-                log.error(f"{response.status} response from API: {data}")
+                log.error(f"{response.status} response from {url} => {data}")
