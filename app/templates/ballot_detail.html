@@ -171,6 +171,13 @@ clipboard.on('error', function(event) {
     console.log(event);
 });
 
+document.body.addEventListener("htmx:afterSettle", function(evt) {
+    const saveToolbar = document.getElementById('save-toolbar');
+    if (window.location.hash.includes('#save')) {
+        saveToolbar.style.removeProperty('display');
+    }
+});
+
 </script>
 
 {% endblock %}

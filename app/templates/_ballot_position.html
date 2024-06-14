@@ -63,13 +63,15 @@
                 {% elif viewed %}
                 <button class="btn btn-link text-decoration-none p-0" title="Mark as unviewed"
                     hx-put=""
-                    hx-vals='{"show": "{{ candidate_key }}"}'>
+                    hx-vals='{"show": "{{ candidate_key }}"}'
+                    onClick="document.getElementById('save-toolbar').style.removeProperty('display');">
                     👁️
                 </button>
                 {% else %}
                 <button class="btn btn-link text-decoration-none p-0" title="Mark as viewed"
                     hx-put=""
-                    hx-vals='{"hide": "{{ candidate_key }}"}'>
+                    hx-vals='{"hide": "{{ candidate_key }}"}'
+                    onClick="document.getElementById('save-toolbar').style.removeProperty('display');">
                     👁️
                 </button>
                 {% endif %}

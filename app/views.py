@@ -210,11 +210,9 @@ async def _detail(route: str, identifier: dict):
     )
 
     if request.method == "PUT":
-        url = url_for(route, **identifier, **votes, _external=True).replace("%2C", ",")
-        await api.update_ballot(slug, url)
         response = await make_response("", 200)
         url = url_for(route, **identifier, **votes)
-        response.headers["HX-Location"] = url
+        response.headers["HX-Location"] = url + "#save"
         return response
 
     if request.method == "POST" or votes_changed:

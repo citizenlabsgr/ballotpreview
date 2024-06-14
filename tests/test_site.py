@@ -405,7 +405,7 @@ def describe_ballot_detail():
                 form={"hide": "candidate-17340"},
             )
             params = response.headers["HX-Location"].split("?")[-1]
-            expect(params) == "viewed=candidate-17339,candidate-17340"
+            expect(params) == "viewed=candidate-17339,candidate-17340#save"
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -416,7 +416,7 @@ def describe_ballot_detail():
                 form={"show": "candidate-17340"},
             )
             params = response.headers["HX-Location"].split("?")[-1]
-            expect(params) == "viewed=candidate-17341"
+            expect(params) == "viewed=candidate-17341#save"
 
 
 def describe_ballot_share_preview():
