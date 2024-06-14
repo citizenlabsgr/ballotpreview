@@ -2,19 +2,19 @@
     <img src="{{ ballot_url }}{{ item }}/{{ choice }}.jpg" loading="lazy" height="200">
 
     <div>
-        <a class="btn btn-outline-dark btn-sm mt-2 mr-1" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" target="_blank" role="button">
+        <a class="btn btn-outline-dark btn-sm mt-2 me-1" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" target="_blank" role="button">
             🔗
             &nbsp;
             Facebook
         </a>
 
-        <a class="btn btn-outline-dark btn-sm mt-2 mr-1" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" target="_blank" role="button">
+        <a class="btn btn-outline-dark btn-sm mt-2 me-1" href="https://twitter.com/intent/tweet?text={{ request.url.replace('&', '%26') }}{{ item }}~{{ choice }}" target="_blank" role="button">
             🔗
             &nbsp;
             Twitter
         </a>
 
-        <button class="btn btn-outline-dark btn-sm mt-2 mr-1" data-clipboard-text="{{ request.url }}{{ item }}~{{ choice }}">
+        <button class="btn btn-outline-dark btn-sm mt-2 me-1" data-clipboard-text="{{ request.url }}{{ item }}~{{ choice }}">
             📋
             &nbsp;
             Copy Link
