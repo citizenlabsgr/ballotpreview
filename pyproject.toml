@@ -25,7 +25,7 @@ markdown = "^3.4"
 minilog = "^2.3"
 
 # Production
-bugsnag = "^4.0"
+bugsnag = "^4.7.1"
 gunicorn = "~22.0.0"
 uvicorn = "~0.18.3"
 

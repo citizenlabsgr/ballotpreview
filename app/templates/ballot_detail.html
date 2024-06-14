@@ -67,7 +67,7 @@ Voting Plan
         {% if "recently_moved=true" in request.query_string|string %}
         <div class="alert alert-warning" role="alert">
             Records indicate you've recently moved, which may affect where you can vote.
-            Please check with the <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank">Secretary of State<a>
+            Please check with the <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank" class="text-decoration-none">Secretary of State<a>
             for more information.
         </div>
         {% endif %}
@@ -78,9 +78,9 @@ Voting Plan
             <br><br>
             <small>
                 Something seem off? View your
-                <a href="{{ ballot['mvic_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank">official ballot<a>
+                <a href="{{ ballot['mvic_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank" class="text-decoration-none">official ballot<a>
                 and open
-                <a href="https://github.com/citizenlabsgr/ballotpreview/issues" target="_blank">an issue</a>
+                <a href="https://github.com/citizenlabsgr/ballotpreview/issues" target="_blank" class="text-decoration-none">an issue</a>
                 to let us know.
             </small>
         </div>
@@ -130,10 +130,10 @@ Voting Plan
 
 <div class="py-5" id="save-toolbar" style="display: none;">
     <div class="p-3 fixed-bottom bg-dark">
-        <span class="py-2 float-left text-light">
+        <span class="py-2 float-start text-light">
             Once you're done filling out your ballot, we'll generate a unique URL for you to share.
         </span>
-        <span class="float-right">
+        <span class="float-end">
             <button type="submit" class="btn btn-success">
                 Save Choices
             </button>
