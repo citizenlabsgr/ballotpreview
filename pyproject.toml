@@ -54,12 +54,12 @@ pomace = { version = "~0.12", optional = true }
 time-machine = "*"
 
 # Coverage
-coveragespace = "^6.0"
+coveragespace = "^6.1"
 coveralls = "*"
 
 # Utilities
-honcho = "^1.0"
-rope = "^0.14.0"
+honcho = "^1.1"
+rope = "*"
 
 [tool.poetry.extras]
 

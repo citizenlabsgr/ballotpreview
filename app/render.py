@@ -62,12 +62,12 @@ def ballot_image(
     fill = settings.BLACK
     if isinstance(share, list):
         title, response = share
-    elif "-" not in share:
-        title = "Michigan Election"
-        response = "Ballot Preview"
-    else:
+    elif "-" in share and (positions or proposals):
         title = _get_title(share, positions, proposals)
         mark, fill, response = _get_response(share, positions, proposals, votes)
+    else:
+        title = "Michigan Election"
+        response = "Ballot Preview"
 
     if path is None:
         variant = title + mark + response + target
@@ -148,7 +148,7 @@ def _get_title(share: str, positions: list, proposals: list):
             if proposal["id"] == key:
                 return _shorten(proposal["name"])
 
-    raise LookupError(f"{share} not found in {positions} or {proposals}")
+    raise LookupError(f"{share} not found in {positions=} or {proposals=}")
 
 
 def _shorten(text: str, district: str = "") -> str:
