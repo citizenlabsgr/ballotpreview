@@ -47,12 +47,13 @@
                     {% if selected %}checked{% endif %}
                     {% if share %}style="pointer-events:none;"{% endif %}>
             <label class="form-check-label" for="{{ position_key }}">
-                {{ candidate['name'] }}
 
                 {% if candidate['reference_url'] %}
-                <a href="{{ candidate['reference_url'] }}" target="_blank" class="text-decoration-none no-print" title="Open link">
-                    🔗
+                <a href="{{ candidate['reference_url'] }}" target="_blank" class="text-decoration-none">
+                    {{ candidate['name'] }}
                 </a>
+                {% else %}
+                    {{ candidate['name'] }}
                 {% endif %}
 
                 <span class="text-muted">
