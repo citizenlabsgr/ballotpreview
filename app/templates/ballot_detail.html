@@ -131,7 +131,11 @@ Voting Plan
 <div class="py-5" id="save-toolbar" style="display: none;">
     <div class="p-3 fixed-bottom bg-dark d-flex flex-column flex-md-row justify-content-between align-items-center">
         <span class="py-2 text-light flex-grow-1 mb-2 mb-md-0 me-md-3 text-center text-md-start">
+            {% if buddies_url %}
+            Once you're done filling out your ballot, we'll update Ballot Buddies to share your progress.
+            {% else %}
             Once you're done filling out your ballot, we'll generate a unique URL for you to share.
+            {% endif %}
         </span>
         <span class="d-flex align-items-center justify-content-center">
             <button type="submit" class="btn btn-success text-nowrap me-2">
