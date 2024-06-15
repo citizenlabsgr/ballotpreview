@@ -5,7 +5,7 @@
 <h4>
     {{ position['name'] }}
     {% if position['reference_url'] %}
-        <a href="{{ position['reference_url']}}" target="_blank" class="no-print">🔗</a>
+        <a href="{{ position['reference_url'] }}" target="_blank" class="no-print">🔗</a>
     {% endif %}
     <span class="text-muted">
         ({{ position['district']['name'] }})
@@ -50,7 +50,7 @@
                 {{ candidate['name'] }}
 
                 {% if candidate['reference_url'] %}
-                <a href="{{ candidate['reference_url']}}" target="_blank" class="text-decoration-none no-print" title="Open link">
+                <a href="{{ candidate['reference_url'] }}" target="_blank" class="text-decoration-none no-print" title="Open link">
                     🔗
                 </a>
                 {% endif %}
@@ -61,18 +61,19 @@
 
                 {% if selected or share %}
                 {% elif viewed %}
-                <button class="btn btn-link text-decoration-none p-0" title="Mark as unviewed"
+                <button class="btn btn-link text-decoration-none p-0" title="Show candiate"
                     hx-put=""
                     hx-vals='{"show": "{{ candidate_key }}"}'
                     onClick="document.getElementById('save-toolbar').style.removeProperty('display');">
                     👁️
                 </button>
                 {% else %}
-                <button class="btn btn-link text-decoration-none p-0" title="Mark as viewed"
+                <button class="btn btn-link text-decoration-none p-0" title="Hide candidate"
                     hx-put=""
                     hx-vals='{"hide": "{{ candidate_key }}"}'
-                    onClick="document.getElementById('save-toolbar').style.removeProperty('display');">
-                    👁️
+                    onClick="document.getElementById('save-toolbar').style.removeProperty('display');"
+                    style="filter: contrast(50%)">
+                    🚫
                 </button>
                 {% endif %}
             </label>
