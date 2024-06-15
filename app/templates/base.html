@@ -36,7 +36,7 @@
         <meta property="twitter:description" content="Share how you plan to vote in Michigan.">
         <meta property="twitter:image" content="{{ request.url }}banner.jpg?target=twitter">
 
-        {% endblock %}
+        {% endblock meta %}
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}" />
@@ -62,7 +62,7 @@
             <div class="row justify-content-center mt-sm-5 mt-2 mb-5">
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     {% include "_nav.html" %}
-                    {% block content %}{% endblock %}
+                    {% block content %}{% endblock content %}
                 </div>
             </div>
         </div>
@@ -80,6 +80,6 @@
             </div>
         </footer>
 
-        {% block scripts %}{% endblock %}
+        {% block scripts %}{% endblock scripts %}
     </body>
 </html>

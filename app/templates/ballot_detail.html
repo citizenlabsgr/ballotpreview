@@ -23,7 +23,7 @@
 <meta property="twitter:description" content="Check out {% if name %}{{ name }}'s{% else %}my{% endif %} plan for the {{ ballot['election']['name'] }} election.">
 <meta property="twitter:image" content="{{ request.url|safe }}&target=twitter">
 
-{% endblock %}
+{% endblock meta %}
 {% block content %}
 
 <form action="{{ request.url }}" method="post">
@@ -67,7 +67,7 @@ Voting Plan
         {% if "recently_moved=true" in request.query_string|string %}
         <div class="alert alert-warning" role="alert">
             Records indicate you've recently moved, which may affect where you can vote.
-            Please check with the <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank" class="text-decoration-none">Secretary of State<a>
+            Please check with the <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank" class="text-decoration-none">Secretary of State</a>
             for more information.
         </div>
         {% endif %}
@@ -78,7 +78,7 @@ Voting Plan
             <br><br>
             <small>
                 Something seem off? View your
-                <a href="{{ ballot['mvic_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank" class="text-decoration-none">official ballot<a>
+                <a href="{{ ballot['mvic_url'] or 'https://mvic.sos.state.mi.us' }}" target="_blank" class="text-decoration-none">official ballot</a>
                 and open
                 <a href="https://github.com/citizenlabsgr/ballotpreview/issues" target="_blank" class="text-decoration-none">an issue</a>
                 to let us know.
@@ -129,13 +129,16 @@ Voting Plan
 {% endif %}
 
 <div class="py-5" id="save-toolbar" style="display: none;">
-    <div class="p-3 fixed-bottom bg-dark">
-        <span class="py-2 float-start text-light">
+    <div class="p-3 fixed-bottom bg-dark d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <span class="py-2 text-light flex-grow-1 mb-2 mb-md-0 me-md-3 text-center text-md-start">
             Once you're done filling out your ballot, we'll generate a unique URL for you to share.
         </span>
-        <span class="float-end">
-            <button type="submit" class="btn btn-success">
+        <span class="d-flex align-items-center justify-content-center">
+            <button type="submit" class="btn btn-success text-nowrap me-2">
                 Save Choices
+            </button>
+            <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('save-toolbar').style.display='none';">
+                &times;
             </button>
         </span>
     </div>
@@ -143,7 +146,7 @@ Voting Plan
 
 </form>
 
-{% endblock %}
+{% endblock content %}
 {% block scripts %}
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

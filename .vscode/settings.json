@@ -12,6 +12,7 @@
     },
     "python.defaultInterpreterPath": ".venv/bin/python",
     "html.format.wrapAttributes": "force-aligned",
+    "djlint.ignore": ["H021", "H023"],
     "editor.formatOnSave": true,
     "cSpell.words": [
         "aiohttp",
