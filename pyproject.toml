@@ -14,7 +14,7 @@ packages = [{ include = "app" }]
 python = "3.11.9"
 
 # Server
-quart = "~0.18"
+quart = "~0.19.6"
 
 # Images
 pillow = "^10.3"
@@ -27,7 +27,7 @@ minilog = "^2.3"
 # Production
 bugsnag = "^4.7.1"
 gunicorn = "~22.0.0"
-uvicorn = "~0.18.3"
+uvicorn = "~0.30.1"
 
 [tool.poetry.group.dev.dependencies]
 
