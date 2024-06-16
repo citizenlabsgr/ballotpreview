@@ -6,6 +6,7 @@ doctor: ## Check for required system dependencies
 	bin/verchew --exit-code
 
 .envrc:
+	echo export QUART_APP=app.views:app >> $@
 	echo export #BUGSNAG_API_KEY=??? >> $@
 	echo >> $@
 	echo export ELECTIONS_HOST=https://michiganelections.io >> $@
