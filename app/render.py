@@ -199,7 +199,7 @@ def _get_response(share: str, positions: list, proposals: list, votes: dict):
             vote.title(),
         )
 
-    raise LookupError(f"{vote=} not found in {positions=} or {proposals=}")
+    raise LookupError(f"{vote} not found in {positions} or {proposals}")
 
 
 def _get_font(text: str, image_width: int, image_height: int, border: int):
