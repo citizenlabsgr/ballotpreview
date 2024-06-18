@@ -59,10 +59,12 @@ Voting Plan
             Find Your Ballot
         </a>
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
+        {% if not buddies_url %}
         <div class="btn-group">
         {% include "_ballot_plan.html" %}
         {% include "_ballot_share.html" %}
         </div>
+        {% endif %}
     {% else %}
         {% if "recently_moved=true" in request.query_string|string %}
         <div class="alert alert-warning" role="alert">
@@ -73,8 +75,13 @@ Voting Plan
         {% endif %}
         {% if "share=" not in request.query_string|string %}
         <div class="alert alert-info" role="alert">
+            {% if buddies_url %}
+            Fill out this sample ballot to share with your friends on Ballot Buddies.
+            You can continue to make changes as you reserach canidates and proposals.
+            {% else %}
             Fill out this sample ballot to share with your friends and family.
             No one will see your choices until you decide to share the link we generate.
+            {% endif %}
             <br><br>
             <small>
                 Something seem off? View your
