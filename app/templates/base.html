@@ -59,27 +59,14 @@
     </head>
     <body>
         <div class="container">
-            <div class="row justify-content-center mt-sm-5 mt-2 mb-5">
+            <div class="row justify-content-center mt-sm-5 mt-2">
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     {% include "_nav.html" %}
                     {% block content %}{% endblock content %}
                 </div>
             </div>
         </div>
-
-        <footer class="footer no-print">
-            <div class="container text-center">
-                <small class="text-muted">
-                    <a class="text-muted text-decoration-none" href="{{ url_for('about') }}"><b>Ballot Preview</b></a>
-                    is an
-                    <a class="text-muted text-decoration-none" href="https://github.com/citizenlabsgr/ballotpreview" target="_blank"><b>open source</b></a>
-                    project by
-                    <a class="text-muted text-decoration-none" href="https://citizenlabs.org/" target="_blank">
-                    <b>Citizen Labs</b></a>.
-                </small>
-            </div>
-        </footer>
-
+        {% include "_footer.html" %}
         {% block scripts %}{% endblock scripts %}
     </body>
 </html>
