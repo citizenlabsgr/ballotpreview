@@ -106,22 +106,19 @@ Voting Plan
 <div class="mb-4">
 {% if positions %}
     <hr>
-    <h2>Positions</h2>
-    {% if "Primary" in ballot['election']['name'] and "party=" not in request.query_string|string %}
-        <div class="btn-group" role="group" hx-boost="true" hx-indicator="#spinner">
-        {% if request.query_string %}
-            <a href="{{ request.url }}&party=Democratic" class="btn btn-outline-dark" role="button">Democratic Primary Ballot</a>
-            <a href="{{ request.url }}&party=Republican" class="btn btn-outline-dark" role="button">Republican Primary Ballot</a>
-        {% else %}
-            <a href="{{ request.url }}?party=Democratic" class="btn btn-outline-dark" role="button">Democratic Primary Ballot</a>
-            <a href="{{ request.url }}?party=Republican" class="btn btn-outline-dark" role="button">Republican Primary Ballot</a>
-        {% endif %}
+    <div class="d-flex justify-content-between">
+        <h2>Positions</h2>
+        <div>
+            {% if "Primary" in ballot['election']['name'] %}
+            {% include "_ballot_party.html" %}
+            {% endif %}
         </div>
-    {% else %}
-        {% for position in positions if position['candidates'] %}
-            {% include "_ballot_position.html" %}
-        {% endfor %}
-    {% endif %}
+    </div>
+
+    {% for position in positions if position['candidates'] %}
+        {% include "_ballot_position.html" %}
+    {% endfor %}
+
 {% endif %}
 
 {% if proposals %}
