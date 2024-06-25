@@ -108,7 +108,7 @@ Voting Plan
     <hr>
     <h2>Positions</h2>
     {% if "Primary" in ballot['election']['name'] and "party=" not in request.query_string|string %}
-        <div class="btn-group" role="group">
+        <div class="btn-group" role="group" hx-boost="true" hx-indicator="#spinner">
         {% if request.query_string %}
             <a href="{{ request.url }}&party=Democratic" class="btn btn-outline-dark" role="button">Democratic Primary Ballot</a>
             <a href="{{ request.url }}&party=Republican" class="btn btn-outline-dark" role="button">Republican Primary Ballot</a>
@@ -143,10 +143,10 @@ Voting Plan
             {% endif %}
         </span>
         <span class="d-flex align-items-center justify-content-center">
-            <button type="submit" class="btn btn-success text-nowrap me-2">
+            <button type="submit" class="btn btn-success text-nowrap me-2" onclick="showSpinner();">
                 Save Choices
             </button>
-            <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('save-toolbar').style.display='none';">
+            <button type="button" class="btn btn-outline-secondary" onclick="hideToolbar();">
                 &times;
             </button>
         </span>
@@ -189,6 +189,14 @@ document.body.addEventListener("htmx:afterSettle", function(evt) {
         saveToolbar.style.removeProperty('display');
     }
 });
+
+function showSpinner() {
+    document.getElementById('spinner').classList.remove('htmx-indicator');
+}
+
+function hideToolbar() {
+    document.getElementById('save-toolbar').style.display = 'none';
+}
 
 </script>
 

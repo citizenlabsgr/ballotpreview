@@ -5,7 +5,7 @@
 <h4>
     {{ position['name'] }}
     {% if position['reference_url'] %}
-        <a href="{{ position['reference_url'] }}" target="_blank" class="no-print">🔗</a>
+        <a href="{{ position['reference_url'] }}" target="_blank" class="no-print text-decoration-none">🔗</a>
     {% endif %}
     <span class="text-muted">
         ({{ position['district']['name'] }})
@@ -17,7 +17,7 @@
         <small>
             {{ position['description'].replace('\n\n', '<p class="mb-3"></p>')|safe or "(no description)" }}
             {% if not position['description'] and "share=" not in request.query_string|string or "name=" not in request.query_string|string %}
-                <a href="{{ position['description_edit_url'] }}" target="_blank" class="no-print">✎</a>
+                <a href="{{ position['description_edit_url'] }}" target="_blank" class="no-print text-decoration-none">✎</a>
             {% endif %}
         </small>
     </p>
@@ -65,6 +65,7 @@
                 <button class="btn btn-link text-decoration-none p-0" title="Show candiate"
                     hx-put=""
                     hx-vals='{"show": "{{ candidate_key }}"}'
+                    hx-indicator="#spinner"
                     onClick="document.getElementById('save-toolbar').style.removeProperty('display');">
                     👁️
                 </button>
@@ -72,6 +73,7 @@
                 <button class="btn btn-link text-decoration-none p-0" title="Hide candidate"
                     hx-put=""
                     hx-vals='{"hide": "{{ candidate_key }}"}'
+                    hx-indicator="#spinner"
                     onClick="document.getElementById('save-toolbar').style.removeProperty('display');"
                     style="filter: contrast(50%)">
                     🚫

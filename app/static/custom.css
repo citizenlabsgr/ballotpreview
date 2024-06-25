@@ -30,14 +30,21 @@ body {
   }
 }
 
-/* Sticky footer
+/* Sticky header and footer
 ---------------------------------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
 body {
-  margin-bottom: 60px; /* Margin bottom by footer height */
+  margin-bottom: 60px; /* Set margin bottom to footer height */
+}
+.header {
+  position: fixed;
+  top: 12px; /* Align the corner with container-fluid */
+  width: 100%;
+  background-color: transparent;
+  z-index: 1000; /* Ensure header stays on top */
 }
 .footer {
   position: absolute;
