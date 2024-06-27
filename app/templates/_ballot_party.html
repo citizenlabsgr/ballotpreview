@@ -1,18 +1,20 @@
 {% set current_party = request.args.get('party') %}
 {% set share = "share=" in request.query_string|string %}
 
-<span class="me-1">Select:</span>
+{% if not current_party %}
+<span class="me-1 fw-bold">Select:</span>
+{% endif %}
 
 <div class="btn-group" role="group" hx-indicator="#spinner" {% if share %}style="pointer-events:none;"{% endif %}>
 
-    <button type="button" class="btn btn-sm btn-outline-dark {% if current_party == 'Democratic' %}active{% endif %}"
+    <button type="button" class="btn btn-sm btn-outline-{{ 'secondary' if current_party else 'dark' }} {% if current_party == 'Democratic' %}active{% endif %}"
         hx-put=""
         hx-vals='{"party": "{{ 'Democratic' if current_party != 'Democratic' else '' }}"}'
         hx-indicator="#spinner">
         Democratic
     </button>
 
-    <button type="button" class="btn btn-sm btn-outline-dark {% if current_party == 'Republican' %}active{% endif %}"
+    <button type="button" class="btn btn-sm btn-outline-{{ 'secondary' if current_party else 'dark' }} {% if current_party == 'Republican' %}active{% endif %}"
         hx-put=""
         hx-vals='{"party": "{{ 'Republican' if current_party != 'Republican' else '' }}"}'
         hx-indicator="#spinner">
