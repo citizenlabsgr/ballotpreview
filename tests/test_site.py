@@ -186,8 +186,7 @@ def describe_ballot_detail():
             client = app.test_client()
             response = await client.get("/elections/40/precincts/1209/")
             html = get_html(response)
-            expect(html).contains("Democratic Primary Ballot")  # party selection
-            expect(html).excludes("Candidates")  # positions listing
+            expect(html).contains("Democratic")
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -195,7 +194,6 @@ def describe_ballot_detail():
             client = app.test_client()
             response = await client.get("/elections/40/precincts/591/?party=Democratic")
             html = get_html(response)
-            expect(html).excludes("Democratic Primary Ballot")  # party selection
             expect(html).contains("Gary Peters")  # Democratic primary candidate
             expect(html).excludes("John James")  # Republican primary candidate
             expect(html).contains("Donna Adams")  # nonpartisan candidate

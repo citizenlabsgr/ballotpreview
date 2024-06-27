@@ -49,7 +49,12 @@ def validate_ballot(
             votes_changed = True
 
     for key, value in actions.items(multi=True):
-        if key == "hide":
+        if key == "party":
+            if value:
+                votes["party"] = value
+            else:
+                del votes["party"]
+        elif key == "hide":
             try:
                 votes["viewed"].append(value)
             except KeyError:
