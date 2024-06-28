@@ -12,7 +12,7 @@ def run():
     log.silence("asyncio", "quart.serving")
     while True:
         try:
-            from app.views import app
+            from app.views import app  # pylint: disable=import-outside-toplevel
         except Exception:
             traceback.print_exc()
             print()
