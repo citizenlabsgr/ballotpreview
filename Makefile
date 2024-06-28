@@ -1,6 +1,12 @@
 ###############################################################################
 # System Dependencies
 
+.PHONY: bootstrap
+bootstrap: ## Attempt to install system dependencies
+	asdf plugin add python || asdf plugin update python
+	asdf plugin add poetry || asdf plugin update poetry
+	asdf install
+
 .PHONY: doctor
 doctor: ## Check for required system dependencies
 	bin/verchew --exit-code

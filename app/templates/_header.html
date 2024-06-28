@@ -1,7 +1,45 @@
 <header class="header">
-    <div class="container-fluid text-center">
-        <div id="spinner" class="spinner-border text-secondary float-end htmx-indicator" role="status">
+
+    <div class="container-fluid d-flex justify-content-between">
+
+        {% if buddies_url %}
+        <div class="text-nowrap" id="buddies">
+            <a class="btn btn-danger" href="{{ buddies_url }}" role="button">
+                ⇦ Return to Ballot Buddies
+            </a>
+        </div>
+        {% endif %}
+
+        <div id="spinner" class="spinner-border text-secondary htmx-indicator" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
+
 </header>
+
+{% if buddies_url %}
+<br class="mb-5 mb-sm-0">
+{% endif %}
+
+<script>
+    var returnButton = document.getElementById('buddies');
+
+    if (returnButton) {
+        window.addEventListener('scroll', function() {
+            var fadeStart = 10;
+            var fadeUntil = 100;
+            var scroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            var opacity;
+            if (scroll <= fadeStart) {
+                opacity = 1.0;
+            } else if (scroll <= fadeUntil) {
+                opacity = 1.0 - 0.25 * ((scroll - fadeStart) / (fadeUntil - fadeStart));
+            } else {
+                opacity = 0.75;
+            }
+
+            returnButton.style.opacity = opacity;
+        });
+    }
+</script>
