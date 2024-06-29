@@ -16,6 +16,8 @@ python = "3.11.9"
 # Server
 quart = "~0.18.4"
 werkzeug = "<3"  # 3.x doesn't work with quart 0.18
+bugsnag = "^4.7.1"
+livereload = "*"
 
 # Images
 pillow = "^10.3"
@@ -26,7 +28,6 @@ markdown = "^3.4"
 minilog = "^2.3"
 
 # Production
-bugsnag = "^4.7.1"
 gunicorn = "~22.0.0"
 uvicorn = "~0.30.1"
 
