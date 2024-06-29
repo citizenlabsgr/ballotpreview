@@ -26,7 +26,7 @@
 {% endblock meta %}
 {% block content %}
 
-<form action="{{ request.url }}" method="post">
+<form action="{{ request.url }}" method="post" {% if buddies_url %}style="margin-top: 60px"{% endif %}>
 
 <h1 class="no-print">
 {% if "share=" in request.query_string|string %}
@@ -197,4 +197,4 @@ function hideToolbar() {
 
 </script>
 
-{% endblock %}
+{% endblock scripts %}
