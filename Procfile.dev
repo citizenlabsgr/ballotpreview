@@ -1,0 +1,2 @@
+preview: make run PORT=5000 BUDDIES_HOST=http://localhost:8000
+buddies: make run --directory ../ballotbuddies PORT=8000 PREVIEW_HOST=http://localhost:5000

@@ -77,8 +77,12 @@ dev: install ## Run all CI targets (loop)
 run: .envrc install ## Run the development server
 	poetry run python main.py
 
-.PHONY: run-production
-run-production: .envrc install
+.PHONY: run/buddies
+run/buddies: .envrc install
+	heroku local --procfile=Procfile.dev
+
+.PHONY: run/production
+run/production: .envrc install
 	poetry run heroku local
 
 ###############################################################################
