@@ -933,6 +933,28 @@ hpack = ">=4.0,<5"
 hyperframe = ">=6.0,<7"
 
 [[package]]
+name = "honcho"
+version = "1.1.0"
+description = "Honcho: a Python clone of Foreman. For managing Procfile-based applications."
+optional = false
+python-versions = "*"
+files = []
+develop = false
+
+[package.dependencies]
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+docs = ["sphinx"]
+export = ["jinja2 (>=3.1.2,<4)"]
+
+[package.source]
+type = "git"
+url = "https://github.com/jacebrowning/honcho"
+reference = "support-importlib"
+resolved_reference = "ce96b41796ad3072abc90cfab857063a0da4610f"
+
+[[package]]
 name = "hpack"
 version = "4.0.0"
 description = "Pure-Python HPACK header compression"
@@ -3062,4 +3084,4 @@ e2e = ["pomace"]
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.9"
-content-hash = "213c03f98e7e22e7617e0862ac37d7ab8d445b785ac9a09d93b790bf61635463"
+content-hash = "1cd0c32400690b47e485846e5db6de01b1222daf6981ff0cb8bae04d6d8b79c7"

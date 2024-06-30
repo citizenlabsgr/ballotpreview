@@ -17,7 +17,6 @@ python = "3.11.9"
 quart = "~0.18.4"
 werkzeug = "<3"  # 3.x doesn't work with quart 0.18
 bugsnag = "^4.7.1"
-livereload = "*"
 
 # Images
 pillow = "^10.3"
@@ -61,6 +60,10 @@ time-machine = "*"
 # Coverage
 coveragespace = "^6.1"
 coveralls = "*"
+
+# Development
+honcho = { git = "https://github.com/jacebrowning/honcho", branch = "support-importlib" }
+livereload = "*"
 
 [tool.poetry.extras]
 
