@@ -73,13 +73,19 @@ dev: install ## Run all CI targets (loop)
 ###############################################################################
 # Server Tasks
 
+HONCHO := .venv/bin/honcho
+
 .PHONY: run
 run: .envrc install ## Run the development server
+ifdef PORT
 	poetry run python main.py
+else
+	$(HONCHO) start --no-prefix --procfile=Procfile.dev preview reload
+endif
 
 .PHONY: run/buddies
 run/buddies: .envrc install
-	heroku local --procfile=Procfile.dev
+	$(HONCHO) start --procfile=Procfile.dev
 
 .PHONY: run/production
 run/production: .envrc install

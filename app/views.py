@@ -25,6 +25,11 @@ app = Quart(__name__)
 bugsnag_quart.handle_exceptions(app)
 
 
+@app.context_processor
+def inject_debug_flag():
+    return {"debug": app.debug}
+
+
 @app.route("/")
 async def index():
     elections = await api.get_elections(past=False)
