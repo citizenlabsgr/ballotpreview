@@ -17,6 +17,7 @@ async def get_status(
 
     async with aiohttp.ClientSession() as session:
         url = f"{settings.ELECTIONS_HOST}/api/registrations/?first_name={first_name}&last_name={last_name}&birth_date={birth_date}&zip_code={zip_code}"
+        log.info(f"GET {url}")
         async with session.get(url) as response:
             try:
                 data = await response.json()
@@ -46,6 +47,7 @@ async def get_elections(*, past: bool = True) -> list:
 
     url = f"{settings.ELECTIONS_HOST}/api/elections/"
     async with aiohttp.ClientSession() as session:
+        log.info(f"GET {url}")
         async with session.get(url) as response:
             data = await response.json()
 
@@ -59,6 +61,7 @@ async def get_elections(*, past: bool = True) -> list:
 async def get_election(election_id: int) -> dict:
     async with aiohttp.ClientSession() as session:
         url = f"{settings.ELECTIONS_HOST}/api/elections/{election_id}/"
+        log.info(f"GET {url}")
         async with session.get(url) as response:
             data = await response.json()
 
@@ -68,6 +71,7 @@ async def get_election(election_id: int) -> dict:
 async def get_district(district_id: int) -> dict:
     async with aiohttp.ClientSession() as session:
         url = f"{settings.ELECTIONS_HOST}/api/districts/{district_id}/"
+        log.info(f"GET {url}")
         async with session.get(url) as response:
             data = await response.json()
 
@@ -81,6 +85,7 @@ async def get_ballot(
         assert not (election_id or precinct_id)
         url = f"{settings.ELECTIONS_HOST}/api/ballots/{ballot_id}/"
         async with aiohttp.ClientSession() as session:
+            log.info(f"GET {url}")
             async with session.get(url) as response:
                 if response.status == 200:
                     ballot = await response.json()
@@ -89,6 +94,7 @@ async def get_ballot(
     else:
         url = f"{settings.ELECTIONS_HOST}/api/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
         async with aiohttp.ClientSession() as session:
+            log.info(f"GET {url}")
             async with session.get(url) as response:
                 data = await response.json()
                 try:
@@ -135,6 +141,7 @@ async def get_positions(
     async with aiohttp.ClientSession() as session:
         if party:
             url += f"&section={party}"
+        log.info(f"GET {url}")
         async with session.get(url) as response:
             positions = await response.json()
 
@@ -151,6 +158,7 @@ async def get_proposals(
         url = f"{settings.ELECTIONS_HOST}/api/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
 
     async with aiohttp.ClientSession() as session:
+        log.info(f"GET {url}")
         async with session.get(url) as response:
             proposals = await response.json()
 
