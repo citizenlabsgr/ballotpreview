@@ -36,26 +36,43 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
 
 <script>
 
-// Clipboard
-
 var clipboard = new Clipboard('.btn');
-
 clipboard.on('success', function(event) {
-    $.notify({
-        message: 'Ballot preview link copied to the clipboard!',
-    }, {
-        type: 'success',
-        delay: 3000,
-    });
+    showAlert();
+});
+clipboard.on('error', function(event) {
+    console.error(event);
 });
 
-clipboard.on('error', function(event) {
-    console.log(event);
-});
+function showAlert() {
+    var alertDiv = document.createElement('div');
+    alertDiv.className = 'alert alert-success fade show';
+    alertDiv.setAttribute('role', 'alert');
+    alertDiv.style.position = 'fixed';
+    alertDiv.style.top = '10px';
+    alertDiv.style.right = '10px';
+    alertDiv.innerHTML = 'Link copied to the clipboard!';
+
+    document.body.appendChild(alertDiv);
+
+    // Display full width on small screens
+    if (window.innerWidth < 576) {
+        alertDiv.style.top = '5px';
+        alertDiv.style.left = '5px';
+        alertDiv.style.width = 'calc(100% - 10px)';
+    }
+
+    setTimeout(function() {
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        setTimeout(function() {
+            alertDiv.remove();
+        }, 150);
+    }, 3000);
+}
 
 </script>
 
