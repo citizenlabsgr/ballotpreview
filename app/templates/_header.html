@@ -2,17 +2,18 @@
 
     <div class="container-fluid d-flex justify-content-between">
 
-        {% if buddies_url %}
         <div class="text-nowrap" id="buddies">
+            {% if buddies_url %}
             <a class="btn btn-danger" href="{{ buddies_url }}" role="button">
                 ⇦ Return to Ballot Buddies
             </a>
+            {% endif %}
         </div>
-        {% endif %}
 
         <div id="spinner" class="spinner-border text-secondary htmx-indicator" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
+
     </div>
 
 </header>
