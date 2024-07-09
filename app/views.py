@@ -246,6 +246,13 @@ async def _detail(route: str, identifier: dict):
             if f"proposal-{proposal['id']}" not in votes:
                 proposals.remove(proposal)
 
+    if slug:
+        election_url = f"{settings.BUDDIES_HOST}?referrer={slug}"
+        buddies_url = f"{settings.BUDDIES_HOST}/friends/{slug}"
+    else:
+        election_url = url_for("election_detail", election_id=ballot["election"]["id"])
+        buddies_url = ""
+
     return await render_template(
         "ballot_detail.html",
         name=name,
@@ -253,16 +260,15 @@ async def _detail(route: str, identifier: dict):
         positions=positions,
         proposals=proposals,
         votes=votes,
-        election_url=(
-            f"{settings.BUDDIES_HOST}?referrer={slug}"
-            if slug
-            else url_for("election_detail", election_id=ballot["election"]["id"])
-        ),
-        buddies_url=f"{settings.BUDDIES_HOST}/friends/{slug}" if slug else "",
+        election_url=election_url,
+        buddies_url=buddies_url,
     )
 
 
 async def _share(route: str, identifier: dict):
+    params = request.args
+    slug = params.get("slug", "")
+
     ballot, positions, proposals = await api.get_ballot(**identifier)
 
     votes, _votes_changed = utils.validate_ballot(
@@ -270,6 +276,7 @@ async def _share(route: str, identifier: dict):
     )
 
     ballot_url = url_for(route, **identifier)
+    buddies_url = f"{settings.BUDDIES_HOST}/friends/{slug}" if slug else ""
 
     return await render_template(
         "ballot_share.html",
@@ -277,6 +284,7 @@ async def _share(route: str, identifier: dict):
         ballot=ballot,
         votes=votes,
         ballot_url=ballot_url,
+        buddies_url=buddies_url,
     )
 
 
