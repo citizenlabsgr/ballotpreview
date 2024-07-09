@@ -217,7 +217,7 @@ async def _detail(route: str, identifier: dict):
     if request.method == "PUT":
         response = await make_response("", 200)
         url = url_for(route, **identifier, **votes)
-        response.headers["HX-Location"] = url + "#save"
+        response.headers["HX-Location"] = url + "#modified"
         return response
 
     if request.method == "POST" or votes_changed:
@@ -235,6 +235,8 @@ async def _detail(route: str, identifier: dict):
             votes["slug"] = slug
 
         url = url_for(route, **identifier, **votes).replace("%2C", ",")
+        if not votes_changed:
+            url += "#updated"
         return redirect(url)
 
     if share and share != "all":

@@ -41,20 +41,20 @@
 
 var clipboard = new Clipboard('.btn');
 clipboard.on('success', function(event) {
-    showAlert();
+    showAlert('Link copied to the clipboard!');
 });
 clipboard.on('error', function(event) {
     console.error(event);
 });
 
-function showAlert() {
+function showAlert(message) {
     var alertDiv = document.createElement('div');
     alertDiv.className = 'alert alert-success fade show';
     alertDiv.setAttribute('role', 'alert');
     alertDiv.style.position = 'fixed';
     alertDiv.style.top = '10px';
     alertDiv.style.right = '10px';
-    alertDiv.innerHTML = 'Link copied to the clipboard!';
+    alertDiv.innerHTML = message;
 
     document.body.appendChild(alertDiv);
 

@@ -164,27 +164,35 @@ Voting Plan
 
 var clipboard = new Clipboard('.dropdown-item');
 clipboard.on('success', function(event) {
-    showAlert();
+    showAlert('Link copied to the clipboard!');
 });
 clipboard.on('error', function(event) {
     console.error(event);
 });
 
-document.body.addEventListener("htmx:afterSettle", function(evt) {
+document.body.addEventListener("htmx:afterSettle", function(event) {
     const saveToolbar = document.getElementById('save-toolbar');
-    if (window.location.hash.includes('#save')) {
+    if (window.location.hash.includes('#modified')) {
         saveToolbar.style.removeProperty('display');
+        history.replaceState(null, null, ' ');
     }
 });
 
-function showAlert() {
+window.addEventListener("load", function(event) {
+    if (window.location.hash.includes('#updated')) {
+        showAlert('Ballot selections updated!');
+        history.replaceState(null, null, ' ');
+    }
+});
+
+function showAlert(message) {
     var alertDiv = document.createElement('div');
     alertDiv.className = 'alert alert-success fade show';
     alertDiv.setAttribute('role', 'alert');
     alertDiv.style.position = 'fixed';
     alertDiv.style.top = '10px';
     alertDiv.style.right = '10px';
-    alertDiv.innerHTML = 'Link copied to the clipboard!';
+    alertDiv.innerHTML = message;
 
     document.body.appendChild(alertDiv);
 

@@ -367,7 +367,7 @@ def describe_ballot_detail():
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("?proposal-1009=approve</a>")
+            expect(html).contains("?proposal-1009=approve#updated</a>")
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -379,7 +379,7 @@ def describe_ballot_detail():
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("name=Jane&amp;slug=test</a>")
+            expect(html).contains("name=Jane&amp;slug=test#updated</a>")
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -391,7 +391,7 @@ def describe_ballot_detail():
             )
             expect(response.status_code) == 302
             html = get_html(response)
-            expect(html).contains("party=Democratic</a>")
+            expect(html).contains("party=Democratic#updated</a>")
 
     def describe_put():
         @pytest.mark.vcr
@@ -403,7 +403,7 @@ def describe_ballot_detail():
                 form={"hide": "candidate-17340"},
             )
             params = response.headers["HX-Location"].split("?")[-1]
-            expect(params) == "viewed=candidate-17339,candidate-17340#save"
+            expect(params) == "viewed=candidate-17339,candidate-17340#modified"
 
         @pytest.mark.vcr
         @pytest.mark.asyncio
@@ -414,7 +414,7 @@ def describe_ballot_detail():
                 form={"show": "candidate-17340"},
             )
             params = response.headers["HX-Location"].split("?")[-1]
-            expect(params) == "viewed=candidate-17341#save"
+            expect(params) == "viewed=candidate-17341#modified"
 
 
 def describe_ballot_share_preview():
