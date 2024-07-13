@@ -160,6 +160,7 @@ async def _detail(route: str, identifier: dict):
     share = params.get("share", None)
     target = params.get("target", None)
     slug = params.get("slug", "")
+    token = params.get("token", "")
     viewed = params.get("viewed", "")
 
     if share == "":
@@ -209,6 +210,7 @@ async def _detail(route: str, identifier: dict):
             "target",
             "recently_moved",
             "slug",
+            "token",
         ),
         keep_extra_parameters=bool(share),
         merge_votes=True,
@@ -227,7 +229,7 @@ async def _detail(route: str, identifier: dict):
             votes["viewed"] = viewed
 
         url = url_for(route, **identifier, **votes, _external=True).replace("%2C", ",")
-        await api.update_ballot(slug, url)
+        await api.update_ballot(slug, token, url)
 
         if name:
             votes["name"] = name

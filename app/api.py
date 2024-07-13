@@ -169,9 +169,9 @@ async def get_proposals(
     return sorted(proposals["results"], key=lambda d: d["name"])
 
 
-async def update_ballot(slug: str, url: str):
-    if slug and url:
-        data = {"voter": slug, "url": url}
+async def update_ballot(slug: str, token: str, url: str):
+    if slug and token and url:
+        data = {"voter": slug, "token": token, "url": url}
     else:
         return
 
