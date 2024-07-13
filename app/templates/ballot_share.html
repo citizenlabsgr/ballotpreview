@@ -5,7 +5,7 @@
 <!-- Primary Meta Tags -->
 <title>Michigan Ballot Preview</title>
 
-{% endblock %}
+{% endblock meta %}
 {% block content %}
 
 <h1>Share Your Voting Plan</h1>
@@ -31,15 +31,12 @@
     {% endif %}
 {% endfor %}
 
-{% endblock %}
+{% endblock content %}
 {% block scripts %}
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
 
 <script>
 
-var clipboard = new Clipboard('.btn');
+var clipboard = new ClipboardJS('.btn');
 clipboard.on('success', function(event) {
     showAlert('Link copied to the clipboard!');
 });
@@ -76,4 +73,4 @@ function showAlert(message) {
 
 </script>
 
-{% endblock %}
+{% endblock scripts %}
