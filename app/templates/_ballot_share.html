@@ -1,5 +1,5 @@
 <div class="dropdown">
-  <button class="btn btn-{% if buddies_url %}outline-{% endif %}primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false">
+  <button class="btn {% if buddies_url %}btn-outline-dark{% else %}btn-primary{% endif %} dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false">
     Share Your Plan
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
