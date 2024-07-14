@@ -54,17 +54,17 @@ Voting Plan
     {% include "_ballot_header.html" %}
 
     <div class="no-print">
-    {% if "share=" in request.query_string|string and not buddies_url %}
+    {% if "share=" in request.query_string|string %}
+        {% if not buddies_url %}
         <a href="{{ election_url }}" class="btn btn-primary" role="button">
             Find Your Ballot
         </a>
+        {% endif %}
     {% elif "position-" in request.query_string|string or "proposal-" in request.query_string|string %}
-        {% if not buddies_url %}
         <div class="btn-group">
         {% include "_ballot_plan.html" %}
         {% include "_ballot_share.html" %}
         </div>
-        {% endif %}
     {% else %}
         {% if "recently_moved=true" in request.query_string|string %}
         <div class="alert alert-warning" role="alert">
