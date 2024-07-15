@@ -157,12 +157,15 @@ Voting Plan
 
 <script>
 
-var clipboard = new ClipboardJS('.dropdown-item');
-clipboard.on('success', function(event) {
-    showAlert('Link copied to the clipboard!');
-});
-clipboard.on('error', function(event) {
-    console.error(event);
+document.querySelectorAll('.dropdown-item').forEach(function(button) {
+    button.addEventListener('click', function() {
+        var textToCopy = button.getAttribute('data-clipboard-text');
+        navigator.clipboard.writeText(textToCopy).then(function() {
+            showAlert('Link copied to the clipboard!');
+        }).catch(function(error) {
+            console.error('Error copying to clipboard: ', error);
+        });
+    });
 });
 
 document.body.addEventListener("htmx:afterSettle", function(event) {
