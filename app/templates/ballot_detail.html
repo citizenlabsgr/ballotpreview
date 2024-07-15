@@ -190,6 +190,7 @@ function showAlert(message) {
     alertDiv.style.position = 'fixed';
     alertDiv.style.top = '10px';
     alertDiv.style.right = '10px';
+    alertDiv.style.zIndex = '2000';
     alertDiv.innerHTML = message;
 
     document.body.appendChild(alertDiv);

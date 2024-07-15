@@ -44,7 +44,7 @@ body {
   top: 12px; /* Align the corner with container-fluid */
   width: 100%;
   background-color: transparent;
-  z-index: 1000; /* Ensure header stays on top */
+  z-index: 1000; /* Ensure this says on top, alert should be higher */
 }
 .footer {
   position: absolute;
