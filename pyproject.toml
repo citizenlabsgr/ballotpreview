@@ -15,7 +15,7 @@ python = "3.11.9"
 
 # Server
 quart = "~0.18.4"
-werkzeug = "<3"  # 3.x doesn't work with quart 0.18
+werkzeug = "<4"  # 3.x doesn't work with quart 0.18
 bugsnag = "^4.7.1"
 
 # Images
