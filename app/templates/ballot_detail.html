@@ -156,8 +156,7 @@ Voting Plan
 {% block scripts %}
 
 <script>
-
-document.querySelectorAll('.dropdown-item').forEach(function(button) {
+document.querySelectorAll('.clipboard').forEach(function(button) {
     button.addEventListener('click', function() {
         var textToCopy = button.getAttribute('data-clipboard-text');
         navigator.clipboard.writeText(textToCopy).then(function() {
