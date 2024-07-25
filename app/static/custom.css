@@ -60,3 +60,21 @@ body {
 input::-webkit-calendar-picker-indicator{
   display: none;
 }
+
+/* Prominent radio buttons and checkboxes
+---------------------------------------------------------------------------- */
+.form-check-input[type="radio"],
+.form-check-input[type="checkbox"] {
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+.form-check-input[type="radio"]:hover,
+.form-check-input[type="checkbox"]:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.form-check-input[type="radio"]:checked,
+.form-check-input[type="checkbox"]:checked {
+  background-color: black;
+  border-color: black;
+}
