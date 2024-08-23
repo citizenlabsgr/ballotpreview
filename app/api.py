@@ -134,7 +134,7 @@ async def get_positions(
 ) -> list:
     if ballot_id:
         assert not (election_id or precinct_id)
-        url = f"{settings.ELECTIONS_HOST}/api/positions/?ballot_id={ballot_id}"
+        url = f"{settings.ELECTIONS_HOST}/api/positions/?ballot_id={ballot_id}&active_election=null"
     else:
         url = f"{settings.ELECTIONS_HOST}/api/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
 
@@ -153,7 +153,7 @@ async def get_proposals(
 ) -> list:
     if ballot_id:
         assert not (election_id or precinct_id)
-        url = f"{settings.ELECTIONS_HOST}/api/proposals/?ballot_id={ballot_id}"
+        url = f"{settings.ELECTIONS_HOST}/api/proposals/?ballot_id={ballot_id}&active_election=null"
     else:
         url = f"{settings.ELECTIONS_HOST}/api/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
 
