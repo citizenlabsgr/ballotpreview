@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/ballots/?election_id=5&precinct_id=1172&active_election=null
+    uri: https://michiganelections.io/api/ballots/?election_id=5&precinct_id=1172
   response:
     body:
       string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/ballots/20757/","id":20757,"election":{"url":"http://michiganelections.io/api/elections/5/","id":5,"name":"November
@@ -47,12 +47,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/ballots/?election_id=5&precinct_id=1172&active_election=null
+    url: https://michiganelections.io/api/ballots/?election_id=5&precinct_id=1172
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/positions/?election_id=5&precinct_id=1172&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/positions/?election_id=5&precinct_id=1172&limit=1000
   response:
     body:
       string: '{"count":4,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/positions/3623/","id":3623,"name":"Library
@@ -126,12 +126,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/positions/?election_id=5&precinct_id=1172&active_election=null&limit=1000
+    url: https://michiganelections.io/api/positions/?election_id=5&precinct_id=1172&limit=1000
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/proposals/?election_id=5&precinct_id=1172&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/proposals/?election_id=5&precinct_id=1172&limit=1000
   response:
     body:
       string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/proposals/1009/","id":1009,"name":"City
@@ -186,5 +186,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/proposals/?election_id=5&precinct_id=1172&active_election=null&limit=1000
+    url: https://michiganelections.io/api/proposals/?election_id=5&precinct_id=1172&limit=1000
 version: 1

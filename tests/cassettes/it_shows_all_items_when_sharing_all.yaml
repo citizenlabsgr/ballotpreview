@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/ballots/?election_id=41&precinct_id=1209&active_election=null
+    uri: https://michiganelections.io/api/ballots/?election_id=41&precinct_id=1209
   response:
     body:
       string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/ballots/36394/","id":36394,"election":{"url":"http://michiganelections.io/api/elections/41/","id":41,"name":"State
@@ -47,12 +47,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/ballots/?election_id=41&precinct_id=1209&active_election=null
+    url: https://michiganelections.io/api/ballots/?election_id=41&precinct_id=1209
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&limit=1000
   response:
     body:
       string: '{"count":24,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/positions/48794/","id":48794,"name":"Electors
@@ -347,12 +347,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    url: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&limit=1000
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&limit=1000
   response:
     body:
       string: "{\"count\":4,\"next\":null,\"previous\":null,\"results\":[{\"url\":\"http://michiganelections.io/api/proposals/4694/\",\"id\":4694,\"name\":\"Proposal
@@ -439,5 +439,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    url: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&limit=1000
 version: 1

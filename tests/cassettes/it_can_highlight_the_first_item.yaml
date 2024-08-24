@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&limit=1000
   response:
     body:
       string: '{"count":24,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/positions/47037/","id":47037,"name":"Electors
@@ -266,12 +266,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    url: https://michiganelections.io/api/positions/?election_id=41&precinct_id=1209&limit=1000
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&limit=1000
   response:
     body:
       string: "{\"count\":4,\"next\":null,\"previous\":null,\"results\":[{\"url\":\"http://michiganelections.io/api/proposals/4694/\",\"id\":4694,\"name\":\"Proposal
@@ -341,5 +341,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&active_election=null&limit=1000
+    url: https://michiganelections.io/api/proposals/?election_id=41&precinct_id=1209&limit=1000
 version: 1
