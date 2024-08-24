@@ -92,7 +92,7 @@ async def get_ballot(
                 else:
                     ballot = None
     else:
-        url = f"{settings.ELECTIONS_HOST}/api/ballots/?election_id={election_id}&precinct_id={precinct_id}&active_election=null"
+        url = f"{settings.ELECTIONS_HOST}/api/ballots/?election_id={election_id}&precinct_id={precinct_id}"
         async with aiohttp.ClientSession() as session:
             log.info(f"GET {url}")
             async with session.get(url) as response:
@@ -134,9 +134,9 @@ async def get_positions(
 ) -> list:
     if ballot_id:
         assert not (election_id or precinct_id)
-        url = f"{settings.ELECTIONS_HOST}/api/positions/?ballot_id={ballot_id}&active_election=null"
+        url = f"{settings.ELECTIONS_HOST}/api/positions/?ballot_id={ballot_id}"
     else:
-        url = f"{settings.ELECTIONS_HOST}/api/positions/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
+        url = f"{settings.ELECTIONS_HOST}/api/positions/?election_id={election_id}&precinct_id={precinct_id}&limit=1000"
 
     async with aiohttp.ClientSession() as session:
         if party:
@@ -153,9 +153,9 @@ async def get_proposals(
 ) -> list:
     if ballot_id:
         assert not (election_id or precinct_id)
-        url = f"{settings.ELECTIONS_HOST}/api/proposals/?ballot_id={ballot_id}&active_election=null"
+        url = f"{settings.ELECTIONS_HOST}/api/proposals/?ballot_id={ballot_id}"
     else:
-        url = f"{settings.ELECTIONS_HOST}/api/proposals/?election_id={election_id}&precinct_id={precinct_id}&active_election=null&limit=1000"
+        url = f"{settings.ELECTIONS_HOST}/api/proposals/?election_id={election_id}&precinct_id={precinct_id}&limit=1000"
 
     async with aiohttp.ClientSession() as session:
         log.info(f"GET {url}")

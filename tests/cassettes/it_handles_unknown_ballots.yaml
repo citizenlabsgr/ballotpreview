@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/ballots/?election_id=42&precinct_id=99999&active_election=null
+    uri: https://michiganelections.io/api/ballots/?election_id=42&precinct_id=99999
   response:
     body:
       string: '{"count":0,"next":null,"previous":null,"results":[]}'
@@ -52,12 +52,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/ballots/?election_id=42&precinct_id=99999&active_election=null
+    url: https://michiganelections.io/api/ballots/?election_id=42&precinct_id=99999
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/positions/?election_id=42&precinct_id=99999&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/positions/?election_id=42&precinct_id=99999&limit=1000
   response:
     body:
       string: '{"count":0,"next":null,"previous":null,"results":[]}'
@@ -106,12 +106,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/positions/?election_id=42&precinct_id=99999&active_election=null&limit=1000
+    url: https://michiganelections.io/api/positions/?election_id=42&precinct_id=99999&limit=1000
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/proposals/?election_id=42&precinct_id=99999&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/proposals/?election_id=42&precinct_id=99999&limit=1000
   response:
     body:
       string: '{"count":0,"next":null,"previous":null,"results":[]}'
@@ -160,7 +160,7 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/proposals/?election_id=42&precinct_id=99999&active_election=null&limit=1000
+    url: https://michiganelections.io/api/proposals/?election_id=42&precinct_id=99999&limit=1000
 - request:
     body: null
     headers: {}

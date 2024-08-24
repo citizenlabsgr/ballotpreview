@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=591&active_election=null
+    uri: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=591
   response:
     body:
       string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/ballots/33935/","id":33935,"election":{"url":"http://michiganelections.io/api/elections/40/","id":40,"name":"State
@@ -30,12 +30,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=591&active_election=null
+    url: https://michiganelections.io/api/ballots/?election_id=40&precinct_id=591
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/positions/?election_id=40&precinct_id=591&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/positions/?election_id=40&precinct_id=591&limit=1000
   response:
     body:
       string: '{"count":33,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/positions/17099/","id":17099,"name":"United
@@ -241,12 +241,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/positions/?election_id=40&precinct_id=591&active_election=null&limit=1000
+    url: https://michiganelections.io/api/positions/?election_id=40&precinct_id=591&limit=1000
 - request:
     body: null
     headers: {}
     method: GET
-    uri: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=591&active_election=null&limit=1000
+    uri: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=591&limit=1000
   response:
     body:
       string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://michiganelections.io/api/proposals/3190/","id":3190,"name":"Millage
@@ -282,5 +282,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=591&active_election=null&limit=1000
+    url: https://michiganelections.io/api/proposals/?election_id=40&precinct_id=591&limit=1000
 version: 1
