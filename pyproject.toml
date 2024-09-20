@@ -36,7 +36,7 @@ pomace = { version = "~0.12.7", optional = true }
 [tool.poetry.group.dev.dependencies]
 
 # Formatting
-black = "~22.12"
+black = "~24.3"
 isort = "~5.11"
 djlint = "^1.34.1"
 
