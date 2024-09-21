@@ -14,8 +14,7 @@ packages = [{ include = "app" }]
 python = "3.11.9"
 
 # Server
-quart = "~0.18.4"
-werkzeug = "<3"  # 3.x doesn't work with quart 0.18
+quart = "~0.19.6"
 bugsnag = "^4.7.1"
 
 # Images
