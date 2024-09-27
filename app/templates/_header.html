@@ -2,13 +2,13 @@
 
     <div class="container-fluid d-flex justify-content-between">
 
-        <div class="text-nowrap" id="buddies">
-            {% if buddies_url %}
-            <a class="btn btn-danger" href="{{ buddies_url }}" role="button">
+        {% if buddies_url %}
+        <div id="buddies">
+            <a class="btn btn-danger text-nowrap" href="{{ buddies_url }}" role="button">
                 ⇦ Return to Ballot Buddies
             </a>
-            {% endif %}
         </div>
+        {% endif %}
 
         <div id="spinner" class="spinner-border text-secondary htmx-indicator" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -19,7 +19,7 @@
 </header>
 
 {% if buddies_url %}
-<div class="py-4 py-sm-2"></div>
+<div class="d-xl-none" style="margin-bottom: 60px"></div>
 {% endif %}
 
 <script>
