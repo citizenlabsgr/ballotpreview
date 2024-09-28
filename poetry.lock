@@ -3096,5 +3096,5 @@ e2e = ["pomace"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "3.11.9"
-content-hash = "ce1fb1c7e8f29629d0f3da5f97421fe892085a12df9a7163d1dfdc4cc4ccd1ad"
+python-versions = "3.11.10"
+content-hash = "f63f5e355c5b0e6c93e164841eb32d331d8767c92e403aca66a0096ecd7fa790"
