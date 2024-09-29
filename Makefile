@@ -83,8 +83,8 @@ else
 	$(HONCHO) start --no-prefix --procfile=Procfile.dev preview reload
 endif
 
-.PHONY: run/buddies
-run/buddies: .envrc install
+.PHONY: run/all
+run/all: .envrc install
 	$(HONCHO) start --procfile=Procfile.dev
 
 .PHONY: run/production

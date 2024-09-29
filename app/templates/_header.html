@@ -1,11 +1,9 @@
 <header class="header">
-
     <div class="container-fluid d-flex justify-content-between">
-
         {% if buddies_url %}
         <div id="buddies">
             <a class="btn btn-danger text-nowrap" href="{{ buddies_url }}" role="button">
-                ⇦ Return to Ballot Buddies
+                ⇦ <span class="label">Return to Ballot Buddies</span>
             </a>
         </div>
         {% endif %}
@@ -13,9 +11,7 @@
         <div id="spinner" class="spinner-border text-secondary htmx-indicator" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-
     </div>
-
 </header>
 
 {% if buddies_url %}
@@ -23,24 +19,34 @@
 {% endif %}
 
 <script>
-    var returnButton = document.getElementById('buddies');
+    var returnButton = document.querySelector('#buddies a');
+    var returnButtonText = document.querySelector('#buddies .label');
 
-    if (returnButton) {
+    if (returnButton && returnButtonText) {
         window.addEventListener('scroll', function() {
             var fadeStart = 10;
             var fadeUntil = 100;
             var scroll = window.pageYOffset || document.documentElement.scrollTop;
 
+            // Control button fading but keep it partially visible
             var opacity;
             if (scroll <= fadeStart) {
                 opacity = 1.0;
             } else if (scroll <= fadeUntil) {
                 opacity = 1.0 - 0.35 * ((scroll - fadeStart) / (fadeUntil - fadeStart));
             } else {
-                opacity = 0.65;
+                opacity = 0.65; // Button remains partially visible at 65% opacity
             }
 
+            // Apply opacity to the entire button
             returnButton.style.opacity = opacity;
+
+            // Handle text hiding
+            if (scroll > fadeUntil) {
+                returnButtonText.style.display = 'none'; // Hide text after scroll limit
+            } else {
+                returnButtonText.style.display = 'inline'; // Ensure text is visible before fadeUntil
+            }
         });
     }
 </script>
