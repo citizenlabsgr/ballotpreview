@@ -252,7 +252,7 @@ async def _detail(route: str, identifier: dict):
 
     if slug:
         election_url = f"{settings.BUDDIES_HOST}?referrer={slug}"
-        buddies_url = f"{settings.BUDDIES_HOST}/friends/{slug}?referrer=share"
+        buddies_url = f"{settings.BUDDIES_HOST}/friends/{slug}?referrer=preview"
     else:
         election_url = url_for("election_detail", election_id=ballot["election"]["id"])
         buddies_url = ""
