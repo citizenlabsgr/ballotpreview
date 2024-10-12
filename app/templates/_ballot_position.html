@@ -57,7 +57,7 @@
                 {% endif %}
 
                 <span class="text-muted">
-                (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }})
+                (<span style="color: {{ candidate['party']['color'] }};">⬤</span>&nbsp;{{ candidate['party']['name'] }}{% if candidate['nomination'] %}, <span style="color: {{ candidate['nomination']['color'] }};">⬤</span>&nbsp;{{ candidate['nomination']['name'] }} Nomination{% endif %})
                 </span>
 
                 {% if selected or share %}
