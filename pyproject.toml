@@ -14,7 +14,7 @@ packages = [{ include = "app" }]
 python = "3.11.10"
 
 # Server
-quart = "~0.19.6"
+quart = "~0.19.7"
 bugsnag = "^4.7.1"
 
 # Images
