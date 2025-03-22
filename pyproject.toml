@@ -26,7 +26,7 @@ markdown = "^3.4"
 minilog = "^2.3"
 
 # Production
-gunicorn = "~22.0.0"
+gunicorn = "~23.0.0"
 uvicorn = "~0.30.1"
 
 # Testing
